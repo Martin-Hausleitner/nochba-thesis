@@ -1,5 +1,14 @@
-# HTL Leonding Diploma Thesis Template
+# Nochba Diploma Thesis
 
-Used by students to create their diploma thesis.
+This is the repository for my diploma thesis. 
 
-![HTBLA Leonding](titlepage/htlleondinglogo.png)
+# cmd to build tex
+    
+    ```bash
+    pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape -output-directory=build thesis.tex
+    ```
+    
+    ```bash 
+    biber build/thesis
+    ```
+   
