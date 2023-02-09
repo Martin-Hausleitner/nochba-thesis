@@ -1,0 +1,16 @@
+name: Build Thesis PDF v2
+
+on: [push]
+
+jobs:
+  build_pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Build PDF
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: thesis.tex
