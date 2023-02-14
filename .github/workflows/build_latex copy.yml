@@ -14,3 +14,9 @@ jobs:
       uses: xu-cheng/latex-action@v2
       with:
         root_file: thesis.tex
+        
+    - name: Archive PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: thesis.pdf
+        path: thesis.pdf
