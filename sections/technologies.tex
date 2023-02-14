@@ -1,13 +1,28 @@
-\section{Foo}
-\setauthor{Stefan Schwammal}
-\lipsum[5-12]
+\section{Technologieevaluierung}
 
-\section{Bar}
-\setauthor{Susi Schwammal}
-\lipsum[12-18]
+Im Zuge meiner Diplomarbeit musste ich mich entscheiden, welche Technologien wir für die Entwicklung einer mobilen Anwendung verwenden werden, sowohl für das Frontend als auch das Backend.
 
-\subsection{Deeper}
-Nicht mehr im Inhaltsverzeichnis.
+\subsection{Frontend}
 
-\subsubsection{Deepest}
-Vermeide mich.
+Zu Beginn hatten wir keine Erfahrung in der Entwicklung von mobilen Apps und nur begrenzte Erfahrung in JavaScript, jedoch viel Erfahrung in C-Sharp aufgrund unserer Ausbildung an der HTL. Nach langer Recherche kamen folgende plattformübergreifende Technologien in Frage: Flutter, React Native und Xamarin.
+
+Flutter wurde aufgrund der schöneren Syntax, die an C-Sharp erinnert, und der Einfachheit der Entwicklung ausgewählt. Weitere Gründe waren die Hot-Reload-Funktion, die einfache Integration von Drittanbieterpaketen, das gute Debugging und die schnelle Entwicklung von Prototypen. Jeder von uns hat einen Prototypen mit Flutter erstellt.
+
+Quellen wie [1] haben gezeigt, dass Flutter im Vergleich zu React Native und Xamarin in Bezug auf die Entwicklungszeit, Leistung und App-Größe am besten abschneidet.
+
+Während der Entwicklung wurden wir von der sehr aktiven Flutter-Community unterstützt und fanden zu jedem Problem, das wir hatten, eine Lösung auf Stack Overflow oder in GitHub-Issues. Obwohl die Klammerverwendung am Anfang etwas gewöhnungsbedürftig war, hat uns die Flutter-Erweiterung in VS Code [2] mit Funktionen wie Quick Refactoring und der einfachen Organisation von Widgets in eigene Klassen sehr geholfen.
+
+Wir haben mit Flutter 2.10 begonnen und arbeiten jetzt nach etwas mehr als einem Jahr mit Flutter 3.7. In dieser Zeit hat sich viel verändert, einschließlich der Einführung einer schnelleren Rendering-Engine [3], die die Entwicklung beschleunigt hat.
+
+\subsection{Backend}
+
+Unsere Anforderungen an das Backend waren die einfache Integration mit dem Flutter-SDK, Schnelligkeit, eine Realtime-Datenbank für Chats und Geofencing für das Radios-Feature.
+
+Firebase wurde als Backend-Plattform ausgewählt, da es sich als zuverlässig und einfach zu integrieren erwies. Es bietet eine Realtime-Datenbank und eine einfache Authentifizierung. Die Integration mit Flutter war ebenfalls sehr einfach, da Firebase eine umfangreiche Dokumentation und eine sehr aktive Community hat. Wir konnten das Backend schnell entwickeln und es bot alle Funktionen, die wir benötigten.
+
+Quellen:
+\begin{enumerate}
+    \item M. Kucukkaldirim, S. Zengin, and H. Yalcin, "Performance Comparison of Flutter and React Native for Cross-Platform Mobile Development," 2020 International Artificial Intelligence and Data Processing Symposium (IDAP), 2020, pp. 1-6, doi: 10.1109/IDAP49677.2020.9349785.
+    \item Visual Studio Marketplace, "Flutter," https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter, abgerufen am 12. Februar 2023.
+    \item Flutter, "Impeller," https://github.com/flutter/flutter/wiki/Impeller, abgerufen am 12. Februar 2023.
+\end{enumerate}

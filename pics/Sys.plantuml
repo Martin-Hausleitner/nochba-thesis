@@ -1,0 +1,23 @@
+@startuml
+
+
+package "Flutter Frontend" {
+  [Flutter]
+}
+
+package "Firebase" {
+  [Firebase]
+  [Google Auth]
+  [Crashlytics]
+  [App Distribution]
+  [Google Storage]
+  [Firestore]
+  [Data Model]
+  [Security Rules]
+  [Cloud Functions]
+  [Algolia Search]
+  [CI/CD]
+}
+
+[Flutter] --> [Firebase]
+@enduml
