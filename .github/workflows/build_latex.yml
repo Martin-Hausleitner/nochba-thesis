@@ -18,5 +18,7 @@ jobs:
     - name: Archive PDF
       uses: actions/upload-artifact@v3
       with:
-        name: "thesis_$(date +'%Y-%m-%d')"
+        name: thesis_${{ format('{0:yyyy-MM-dd_HH-mm-ss}', github.event_time) }}.pdf
+
+
         path: thesis.pdf
