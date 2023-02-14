@@ -1,28 +1,22 @@
-name: Build LaTeX Document
+name: Build Thesis PDF v2
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
-  build:
+  build_pdf:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    - name: Install LaTeX
-      run: |
-        # sudo apt-get update
-        sudo apt-get install -y texlive-full
-
-    - name: Build LaTeX document
-      run: pdflatex thesis.tex
-      
-    - name: Archive PDF
-      uses: actions/upload-artifact@v2
+    - name: Build PDF
+      uses: xu-cheng/latex-action@v2
       with:
-        name: thesis.pdf
+        root_file: thesis.tex
+
+    - name: Archive PDF
+      uses: actions/upload-artifact@v3
+      with:
+        name: Thesis - $(date +'%Y-%m-%d %H:%M:%S')
         path: thesis.pdf

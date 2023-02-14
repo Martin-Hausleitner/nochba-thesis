@@ -1,0 +1,28 @@
+name: Build LaTeX Document
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install LaTeX
+      run: |
+        # sudo apt-get update
+        sudo apt-get install -y texlive-full
+
+    - name: Build LaTeX document
+      run: pdflatex thesis.tex
+      
+    - name: Archive PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: thesis.pdf
+        path: thesis.pdf
