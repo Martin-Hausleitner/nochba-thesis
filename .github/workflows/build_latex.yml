@@ -18,6 +18,6 @@ jobs:
     - name: Archive PDF
       uses: actions/upload-artifact@v3
       with:
-        name: thesis_{{ steps.build_pdf.outputs.time }}.pdf
+        name: thesis.pdf
 
         path: thesis.pdf
