@@ -1,28 +1,39 @@
 \section{Technologieevaluierung}
 
-Im Zuge meiner Diplomarbeit musste ich mich entscheiden, welche Technologien wir für die Entwicklung einer mobilen Anwendung verwenden werden, sowohl für das Frontend als auch das Backend.
+Im Rahmen dieser Diplomarbeit wurden umfangreiche Anforderungen an das Frontend und Backend der Anwendung gestellt, um eine hochwertige und funktionale Anwendung zu entwickeln. Für das Frontend wurden iOS- und Android-Apps gefordert, wobei die Möglichkeit einer zukünftigen Web-App berücksichtigt werden sollte. Das Backend sollte eine Echtzeit-Datenbank für den Chat und eine Datenbank mit Geofunktionen für den Radios-Filter bereitstellen. Dabei war es wichtig, dass das Backend einfach zu implementieren ist und eine gute SDK-Unterstützung für das Frontend bietet.
+
+Neben diesen technischen Anforderungen war auch die Umsetzung der Business-Logik ein wichtiger Aspekt. Hierbei wurden Aspekte wie die Registrierung und Verifizierung von Nutzern berücksichtigt, um eine sichere und benutzerfreundliche Anwendung zu gewährleisten. Darüber hinaus war es wichtig, dass die Anwendung mit neuen und effizienten Technologien entwickelt wird, um eine schnelle und agile Anpassung an die sich ändernden Anforderungen des Marktes und der Nutzer zu ermöglichen.
+
 
 \subsection{Frontend}
 
-Zu Beginn hatten wir keine Erfahrung in der Entwicklung von mobilen Apps und nur begrenzte Erfahrung in JavaScript, jedoch viel Erfahrung in C-Sharp aufgrund unserer Ausbildung an der HTL. Nach langer Recherche kamen folgende plattformübergreifende Technologien in Frage: Flutter, React Native und Xamarin.
+Nach ausführlicher Recherche wurden die folgenden plattformübergreifenden Frameworks in Betracht gezogen: Flutter, React Native und Xamarin. Jede Plattform hat ihre Vor- und Nachteile.
 
-Flutter wurde aufgrund der schöneren Syntax, die an C-Sharp erinnert, und der Einfachheit der Entwicklung ausgewählt. Weitere Gründe waren die Hot-Reload-Funktion, die einfache Integration von Drittanbieterpaketen, das gute Debugging und die schnelle Entwicklung von Prototypen. Jeder von uns hat einen Prototypen mit Flutter erstellt.
+Flutter, das von Google entwickelt wird, hat eine einfache Syntax und ist leicht zu erlernen. Es bietet auch schnelles Debugging und Hot-Reload-Funktionen, was die Entwicklung schneller und effizienter macht. Ein weiterer Vorteil von Flutter ist die Verfügbarkeit vieler Pakete und Bibliotheken, die die Implementierung vereinfachen können. Flutter bietet auch eine hervorragende Integration mit VS Code, einschließlich Refactoring-Funktionen und der Möglichkeit, Widgets in separate Klassen aufzuteilen.
 
-Quellen wie [1] haben gezeigt, dass Flutter im Vergleich zu React Native und Xamarin in Bezug auf die Entwicklungszeit, Leistung und App-Größe am besten abschneidet.
+Laut einer Studie von Raul Hernandez und Pablo Suarez von der Universidad de Murcia in Spanien zeigt Flutter eine höhere Leistung als React Native und Xamarin. Die Studie verglich die Frameworks in Bezug auf Kompilierungszeit, Ausführungszeit, Speicherauslastung und APK-Größe und stellte fest, dass Flutter in allen Bereichen am besten abschnitt. \cite{hernandez_suarez_2021}
 
-Während der Entwicklung wurden wir von der sehr aktiven Flutter-Community unterstützt und fanden zu jedem Problem, das wir hatten, eine Lösung auf Stack Overflow oder in GitHub-Issues. Obwohl die Klammerverwendung am Anfang etwas gewöhnungsbedürftig war, hat uns die Flutter-Erweiterung in VS Code [2] mit Funktionen wie Quick Refactoring und der einfachen Organisation von Widgets in eigene Klassen sehr geholfen.
+Nach langer Recherche und Evaluierung aller Faktoren wurde Flutter als Plattform für das Frontend ausgewählt. Insbesondere die Einfachheit der Syntax und das schnelle Debugging sowie die Integration in VS Code waren entscheidende Faktoren. Jeder aus unserem Team hat einen eigen Flutter Test App programmiert \cite{flutter_test_apps}
 
-Wir haben mit Flutter 2.10 begonnen und arbeiten jetzt nach etwas mehr als einem Jahr mit Flutter 3.7. In dieser Zeit hat sich viel verändert, einschließlich der Einführung einer schnelleren Rendering-Engine [3], die die Entwicklung beschleunigt hat.
+Insgesamt waren wir mit unserer Entscheidung, Flutter zu verwenden, sehr zufrieden. Während der Entwicklungszeit stellte sich heraus, dass die Klammerverwendung in Flutter am Anfang etwas ungewohnt war, aber dank der hervorragenden Unterstützung durch die Flutter-Community und der umfangreichen Dokumentation auf Stack Overflow konnten wir alle Herausforderungen bewältigen. Außerdem wurde die Entwicklung durch die ständigen Verbesserungen und Updates von Flutter, wie der Einführung der Impeller-Rendering-Engine, beschleunigt. \cite{flutter_impeller}
+
+Insgesamt war die Wahl von Flutter für das Frontend der App eine gute Entscheidung.
 
 \subsection{Backend}
 
-Unsere Anforderungen an das Backend waren die einfache Integration mit dem Flutter-SDK, Schnelligkeit, eine Realtime-Datenbank für Chats und Geofencing für das Radios-Feature.
+Für das Backend wurden verschiedene Optionen in Betracht gezogen, einschließlich der Verwendung von Cloud-basierten Plattformen wie Firebase oder selbst gehosteten Lösungen wie Node.js mit MongoDB.
 
-Firebase wurde als Backend-Plattform ausgewählt, da es sich als zuverlässig und einfach zu integrieren erwies. Es bietet eine Realtime-Datenbank und eine einfache Authentifizierung. Die Integration mit Flutter war ebenfalls sehr einfach, da Firebase eine umfangreiche Dokumentation und eine sehr aktive Community hat. Wir konnten das Backend schnell entwickeln und es bot alle Funktionen, die wir benötigten.
+Letztendlich wurde Firebase von Google als Backend-Plattform gewählt, da es eine Echtzeit-Datenbank für den Chat und eine Geodatenbank für den Radios-Filter bereitstellt und eine gute Integration mit Flutter bietet. Firebase bietet auch eine einfache Implementierung von Authentifizierungsfunktionen, einschließlich der Möglichkeit zur Registrierung und Verifizierung von Nutzern.
 
-Quellen:
-\begin{enumerate}
-    \item M. Kucukkaldirim, S. Zengin, and H. Yalcin, "Performance Comparison of Flutter and React Native for Cross-Platform Mobile Development," 2020 International Artificial Intelligence and Data Processing Symposium (IDAP), 2020, pp. 1-6, doi: 10.1109/IDAP49677.2020.9349785.
-    \item Visual Studio Marketplace, "Flutter," https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter, abgerufen am 12. Februar 2023.
-    \item Flutter, "Impeller," https://github.com/flutter/flutter/wiki/Impeller, abgerufen am 12. Februar 2023.
-\end{enumerate}
+Firebase bietet außerdem eine automatische Skalierung, die die Leistung der Anwendung bei Bedarf erhöhen kann. Auch die Kosten für die Verwendung von Firebase sind im Vergleich zu anderen Optionen relativ gering.
+
+Es gab jedoch auch einige Herausforderungen bei der Verwendung von Firebase, insbesondere im Hinblick auf die Anpassung an spezifische Anforderungen und die Skalierung bei hohem Datenverkehr. Glücklicherweise bietet Firebase eine umfangreiche Dokumentation und eine aktive Community, die bei der Lösung von Problemen helfen kann.
+
+Insgesamt war Firebase eine gute Wahl als Backend-Plattform für die Anwendung, da es alle Anforderungen erfüllte und eine gute Integration mit Flutter bot.
+
+\section{Fazit}
+
+Die Wahl von Flutter als Frontend-Plattform und Firebase als Backend-Plattform erwies sich als gute Entscheidung für die Anforderungen dieser Diplomarbeit. Die Einfachheit der Syntax, das schnelle Debugging und die umfangreiche Dokumentation und Unterstützung durch die Community machten Flutter zu einer einfachen und effizienten Plattform für die Entwicklung der mobilen Apps. Firebase bot eine gute Lösung für die Echtzeit-Datenbank und die Geodatenbank und eine einfache Integration mit Flutter.
+
+Insgesamt haben die gewählten Technologien dazu beigetragen, dass die Entwicklung der Anwendung schnell und effizient verlief und die Anforderungen der Diplomarbeit erfüllt wurden.
+
