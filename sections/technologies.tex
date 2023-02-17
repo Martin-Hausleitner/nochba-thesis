@@ -7,29 +7,81 @@ Neben diesen technischen Anforderungen war auch die Umsetzung der Business-Logik
 
 \subsection{Frontend}
 
-Nach ausführlicher Recherche wurden die folgenden plattformübergreifenden Frameworks in Betracht gezogen: Flutter, React Native und Xamarin. Jede Plattform hat ihre Vor- und Nachteile.
+Nach ausführlicher Recherche wurden die folgenden plattformübergreifenden Frameworks in Betracht gezogen\cite{cross_platform_framework_comparison}: Flutter, React Native, Ionic und Xamarin. Jede Plattform hat ihre Vor- und Nachteile.
 
-Flutter, das von Google entwickelt wird, hat eine einfache Syntax und ist leicht zu erlernen. Es bietet auch schnelles Debugging und Hot-Reload-Funktionen, was die Entwicklung schneller und effizienter macht. Ein weiterer Vorteil von Flutter ist die Verfügbarkeit vieler Pakete und Bibliotheken, die die Implementierung vereinfachen können. Flutter bietet auch eine hervorragende Integration mit VS Code, einschließlich Refactoring-Funktionen und der Möglichkeit, Widgets in separate Klassen aufzuteilen.
 
-Laut einer Studie von Raul Hernandez und Pablo Suarez von der Universidad de Murcia in Spanien zeigt Flutter eine höhere Leistung als React Native und Xamarin. Die Studie verglich die Frameworks in Bezug auf Kompilierungszeit, Ausführungszeit, Speicherauslastung und APK-Größe und stellte fest, dass Flutter in allen Bereichen am besten abschnitt. \cite{hernandez_suarez_2021}
 
-Nach langer Recherche und Evaluierung aller Faktoren wurde Flutter als Plattform für das Frontend ausgewählt. Insbesondere die Einfachheit der Syntax und das schnelle Debugging sowie die Integration in VS Code waren entscheidende Faktoren. Jeder aus unserem Team hat einen eigen Flutter Test App programmiert \cite{flutter_test_apps}
+
+Nach langer Recherche und Evaluierung aller Faktoren wurde Flutter als Plattform für das Frontend ausgewählt. Insbesondere das schnelle entwicklung und das einfache Debugging sowie die Integration in VS Code waren entscheidende Faktoren. Jeder aus unserem Team hat einen eigen Flutter Test App programmiert \cite{flutter_test_apps} um die entscheidung zu festigen.
 
 Insgesamt waren wir mit unserer Entscheidung, Flutter zu verwenden, sehr zufrieden. Während der Entwicklungszeit stellte sich heraus, dass die Klammerverwendung in Flutter am Anfang etwas ungewohnt war, aber dank der hervorragenden Unterstützung durch die Flutter-Community und der umfangreichen Dokumentation auf Stack Overflow konnten wir alle Herausforderungen bewältigen. Außerdem wurde die Entwicklung durch die ständigen Verbesserungen und Updates von Flutter, wie der Einführung der Impeller-Rendering-Engine, beschleunigt. \cite{flutter_impeller}
 
 Insgesamt war die Wahl von Flutter für das Frontend der App eine gute Entscheidung.
 
-\subsection{Backend}
+\subsection
+{Technologieevaluierung für Diplomarbeit von Martin Hausleitner}
 
-Für das Backend wurden verschiedene Optionen in Betracht gezogen, einschließlich der Verwendung von Cloud-basierten Plattformen wie Firebase oder selbst gehosteten Lösungen wie Node.js mit MongoDB.
+Für die Implementierung einer mobilen App in Flutter für die Diplomarbeit von Martin Hausleitner wurden verschiedene Backend-Technologien evaluiert. Dabei wurden folgende Anforderungen an die Technologie gestellt: Skalierbarkeit, Realtime-Datenbank für Chat, Business-Logik für den Beitragsradius, sichere Authentifizierung und Verschlüsselung sowie eine einfache und schnelle Entwicklungsmöglichkeit.
 
-Letztendlich wurde Firebase von Google als Backend-Plattform gewählt, da es eine Echtzeit-Datenbank für den Chat und eine Geodatenbank für den Radios-Filter bereitstellt und eine gute Integration mit Flutter bietet. Firebase bietet auch eine einfache Implementierung von Authentifizierungsfunktionen, einschließlich der Möglichkeit zur Registrierung und Verifizierung von Nutzern.
+Die drei Favoriten für die Backend-Technologie waren Supabase, Firebase und Appwrite. Diese wurden alle zum damaligen Zeitpunkt (Februar 2022) mit einem Flutter-SDK unterstützt.
 
-Firebase bietet außerdem eine automatische Skalierung, die die Leistung der Anwendung bei Bedarf erhöhen kann. Auch die Kosten für die Verwendung von Firebase sind im Vergleich zu anderen Optionen relativ gering.
+Alle drei Technologien bieten einen guten User-Authentifizierungs-Layer sowie eine Datenbank mit Geo-Queries für das Hauptfeature des Beitragsradius. Auch das Speichern von Beitragsfotos ist in allen Technologien möglich.
 
-Es gab jedoch auch einige Herausforderungen bei der Verwendung von Firebase, insbesondere im Hinblick auf die Anpassung an spezifische Anforderungen und die Skalierung bei hohem Datenverkehr. Glücklicherweise bietet Firebase eine umfangreiche Dokumentation und eine aktive Community, die bei der Lösung von Problemen helfen kann.
+Jedoch hatte Supabase zu diesem Zeitpunkt keine Cloud Functions, was die anderen beiden Technologien hatten und somit konnte Supabase für die Umsetzung der Business-Logik, wie beispielsweise den Registrierungsprozess, nicht verwendet werden. Obwohl im April 2022 experimentelle Deno-Edge-Functions veröffentlicht wurden, war es in einer produktiven App nicht sinnvoll, diese zu nutzen.
 
-Insgesamt war Firebase eine gute Wahl als Backend-Plattform für die Anwendung, da es alle Anforderungen erfüllte und eine gute Integration mit Flutter bot.
+Letztendlich blieben Firebase und Appwrite übrig. Da Firebase bessere Flutter-SDKs und mehr Features, insbesondere von Google für Flutter, hatte, wurde es als Backend-Technologie für die Diplomarbeit ausgewählt.
+
+Eine Tabelle mit Vor- und Nachteilen beider Technologien ist wie folgt:
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Column 1} & \textbf{Column 2} & \textbf{Column 3} \\ \hline
+        Row 1, Cell 1     & Row 1, Cell 2     & Row 1, Cell 3     \\ \hline
+        Row 2, Cell 1     & Row 2, Cell 2     & Row 2, Cell 3     \\ \hline
+        Row 3, Cell 1     & Row 3, Cell 2     & Row 3, Cell 3     \\ \hline
+    \end{tabular}
+    \caption{Example Table}
+    \label{tab:example}
+\end{table}
+
+
+% \begin{table}[h]
+%     \centering
+%     \begin{tabular}{|p{4cm}|p{6cm}|p{6cm}|}
+%         \hline
+%                   & \textbf{Firebase}                                                                        & \textbf{Appwrite} \ \hline
+%         Vorteile  & \begin{itemize}
+%                         \item Gute Dokumentation
+%                         \item Einfache Integration mit Flutter-SDKs
+%                         \item Umfangreiche Features wie Analytics, Performance Monitoring, Cloud Messaging, etc.
+%                         \item Schnelle und einfache Entwicklung
+%                     \end{itemize}
+%                   &
+%         \begin{itemize}
+%             \item Open Source
+%             \item Einfache Integration mit Flutter-SDKs
+%             \item Sichere Authentifizierung und Verschlüsselung
+%             \item Einfache Skalierbarkeit
+%             \item Bietet auch Serverless-Funktionen
+%         \end{itemize} \ \hline
+%         Nachteile & \begin{itemize}
+%                         \item Kostenpflichtig bei Nutzung größerer Mengen an Ressourcen
+%                         \item Abhängigkeit von Google
+%                     \end{itemize}
+%                   &
+%         \begin{itemize}
+%             \item Weniger umfangreiche Features als Firebase
+%             \item Keine direkte Integration mit anderen Google-Tools
+%         \end{itemize} \ \hline
+%     \end{tabular}
+%     \caption{Vor- und Nachteile von Firebase und Appwrite}
+%     \label{tab:impl:backend}
+% \end{table}
+
+Insgesamt bietet Firebase aufgrund der umfangreichen Features und der einfacheren Integration mit anderen Google-Tools Vorteile gegenüber Appwrite. Allerdings kann App
+
 
 \section{Fazit}
 
