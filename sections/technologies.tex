@@ -21,30 +21,49 @@ Insgesamt war die Wahl von Flutter für das Frontend der App eine gute Entscheid
 \subsection
 {Backend}
 
-Für die Implementierung einer mobilen App in Flutter für die Diplomarbeit von Martin Hausleitner wurden verschiedene Backend-Technologien evaluiert. Dabei wurden folgende Anforderungen an die Technologie gestellt: Skalierbarkeit, Realtime-Datenbank für Chat, Business-Logik für den Beitragsradius, sichere Authentifizierung und Verschlüsselung sowie eine einfache und schnelle Entwicklungsmöglichkeit.
+% Für die Implementierung einer mobilen App in Flutter für die Diplomarbeit von Martin Hausleitner wurden verschiedene Backend-Technologien evaluiert. Dabei wurden folgende Anforderungen an die Technologie gestellt: Skalierbarkeit, Realtime-Datenbank für Chat, Business-Logik für den Beitragsradius, sichere Authentifizierung und Verschlüsselung sowie eine einfache und schnelle Entwicklungsmöglichkeit.
 
-Die drei Favoriten für die Backend-Technologie waren Supabase \cite{supabase}, Firebase\cite{firabase} und Appwrite\cite{appwrite}. Diese wurden alle zum damaligen Zeitpunkt (Februar 2022) mit einem Flutter-SDK unterstützt.
+% Die drei Favoriten für die Backend-Technologie waren Supabase \cite{supabase}, Firebase\cite{firebase} und Appwrite\cite{appwrite}. Diese wurden alle zum damaligen Zeitpunkt (Februar 2022) mit einem Flutter-SDK unterstützt.
 
-Alle drei Technologien bieten einen guten User-Authentifizierungs-Layer sowie eine Datenbank mit Geo-Queries für das Hauptfeature des Beitragsradius. Auch das Speichern von Beitragsfotos ist in allen Technologien möglich.
+Technologieevaluation für eine Diplomarbeit
 
-Jedoch hatte Supabase zu diesem Zeitpunkt keine Cloud Functions, was die anderen beiden Technologien hatten und somit konnte Supabase für die Umsetzung der Business-Logik, wie beispielsweise den Registrierungsprozess, nicht verwendet werden. Obwohl im April 2022 experimentelle Deno-Edge-Functions veröffentlicht wurden, war es in einer produktiven App nicht sinnvoll, diese zu nutzen.
+Die Wahl der richtigen Technologie für eine Diplomarbeit ist von entscheidender Bedeutung für den Erfolg des Projekts. In diesem Abschnitt werden verschiedene Technologien zur Umsetzung einer Chat-App evaluiert.
 
-Letztendlich blieben Firebase und Appwrite übrig. Da Firebase bessere Flutter-SDKs und mehr Features, insbesondere von Google für Flutter, hatte, wurde es als Backend-Technologie für die Diplomarbeit ausgewählt.
+Zu den wichtigsten Anforderungen an die Technologie gehören Skalierbarkeit, Echtzeit-Datenbank für den Chat, eine robuste Business-Logik für den Beitragsradius, sichere Verschlüsselung und eine einfache Entwicklung.
 
-Eine Tabelle mit Vor- und Nachteilen beider Technologien ist wie folgt:
+Es wurden drei favorisierte Technologien identifiziert: Supabase \cite{supabase}, Firebase\cite{firebase} und Appwrite\cite{appwrite} Sie alle bieten SDKs für Flutter und verfügen über eine benutzerfreundliche Authentifizierungsschicht. Darüber hinaus verfügen sie alle über eine Datenbank, die Geoqueries für das Hauptfeature des Beitragradius unterstützt, sowie einen Speicherplatz für Beitragsfotos.
 
-\begin{table}
-    \centering
-    \begin{tabular}{|c|c|c|}
-        \hline
-        \textbf{Column 1} & \textbf{Column 2} & \textbf{Column 3} \\ \hline
-        Row 1, Cell 1     & Row 1, Cell 2     & Row 1, Cell 3     \\ \hline
-        Row 2, Cell 1     & Row 2, Cell 2     & Row 2, Cell 3     \\ \hline
-        Row 3, Cell 1     & Row 3, Cell 2     & Row 3, Cell 3     \\ \hline
-    \end{tabular}
-    \caption{Example Table}
-    \label{tab:example}
-\end{table}
+Allerdings bietet Supabase zum Zeitpunkt der Evaluierung im Februar 2022 noch keine Cloud-Funktionen wie Firebase und Appwrite, was es schwierig macht, eine robuste Business-Logik umzusetzen. Obwohl Supabase am 1. April 2022 experimentell Edge Functions eingeführt hat, ist dies für eine Produktions-App nicht empfehlenswert.
+
+Daher wurden Appwrite und Firebase als die beiden besten Optionen identifiziert. Firebase bietet bessere Flutter-SDKs und verfügt über mehr Features, einschließlich der Unterstützung von Google für Flutter, weshalb wir uns schließlich für Firebase entschieden haben.
+
+In der folgenden Tabelle sind die Vor- und Nachteile von Appwrite und Firebase aufgeführt:
+
+% \begin{table}
+%     \centering
+%     \begin{tabular}{|l|c|c|}
+%         \hline
+%         \textbf{Kriterium} & \textbf{Appwrite}          & \textbf{Firebase} \ \hline
+%         Skalierbarkeit     & Gut                        & Sehr gut \ \hline
+%         Echtzeit-Datenbank & Unterstützt                & Unterstützt \ \hline
+%         Business-Logik     & Gut                        & Sehr gut \ \hline
+%         Authentifizierung  & Einfach                    & Einfach \ \hline
+%         Geoqueries         & Unterstützt                & Unterstützt \ \hline
+%         Storage            & Unterstützt                & Unterstützt \ \hline
+%         Cloud-Funktionen   & Ja                         & Ja \ \hline
+%         Flutter-SDKs       & Ja                         & Ja \ \hline
+%         Preis              & Kostenlos bis 1.000 Nutzer & Kostenlos bis 10.000 Lese- und 20.000 Schreibvorgänge pro Tag \ \hline
+%     \end{tabular}
+%     \caption{Vor- und Nachteile von Appwrite und Firebase}
+%     \label{tab:eval:tech}
+% \end{table}
+
+
+
+
+
+
+
 
 
 % \begin{table}[h]
