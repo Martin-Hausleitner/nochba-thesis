@@ -57,15 +57,33 @@ https://medium.com/flutter-community/firebase-authentication-in-flutter-752d1420
 
 \subsubsection{Security Rules}
 \author{Martin Hausleitner}
+In unserer App ist die Sicherheit ein sehr wichtiger Faktor,
+um die Vertraulichkeit und Integrität der Daten und der
+Nutzer zu gewährleisten. Firebase bietet für seine
+Cloud-basierten Datenbank- und Speicherlösungen - Cloud
+Firestore und Cloud Storage - die sogenannten Security
+Rules\cite{firebase-rules-docs}\cite{firestore-rules-firestore-nochba}\cite{storage-rules-storage-nochba}, um den Zugriff auf
+die Daten und Ressourcen zu kontrollieren. Diese Regeln
+definieren, wer auf welche Art und Weise auf welche Daten
+zugreifen darf.
+
+Die Security Rules für Cloud Firestore und Cloud Storage sind in einer eigenen Sprache geschrieben und werden serverseitig auf Firebase-Servern ausgeführt. Die Syntax basiert auf einer ähnlichen Struktur wie JSON und erlaubt komplexe Abfragen. Die Regeln können für eine bestimmte Sammlung oder einen bestimmten Pfad definiert werden und erlauben es, bestimmte Bedingungen für Lese- oder Schreibzugriffe zu definieren.
 
 
-Hier kommt die Erklärung der Sicherheitsregeln in Firebase Authentication und deren Bedeutung für die App Sicherheit.
+\begin{lstlisting}[language=Python,caption=Security Rules Beispiel]
+    match /posts/{postId} {
+        allow read: if request.auth.uid != null;
+        allow write: if request.auth.uid == resource.data.author;
+      }
+\end{lstlisting}
 
-Quellen:
+Diese Regel definiert, dass jeder Nutzer Lesezugriff auf
+alle Posts hat, aber nur der Autor des Posts ihn auch ändern
+darf.
 
-https://firebase.google.com/docs/rules
+Insgesamt bieten die Security Rules für Cloud Firestore und Cloud Storage eine leistungsstarke und flexible Möglichkeit, die Zugriffsrechte auf die Daten und Ressourcen in einer Firebase-App zu steuern. Mit Hilfe der Security Rules können wir sicherstellen, dass die Daten ihrer Nutzer geschützt und nur von berechtigten Personen abgerufen oder geändert werden können.
 
-https://firebase.google.com/docs/auth/admin/custom-claims
+
 
 \subsection{Cloud Firestore}
 
