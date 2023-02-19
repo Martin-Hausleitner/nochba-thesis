@@ -1,0 +1,53 @@
+@startuml
+title Registrierungs-Flow
+
+|Authentifizierungsmethode|
+start
+
+:Email und Passwort;
+:Google Auth;
+:Apple Auth;
+
+|Addresse festlegen|
+
+:Addresse;
+:Prüfung mit OSM API;
+
+if (Erfolgreich?) then (ja)
+
+|Grunddaten festlegen|
+:Profilbild;
+:Vor- und Nachname;
+
+|Account Verifizierung|
+:Device Location;
+:Anfrage an Firebase Cloud Function für Verifizierung (checkAddressWithDeviceLocation);
+
+if (Erfolgreich?) then (ja)
+
+:Einladecode;
+|Anfrage an Firebase Cloud Function für Verifizierung (checkVerificationCode)|
+
+if (Erfolgreich?) then (ja)
+|Registrierung erfolgreich|
+:Anmeldung abschließen;
+stop
+else (nein)
+|Registrierungs-Flow|
+:Einladecode ungültig;
+-> Addresse festlegen
+endif
+
+else (nein)
+|Registrierungs-Flow|
+:Adresse konnte nicht verifiziert werden;
+-> Addresse festlegen
+endif
+
+else (nein)
+|Registrierungs-Flow|
+:Adresse konnte nicht verifiziert werden;
+-> Addresse festlegen
+endif
+
+@enduml
