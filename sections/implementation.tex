@@ -43,17 +43,26 @@ Beiträge sind das Hauptkommunikationsmittel auf der App. Jedem Beitrag muss ein
 Um Beiträge besser zuordnen zu können, muss der User den Beitrag vor dem Veröffentlichen in eine bestimmte Kategorie einteilen. Diese Kategorien ermöglichen es Usern, die Art Ihrer Anfrage ihm vorhinein besser zu spezifizieren und die Suche nach Beiträgen einer bestimmten Art zu vereinfachen. Bestimmte Kategorien werden weiters in Unterkategorien aufgeteilt, da diese ein zu weit gefächertes Genre an Anfragen umfassen.
 
 Es existieren folgende Kategorien bzw. Unterkategorien:
-•	Mitteilung
-o	Frage
-o	Appell
-o	Warnung
-o	Empfehlung
-o	Gefunden
-•	Suche
-o	Hilfe
-o	Verloren
-•	Ausleihen
-•	Event
+
+\begin{compactitem}
+    \item Mitteilung
+    \begin{compactitem}
+        \item Frage
+        \item Appell
+        \item Warnung
+        \item Empfehlung
+        \item Gefunden
+    \end{compactitem}
+    \item Suche
+    \begin{compactitem}
+        \item Hilfe
+        \item Verloren
+    \end{compactitem}
+    \item Ausleihen
+    \item Event
+\end{compactitem}
+
+
 
 Mitteilung:
 Die Kategorie der Mitteilung dient dazu die Nachbarn über ein bestimmtes Ereignis oder Meldung zu informieren oder zu befragen.
@@ -80,11 +89,14 @@ Die Kommentarfunktion ermöglicht es den Usern unter einem Beitrag Ihre Meinung,
 \subsubsection{Beitrag oder Kommentar Melden}
 Um auf unangebrachte Beiträge oder Kommentare schnell reagieren zu können, gibt es die Möglichkeit Beiträge oder Kommentare zu melden. Diese Meldungen werden auf Firestore gespeichert und können dann im Einzelnen überprüft werden. Fürs Melden muss ein Grund ausgewählt und eine genauere Beschreibung angegeben werden.
 Gründe fürs Melden eines Beitrags oder Kommentars:
-•	Unangebrachter Inhalt
-•	Belästigung
-•	Betrug
-•	Spam
-•	Sonstiges
+
+\begin{compactitem}
+    \item Unangebrachter Inhalt
+    \item Belästigung
+    \item Betrug
+    \item Spam
+    \item Sonstiges
+\end{compactitem}
 
 \subsection{Filter}
 Filtern nach Kategorien
