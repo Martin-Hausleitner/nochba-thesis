@@ -14,8 +14,27 @@ allg. actions warum kosten
 \section{Mobile Anwendung}
 \subsection{Dateistruktur}
 \author{Martin Hausleitner}
+In Flutter gibt es keine fixe Dateistruktur für eine App,
+man kann seine Struktur also selbst überlegen und gestalten.
+Im Folgenden beschreibe ich, wie wir unsere Dateistruktur
+für eine Flutter-App aufgebaut haben.
 
-datei benennung folder structure
+In Flutter gibt es keine feste Dateistruktur, stattdessen kann man die Struktur der Dateien und Ordner selbst bestimmen. Für unser Flutter-Projekt haben wir uns für eine Struktur entschieden, die sich an bewährten Praktiken orientiert.
+
+Unsere Dateistruktur sieht wie folgt aus:
+
+\begin{itemize}
+    \item \textbf{logic} - Hier befindet sich die Geschäftslogik der App, einschließlich der Firestore-Cloud-Funktionen und Repositories, die API-Aufrufe ausführen.
+    \item \textbf{pages} - Hier werden Widgets entworfen, die jeweils eine Seite der App darstellen.
+    \item \textbf{routes} - Hier werden die Routen definiert, die tiefere Links ermöglichen.
+    \item \textbf{shared} - Hier werden UI-Widgets wie Buttons oder andere Widgets gespeichert, die oft wiederverwendet werden.
+    \item \textbf{views} - Hier befinden sich Ansichten, die von mehreren Seiten der App verwendet werden können.
+\end{itemize}
+
+Im Nachhinein hätten wir die Dateistruktur anders gestaltet,
+z.B. hätten wir das UI als eigenes Package definiert und die
+pages und views besser unterteilt.
+
 \subsection{State Management}
 enscheidung vergleich warum getx
 \author{Martin Hausleitner}
