@@ -43,25 +43,62 @@ allg.
 \subsection{Feed}
 foto
 aufbau
-\subsection{Beiträge}
-foto
-allg.
-daten
-\subsubsection{Kategorien}
-allg.
 
+\subsection{Beiträge}
+Beiträge sind das Hauptkommunikationsmittel auf der App. Jedem Beitrag muss ein Titel, eine Beschreibung und eine Reichweite, unter der, der Beitrag sichtbar ist, angegeben werden. Weiters ist es möglich einem Beitrag ein Bild und Tags anzuhängen.
+
+\subsubsection{Kategorien}
+Um Beiträge besser zuordnen zu können, muss der User den Beitrag vor dem Veröffentlichen in eine bestimmte Kategorie einteilen. Diese Kategorien ermöglichen es Usern, die Art Ihrer Anfrage ihm vorhinein besser zu spezifizieren und die Suche nach Beiträgen einer bestimmten Art zu vereinfachen. Bestimmte Kategorien werden weiters in Unterkategorien aufgeteilt, da diese ein zu weit gefächertes Genre an Anfragen umfassen.
+
+Es existieren folgende Kategorien bzw. Unterkategorien:
+•	Mitteilung
+o	Frage
+o	Appell
+o	Warnung
+o	Empfehlung
+o	Gefunden
+•	Suche
+o	Hilfe
+o	Verloren
+•	Ausleihen
+•	Event
+
+Mitteilung:
+Die Kategorie der Mitteilung dient dazu die Nachbarn über ein bestimmtes Ereignis oder Meldung zu informieren oder zu befragen.
+
+Suche:
+Die Kategorie der Suche dient dazu mit den Nachbarn im Falle einer Hilfesuche oder eines verloren gegangenen Objekts in Kontakt zu treten.
+
+Ausleihen:
+Die Kategorie des Ausleihens dient dazu die Nachbarn nach der Erlaubnis, sich ein bestimmtes Werkzeug oder Objekt ausborgen zu dürfen, zu bitten.
+
+Event:
+Die Kategorie des Events dient dazu die Nachbarn auf eine bestimmte Veranstaltung aufmerksam zu machen.
+
+
+\subsubsection{Tags}
+Als Tag wird ein Schlüsselwort beschrieben, was man an ein Informationsgut anhängen kann, um es besser beschreiben zu können und/oder besser auffindbar zu machen. In der App werden Tags als eine Erweiterung der Kategorien verwendet, um es Usern zu ermöglichen Ihren Beitrag einem selbstdefinierten Typ zuzuordnen.
 
 \subsubsection{Info}
-allg.
-\subsubsection{Kommentare}
-allg.
-\subsubsection{Beitrag Melden}
-was  man melden kann
-kategorien
+Jeder Beitrag hat eine eigene Sektion, wo wichtige Entscheidungsinformationen angegeben werden, wie der Stadtteil und die ungefähre Entfernung zum gegebenen Nachbarn und das Erstelldatum des Beitrags.
 
+\subsubsection{Kommentare}
+Die Kommentarfunktion ermöglicht es den Usern unter einem Beitrag Ihre Meinung, Feedback oder sonstiges zu hinterlassen.
+
+\subsubsection{Beitrag oder Kommentar Melden}
+Um auf unangebrachte Beiträge oder Kommentare schnell reagieren zu können, gibt es die Möglichkeit Beiträge oder Kommentare zu melden. Diese Meldungen werden auf Firestore gespeichert und können dann im Einzelnen überprüft werden. Fürs Melden muss ein Grund ausgewählt und eine genauere Beschreibung angegeben werden.
+Gründe fürs Melden eines Beitrags oder Kommentars:
+•	Unangebrachter Inhalt
+•	Belästigung
+•	Betrug
+•	Spam
+•	Sonstiges
 
 \subsection{Filter}
-optionen
+Filtern nach Kategorien
+Ordnen nach Likes oder Datum
+Absteigend oder aufsteigend sortieren
+
 \subsection{Suche}
 \subsection{Typesense}
 \subsection{Algolia}
@@ -75,54 +112,74 @@ diagram
 package genommen warum
 \subsubsection{Flyer Package}
 \subsection{Profil}
+Was wird angezeigt?
+Name, User Public Info, Posts von User
+
 \subsubsection{Profil Melden}
 
 \subsection{Benachrichtigungen}
+Grund und Funktionsweise von Benachrichtigungen
 diagram beschreibung
 \subsection{Einstellungen}
+Email/Passwort ändern, Konto löschen, Sprache einstellen, Benachrichtigungen ein/ausschalten
 \subsection{Feedback}
 \author{Martin Hausleitner}
 feedback feature beschreiben
 
 
 \section{UI/UX Design}
-\author{Martin Hausleitner}
-
 \subsection{Inspiration}
+was waren meine vorbilder: nebenan dribble twitter...
 
 \subsection{Prototyping}
 \subsubsection{Framer}
+fotos von prototyp
+erklärung warum framer 
+
 \subsubsection{Adobe XD}
+fotos von prototyp
+beschreibung
+warum adobe xd
 
 
 \subsection{Design}
+design patterns
 \subsubsection{Farben}
+farben history
+warum orange
 \subsubsection{Icons}
+foto von den benutzen icons
+welche icons
+warum
 \subsubsection{Fonts}
+fotos von fonts
+welche fonts
+wie ist due typrographie aufgebaut
 \subsubsection{Logo}
+logo foto
+anforderungen
+design ideen
+logo history
 \subsection{App Design}
+eingehen mit fotos und beschreibung auf die haupt screens der app
+
 \subsection{Websiten Design}
+2-3 nochba.at design foto
+beschreibung
 
 \section{Backend}
 \subsection{Cloud}
-\author{Martin Hausleitner}
-
 \subsection{Firebase}
-\author{Martin Hausleitner}
-
 \subsubsection{Firebase SDKs}
+Firebase-Tools
 
 \subsubsection{Firebase Authentication}
-
+Email und Passwort authentication
 
 \subsubsection{Cloud Firestore}
-
 \subsubsection{Cloud Storage}
+Speicherung von Profilbilder und Post-Bilder
 \subsubsection{Firebase Cloud Functions}
-
-
-
-
 \subsection{Algolia Search}
 \subsection{Algolia SDK}
 
