@@ -328,11 +328,11 @@ eingehen mit fotos und beschreibung auf die haupt screens der app
 Da unser Projekt aufgrund unserer Teilnahme an Linz hackt in den Medien präsent war und wir keinen zentralen Anlaufpunkt für Informationen hatten, haben wir uns entschlossen, eine schlichte Landing Page mit grundlegenden Informationen zu gestalten. Das wichtigste Feature unserer Website ist die Möglichkeit für Nutzer, sich für die Testphase zu registrieren. Bei der Gestaltung der Landing Page ließ ich mich von den Vorlagen von Framer inspirieren und nutzte hauptsächlich fertige Abschnitte. Wir hielten uns an unsere Farbpalette und achteten darauf, dass die Webseite möglichst einfach gestaltet ist. Ursprünglich hatten wir nicht geplant, eine Website für unser Projekt zu erstellen.
 
 \section{Backend}
-\subsection{Cloud}
-\author{Martin Hausleitner}
 
 \subsection{Firebase}
 \author{Martin Hausleitner}
+Firebase ist ein BaaS, das uns Entwicklern eine erhebliche Menge an Stress abnimmt. Das Hosting von Datenbanken oder in unserem Fall Cloud-Funktionen funktioniert mit nur wenigen Klicks. Wir müssen uns keine Gedanken über Skalierung oder Ausfälle machen. Unser Firebase-Backend hosten wir auf der Google Cloud in Frankfurt (EUR3 Europe-West), um eine geringe Latenz zu gewährleisten. Zu Beginn haben wir den kostenlosen Plan "Spark" genutzt, was für uns ausreichend war, da wir noch nicht die Firebase-Cloud-Funktionen genutzt haben. Um Geld zu sparen, haben wir dann lange Zeit mit dem lokalen Firebase-Emulator an den Cloud-Funktionen gearbeitet. Im Januar 2023 sind wir dann auf den "Blaze"-Plan umgestiegen, um die Firebase-Cloud-Funktionen nutzen zu können. Bis zum Stand März 2022 haben wir nur wenige Euro für den Verbrauch gezahlt. Wir waren auch sehr beeindruckt von der exzellenten Dokumentation und den vielen Tutorials auf YouTube, die Firebase anbietet.
+
 
 \subsubsection{Firebase SDKs}
 \author{Sandin Habibovic}
@@ -349,6 +349,24 @@ NoSQL-Database, Dokument-basierte Speicherung, Subcollections
 \author{Sandin Habibovic}
 Speicherung von Profilbilder und Post-Bilder
 \subsubsection{Firebase Cloud Functions}
+\author{Martin Hausleitner}
+Firebase Cloud Functions sind eine großartige Möglichkeit,
+um Business-Logik abzubilden. Es handelt sich um serverlose
+Funktionen, die in JavaScript oder TypeScript geschrieben
+werden und einzeln auf der Google Cloud gehostet werden. Je
+nach Nachfrage werden sie automatisch skaliert oder komplett
+abgeschaltet. Ein Nachteil ist, dass die Startup-Zeit länger
+sein kann als bei einem herkömmlichen Backend, das immer
+läuft. Allerdings kann man durch Cloud Functions viel Geld
+sparen, da nur die Prozessorlaufzeit bezahlt werden muss.
+
+Firebase Cloud Functions ermöglichen es Entwicklern, auf verschiedene Ereignisse in Firebase-Produkten zu reagieren. Zum Beispiel, wenn sich Daten in der Firestore-Datenbank ändern oder ein neuer Nutzer in Firebase Authentication registriert wird. Wenn ein solches Ereignis eintritt, wird die entsprechende Cloud Function automatisch ausgeführt.
+
+Wir haben alle Cloud Functions in TypeScript programmiert,
+da TypeScript Typsicherheit und erweiterte Fehlererkennung
+bietet.
+
+
 jeder schreibt über seine CF
 
 \subsection{Algolia Search}
