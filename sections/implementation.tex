@@ -334,21 +334,21 @@ Da unser Projekt aufgrund unserer Teilnahme an Linz hackt in den Medien präsent
 Firebase ist ein BaaS, das uns Entwicklern eine erhebliche Menge an Stress abnimmt. Das Hosting von Datenbanken oder in unserem Fall Cloud-Funktionen funktioniert mit nur wenigen Klicks. Wir müssen uns keine Gedanken über Skalierung oder Ausfälle machen. Unser Firebase-Backend hosten wir auf der Google Cloud in Frankfurt (EUR3 Europe-West), um eine geringe Latenz zu gewährleisten. Zu Beginn haben wir den kostenlosen Plan "Spark" genutzt, was für uns ausreichend war, da wir noch nicht die Firebase-Cloud-Funktionen genutzt haben. Um Geld zu sparen, haben wir dann lange Zeit mit dem lokalen Firebase-Emulator an den Cloud-Funktionen gearbeitet. Im Januar 2023 sind wir dann auf den "Blaze"-Plan umgestiegen, um die Firebase-Cloud-Funktionen nutzen zu können. Bis zum Stand März 2022 haben wir nur wenige Euro für den Verbrauch gezahlt. Wir waren auch sehr beeindruckt von der exzellenten Dokumentation und den vielen Tutorials auf YouTube, die Firebase anbietet.
 
 
-\subsubsection{Firebase SDKs}
+\subsection{Firebase SDKs}
 \author{Sandin Habibovic}
 Firebase-Tools
 
-\subsubsection{Firebase Authentication}
+\subsection{Firebase Authentication}
 \author{Sandin Habibovic}
 Email und Passwort authentication
 
-\subsubsection{Cloud Firestore}
+\subsection{Cloud Firestore}
 \author{Sandin Habibovic}
 NoSQL-Database, Dokument-basierte Speicherung, Subcollections
-\subsubsection{Cloud Storage}
+\subsection{Cloud Storage}
 \author{Sandin Habibovic}
 Speicherung von Profilbilder und Post-Bilder
-\subsubsection{Firebase Cloud Functions}
+\subsection{Firebase Cloud Functions}
 \author{Martin Hausleitner}
 Firebase Cloud Functions sind eine großartige Möglichkeit,
 um Business-Logik abzubilden. Es handelt sich um serverlose
@@ -367,7 +367,43 @@ da TypeScript Typsicherheit und erweiterte Fehlererkennung
 bietet.
 
 
-jeder schreibt über seine CF
+\subsubsection{Regestrierung mit einen Verifizierungscode}
+\author{Martin Hausleitner}
+
+Die Cloud Funktion "checkVerificationCode" wird ausgeführt, wenn ein Nutzer sich mit einem Verifizierungscode registrieren möchte Wenn der Benutzer nicht authentifiziert ist, wird eine HttpsError ausgelöst. Dann wird der Verifizierungscode überprüft, um sicherzustellen, dass er die korrekte Formatierung hat. Wenn der Code ungültig ist, wird eine weitere HttpsError ausgelöst.
+
+Als Nächstes wird der Verifizierungscode mit der Datenbank
+abgeglichen, um sicherzustellen, dass er aktiv und noch
+nicht zu oft verwendet wurde. Wenn der Code erfolgreich
+validiert wird, wird die Adresse des Benutzers abgerufen und
+deren Koordinaten mithilfe von einer API call
+anOpenStreetMap mit der Funktion "getOSMCoordinatesFromAddress"
+ermittelt. Dann wird die Entfernung zwischen der Adresse des
+Benutzers und der Adresse, die dem Verifizierungscode
+zugeordnet ist, berechnet mit der Funktion "getDistanceFromLatLonInMeters". Wenn die Entfernung nicht
+innerhalb des zulässigen Bereichs liegt, wird eine weitere
+HttpsError ausgelöst.
+
+Schließlich werden die Informationen des Benutzers und des Verifizierungscodes in der Datenbank aktualisiert, um anzuzeigen, dass der Benutzer erfolgreich verifiziert wurde. Die Cloud-Function gibt true zurück, um anzuzeigen, dass die Verifizierung erfolgreich war.
+
+\subsubsection{Regestrierung mit Gerät Koordinaten}
+Die Funktion "checkAddressWithDeviceLocation" erfordert eine authentifizierte Anfrage und
+erhält eine Adresse, eine Längen- und Breitengradkoordinate
+vom Gerät des Benutzers. Die Funktion prüft, ob alle
+erforderlichen Daten vorhanden sind und ruft dann die
+Funktion "getOSMCoordinatesFromAddress" auf, um die
+Koordinaten der angegebenen Adresse zu erhalten. Es wird
+auch die Funktion "getDistanceFromLatLonInMeters"
+aufgerufen, um die Entfernung zwischen der Adresse und den
+Koordinaten des Geräts des Benutzers zu berechnen.
+
+Wenn die Entfernung größer ist als ein vordefinierter maximaler Abstand, wird eine Fehlermeldung ausgegeben und die Funktion gibt "false" zurück. Andernfalls speichert die Funktion die Koordinaten der Adresse und die Entfernung zwischen den Koordinaten des Geräts des Benutzers und der Adresse in der Firestore-Datenbank. Die Funktion ruft auch die Funktion "getOSMSuburbFromCoords" auf, um den Vorort der Adresse zu erhalten, und speichert diesen ebenfalls in der Firestore-Datenbank.
+
+Die Funktion gibt "true" zurück, wenn die Verifizierung erfolgreich abgeschlossen ist.
+
+
+\author{Martin Hausleitner}
+
 
 \subsection{Algolia Search}
 \subsection{Algolia SDK}
