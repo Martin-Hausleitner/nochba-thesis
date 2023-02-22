@@ -1,12 +1,33 @@
 \author{Martin Hausleitner}
 \section{Technologieevaluierung}
 
-Im Rahmen dieser Diplomarbeit wurden umfangreiche Anforderungen an das Frontend und Backend der Anwendung gestellt, um eine hochwertige und funktionale Anwendung zu entwickeln. Für das Frontend wurden iOS- und Android-Apps gefordert, wobei die Möglichkeit einer zukünftigen Web-App berücksichtigt werden sollte. Das Backend sollte eine Echtzeit-Datenbank für den Chat und eine Datenbank mit Geofunktionen für den Radios-Filter bereitstellen. Dabei war es wichtig, dass das Backend einfach zu implementieren ist und eine gute SDK-Unterstützung für das Frontend bietet.
-
-Neben diesen technischen Anforderungen war auch die Umsetzung der Business-Logik ein wichtiger Aspekt. Hierbei wurden Aspekte wie die Registrierung und Verifizierung von Nutzern berücksichtigt, um eine sichere und benutzerfreundliche Anwendung zu gewährleisten. Darüber hinaus war es wichtig, dass die Anwendung mit neuen und effizienten Technologien entwickelt wird, um eine schnelle und agile Anpassung an die sich ändernden Anforderungen des Marktes und der Nutzer zu ermöglichen.
+Ein zentraler Aspekt jedes Projektbeginns ist die Evaluierung der Technologie. Wir haben uns bewusst viel Zeit genommen, um eine schnelle und unkomplizierte Entwicklung zu ermöglichen und später mögliche Bedauern zu vermeiden. Die Anforderungen für das Projekt umfassen die Erstellung von iOS- und Android-Apps sowie möglicherweise einer Web-App in Zukunft. Hinsichtlich des Backends ist für uns insbesondere die Unterstützung von Geopoints und Geo-Queries in der Datenbank von Bedeutung. Idealerweise sollte das System zudem eine integrierte Authentifizierungsfunktion aufweisen.
 
 
 \subsection{Frontend}
+
+Im Bereich der Frontend-App-Entwicklung stehen verschiedene Möglichkeiten zur Verfügung, um eine App zu programmieren. Eine Option besteht darin, eine nativ programmierte iOS- oder Android-App zu erstellen. Allerdings haben wir uns als Team schnell gegen diese Option entschieden, da keiner von uns mit einer der Plattformen vertraut ist und dies zu einem erheblichen Mehraufwand führen würde. Dies würde bei einem kleinen Team von nur drei Personen zu viel Zeit in Anspruch nehmen. Ein Vorteil der nativen Programmierung besteht jedoch darin, dass man auf alle nativen APIs zugreifen kann und die Performance besser ist, da die Entwickler der App-Schnittstelle vom Hersteller des Betriebssystems stammen.
+
+\includegraphics[width=0.75\textwidth]{pics/cross-platform-statisitics.png}
+https://www.statista.com/statistics/869224/worldwide-software-developer-working-hours/
+
+% \usepackage{tabularray}
+\begin{table}
+    \centering
+    \begin{tblr}{
+        }
+                & Flutter & React Native & Cordova & Ionic & Xamarin \\
+        Version &         &              &         &       &         \\
+        iOS     &         &              &         &       &         \\
+        Android &         &              &         &       &         \\
+        Web     &         &              &         &       &         \\
+        Linux   &         &              &         &       &         \\
+        Windows &         &              &         &       &         \\
+                &         &              &         &       &         \\
+                &         &              &         &       &
+    \end{tblr}
+\end{table}
+
 
 Nach ausführlicher Recherche wurden die folgenden plattformübergreifenden Frameworks in Betracht gezogen\cite{cross_platform_framework_comparison}: Flutter, React Native, Ionic und Xamarin. Jede Plattform hat ihre Vor- und Nachteile.
 
@@ -37,24 +58,6 @@ Daher wurden Appwrite und Firebase als die beiden besten Optionen identifiziert.
 
 In der folgenden Tabelle sind die Vor- und Nachteile von Appwrite und Firebase aufgeführt:
 
-% \begin{table}
-%     \centering
-%     \begin{tabular}{|l|c|c|}
-%         \hline
-%         \textbf{Kriterium} & \textbf{Appwrite}          & \textbf{Firebase} \ \hline
-%         Skalierbarkeit     & Gut                        & Sehr gut \ \hline
-%         Echtzeit-Datenbank & Unterstützt                & Unterstützt \ \hline
-%         Business-Logik     & Gut                        & Sehr gut \ \hline
-%         Authentifizierung  & Einfach                    & Einfach \ \hline
-%         Geoqueries         & Unterstützt                & Unterstützt \ \hline
-%         Storage            & Unterstützt                & Unterstützt \ \hline
-%         Cloud-Funktionen   & Ja                         & Ja \ \hline
-%         Flutter-SDKs       & Ja                         & Ja \ \hline
-%         Preis              & Kostenlos bis 1.000 Nutzer & Kostenlos bis 10.000 Lese- und 20.000 Schreibvorgänge pro Tag \ \hline
-%     \end{tabular}
-%     \caption{Vor- und Nachteile von Appwrite und Firebase}
-%     \label{tab:eval:tech}
-% \end{table}
 
 
 
@@ -97,7 +100,7 @@ In der folgenden Tabelle sind die Vor- und Nachteile von Appwrite und Firebase a
 %     \label{tab:impl:backend}
 % \end{table}
 
-Insgesamt bietet Firebase aufgrund der umfangreichen Features und der einfacheren Integration mit anderen Google-Tools Vorteile gegenüber Appwrite. 
+Insgesamt bietet Firebase aufgrund der umfangreichen Features und der einfacheren Integration mit anderen Google-Tools Vorteile gegenüber Appwrite.
 
 
 \section{Fazit}
