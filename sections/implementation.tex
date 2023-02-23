@@ -384,9 +384,17 @@ zugeordnet ist, berechnet mit der Funktion "getDistanceFromLatLonInMeters". Wenn
 innerhalb des zulässigen Bereichs liegt, wird eine weitere
 HttpsError ausgelöst.
 
-Schließlich werden die Informationen des Benutzers und des Verifizierungscodes in der Datenbank aktualisiert, um anzuzeigen, dass der Benutzer erfolgreich verifiziert wurde. Die Cloud-Function gibt true zurück, um anzuzeigen, dass die Verifizierung erfolgreich war.
+Schließlich werden die Informationen des Benutzers und des
+Verifizierungscodes in der Datenbank aktualisiert, um
+anzuzeigen, dass der Benutzer erfolgreich verifiziert wurde.
+Die Cloud-Function gibt true zurück, um anzuzeigen, dass die
+Verifizierung erfolgreich war.
+
+In jeder Phase der Funktion wird ein Logger verwendet, um Informationen über den Status der Funktion zu protokollieren.
 
 \subsubsection{Regestrierung mit Gerät Koordinaten}
+\author{Martin Hausleitner}
+
 Die Funktion "checkAddressWithDeviceLocation" erfordert eine authentifizierte Anfrage und
 erhält eine Adresse, eine Längen- und Breitengradkoordinate
 vom Gerät des Benutzers. Die Funktion prüft, ob alle
@@ -399,7 +407,63 @@ Koordinaten des Geräts des Benutzers zu berechnen.
 
 Wenn die Entfernung größer ist als ein vordefinierter maximaler Abstand, wird eine Fehlermeldung ausgegeben und die Funktion gibt "false" zurück. Andernfalls speichert die Funktion die Koordinaten der Adresse und die Entfernung zwischen den Koordinaten des Geräts des Benutzers und der Adresse in der Firestore-Datenbank. Die Funktion ruft auch die Funktion "getOSMSuburbFromCoords" auf, um den Vorort der Adresse zu erhalten, und speichert diesen ebenfalls in der Firestore-Datenbank.
 
-Die Funktion gibt "true" zurück, wenn die Verifizierung erfolgreich abgeschlossen ist.
+Die Funktion gibt "true" zurück, wenn die Verifizierung
+erfolgreich abgeschlossen ist.
+
+In jeder Phase der Funktion wird ein Logger verwendet, um Informationen über den Status der Funktion zu protokollieren.
+
+\subsubsection{Verifizierungscode generieren}
+\author{Martin Hausleitner}
+Die Funktion "generateVerificationCode" definiert Konstanten
+für das Intervall zwischen der Generierung von Codes, die
+maximale Anzahl von Codes und die Reichweite in Metern.
+
+Anschließend wird der letzte code des nutzers aus der
+Datenbank geholt, um zu überprüfen, ob seit dem
+letzten generierten Code ausreichend Zeit vergangen ist.
+Wenn ja, wird der zuletzt generierte Code zurückgegeben.
+
+Wenn nicht, wird eine Schleife gestartet, um einen neuen
+Code zu generieren mit der Funktion "generateRandomVerificationCode". Der generierte Code wird dann mit
+Firestore abgeglichen, um sicherzustellen, dass er nicht
+bereits verwendet wurde.
+
+Wenn der generierte Code eindeutig ist, wird überprüft ob
+der Benutzer verifiziert ist. Wenn dies nicht der Fall ist,
+wird ein Fehler zurückgegeben. Andernfalls wird der
+generierte Code in die
+Firestore-Datenbank eingefügt um den letzten generierten
+Code und das Datum der Generierung zu speichern.
+
+Das Skript gibt dann den generierten Code zurück. In jeder
+Phase der Funktion wird ein Logger verwendet, um
+Informationen über den Status der Funktion zu
+protokollieren.
+
+\subsubsection{Entferung von zwei Nutzern berechnen}
+\author{Martin Hausleitner}
+Die Funktion "getDistanceFromTwoUsers" berechnet die
+Entfernung zwischen zwei Benutzern. Die Funktion erwartet
+eine PostId und einen Authentifizierten bneutzer. Dann wird eine
+Überprüfung durchgeführt, ob der Post mit der angegebenen ID
+existiert und ob der Post eine gültige Reichweite hat. Es
+werden auch Überprüfungen durchgeführt, ob die
+Benutzerkoordinaten vorhanden sind, und ob die Entfernung
+zwischen beiden Benutzern innerhalb des Postbereichs liegt.
+
+Die Funktion nutzt die importierten Funktionen
+getDistanceFromLatLonInMeters und getNearestDistance, um die
+Entfernung in Metern zu berechnen. Allerdings wird die
+berechnete Distanz grob gerundet, um die Privatsphäre der
+Nutzer zu wahren. Dabei
+werden die Längen- und Breitengradkoordinaten von zwei
+Benutzern miteinander verglichen, die aus der
+Firestore-Datenbank abgerufen werden. Wenn die Entfernung
+größer als die Reichweite des Posts ist, wird ein Fehler
+ausgegeben.
+
+Schließlich gibt die Funktion die Entfernung zurück.
+
 
 
 \author{Martin Hausleitner}
