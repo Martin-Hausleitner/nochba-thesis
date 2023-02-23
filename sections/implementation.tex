@@ -218,8 +218,6 @@ Im Fall von Flutter als Entwicklungsplattform für die App ist das Prototyping e
 
 Insgesamt ist Prototyping ein unverzichtbarer Schritt bei der Entwicklung von mobilen Apps. Es ermöglicht Entwicklern und Designern, frühzeitig Feedback von Benutzern zu erhalten und Änderungen vorzunehmen, bevor die App tatsächlich entwickelt wird. Durch die Verwendung von Tools wie Adobe XD, Sketch oder Figma können Prototypen schnell und einfach erstellt werden, was Zeit und Ressourcen spart. Prototyping ist auch für die Verwendung von Flutter als Entwicklungsplattform wichtig, da es Entwicklern ermöglicht, Zeit und Aufwand zu sparen und sich auf die Umsetzung zu konzentrieren.
 \subsubsection{Framer}
-\includegraphics[width=0.95\textwidth]{pics/nochba-framer-prototype-screenshot.png}
-
 
 Framer ist eine Software, die es Benutzern ermöglicht, schnell und einfach ansprechende Prototypen von mobilen Anwendungen und Websites zu erstellen. Das Tool wurde ursprünglich als Prototyping-Tool für Designer entwickelt, um Designs schnell zu testen und zu verfeinern, bevor sie in die Entwicklung übergehen.
 
@@ -230,7 +228,7 @@ schnelle und effiziente Möglichkeit, um Ideen in die Tat
 umzusetzen, ohne sich durch langwierige Entwicklungsprozesse
 zu quälen.
 
-\includegraphics[width=0.95\textwidth]{pics/nochba-framer-prototype-screenshot.png}
+\includegraphics[width=1\textwidth]{pics/nochba-framer-prototype-screenshot.png}
 
 
 Framer wurde während des Hackerthon Linz hackt verwendet, um den ersten Prototypen zu erstellen. Die Wahl von Framer war aufgrund seiner Geschwindigkeit und Effizienz in der Erstellung von funktionsfähigen App-Designs und der Erfahrung, die der Benutzer bereits mit dem Tool hatte, getroffen worden.
@@ -440,6 +438,9 @@ Phase der Funktion wird ein Logger verwendet, um
 Informationen über den Status der Funktion zu
 protokollieren.
 
+\subsubsection{Koordienaten von }
+\author{Martin Hausleitner}
+
 \subsubsection{Entferung von zwei Nutzern berechnen}
 \author{Martin Hausleitner}
 Die Cloud-Funktion "getDistanceFromTwoUsers" berechnet die
@@ -551,6 +552,14 @@ Die Funktion heißt "getOSMSuburbFromCoords" und nimmt zwei Parameter entgegen: 
 \subsubsection{Verifizierungscode format überprüfen}
 \author{Martin Hausleitner}
 Um die Laufzeit bei der Verifizierung von Cloud-Funktionen zu optimieren, ist es sinnvoll, am Anfang der Verifizierung eine Überprüfung durchzuführen, ob der Verifizierungscode das richtige Format hat. Dazu wird die Funktion \verb|verifyVerificationCode| genutzt werden, welche einen \verb|string| als Parameter erwartet und einen \verb|Boolean|-Wert zurückgibt. In der Funktion wird ein regulärer Ausdruck (Regex) definiert, um sicherzustellen, dass der Verifizierungscode den Anforderungen entspricht. Der Regex lautet \verb|/^[a-zA-Z0-9]{10}$/|, was bedeutet, dass der Code aus genau 10 alphanumerischen Zeichen bestehen muss. Mit der Methode \verb|test| wird der übergebene Code auf Übereinstimmung mit dem Regex geprüft und das Ergebnis als \verb|Boolean|-Wert zurückgegeben.
+
+
+\subsubsection{Verifizierungscode generator}
+\author{Martin Hausleitner}
+
+Die Funktion \texttt{generateRandomVerificationCode} erzeugt einen zufälligen Code mit einer Länge von 10 Zeichen, indem sie eine Kombination aus Groß- und Kleinbuchstaben des englischen Alphabets sowie Ziffern von 0 bis 9 verwendet. Dabei wird \texttt{Math.random()} zur Generierung einer Zufallszahl zwischen 0 und 1 genutzt und mit der Länge des Zeichenfolgen-Arrays multipliziert, um eine zufällige Position innerhalb des Arrays auszuwählen. Anschließend wird das ausgewählte Zeichen an das Ergebnis angehängt und dieser Schritt wird für jedes Zeichen wiederholt, bis eine Zeichenkette der Länge 10 generiert wurde.
+
+Diese Funktion wird in der Cloud-Funktion \texttt{generateVerificationCode} verwendet, um einen zufälligen Code zu generieren. Es ist wichtig, dass der Code-Generator in der Lage ist, eine ausreichende Anzahl von Codes zu generieren, damit es keine Kollisionen gibt. Da jeder Code zufällig generiert wird und die Funktion eine zufällige Zeichenkette aus 62 möglichen Zeichen erzeugt, ist es äußerst unwahrscheinlich, dass der gleiche Code zweimal generiert wird. Die Anzahl der möglichen Kombinationen beträgt $62^{10}$, was ungefähr $8.39 \times 10^{17}$ Möglichkeiten entspricht. Daher ist die Wahrscheinlichkeit, dass zwei identische Codes generiert werden, vernachlässigbar.
 
 
 \subsection{Algolia Search}
