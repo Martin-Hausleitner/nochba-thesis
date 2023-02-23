@@ -370,7 +370,7 @@ bietet.
 \subsubsection{Regestrierung mit einen Verifizierungscode}
 \author{Martin Hausleitner}
 
-Die Cloud Funktion "checkVerificationCode" wird ausgeführt, wenn ein Nutzer sich mit einem Verifizierungscode registrieren möchte Wenn der Benutzer nicht authentifiziert ist, wird eine HttpsError ausgelöst. Dann wird der Verifizierungscode überprüft, um sicherzustellen, dass er die korrekte Formatierung hat. Wenn der Code ungültig ist, wird eine weitere HttpsError ausgelöst.
+Die Cloud-Funktion "checkVerificationCode" wird ausgeführt, wenn ein Nutzer sich mit einem Verifizierungscode registrieren möchte Wenn der Benutzer nicht authentifiziert ist, wird eine HttpsError ausgelöst. Dann wird der Verifizierungscode überprüft, um sicherzustellen, dass er die korrekte Formatierung hat. Wenn der Code ungültig ist, wird eine weitere HttpsError ausgelöst.
 
 Als Nächstes wird der Verifizierungscode mit der Datenbank
 abgeglichen, um sicherzustellen, dass er aktiv und noch
@@ -395,7 +395,7 @@ In jeder Phase der Funktion wird ein Logger verwendet, um Informationen über de
 \subsubsection{Regestrierung mit Gerät Koordinaten}
 \author{Martin Hausleitner}
 
-Die Funktion "checkAddressWithDeviceLocation" erfordert eine authentifizierte Anfrage und
+Die Cloud-Funktion "checkAddressWithDeviceLocation" erfordert eine authentifizierte Anfrage und
 erhält eine Adresse, eine Längen- und Breitengradkoordinate
 vom Gerät des Benutzers. Die Funktion prüft, ob alle
 erforderlichen Daten vorhanden sind und ruft dann die
@@ -414,7 +414,7 @@ In jeder Phase der Funktion wird ein Logger verwendet, um Informationen über de
 
 \subsubsection{Verifizierungscode generieren}
 \author{Martin Hausleitner}
-Die Funktion "generateVerificationCode" definiert Konstanten
+Die Cloud-Funktion "generateVerificationCode" definiert Konstanten
 für das Intervall zwischen der Generierung von Codes, die
 maximale Anzahl von Codes und die Reichweite in Metern.
 
@@ -442,7 +442,7 @@ protokollieren.
 
 \subsubsection{Entferung von zwei Nutzern berechnen}
 \author{Martin Hausleitner}
-Die Funktion "getDistanceFromTwoUsers" berechnet die
+Die Cloud-Funktion "getDistanceFromTwoUsers" berechnet die
 Entfernung zwischen zwei Benutzern. Die Funktion erwartet
 eine PostId und einen Authentifizierten bneutzer. Dann wird eine
 Überprüfung durchgeführt, ob der Post mit der angegebenen ID
@@ -465,6 +465,8 @@ ausgegeben.
 Schließlich gibt die Funktion die Entfernung zurück.
 
 \subsubsection{Entfernung von zwei geographischen Koordinaten berechnen}
+\author{Martin Hausleitner}
+
 \begin{lstlisting}[language=Java,caption=getDistanceFromLatLonInMeters Funktion]
     export function getDistanceFromLatLonInMeters(
         lat1: number,
@@ -520,8 +522,35 @@ es sich um denselben Punkt handelt.
 
 Quelle: https://www.movable-type.co.uk/scripts/latlong.html
 
-
+\subsubsection{Bestimmung der nächstgelegenen Entfernung}
 \author{Martin Hausleitner}
+
+Um die Privatsphäre der Nachbarn zu gewährleisten, benötigen wir eine Funktion, die uns den nächstgelegenen Abstand zu den Nachbarn gibt, ohne den genauen Abstand preiszugeben. Die Funktion heißt "getNearestDistance" und bekommt einen Meterwert als Parameter.
+
+Die Funktion erstellt ein Array mit den Optionen [100, 200, 500, 1000, 5000, 10000, 15000] und setzt die Variable "nearest" auf den ersten Wert im Array.
+
+Dann wird eine Schleife ausgeführt, die durch jedes Element im Array "options" geht und prüft, welches Element am nächsten zum angegebenen Abstand "distance" liegt. Wenn ein Element näher ist als das bisher am nächsten liegende Element, wird "nearest" aktualisiert.
+
+Schließlich wird überprüft, ob "nearest" größer oder gleich
+1000 ist, und je nachdem wird der Abstand entweder in
+Kilometern oder Metern zurückgegeben. Wenn der Abstand
+größer oder gleich 1000 ist, wird die Einheit "km"
+hinzugefügt, ansonsten wird "m" hinzugefügt. Wir haben
+absichtlich keine Switches oder If-Bedingungen benutzt, da
+wir es jetzt mit der aktuellen Funktion schneller schaffen,
+die Abstände zu ändern. Wir evaluieren noch, wie das Array
+mit den Optionen aussieht.
+
+
+\subsubsection{Nachbarschaft von Nutzer bestimmen}
+\author{Martin Hausleitner}
+Um unseren App-Nutzern ein besseres Verständnis für die Nachbarschaften zu geben, in denen ihre Nachbarn wohnen, zeigen wir bei jedem Benutzer die Nachbarschaft an, in der sie leben. Diese Information wird automatisch in der Datenbank gespeichert, wenn der Nutzer verifiziert wird. Um diese Funktion zu ermöglichen, verwenden wir die folgende Funktion, die die geografischen Koordinaten des Benutzers verwendet, um die entsprechende Nachbarschaft mithilfe der OpenStreetMap-API abzurufen:
+
+Die Funktion heißt "getOSMSuburbFromCoords" und nimmt zwei Parameter entgegen: "lat" für die geografische Breite und "lon" für die geografische Länge des Benutzers. Diese Funktion gibt eine Promise zurück, die eine Zeichenfolge (String) mit dem Namen der Nachbarschaft des Benutzers enthält. Die Funktion verwendet die "axios"-Bibliothek, um eine GET-Anfrage an die OpenStreetMap-API zu senden. Diese Anfrage enthält die geografischen Koordinaten des Benutzers und die gewünschte Zoomstufe (18), um die Nachbarschaft zu finden. Wenn die Anfrage erfolgreich ist, gibt die Funktion den Namen der Nachbarschaft zurück, der aus den Daten extrahiert wird, die von der API zurückgegeben werden. Wenn der Name der Nachbarschaft nicht verfügbar ist, gibt die Funktion den Namen der Stadt oder der Gemeinde zurück, in der sich der Benutzer befindet. Wenn auch diese Informationen nicht verfügbar sind, gibt die Funktion null zurück. Wenn bei der Anfrage ein Fehler auftritt, wird eine Fehlermeldung ausgelöst.
+
+\subsubsection{Verifizierungscode format überprüfen}
+\author{Martin Hausleitner}
+Um die Laufzeit bei der Verifizierung von Cloud-Funktionen zu optimieren, ist es sinnvoll, am Anfang der Verifizierung eine Überprüfung durchzuführen, ob der Verifizierungscode das richtige Format hat. Dazu wird die Funktion \verb|verifyVerificationCode| genutzt werden, welche einen \verb|string| als Parameter erwartet und einen \verb|Boolean|-Wert zurückgibt. In der Funktion wird ein regulärer Ausdruck (Regex) definiert, um sicherzustellen, dass der Verifizierungscode den Anforderungen entspricht. Der Regex lautet \verb|/^[a-zA-Z0-9]{10}$/|, was bedeutet, dass der Code aus genau 10 alphanumerischen Zeichen bestehen muss. Mit der Methode \verb|test| wird der übergebene Code auf Übereinstimmung mit dem Regex geprüft und das Ergebnis als \verb|Boolean|-Wert zurückgegeben.
 
 
 \subsection{Algolia Search}
