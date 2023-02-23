@@ -464,6 +464,61 @@ ausgegeben.
 
 Schließlich gibt die Funktion die Entfernung zurück.
 
+\subsubsection{Entfernung von zwei geographischen Koordinaten berechnen}
+\begin{lstlisting}[language=Java,caption=getDistanceFromLatLonInMeters Funktion]
+    export function getDistanceFromLatLonInMeters(
+        lat1: number,
+        lon1: number,
+        lat2: number,
+        lon2: number
+      ) {
+        if (lat1 < -90 || lat1 > 90 || lon1 < -180 || lon1 > 180) {
+          throw new Error(
+            "Invalid coordinate: lat1 must be between -90 and 90, lon1 must be between -180 and 180"
+          );
+        }
+        if (lat2 < -90 || lat2 > 90 || lon2 < -180 || lon2 > 180) {
+          throw new Error(
+            "Invalid coordinate: lat2 must be between -90 and 90, lon2 must be between -180 and 180"
+          );
+        }
+        const R = 6371; // Radius der Erde in km
+        const dLat = deg2rad(lat2 - lat1); // deg2rad unten
+        const dLon = deg2rad(lon2 - lon1);
+        const a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(deg2rad(lat1)) *
+            Math.cos(deg2rad(lat2)) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const d = R * c * 1000; // Distanz in Metern
+      
+        if (lat1 === lat2 && lon1 === lon2) return 0;
+        return d;
+      }
+      
+      function deg2rad(deg: number) {
+        return deg * (Math.PI / 180);
+      }
+      
+\end{lstlisting}
+Der vorliegende Code implementiert eine Funktion, die die Distanz in Metern zwischen zwei geographischen Koordinaten (Breitengrad und Längengrad) auf der Erdoberfläche berechnet. Die Funktion verwendet die Haversine-Formel, die auf der Kugelgeometrie basiert, um die kürzeste Entfernung zwischen zwei Punkten auf der Erdoberfläche zu berechnen.
+
+Die Funktion "getDistanceFromLatLonInMeters" hat vier Parameter: "lat1" und "lon1" sind die Breiten- und Längengrade des ersten Punktes, während "lat2" und "lon2" die Breiten- und Längengrade des zweiten Punktes sind, zwischen denen die Distanz berechnet werden soll.
+
+Zu Beginn des Codes werden die Eingabeparameter auf ihre Gültigkeit geprüft und eine Fehlermeldung wird ausgegeben, falls eine der Koordinaten außerhalb des Bereichs von -90 bis 90 für die Breite und -180 bis 180 für die Länge liegt.
+
+Die Funktion berechnet dann die Differenzen der Breiten- und Längengrade sowie den Radius der Erde (R) in Kilometern. Die Differenzen werden dann in Radianten umgewandelt und die Haversine-Formel wird angewendet, um die Entfernung in Kilometern zu berechnen. Schließlich wird das Ergebnis in Meter umgewandelt und zurückgegeben.
+
+Die Funktion "deg2rad" wird als Hilfsfunktion definiert, um Grad in Radianten umzurechnen.
+
+Die Funktion gibt 0 zurück, falls die beiden
+Eingabeparameter denselben Wert haben, um zu vermeiden, dass
+eine sehr kleine Distanz als Ergebnis ausgegeben wird, wenn
+es sich um denselben Punkt handelt.
+
+Quelle: https://www.movable-type.co.uk/scripts/latlong.html
 
 
 \author{Martin Hausleitner}
