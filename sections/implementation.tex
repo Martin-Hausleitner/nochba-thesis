@@ -438,8 +438,21 @@ Phase der Funktion wird ein Logger verwendet, um
 Informationen über den Status der Funktion zu
 protokollieren.
 
-\subsubsection{Koordienaten von }
+\subsubsection{Koordienaten von einer Adresse bestimmen}
 \author{Martin Hausleitner}
+Ein wichtiger Teil für die Verifizierung ist, dass wir die Adresse des Nutzers in Koordinaten umwandeln, damit wir im Backend damit arbeiten können. Zunächst haben wir die Google Geocode API genutzt, allerdings kostet diese Geld. Wir haben eine bessere Option gefunden, die besser zu unseren Projekt-Philosophie passt: nämlich Nominatim, eine Open-Source-Geocoding-API für OpenStreetMap-Daten. Nominatim bietet eine kostenlose API für genau unser Problem an.
+
+Die Funktion \textbf{getOSMCoordinatesFromAddress} nutzt die Bibliothek \textbf{axios}, um eine Anfrage an die Nominatim-API zu senden. Die API wird genutzt, um Koordinaten für eine Adresse zu erhalten.
+
+Die Funktion nimmt einen Parameter \textbf{address} vom Typ \textbf{string} entgegen, welcher die Adresse enthält, für die Koordinaten abgerufen werden sollen.
+
+Mithilfe von \textbf{axios.get} wird eine HTTP GET-Anfrage an die Nominatim-API gesendet. Die Adresse wird als URL-Parameter im Format \textbf{q=Adresse} übergeben. Die API liefert die Koordinaten als JSON-Objekt zurück, welches in der Variable \textbf{data} gespeichert wird.
+
+Die Funktion überprüft dann, ob die Anfrage ein Ergebnis zurückgeliefert hat. Falls nicht, wird eine Fehlermeldung mit der Adresse ausgegeben.
+
+Wenn ein Ergebnis vorhanden ist, wird das erste Ergebnis (in der Variable \textbf{firstResult}) verwendet, um eine neue Instanz der \textbf{GeoPoint}-Klasse zu erstellen. Diese Klasse ist Teil der Firebase-Admin-Bibliothek und ermöglicht die Speicherung von geografischen Koordinaten in einer Firestore-Datenbank.
+
+Schließlich gibt die Funktion die neuen Koordinaten als \textbf{GeoPoint}-Objekt zurück, das die Breiten- und Längengrade in Zahlen enthält.
 
 \subsubsection{Entferung von zwei Nutzern berechnen}
 \author{Martin Hausleitner}
