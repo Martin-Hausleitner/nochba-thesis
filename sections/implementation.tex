@@ -3,7 +3,7 @@
 
 allg. actions warum kosten
 \subsubsection{Build IOS}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 
 \subsubsection{Build Android}
 
@@ -13,7 +13,7 @@ allg. actions warum kosten
 
 \section{Mobile Anwendung}
 \subsection{Dateistruktur}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 In Flutter gibt es keine fixe Dateistruktur für eine App,
 man kann seine Struktur also selbst überlegen und gestalten.
 Im Folgenden beschreibe ich, wie wir unsere Dateistruktur
@@ -37,10 +37,10 @@ pages und views besser unterteilt.
 
 \subsection{State Management}
 In Flutter gibt es verschiedene Möglichkeiten\cite{flutter-docs-interactive}\cite{flutter-state-management-blog}, um mit dem State Management umzugehen. State Management bezieht sich auf die Art und Weise, wie Daten innerhalb einer App verwaltet werden. In jeder App gibt es bestimmte Daten, die von verschiedenen Komponenten und Widgets verwendet werden und sich im Laufe der Zeit ändern können. State Management bezieht sich auf die Methoden, die verwendet werden, um diese Daten innerhalb der App zu verwalten und zu aktualisieren.
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 
 \subsubsection{GetX}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 
 GetX verwendet ein reaktives Ansatz zur Verwaltung des Zustands, was bedeutet, dass Änderungen im Zustand automatisch die UI aktualisieren, ohne dass der Entwickler manuell Code schreiben muss, um diese Aktualisierungen durchzuführen. Dies spart viel Entwicklungszeit und macht es einfach, auf Benutzerinteraktionen zu reagieren.
 
@@ -183,7 +183,7 @@ diagram beschreibung
 \author{Sandin Habibovic}
 Email/Passwort ändern, Konto löschen, Sprache einstellen, Benachrichtigungen ein/ausschalten
 \subsection{Feedback}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 feedback feature beschreiben
 
 
@@ -197,7 +197,7 @@ Auch ein gutes UX-Design ist wichtig, um sicherzustellen, dass die Benutzer mit 
 Darüber hinaus sollte das UI/UX-Design einer Social-Media-Nachbarschafts-App bestimmte Funktionen und Merkmale berücksichtigen, die für eine erfolgreiche Community-Plattform erforderlich sind. Beispielsweise sollte es einfach sein, Beiträge zu erstellen und zu teilen, auf Kommentare zu antworten und Nachrichten an andere Benutzer zu senden. Es sollte auch Möglichkeiten geben, um Benutzerprofile zu erstellen und zu verwalten sowie umfassende Datenschutz- und Sicherheitsfunktionen zu bieten.
 
 Insgesamt ist das UI/UX-Design einer Social-Media-Nachbarschafts-App von entscheidender Bedeutung für den Erfolg der App und die Zufriedenheit der Benutzer. Es ist wichtig, dass das Design auf die Bedürfnisse und Anforderungen der Benutzer zugeschnitten ist und ein einfaches, intuitives und ansprechendes Nutzungserlebnis bietet.
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 \subsection{Inspiration}
 Während des Designprozesses für die App habe ich Recherchen im Bereich App-Design durchgeführt. Mein Ziel war es, die App so intuitiv wie möglich zu gestalten, um eine benutzerfreundliche Erfahrung zu gewährleisten. Dazu habe ich mich an bekannten Social-Media-Apps orientiert, wie zum Beispiel Twitter, Instagram und TikTok, die bereits auf dem Markt sehr erfolgreich sind und von vielen Menschen vertraut genutzt werden.
 
@@ -328,7 +328,7 @@ Da unser Projekt aufgrund unserer Teilnahme an Linz hackt in den Medien präsent
 \section{Backend}
 
 \subsection{Firebase}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 Firebase ist ein BaaS, das uns Entwicklern eine erhebliche Menge an Stress abnimmt. Das Hosting von Datenbanken oder in unserem Fall Cloud-Funktionen funktioniert mit nur wenigen Klicks. Wir müssen uns keine Gedanken über Skalierung oder Ausfälle machen. Unser Firebase-Backend hosten wir auf der Google Cloud in Frankfurt (EUR3 Europe-West), um eine geringe Latenz zu gewährleisten. Zu Beginn haben wir den kostenlosen Plan "Spark" genutzt, was für uns ausreichend war, da wir noch nicht die Firebase-Cloud-Funktionen genutzt haben. Um Geld zu sparen, haben wir dann lange Zeit mit dem lokalen Firebase-Emulator an den Cloud-Funktionen gearbeitet. Im Januar 2023 sind wir dann auf den "Blaze"-Plan umgestiegen, um die Firebase-Cloud-Funktionen nutzen zu können. Bis zum Stand März 2022 haben wir nur wenige Euro für den Verbrauch gezahlt. Wir waren auch sehr beeindruckt von der exzellenten Dokumentation und den vielen Tutorials auf YouTube, die Firebase anbietet.
 
 
@@ -347,7 +347,7 @@ NoSQL-Database, Dokument-basierte Speicherung, Subcollections
 \author{Sandin Habibovic}
 Speicherung von Profilbilder und Post-Bilder
 \subsection{Firebase Cloud Functions}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 Firebase Cloud Functions sind eine großartige Möglichkeit,
 um Business-Logik abzubilden. Es handelt sich um serverlose
 Funktionen, die in JavaScript oder TypeScript geschrieben
@@ -366,7 +366,7 @@ bietet.
 
 
 \subsubsection{Regestrierung mit einen Verifizierungscode}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 
 Die Cloud-Funktion "checkVerificationCode" wird ausgeführt, wenn ein Nutzer sich mit einem Verifizierungscode registrieren möchte Wenn der Benutzer nicht authentifiziert ist, wird eine HttpsError ausgelöst. Dann wird der Verifizierungscode überprüft, um sicherzustellen, dass er die korrekte Formatierung hat. Wenn der Code ungültig ist, wird eine weitere HttpsError ausgelöst.
 
@@ -391,7 +391,7 @@ Verifizierung erfolgreich war.
 In jeder Phase der Funktion wird ein Logger verwendet, um Informationen über den Status der Funktion zu protokollieren.
 
 \subsubsection{Regestrierung mit Gerät Koordinaten}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 
 Die Cloud-Funktion "checkAddressWithDeviceLocation" erfordert eine authentifizierte Anfrage und
 erhält eine Adresse, eine Längen- und Breitengradkoordinate
@@ -411,7 +411,7 @@ erfolgreich abgeschlossen ist.
 In jeder Phase der Funktion wird ein Logger verwendet, um Informationen über den Status der Funktion zu protokollieren.
 
 \subsubsection{Verifizierungscode generieren}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 Die Cloud-Funktion "generateVerificationCode" definiert Konstanten
 für das Intervall zwischen der Generierung von Codes, die
 maximale Anzahl von Codes und die Reichweite in Metern.
@@ -439,7 +439,7 @@ Informationen über den Status der Funktion zu
 protokollieren.
 
 \subsubsection{Koordienaten von einer Adresse bestimmen}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 Ein wichtiger Teil für die Verifizierung ist, dass wir die Adresse des Nutzers in Koordinaten umwandeln, damit wir im Backend damit arbeiten können. Zunächst haben wir die Google Geocode API genutzt, allerdings kostet diese Geld. Wir haben eine bessere Option gefunden, die besser zu unseren Projekt-Philosophie passt: nämlich Nominatim, eine Open-Source-Geocoding-API für OpenStreetMap-Daten. Nominatim bietet eine kostenlose API für genau unser Problem an.
 
 Die Funktion \textbf{getOSMCoordinatesFromAddress} nutzt die Bibliothek \textbf{axios}, um eine Anfrage an die Nominatim-API zu senden. Die API wird genutzt, um Koordinaten für eine Adresse zu erhalten.
@@ -455,7 +455,7 @@ Wenn ein Ergebnis vorhanden ist, wird das erste Ergebnis (in der Variable \textb
 Schließlich gibt die Funktion die neuen Koordinaten als \textbf{GeoPoint}-Objekt zurück, das die Breiten- und Längengrade in Zahlen enthält.
 
 \subsubsection{Entferung von zwei Nutzern berechnen}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 Die Cloud-Funktion "getDistanceFromTwoUsers" berechnet die
 Entfernung zwischen zwei Benutzern. Die Funktion erwartet
 eine PostId und einen Authentifizierten bneutzer. Dann wird eine
@@ -479,7 +479,7 @@ ausgegeben.
 Schließlich gibt die Funktion die Entfernung zurück.
 
 \subsubsection{Entfernung von zwei geographischen Koordinaten berechnen}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 
 \begin{lstlisting}[language=Java,caption=getDistanceFromLatLonInMeters Funktion]
     export function getDistanceFromLatLonInMeters(
@@ -537,7 +537,7 @@ es sich um denselben Punkt handelt.
 Quelle: https://www.movable-type.co.uk/scripts/latlong.html
 
 \subsubsection{Bestimmung der nächstgelegenen Entfernung}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 
 Um die Privatsphäre der Nachbarn zu gewährleisten, benötigen wir eine Funktion, die uns den nächstgelegenen Abstand zu den Nachbarn gibt, ohne den genauen Abstand preiszugeben. Die Funktion heißt "getNearestDistance" und bekommt einen Meterwert als Parameter.
 
@@ -557,18 +557,18 @@ mit den Optionen aussieht.
 
 
 \subsubsection{Nachbarschaft von Nutzer bestimmen}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 Um unseren App-Nutzern ein besseres Verständnis für die Nachbarschaften zu geben, in denen ihre Nachbarn wohnen, zeigen wir bei jedem Benutzer die Nachbarschaft an, in der sie leben. Diese Information wird automatisch in der Datenbank gespeichert, wenn der Nutzer verifiziert wird. Um diese Funktion zu ermöglichen, verwenden wir die folgende Funktion, die die geografischen Koordinaten des Benutzers verwendet, um die entsprechende Nachbarschaft mithilfe der OpenStreetMap-API abzurufen:
 
 Die Funktion heißt "getOSMSuburbFromCoords" und nimmt zwei Parameter entgegen: "lat" für die geografische Breite und "lon" für die geografische Länge des Benutzers. Diese Funktion gibt eine Promise zurück, die eine Zeichenfolge (String) mit dem Namen der Nachbarschaft des Benutzers enthält. Die Funktion verwendet die "axios"-Bibliothek, um eine GET-Anfrage an die OpenStreetMap-API zu senden. Diese Anfrage enthält die geografischen Koordinaten des Benutzers und die gewünschte Zoomstufe (18), um die Nachbarschaft zu finden. Wenn die Anfrage erfolgreich ist, gibt die Funktion den Namen der Nachbarschaft zurück, der aus den Daten extrahiert wird, die von der API zurückgegeben werden. Wenn der Name der Nachbarschaft nicht verfügbar ist, gibt die Funktion den Namen der Stadt oder der Gemeinde zurück, in der sich der Benutzer befindet. Wenn auch diese Informationen nicht verfügbar sind, gibt die Funktion null zurück. Wenn bei der Anfrage ein Fehler auftritt, wird eine Fehlermeldung ausgelöst.
 
 \subsubsection{Verifizierungscode format überprüfen}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 Um die Laufzeit bei der Verifizierung von Cloud-Funktionen zu optimieren, ist es sinnvoll, am Anfang der Verifizierung eine Überprüfung durchzuführen, ob der Verifizierungscode das richtige Format hat. Dazu wird die Funktion \verb|verifyVerificationCode| genutzt werden, welche einen \verb|string| als Parameter erwartet und einen \verb|Boolean|-Wert zurückgibt. In der Funktion wird ein regulärer Ausdruck (Regex) definiert, um sicherzustellen, dass der Verifizierungscode den Anforderungen entspricht. Der Regex lautet \verb|/^[a-zA-Z0-9]{10}$/|, was bedeutet, dass der Code aus genau 10 alphanumerischen Zeichen bestehen muss. Mit der Methode \verb|test| wird der übergebene Code auf Übereinstimmung mit dem Regex geprüft und das Ergebnis als \verb|Boolean|-Wert zurückgegeben.
 
 
 \subsubsection{Verifizierungscode generator}
-\author{Martin Hausleitner}
+\setauthor{Martin Hausleitner}
 
 Die Funktion \texttt{generateRandomVerificationCode} erzeugt einen zufälligen Code mit einer Länge von 10 Zeichen, indem sie eine Kombination aus Groß- und Kleinbuchstaben des englischen Alphabets sowie Ziffern von 0 bis 9 verwendet. Dabei wird \texttt{Math.random()} zur Generierung einer Zufallszahl zwischen 0 und 1 genutzt und mit der Länge des Zeichenfolgen-Arrays multipliziert, um eine zufällige Position innerhalb des Arrays auszuwählen. Anschließend wird das ausgewählte Zeichen an das Ergebnis angehängt und dieser Schritt wird für jedes Zeichen wiederholt, bis eine Zeichenkette der Länge 10 generiert wurde.
 
