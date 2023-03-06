@@ -149,7 +149,7 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
 
 \subsection{Filter}
 \author{Sandin Habibovic}
-Der Filter bietet die Option die Beiträge nach bestimmten Kriterien zu filtern und die Suche nach bestimmten Beiträge zu vereinfachen. Der Filter unterteilt sich in einen Menüfilter und Hauptfilter. 
+Der Filter bietet die Option die Beiträge nach bestimmten Kriterien zu filtern und die Suche nach bestimmten Beiträge zu vereinfachen. Der Filter unterteilt sich in einen Menüfilter und Hauptfilter.
 Die Ansicht vom Menüfilter befindet sich direkt über den Beiträgen und ermöglicht eine schnelle Filterung nach einzig allein den Hauptkategorien.
 Die Ansicht vom Hauptfilter taucht erst nach dem Antippen vom Filtersymbol auf und beinhaltet eine größere Auswahl an Filteroptionen. Darunter zählt neben dem Filtern nach Hauptkategorien auch die zusätzliche Möglichkeit genauer nach Unterkategorien zu suchen. Außerdem besteht auch die Option die Beiträge nach Datum oder Likes zu sortieren oder die Beiträge aufsteigend oder absteigend zu ordnen. Die wichtigste Filterkomponente ist der Range-Slider, womit die Beiträge nach der Reichweite gefiltert werden können, da die Entfernung zum Nachbarn eine der wichtigsten Entscheidungsfaktoren zum Antworten auf einem Beitrag ist.
 
@@ -186,7 +186,7 @@ Benachrichtigungen dienen dazu die Nachbarn über mögliche Hilfsbereitstellunge
 
 \subsection{Einstellungen}
 \author{Sandin Habibovic}
-Die Einstellungssicht der Anwendung bietet eine Reihe an nützlichen Funktionen, die dem User mehr Kontrolle über sein Konto geben. 
+Die Einstellungssicht der Anwendung bietet eine Reihe an nützlichen Funktionen, die dem User mehr Kontrolle über sein Konto geben.
 Dazu gehört zu einem die Option, die Sprache der App umzustellen, um dem User zu ermöglichen, die Anwendung in der bevorzugten Sprache zu nutzen. Zum derzeitigen Stand kann die App sich in zwei Sprachen übersetzen lassen: Deutsch und Englisch.
 Darüber hinaus können Benutzer auch entscheiden, ob sie Benachrichtigungen erhalten möchten oder nicht, und diese Einstellungen jederzeit ein- oder ausschalten. Diese Einstellungen bieten den Benutzern eine höhere Privatsphäre und Personalisierungsmöglichkeiten, um die Anwendung besser an ihre individuellen Bedürfnisse anzupassen.
 Zu den weiteren Einstellungen gehört das Umändern der E-Mail oder des Passworts, um die Sicherheit des Kontos zu gewährleisten und unbefugten Zugriff zu verhindern.
@@ -279,10 +279,28 @@ allg.
 
 
 \subsubsection{Farben}
+Die Farbpalette einer Marke ist ein wichtiger Teil des UI-Designs und trägt dazu bei, ein einheitliches Erscheinungsbild zu schaffen. Bei der Gestaltung einer Nachbarschafts-App haben wir uns verschiedene Farbpaletten von anderen Apps angesehen und festgestellt, dass die meisten großen Apps grün gestaltet sind.
+
+Obwohl Grün oft mit Natur und Gemeinschaft in Verbindung gebracht wird, wollten wir uns von diesen etablierten Konventionen abheben. Wir haben uns für Orange entschieden, da es auffällig und ungewöhnlich ist und somit das Potenzial hat, unsere App von anderen Nachbarschafts-Apps zu unterscheiden.
+
+Darüber hinaus passt Orange gut zu unseren Werten, da es für
+Wärme, Freundschaft und Optimismus steht - Eigenschaften,
+die wir in unserer App fördern möchten. Wir hoffen, dass
+unsere Farbauswahl dazu beiträgt, dass unsere Nutzer sich in
+unserer App wohl und willkommen fühlen und die Farbe sich
+als wiedererkennbares Markenzeichen etabliert.
+
+
+
 \includegraphics[width=1\textwidth]{pics/colors.png}
 
-farben history
-warum orange
+Bevor wir uns für unseren finalen Farbton entschieden haben, haben wir eine Vielzahl von verschiedenen orangen Farbtönen für unseren Prototypen ausprobiert und sie dann für ein paar Tage beobachtet, um ein Gefühl für die Farbe zu bekommen.
+
+Schließlich haben wir uns für die endgültigen Farben entschieden, wie in der Abbildung dargestellt.
+
+Unsere Hauptcontainerfarbe für die meisten Ansichten ist Weiß, ebenso wie die Hintergrundfarbe der Posts. Allerdings mussten wir eine Farbe finden, die gut als Hintergrund passt. Hier haben wir ein helles Grau verwendet.
+
+Für unsere Textfarbpalette haben wir fast Schwarz verwendet. Dies wurde bewusst so gewählt, da Schwarz dadurch weicher wirkt. Um Untertitel weniger präsent zu gestalten, haben wir einen etwas helleren Grauton gewählt.
 \subsubsection{Icons}
 \includegraphics[width=1\textwidth]{pics/icons.png}
 In der Abbildung oben sind alle verwendeten Icons in unserer App zu sehen. Es war uns ein wichtiges Anliegen, die App mit so vielen Icons wie möglich auszustatten, um die Bedienung intuitiver und benutzerfreundlicher zu gestalten. Nachdem wir uns mehrere Icon-Packs angesehen hatten, haben wir uns hauptsächlich für die frei verfügbaren Remixicons entschieden. Uns war wichtig, ein eher unbekanntes Icon-Pack zu verwenden, um unsere App von anderen abzuheben und ihr ein einzigartiges Aussehen zu geben. Besonders das verspielte, runde Design hat uns gut gefallen. Ein weiterer großer Vorteil von Remixicons ist, dass es ein Flutter-Paket gibt, was die Implementierung in Flutter vereinfacht hat.
@@ -346,7 +364,7 @@ Firebase ist ein BaaS, das uns Entwicklern eine erhebliche Menge an Stress abnim
 
 \subsection{Firebase SDKs}
 \author{Sandin Habibovic}
-Firebase SDK ist eine Sammlung von Software Development Kits, die von Firebase bereitgestellt werden, um Cloud-basierte Anwendungen zu erstellen. 
+Firebase SDK ist eine Sammlung von Software Development Kits, die von Firebase bereitgestellt werden, um Cloud-basierte Anwendungen zu erstellen.
 Firebase SDK ist für eine Vielzahl von Programmiersprachen verfügbar, darunter JavaScript, Swift, Kotlin, Java und unter anderem Dart von Flutter.
 Die Firebase SDK bietet eine breite Palette von Funktionen, mit denen leistungsstarke Anwendungen erstellt werden können, darunter Authentifizierung, Cloud Messaging, Cloud Firestore, Realtime Database, Cloud Functions. Mit diesen Funktionen können schnell und einfach Funktionen wie Benutzerverwaltung, Datenverwaltung, Messaging und Benachrichtigungen in Anwendungen integriert werden. Außerdem gibt es zu Firebase SDK eine umfangreiche Dokumentation und Support-Tools.
 
