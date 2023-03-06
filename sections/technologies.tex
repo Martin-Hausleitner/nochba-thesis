@@ -1,20 +1,38 @@
 \setauthor{Martin Hausleitner}
 \section{Technologieevaluierung}
 
-Ein zentraler Aspekt jedes Projektbeginns ist die Evaluierung der Technologie. Wir haben uns bewusst viel Zeit genommen, um eine schnelle und unkomplizierte Entwicklung zu ermöglichen und später mögliche Bedauern zu vermeiden. Die Anforderungen für das Projekt umfassen die Erstellung von iOS- und Android-Apps sowie möglicherweise einer Web-App in Zukunft. Hinsichtlich des Backends ist für uns insbesondere die Unterstützung von Geopoints und Geo-Queries in der Datenbank von Bedeutung. Idealerweise sollte das System zudem eine integrierte Authentifizierungsfunktion aufweisen.
+Ein zentraler Aspekt jedes Projektbeginns ist die Evaluierung der Technologie. Wir haben uns bewusst viel Zeit genommen, um eine schnelle und unkomplizierte Entwicklung zu ermöglichen und später mögliche Bedauern zu vermeiden. Die Anforderungen für das Projekt umfassen:
 
+\begin{itemize}
+    \item Entwicklung von Apps für Android und iOS
+    \item Möglichkeit zur zukünftigen Veröffentlichung der Anwendung als Webapp
+    \item Unterstützung von Datenbankabfragen auf Grundlage von Geo-Koordinaten
+    \item Integrierte Authentifizierungs- und Autorisierungsschicht
+    \item Realtime-Datenbank, um Echtzeit-Chatrooms für Konversationen zu führen.
+\end{itemize}
 
 \subsection{Frontend}
 
-Im Bereich der Frontend-App-Entwicklung stehen verschiedene Möglichkeiten zur Verfügung, um eine App zu programmieren. Eine Option besteht darin, eine nativ programmierte iOS- oder Android-App zu erstellen. Allerdings haben wir uns als Team schnell gegen diese Option entschieden, da keiner von uns mit einer der Plattformen vertraut ist und dies zu einem erheblichen Mehraufwand führen würde. Dies würde bei einem kleinen Team von nur drei Personen zu viel Zeit in Anspruch nehmen. Ein Vorteil der nativen Programmierung besteht jedoch darin, dass man auf alle nativen APIs zugreifen kann und die Performance besser ist, da die Entwickler der App-Schnittstelle vom Hersteller des Betriebssystems stammen.
+Im Bereich der Frontend-App-Entwicklung stehen verschiedene Möglichkeiten zur Verfügung, um eine App zu programmieren:
+\begin{itemize}
+    \item Native Entwicklung für jede Plattform (iOS, Android, Web)
+    \item Nutzung eines Frameworks für plattformübergreifende Entwicklung von Apps
+\end{itemize}
 
-\includegraphics[width=0.75\textwidth]{pics/cross-platform-statisitics.png}
+Native Entwicklung für jede Plattform (iOS, Android, Web):
+Die native Entwicklung ist eine Möglichkeit, eine App speziell für eine bestimmte Plattform wie iOS, Android oder das Web zu entwickeln. Hierbei wird die App in der nativen Sprache der Plattform programmiert, d.h. in Swift für iOS, Java oder Kotlin für Android und HTML, CSS und JavaScript für das Web. Der Vorteil der nativen Entwicklung besteht darin, dass die App die native Funktionalität des Geräts vollständig nutzen und eine optimale Performance bieten kann. Entwickler können auf alle nativen APIs zugreifen und die Benutzeroberfläche der App kann besser an das jeweilige Betriebssystem angepasst werden. Allerdings erfordert die native Entwicklung spezialisierte Kenntnisse in den verschiedenen Plattformen und Programmiersprachen. Dies bedeutet, dass mehrere Entwickler benötigt werden und die Entwicklung teurer und zeitaufwändiger sein kann.
+
+Ein Framework für plattformübergreifende Entwicklung ermöglicht die Erstellung einer einzigen Codebasis, die auf verschiedenen Plattformen wie iOS, Android und dem Web ausgeführt werden kann. Ein solches Framework nutzt häufig eine gemeinsame Programmiersprache wie JavaScript und bietet eine Vielzahl von Bibliotheken und Tools, um die Entwicklung zu erleichtern. Das Framework ermöglicht es Entwicklern, schnell und effizient Apps zu erstellen, ohne sich mit den Unterschieden in den Plattformen und Programmiersprachen auseinandersetzen zu müssen. Ein weiterer Vorteil von Frameworks für plattformübergreifende Entwicklung besteht darin, dass sie eine schnellere Markteinführung ermöglichen und den Entwicklungsaufwand reduzieren können. Allerdings kann die Verwendung eines Frameworks die Performance beeinträchtigen, da es schwierig sein kann, die App für jede Plattform zu optimieren.
+
+Wir haben schnell beschlossen, dass wir diese Sache nicht mit nativer Programmierung angehen werden. Keiner in unserem Team ist mit einer der Plattformen vertraut, was zu einem doppelten Arbeitsaufwand führen würde. Für ein kleines Team von nur drei Personen wäre dies zeitlich einfach zu aufwendig.
+
+\includegraphics[width=1\textwidth]{pics/cross-platform-statisitics.png}
 
 https://www.statista.com/statistics/869224/worldwide-software-developer-working-hours/
 
 Um eine effektive und plattformübergreifende Entwicklung zu gewährleisten, haben wir uns dazu entschieden, ein Cross-Platform-Framework zu verwenden. Wir haben die Statistik darüber betrachtet, welche Plattformen am meisten genutzt werden und dabei festgestellt, dass Flutter mit 42 Prozent das meistgenutzte Framework ist und die Tendenz steigend ist. Auf Platz 2 liegt React Native, das fast genauso beliebt ist.
 
-\includegraphics[width=0.75\textwidth]{pics/temp-table.png}
+\includegraphics[width=1\textwidth]{pics/temp-table.png}
 
 % |  | Flutter | React Native | Cordova | Ionic | Xamarin |
 % | --- | --- | --- | --- | --- | --- |
@@ -42,7 +60,7 @@ Quellen:
 
 [https://market.ionicframework.com/plugins](https://market.ionicframework.com/plugins)
 
-In der Vergleichstabelle haben wir die wichtigsten Informationen zu den verschiedenen Frameworks zusammengefasst. Dabei haben wir festgestellt, dass alle Plattformen unsere Anforderungen erfüllen. Xamarin hat für uns als Team, das seit Jahren C Sharp programmiert, ein gewisses Interesse geweckt. Allerdings hat Dart eine ähnliche Syntax wie C Sharp, weshalb es für uns als Team auch eine geeignete Option darstellt.
+In der Vergleichstabelle haben wir die wichtigsten Informationen zu den verschiedenen Frameworks zusammengefasst. Dabei haben wir festgestellt, dass alle Plattformen unsere Anforderungen erfüllen. Xamarin hat für uns als Team, das seit Jahren C\# programmiert, ein gewisses Interesse geweckt. Allerdings hat Dart eine ähnliche Syntax wie C\#, weshalb es für uns als Team auch eine geeignete Option darstellt.
 
 Flutter hat als UI-Widget-Library sowohl Material Design 2 und 3 als auch eine iOS Library, die das native iOS-Design 1:1 abbildet. Dadurch kann der Nutzer den Unterschied zwischen nativen und Flutter-Designs kaum erkennen. Xamarin hat ebenfalls eine UI-Library namens Xamarin.Forms, die auf allen Plattformen funktioniert und native UI-Libraries für jede Plattform enthält.
 
@@ -149,7 +167,7 @@ Daher blieben Appwrite und Firebase als die beiden besten Optionen übrig. Obwoh
 % Insgesamt bietet Firebase aufgrund der umfangreichen Features und der einfacheren Integration mit anderen Google-Tools Vorteile gegenüber Appwrite.
 
 
-\section{Fazit}
+\section{Technologie entscheidung}
 Die Kombination aus Flutter und Firebase hat uns am meisten überzeugt, da sie gut harmonieren. Flutter ist ein schnelles Framework mit einer breiten Palette an Erweiterungen für mobile Anwendungen und verfügt über eine starke Community. Der Trend geht in die Richtung, dass Flutter Marktführer wird, was uns ein gutes Gefühl bezüglich unserer Entscheidung gibt. Zu Beginn gab es jedoch Zweifel bei der Arbeit mit Flutter, da es aufgrund der vielen Klammern schnell unübersichtlich wurde. Dank der super VS Code-Integration mit einem Reformat-Feature, das das Klammernproblem löst, konnten wir diese Herausforderung meistern. Auch nach einem Jahr Entwicklung mit Flutter sind wir immer noch beeindruckt davon, wie einfach es ist, Features zu implementieren und wie straight-forward die Entwicklung ist. Der Syntax von Dart, der Programmiersprache hinter Flutter, ist schnell erlernbar und ermöglicht es uns, schnell viele Programmierpatterns zu beherrschen.
 
 Firebase hat sich ebenfalls als sehr gute Entscheidung herausgestellt, da die Entwicklung schnell und einfach ist. Ein großer Vorteil ist, dass wir uns keine Sorgen um das Skalieren machen mussten. Mit den Features ist Firebase nach wie vor die Nr. 1. Allerdings gibt es zwei große Nachteile, die unsere Backend-Entscheidung aktuell ändern würden. Die Firestore-Datenbank bietet keine Suchfunktion, weshalb wir Algolia genutzt haben. Einerseits bietet Algolia viele fortgeschrittene Suchfunktionen, die andere Datenbank-Suchmaschinen nicht haben. Allerdings ist es keine perfekte Lösung. In unserer Diplomarbeit ist auch das Thema Transparenz und Open Source von großer Bedeutung. Firebase schränkt uns hierbei ein, da es Closed Source ist. Daher würden wir nach aktuellem Standpunkt Supabase nutzen, da es mittlerweile auch Cloud Functions bietet und Open Source ist. Supabase verwendet zudem PostgreSQL, das eine Suchfunktion schon integriert hat.
