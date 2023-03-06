@@ -77,8 +77,7 @@ allg.
 
 \subsection{Feed}
 \author{Sandin Habibovic}
-foto
-aufbau
+Die Feed-Page ist die erste und wichtigste Anzeige auf der App. Hier werden alle aktuellen Beiträge und Updates von der Nachbarschaft angezeigt.
 
 \subsection{Beiträge}
 \author{Sandin Habibovic}
@@ -150,9 +149,9 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
 
 \subsection{Filter}
 \author{Sandin Habibovic}
-Filtern nach Kategorien
-Ordnen nach Likes oder Datum
-Absteigend oder aufsteigend sortieren
+Der Filter bietet die Option die Beiträge nach bestimmten Kriterien zu filtern und die Suche nach bestimmten Beiträge zu vereinfachen. Der Filter unterteilt sich in einen Menüfilter und Hauptfilter. 
+Die Ansicht vom Menüfilter befindet sich direkt über den Beiträgen und ermöglicht eine schnelle Filterung nach einzig allein den Hauptkategorien.
+Die Ansicht vom Hauptfilter taucht erst nach dem Antippen vom Filtersymbol auf und beinhaltet eine größere Auswahl an Filteroptionen. Darunter zählt neben dem Filtern nach Hauptkategorien auch die zusätzliche Möglichkeit genauer nach Unterkategorien zu suchen. Außerdem besteht auch die Option die Beiträge nach Datum oder Likes zu sortieren oder die Beiträge aufsteigend oder absteigend zu ordnen. Die wichtigste Filterkomponente ist der Range-Slider, womit die Beiträge nach der Reichweite gefiltert werden können, da die Entfernung zum Nachbarn eine der wichtigsten Entscheidungsfaktoren zum Antworten auf einem Beitrag ist.
 
 \subsection{Suche}
 \subsection{Typesense}
@@ -169,19 +168,30 @@ package genommen warum
 
 \subsection{Profil}
 \author{Sandin Habibovic}
-Was wird angezeigt?
-Name, User Public Info, Posts von User
+Die Profilanzeige ist die öffentliche Informationsstelle über den User. In dieser Anzeige werden als erster Eindruck der Name und das Profilbild vom User angezeigt. Genauere Informationen über den User können im Bereich Nutzerinfo gefunden werden. Darunter zählen:
+\begin{compactitem}
+  \item Geburtstag
+  \item Beruf
+  \item Bio
+\end{compactitem}
+Außerdem beinhaltet die Anzeige eine eigene Beitragssicht, wo alle Beiträge vom jeweiligen User eingesehen werden können.
 
 \subsubsection{Profil Melden}
 \author{Sandin Habibovic}
+Falls das Profil vom User unangebrachten Inhalt aufweist, besteht die Möglichkeit das Profil zu melden.
 
 \subsection{Benachrichtigungen}
 \author{Sandin Habibovic}
-Grund und Funktionsweise von Benachrichtigungen
-diagram beschreibung
+Benachrichtigungen dienen dazu die Nachbarn über mögliche Hilfsbereitstellungen zu informieren, bevor der Kontakt überhaupt entsteht. Die Benachrichtigung zeigt den Nachbarn an, der in Kontakt treten möchte, und möglicherweise den Beitrag auf dem geantwortet wurde. Außerdem ist die Benachrichtigung mit einem „Annehmen“- und „Ablehnen“- Button ausgestattet, womit das Hilfsangebot angenommen oder abgelehnt werden kann.
+
 \subsection{Einstellungen}
 \author{Sandin Habibovic}
-Email/Passwort ändern, Konto löschen, Sprache einstellen, Benachrichtigungen ein/ausschalten
+Die Einstellungssicht der Anwendung bietet eine Reihe an nützlichen Funktionen, die dem User mehr Kontrolle über sein Konto geben. 
+Dazu gehört zu einem die Option, die Sprache der App umzustellen, um dem User zu ermöglichen, die Anwendung in der bevorzugten Sprache zu nutzen. Zum derzeitigen Stand kann die App sich in zwei Sprachen übersetzen lassen: Deutsch und Englisch.
+Darüber hinaus können Benutzer auch entscheiden, ob sie Benachrichtigungen erhalten möchten oder nicht, und diese Einstellungen jederzeit ein- oder ausschalten. Diese Einstellungen bieten den Benutzern eine höhere Privatsphäre und Personalisierungsmöglichkeiten, um die Anwendung besser an ihre individuellen Bedürfnisse anzupassen.
+Zu den weiteren Einstellungen gehört das Umändern der E-Mail oder des Passworts, um die Sicherheit des Kontos zu gewährleisten und unbefugten Zugriff zu verhindern.
+Die letzte Funktion in der Einstellungssicht ist das Löschen des eigenen Kontos, womit alle Daten des Users gelöscht werden. Vor dem endgültigen Löschen des Kontos wird der User allerdings aufgefordert, seine Entscheidung zu bestätigen.
+
 \subsection{Feedback}
 \setauthor{Martin Hausleitner}
 feedback feature beschreiben
@@ -336,7 +346,9 @@ Firebase ist ein BaaS, das uns Entwicklern eine erhebliche Menge an Stress abnim
 
 \subsection{Firebase SDKs}
 \author{Sandin Habibovic}
-Firebase-Tools
+Firebase SDK ist eine Sammlung von Software Development Kits, die von Firebase bereitgestellt werden, um Cloud-basierte Anwendungen zu erstellen. 
+Firebase SDK ist für eine Vielzahl von Programmiersprachen verfügbar, darunter JavaScript, Swift, Kotlin, Java und unter anderem Dart von Flutter.
+Die Firebase SDK bietet eine breite Palette von Funktionen, mit denen leistungsstarke Anwendungen erstellt werden können, darunter Authentifizierung, Cloud Messaging, Cloud Firestore, Realtime Database, Cloud Functions. Mit diesen Funktionen können schnell und einfach Funktionen wie Benutzerverwaltung, Datenverwaltung, Messaging und Benachrichtigungen in Anwendungen integriert werden. Außerdem gibt es zu Firebase SDK eine umfangreiche Dokumentation und Support-Tools.
 
 \subsection{Firebase Authentication}
 \author{Sandin Habibovic}
