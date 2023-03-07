@@ -349,15 +349,83 @@ Wir haben bewusst eine runde, verspieltere Schriftart gewählt, da sie besser mi
 Wir haben versucht, das Thumb Zone Prinzip in unserem Design-Muster zu implementieren, indem wir wichtige UI-Elemente immer im unteren Bereich der App platziert haben. Wenn man die Abbildung betrachtet, kann man deutlich erkennen, dass wir das Layout für die Namensbearbeitung extra unten platziert haben, um alle Klick-Elemente bequem mit dem Daumen bedienen zu können. Wir haben auch alle wichtigen Buttons wie "Speichern" in unserer primären Farbe gestaltet und rechts ausgerichtet, um einen leichteren Zugriff zu gewährleisten. Außerdem haben wir es bei unserer App so implementiert, dass man das Textfeld nicht durch Klicken ändern muss, sondern einfach die Enter-Taste auf der Tastatur drücken kann, um das Eintippen von Daten zu erleichtern. Unwichtige Buttons haben wir in grau gestaltet, wie z.B. den X-Button in der Abbildung. Ein kleines, aber nützliches Feature, das wir eingebaut haben, ist der Löschen-Button neben dem Textfeld, der es dem Benutzer ermöglicht, den gesamten Text bequem zu löschen. Leider ist uns gegen Ende die Zeit ausgegangen, um diese Prinzipien vollständig umzusetzen. In zukünftigen Versionen der App möchten wir sicherstellen, dass diese Prinzipien einheitlich angewendet werden.
 \subsubsection{Design Historie}
 
-\includegraphics[width=0.95\textwidth]{pics/app-design-history.png}
-
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{pics/app-design-history.png}
+  \caption{Screenshots verschiedener Versionen des App-Home-Screen}
+  \label{fig:app-design-history}
+  \end{figure}
 eingehen mit fotos und beschreibung auf die haupt screens der app
+\section{Website}
+\setauthor{Martin Hausleitner}
+\begin{figure}[h]
+  % \centering
+  \includegraphics[width=1\textwidth]{pics/website-design.png}
+  \caption{Screenshot der Nochba Website: nochba.at}
+\end{figure}
 
-\subsection{Websiten Design}
-\includegraphics[width=1\textwidth]{pics/website-design.png}
+Aufgrund der Medienpräsenz, die unser Projekt durch unsere Teilnahme an Linz hACkT erfahren hat und der Tatsache, dass wir keinen zentralen Anlaufpunkt für Informationen hatten, haben wir uns dazu entschlossen, eine schlichte Landing Page mit grundlegenden Informationen unter \href{https://nochba.at}{nochba.at} zu gestalten.
+
+Unsere Teilnahme an dem mPreneur Social Mobile Entrepreneurship von Arsham Edalatkhah hat uns zu einer internationalen Aufmerksamkeit verholfen. Dies hat uns dazu bewogen, eine englischsprachige Website unter \href{https://nochba.com}{nochba.com} zu erstellen, um unsere Arbeit einem breiteren Publikum zugänglich zu machen und unsere Reichweite zu erhöhen.
 
 
-Da unser Projekt aufgrund unserer Teilnahme an Linz hackt in den Medien präsent war und wir keinen zentralen Anlaufpunkt für Informationen hatten, haben wir uns entschlossen, eine schlichte Landing Page mit grundlegenden Informationen zu gestalten. Das wichtigste Feature unserer Website ist die Möglichkeit für Nutzer, sich für die Testphase zu registrieren. Bei der Gestaltung der Landing Page ließ ich mich von den Vorlagen von Framer inspirieren und nutzte hauptsächlich fertige Abschnitte. Wir hielten uns an unsere Farbpalette und achteten darauf, dass die Webseite möglichst einfach gestaltet ist. Ursprünglich hatten wir nicht geplant, eine Website für unser Projekt zu erstellen.
+\subsection{Beta-tester anmeldung}
+Das wichtigste Merkmal der Website ist die Option für Nutzer, sich für die Testphase zu registrieren. Ursprünglich wurde versucht, die E-Mail-Adressen der Nutzer über die Google Sheets API zu speichern. Allerdings erwies sich dieser Ansatz als ineffektiv und dauerte mehrere Stunden. Als Alternative wurde das Framer-Add-On von Mailchimp.com genutzt, um Zeit zu sparen. Der kostenlose Plan von Mailchimp war für die Bedürfnisse ausreichend. Stand 7.3.2023 wurden 34 Beta-Anmeldungen über das Formularfeld gesammelt.
+
+
+\subsection{Design}
+Für die Gestaltung der Landing Page ließ sich der Designer
+von den Vorlagen von Framer inspirieren und nutzte
+vorgefertigte Abschnitte. Diese wurden jedoch so
+modifiziert, dass sie dem Designsysten gerecht werden. Die
+Farbpalette wurde beibehalten und es wurde darauf geachtet,
+dass die Website möglichst einfach gestaltet ist.
+
+\subsection{Kontent}
+Auf der Website sind folgende Informationen abgebildet:
+\begin{itemize}
+  \item Zeitungsartikel
+        \begin{itemize}
+          \item \href{https://www.meinbezirk.at/linz/c-wirtschaft/linzer-nachwuchs-hacker-beweisen-sich-in-nordmazedonien_a5654095}{Mein Bezirk}
+          \item \href{https://www.linz.at/medienservice/2022/202203_114704.php}{Linz}
+          \item \href{https://www.nachrichten.at/oberoesterreich/linz/von-linz-nach-nordmazedonien;art66,3728292}{OÖNachrichten}
+          \item \href{https://jugendhackt.org/video/nochba/}{DorfTV}
+          \item Kronen Zeitung (nur auf Papier)
+        \end{itemize}
+  \item Unsere Mission
+  \item Beitrag Kategorien
+  \item Auszeichnungen
+        \begin{itemize}
+          \item Immotopia Innovation Award
+          \item mPreneur Austria
+          \item Linz hACkt
+        \end{itemize}
+  \item Features der App
+  \item Partner der Diplomarbeit
+  \item Über uns
+  \item Links
+        \begin{itemize}
+          \item \href{https://github.com/Martin-Hausleitner/Nochba}{Github Repo}
+          \item \href{https://www.instagram.com/nochba.at/}{Instagram}
+          \item Email \href{mailto:project@nochba.com}{project@nochba.com}
+        \end{itemize}
+\end{itemize}
+
+
+\subsection{Hosting}
+Die Website wurde mithilfe von \href{https://framer.com}{Framer} erstellt und auf deren
+Hosting-Plattform gehostet. Um die Domain-Namen zu nutzen,
+die über GoDaddy (nochba.at und nochba.com) gekauft wurden, wurde eine Weiterleitung
+mit Maskierung auf die entsprechende Framer-URL
+eingerichtet. Durch diese Maßnahme wurde im Browser bei der
+URL die gekaufte Domain angezeigt.
+
+\subsubsection{SSL-Zertifikat}
+Leider hat die Website derzeit kein SSL-Zertifikat, da durch
+die Maskierung das Framer SSL-Zertifikat verloren geht.
+Allerdings wird die Website im Browser nicht als bedrohlich
+angezeigt, weshalb wir uns entschieden haben, kein
+SSL-Zertifikat zu erstellen, um den Aufwand zu minimieren.
 
 \section{Backend}
 
