@@ -306,47 +306,133 @@ Unsere Hauptcontainerfarbe für die meisten Ansichten ist Weiß, ebenso wie die 
 
 Für unsere Textfarbpalette haben wir fast Schwarz verwendet. Dies wurde bewusst so gewählt, da Schwarz dadurch weicher wirkt. Um Untertitel weniger präsent zu gestalten, haben wir einen etwas helleren Grauton gewählt.
 \subsubsection{Icons}
-\includegraphics[width=1\textwidth]{pics/icons.png}
-In der Abbildung oben sind alle verwendeten Icons in unserer App zu sehen. Es war uns ein wichtiges Anliegen, die App mit so vielen Icons wie möglich auszustatten, um die Bedienung intuitiver und benutzerfreundlicher zu gestalten. Nachdem wir uns mehrere Icon-Packs angesehen hatten, haben wir uns hauptsächlich für die frei verfügbaren Remixicons entschieden. Uns war wichtig, ein eher unbekanntes Icon-Pack zu verwenden, um unsere App von anderen abzuheben und ihr ein einzigartiges Aussehen zu geben. Besonders das verspielte, runde Design hat uns gut gefallen. Ein weiterer großer Vorteil von Remixicons ist, dass es ein Flutter-Paket gibt, was die Implementierung in Flutter vereinfacht hat.
 
-Obwohl Remixicons über 2.271 Icons verfügt, haben uns bei einigen Icons die Material Icons von Google besser gefallen. Daher haben wir einige Icons von Google Material Icons verwendet, insbesondere die abgerundeten Icons, um das Design insgesamt nicht zu hart erscheinen zu lassen. Als ich kein passendes Icon finden konnte, um den Abstand zwischen zwei Nachbarn zu symbolisieren, habe ich mich selbst daran gesetzt, ein passendes Icon im Stil der anderen zu entwerfen.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=1\textwidth]{pics/icons.png}
+  \caption{App Icons}
+  \label{fig:app-icons}
+\end{figure}
+
+Die obige Abbildung \ref{fig:app-icons} zeigt alle Icons,
+die in einer App verwendet werden. Das Ziel war es, eine
+möglichst große Anzahl von Icons zu integrieren, um die
+Benutzerfreundlichkeit und Bedienbarkeit der App zu
+verbessern. Nachdem verschiedene Icon-Packs betrachtet
+wurden, wurde hauptsächlich das frei verfügbare
+\href{https://github.com/Remix-Design/remixicon}{Remixicon}-Pack
+verwendet, um der App ein einzigartiges Aussehen zu
+verleihen und sie von anderen Apps abzuheben. Das runde
+Design der Icons wurde besonders geschätzt. Ein weiterer
+Vorteil von Remixicons ist, dass es ein
+\href{https://pub.dev/packages/remixicon}{Flutter-Package}
+gibt, was
+die Implementierung erleichtert hat.
+
+Obwohl Remixicons viele Icons zur Verfügung stellt, wurden
+bei einigen Icons die
+\href{https://fonts.google.com/icons?icon.set=Material+Icons}{Material Icons}
+von Google bevorzugt.
+Insbesondere die abgerundeten Icons wurden verwendet, um das
+Design insgesamt weicher zu gestalten. Da kein passendes
+Icon vorhanden war, um den Abstand zwischen zwei Nachbarn zu
+symbolisieren, wurde ein neues Icon im Stil der anderen
+entworfen.
+
 \subsubsection{Fonts}
 fotos von fonts
 welche fonts
 wie ist due typrographie aufgebaut
 \subsubsection{Logo}
 
-\includegraphics[width=0.95\textwidth]{pics/final-logo.png}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.95\textwidth]{pics/final-logo.png}
+  \caption{Finales Logo}
+  \label{fig:final-logo}
+\end{figure}
 
 % \includegraphics[width=0.35\textwidth]{pics/app-logo.png}
 
 % überschrift logo historie
 \paragraph{Logo Historie}
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.95\textwidth]{pics/logo-historie.png}
+  \caption{Logo Design Ideen}
+  \label{fig:logo-historie}
+\end{figure}
+
+Im Zuge des Designprozesses wurden hohe Ansprüche an das
+Logo der App gestellt, da es das Projekt repräsentiert und
+es dem Team wichtig ist. Es
+war wichtig, dass das Logo einfach gehalten und leicht
+erkennbar ist. Die endgültige Gestaltung des Logos hat viel Zeit
+in Anspruch genommen, da die vorherigen Entwürfe nicht
+vollständig zufriedenstellten die man bei Abbildung
+\ref{fig:logo-historie} sieht. Nach anderen Logos, die eine
+Verbindung zu Nachbarschaften oder Häusern herstellen, wurde
+gezielt gesucht und Ideen auf dem Discord-Server
+gespeichert. Es sollte immer ein Haus erkennbar sein, da
+Häuser schnell mit Nachbarschaften in Verbindung gebracht
+werden.
+
+In den früheren Versionen der App gab es Schwierigkeiten,
+ein ansprechendes App-Icon zu gestalten, da kein
+eigenständiges Icon vorhanden war. Aus diesem Grund wurde
+entschieden, den Schriftzug und das App-Icon (Logo) separat
+zu gestalten, wie es auch bei anderen Apps üblich ist. Das
+endgültige Logo wurde erst Ende 2022 entworfen, da alle
+anderen Designs nicht gefielen. Es wurde ein Haus mit einer
+sprechenden Sprechblase, die lächelt, als Logo
+wie bei Abbildung \ref{fig:final-logo} zu sehen ist gewählt. Dies soll symbolisieren, dass
+man innerhalb des Hauses sprechen kann und das Lächeln soll
+verdeutlichen, dass man Freude mit seinen Nachbarn teilen
+kann. Eine runde, verspieltere Schriftart wurde bewusst
+gewählt, da sie besser mit der Farbmischung harmoniert als
+die vorherige Schriftart.
 
 
-\includegraphics[width=0.95\textwidth]{pics/logo-historie.png}
 
-
-
-Im Zuge des Designprozesses haben wir hohe Ansprüche an das
-Logo unserer App gestellt, da das logo unser Projekt repräsentiert. Es war uns wichtig, dass es einfach gehalten
-und leicht erkennbar ist. Wir haben uns Zeit gelassen, um
-den endgültigen Entwurf des Logos zu finalisieren, da uns
-die vorherigen Entwürfe nicht vollständig zufrieden
-stellten. Ich habe gezielt nach anderen Logos gesucht, die
-eine Verbindung zu Nachbarschaften oder Häusern herstellen
-und Ideen auf unserem Discord-Server gespeichert. Es sollte
-immer ein Haus erkennbar sein, da Häuser schnell mit
-Nachbarschaften in Verbindung gebracht werden.
-
-In den früheren Versionen der App hatte ich Schwierigkeiten, ein ansprechendes App-Icon zu gestalten, da ich kein eigenständiges Icon hatte. Aus diesem Grund habe ich mich dazu entschlossen, den Schriftzug und das App-Icon (Logo) separat zu gestalten, wie es auch bei anderen Apps üblich ist. Das endgültige Logo habe ich dann erst Ende 2022 entworfen, da mir alle anderen Designs nicht gefielen. Es ist ein Haus mit einer sprechenden Sprechblase, die lächelt, geworden. Dies soll symbolisieren, dass man innerhalb des Hauses sprechen kann und das Lächeln soll verdeutlichen, dass man Freude mit seinen Nachbarn teilen kann. Generell hat ein Lächeln immer eine positive Wirkung auf den Betrachter und es verdeutlicht, dass es sich bei unserer App um eine Anwendung für den Austausch unter Menschen handelt.
-
-Wir haben bewusst eine runde, verspieltere Schriftart gewählt, da sie besser mit der Farbmischung harmoniert als die vorherige Schriftart.
 \subsection{App Design}
 \subsubsection{Thumb Zone Prinzip}
-\includegraphics[width=0.3\textwidth]{pics/edit-name-screen.png}
-Wir haben versucht, das Thumb Zone Prinzip in unserem Design-Muster zu implementieren, indem wir wichtige UI-Elemente immer im unteren Bereich der App platziert haben. Wenn man die Abbildung betrachtet, kann man deutlich erkennen, dass wir das Layout für die Namensbearbeitung extra unten platziert haben, um alle Klick-Elemente bequem mit dem Daumen bedienen zu können. Wir haben auch alle wichtigen Buttons wie "Speichern" in unserer primären Farbe gestaltet und rechts ausgerichtet, um einen leichteren Zugriff zu gewährleisten. Außerdem haben wir es bei unserer App so implementiert, dass man das Textfeld nicht durch Klicken ändern muss, sondern einfach die Enter-Taste auf der Tastatur drücken kann, um das Eintippen von Daten zu erleichtern. Unwichtige Buttons haben wir in grau gestaltet, wie z.B. den X-Button in der Abbildung. Ein kleines, aber nützliches Feature, das wir eingebaut haben, ist der Löschen-Button neben dem Textfeld, der es dem Benutzer ermöglicht, den gesamten Text bequem zu löschen. Leider ist uns gegen Ende die Zeit ausgegangen, um diese Prinzipien vollständig umzusetzen. In zukünftigen Versionen der App möchten wir sicherstellen, dass diese Prinzipien einheitlich angewendet werden.
+\begin{figure}[h]
+  \centering
+  \begin{minipage}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{pics/edit-name-screen.png}
+    \caption{Screenshot des "Name bearbeiten"-Screens}
+    \label{fig:edit-name-screen}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{pics/post-more-menu.png}
+    \caption{Screenshot des "Mehr"-Menüs für Beiträge}
+    \label{fig:post-more-menu}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{pics/post-report-menu.png}
+    \caption{Screenshot des "Beitrag melden"-Menüs}
+    \label{fig:post-report-menu}
+  \end{minipage}
+\end{figure}
+Im Design-Muster wurde versucht, das Thumb Zone Prinzip zu
+implementieren, indem wichtige UI-Elemente immer im unteren
+Bereich der App platziert wurden. Das Layout für die
+Namensbearbeitung \ref{fig:edit-name-screen} wurde extra
+unten platziert, um alle Klick-Elemente bequem mit dem
+Daumen bedienen zu können. Wichtige Buttons wie "Speichern"
+wurden in der primären Farbe gestaltet und rechts
+ausgerichtet, um einen leichteren Zugriff zu gewährleisten.
+Das Textfeld kann einfach durch Drücken der Enter-Taste auf
+der Tastatur geändert werden, um das Eintippen von Daten zu
+erleichtern.
+
+Wie bei Abbildung \ref{fig:post-more-menu} \ref{fig:post-report-menu} zu sehen ist, erfolgt eine weitere Implementierung einer Bottom View, um dem Thumb Zone Prinzip gerecht zu werden.
+
+Unwichtige Buttons wurden in grau gestaltet, wie z.B. der X-Button in der Abbildung. Ein Löschen-Button neben dem Textfeld wurde eingebaut, der es dem Benutzer ermöglicht, den gesamten Text bequem zu löschen. Jedoch war es nicht möglich, diese Prinzipien vollständig umzusetzen, da die Zeit gegen Ende knapp wurde. In zukünftigen Versionen der App soll sichergestellt werden, dass diese Prinzipien einheitlich angewendet werden.
 \subsubsection{Design Historie}
 
 \begin{figure}[h]
@@ -357,10 +443,19 @@ Wir haben versucht, das Thumb Zone Prinzip in unserem Design-Muster zu implement
 \end{figure}
 Im Rahmen des Hackathons Linz haCKt wurde das erste Design in Abbildung \ref{fig:app-design-history} ganz links erstellt. Hierbei wurden mehrere Brainstorming-Meetings mit Mentoren abgehalten, um ein Grundkonzept in Adobe XD zu gestalten. Anschließend wurden die groben Züge des Designs in Absprache mit dem Team festgelegt. Ein funktionsfähiger Prototyp wurde in Framer erstellt und am Tag der Endpräsentationen vorgestellt und verlinkt. Nach Linz haCKt wurde das zweite Design in Framer entwickelt.
 
-Zwischen dem zweiten Framer-Design\ref{fig:app-design-history} und dem ersten Adobe XD-Design\ref{fig:app-design-history} wurde bewusst kein Abstand am Rand eines Beitrags gehalten, um den vollen Handy-Display auszunutzen. Der Filter-Button wurde mit der Suchleiste verbunden, um das Design stimmiger zu gestalten. Bei den Profilinformationen wurde auf Icons umgestellt, um es für neue Nutzer verständlicher zu machen. Diese Entscheidung wurde kurzzeitig verworfen, jedoch später in der Flutter-App wieder eingebaut.
+Zwischen dem zweiten Framer-Design
+\ref{fig:app-design-history} und dem ersten Adobe XD-Design
+\ref{fig:app-design-history} wurde bewusst kein Abstand am
+Rand eines Beitrags gehalten, um den vollen Handy-Display
+auszunutzen. Der Filter-Button wurde mit der Suchleiste
+verbunden, um das Design stimmiger zu gestalten. Bei den
+Profilinformationen wurde auf Icons umgestellt, um es für
+neue Nutzer verständlicher zu machen. Diese Entscheidung
+wurde kurzzeitig verworfen, jedoch später in der Flutter-App
+wieder eingebaut.
 
 Wie man erkennen kann, wurde für das Finale Adobe
-XD-Design\ref{fig:app-design-history} eine orangene Farbe für die Kapitelfarben
+XD-Design \ref{fig:app-design-history} eine orangene Farbe für die Kapitelfarben
 gewählt. Der letzte Screenshot zeigt die Flutter-App, wie
 sie im Play Store erhältlich ist. Die größte Änderung
 gegenüber dem vorherigen Design betrifft den Hintergrund
