@@ -588,120 +588,63 @@ sparen, da nur die Prozessorlaufzeit bezahlt werden muss.
 Firebase Cloud Functions ermöglichen es Entwicklern, auf verschiedene Ereignisse in Firebase-Produkten zu reagieren. Zum Beispiel, wenn sich Daten in der Firestore-Datenbank ändern oder ein neuer Nutzer in Firebase Authentication registriert wird. Wenn ein solches Ereignis eintritt, wird die entsprechende Cloud Function automatisch ausgeführt.
 
 Wir haben alle Cloud Functions in TypeScript programmiert,
-da TypeScript Typsicherheit und erweiterte Fehlererkennung
+da es Typsicherheit und erweiterte Fehlererkennung
 bietet.
 
 
 \subsubsection{Regestrierung mit einen Verifizierungscode}
 \setauthor{Martin Hausleitner}
 
-Die Cloud-Funktion "checkVerificationCode" wird ausgeführt, wenn ein Nutzer sich mit einem Verifizierungscode registrieren möchte Wenn der Benutzer nicht authentifiziert ist, wird eine HttpsError ausgelöst. Dann wird der Verifizierungscode überprüft, um sicherzustellen, dass er die korrekte Formatierung hat. Wenn der Code ungültig ist, wird eine weitere HttpsError ausgelöst.
+Die Cloud-Funktion \texttt{checkVerificationCode} wird ausgeführt, wenn ein Nutzer sich mit einem Verifizierungscode registrieren möchte. Wenn der Benutzer nicht authentifiziert ist, wird eine \texttt{HttpsError} ausgelöst. Dann wird der Verifizierungscode überprüft, um sicherzustellen, dass er die korrekte Formatierung hat. Wenn der Code ungültig ist, wird eine weitere \texttt{HttpsError} ausgelöst.
 
-Als Nächstes wird der Verifizierungscode mit der Datenbank
-abgeglichen, um sicherzustellen, dass er aktiv und noch
-nicht zu oft verwendet wurde. Wenn der Code erfolgreich
-validiert wird, wird die Adresse des Benutzers abgerufen und
-deren Koordinaten mithilfe von einer API call
-anOpenStreetMap mit der Funktion "getOSMCoordinatesFromAddress"
-ermittelt. Dann wird die Entfernung zwischen der Adresse des
-Benutzers und der Adresse, die dem Verifizierungscode
-zugeordnet ist, berechnet mit der Funktion "getDistanceFromLatLonInMeters". Wenn die Entfernung nicht
-innerhalb des zulässigen Bereichs liegt, wird eine weitere
-HttpsError ausgelöst.
+Als Nächstes wird der Verifizierungscode mit der Datenbank abgeglichen, um sicherzustellen, dass er aktiv und noch nicht zu oft verwendet wurde. Wenn der Code erfolgreich validiert wird, wird die Adresse des Benutzers abgerufen und deren Koordinaten mithilfe einer API call an OpenStreetMap mit der Funktion \texttt{getOSMCoordinatesFromAddress} ermittelt. Dann wird die Entfernung zwischen der Adresse des Benutzers und der Adresse, die dem Verifizierungscode zugeordnet ist, berechnet mit der Funktion \texttt{getDistanceFromLatLonInMeters}. Wenn die Entfernung nicht innerhalb des zulässigen Bereichs liegt, wird eine weitere \texttt{HttpsError} ausgelöst.
 
-Schließlich werden die Informationen des Benutzers und des
-Verifizierungscodes in der Datenbank aktualisiert, um
-anzuzeigen, dass der Benutzer erfolgreich verifiziert wurde.
-Die Cloud-Function gibt true zurück, um anzuzeigen, dass die
-Verifizierung erfolgreich war.
+Schließlich werden die Informationen des Benutzers und des Verifizierungscodes in der Datenbank aktualisiert, um anzuzeigen, dass der Benutzer erfolgreich verifiziert wurde. Die Cloud-Funktion gibt \texttt{true} zurück, um anzuzeigen, dass die Verifizierung erfolgreich war.
 
 In jeder Phase der Funktion wird ein Logger verwendet, um Informationen über den Status der Funktion zu protokollieren.
 
 \subsubsection{Regestrierung mit Gerät Koordinaten}
 \setauthor{Martin Hausleitner}
 
-Die Cloud-Funktion "checkAddressWithDeviceLocation" erfordert eine authentifizierte Anfrage und
-erhält eine Adresse, eine Längen- und Breitengradkoordinate
-vom Gerät des Benutzers. Die Funktion prüft, ob alle
-erforderlichen Daten vorhanden sind und ruft dann die
-Funktion "getOSMCoordinatesFromAddress" auf, um die
-Koordinaten der angegebenen Adresse zu erhalten. Es wird
-auch die Funktion "getDistanceFromLatLonInMeters"
-aufgerufen, um die Entfernung zwischen der Adresse und den
-Koordinaten des Geräts des Benutzers zu berechnen.
+Die Cloud-Funktion \texttt{checkAddressWithDeviceLocation} erfordert eine authentifizierte Anfrage und erhält eine Adresse sowie Längen- und Breitengradkoordinaten vom Gerät des Benutzers. Die Funktion prüft, ob alle erforderlichen Daten vorhanden sind und ruft dann die Funktion \texttt{getOSMCoordinatesFromAddress} auf, um die Koordinaten der angegebenen Adresse zu erhalten. Es wird auch die Funktion \texttt{getDistanceFromLatLonInMeters} aufgerufen, um die Entfernung zwischen der Adresse und den Koordinaten des Geräts des Benutzers zu berechnen.
 
-Wenn die Entfernung größer ist als ein vordefinierter maximaler Abstand, wird eine Fehlermeldung ausgegeben und die Funktion gibt "false" zurück. Andernfalls speichert die Funktion die Koordinaten der Adresse und die Entfernung zwischen den Koordinaten des Geräts des Benutzers und der Adresse in der Firestore-Datenbank. Die Funktion ruft auch die Funktion "getOSMSuburbFromCoords" auf, um den Vorort der Adresse zu erhalten, und speichert diesen ebenfalls in der Firestore-Datenbank.
+Wenn die Entfernung größer ist als ein vordefinierter maximaler Abstand, wird eine Fehlermeldung ausgegeben und die Funktion gibt \texttt{false} zurück. Andernfalls speichert die Funktion die Koordinaten der Adresse und die Entfernung zwischen den Koordinaten des Geräts des Benutzers und der Adresse in der Firestore-Datenbank. Die Funktion ruft auch die Funktion \texttt{getOSMSuburbFromCoords} auf, um den Vorort der Adresse zu erhalten, und speichert diesen ebenfalls in der Firestore-Datenbank.
 
-Die Funktion gibt "true" zurück, wenn die Verifizierung
-erfolgreich abgeschlossen ist.
+Die Funktion gibt \texttt{true} zurück, wenn die Verifizierung erfolgreich abgeschlossen ist.
 
 In jeder Phase der Funktion wird ein Logger verwendet, um Informationen über den Status der Funktion zu protokollieren.
 
 \subsubsection{Verifizierungscode generieren}
 \setauthor{Martin Hausleitner}
-Die Cloud-Funktion "generateVerificationCode" definiert Konstanten
-für das Intervall zwischen der Generierung von Codes, die
-maximale Anzahl von Codes und die Reichweite in Metern.
+Die Cloud-Funktion \texttt{generateVerificationCode} definiert Konstanten für das Intervall zwischen der Generierung von Codes, die maximale Anzahl von Codes und die Reichweite in Metern.
 
-Anschließend wird der letzte code des nutzers aus der
-Datenbank geholt, um zu überprüfen, ob seit dem
-letzten generierten Code ausreichend Zeit vergangen ist.
-Wenn ja, wird der zuletzt generierte Code zurückgegeben.
+Anschließend wird der letzte Code des Nutzers aus der Datenbank geholt, um zu überprüfen, ob seit dem letzten generierten Code ausreichend Zeit vergangen ist. Wenn ja, wird der zuletzt generierte Code zurückgegeben.
 
-Wenn nicht, wird eine Schleife gestartet, um einen neuen
-Code zu generieren mit der Funktion "generateRandomVerificationCode". Der generierte Code wird dann mit
-Firestore abgeglichen, um sicherzustellen, dass er nicht
-bereits verwendet wurde.
+Wenn nicht, wird eine Schleife gestartet, um einen neuen Code zu generieren mit der Funktion \texttt{generateRandomVerificationCode}. Der generierte Code wird dann mit Firestore abgeglichen, um sicherzustellen, dass er nicht bereits verwendet wurde.
 
-Wenn der generierte Code eindeutig ist, wird überprüft ob
-der Benutzer verifiziert ist. Wenn dies nicht der Fall ist,
-wird ein Fehler zurückgegeben. Andernfalls wird der
-generierte Code in die
-Firestore-Datenbank eingefügt um den letzten generierten
-Code und das Datum der Generierung zu speichern.
+Wenn der generierte Code eindeutig ist, wird überprüft, ob der Benutzer verifiziert ist. Wenn dies nicht der Fall ist, wird ein Fehler zurückgegeben. Andernfalls wird der generierte Code in die Firestore-Datenbank eingefügt, um den letzten generierten Code und das Datum der Generierung zu speichern.
 
-Das Skript gibt dann den generierten Code zurück. In jeder
-Phase der Funktion wird ein Logger verwendet, um
-Informationen über den Status der Funktion zu
-protokollieren.
+Das Skript gibt dann den generierten Code zurück. In jeder Phase der Funktion wird ein Logger verwendet, um Informationen über den Status der Funktion zu protokollieren.
 
 \subsubsection{Koordienaten von einer Adresse bestimmen}
 \setauthor{Martin Hausleitner}
-Ein wichtiger Teil für die Verifizierung ist, dass wir die Adresse des Nutzers in Koordinaten umwandeln, damit wir im Backend damit arbeiten können. Zunächst haben wir die Google Geocode API genutzt, allerdings kostet diese Geld. Wir haben eine bessere Option gefunden, die besser zu unseren Projekt-Philosophie passt: nämlich Nominatim, eine Open-Source-Geocoding-API für OpenStreetMap-Daten. Nominatim bietet eine kostenlose API für genau unser Problem an.
+Ein wichtiger Teil für die Verifizierung ist, dass wir die Adresse des Nutzers in Koordinaten umwandeln, damit wir im Backend damit arbeiten können. Zunächst haben wir die Google Geocode API genutzt, allerdings kostet diese Geld. Wir haben eine bessere Option gefunden, die besser zu unserer Projekt-Philosophie passt: nämlich Nominatim, eine Open-Source-Geocoding-API für OpenStreetMap-Daten. Nominatim bietet eine kostenlose API für genau unser Problem an.
 
-Die Funktion \textbf{getOSMCoordinatesFromAddress} nutzt die Bibliothek \textbf{axios}, um eine Anfrage an die Nominatim-API zu senden. Die API wird genutzt, um Koordinaten für eine Adresse zu erhalten.
+Die Funktion \texttt{getOSMCoordinatesFromAddress} nutzt die Bibliothek \texttt{axios}, um eine Anfrage an die Nominatim-API zu senden. Die API wird genutzt, um Koordinaten für eine Adresse zu erhalten.
 
-Die Funktion nimmt einen Parameter \textbf{address} vom Typ \textbf{string} entgegen, welcher die Adresse enthält, für die Koordinaten abgerufen werden sollen.
+Die Funktion nimmt einen Parameter \texttt{address} vom Typ \texttt{string} entgegen, welcher die Adresse enthält, für die Koordinaten abgerufen werden sollen.
 
-Mithilfe von \textbf{axios.get} wird eine HTTP GET-Anfrage an die Nominatim-API gesendet. Die Adresse wird als URL-Parameter im Format \textbf{q=Adresse} übergeben. Die API liefert die Koordinaten als JSON-Objekt zurück, welches in der Variable \textbf{data} gespeichert wird.
+Mithilfe von \texttt{axios.get} wird eine HTTP GET-Anfrage an die Nominatim-API gesendet. Die Adresse wird als URL-Parameter im Format \texttt{q=Adresse} übergeben. Die API liefert die Koordinaten als JSON-Objekt zurück, welches in der Variable \texttt{data} gespeichert wird.
 
 Die Funktion überprüft dann, ob die Anfrage ein Ergebnis zurückgeliefert hat. Falls nicht, wird eine Fehlermeldung mit der Adresse ausgegeben.
 
-Wenn ein Ergebnis vorhanden ist, wird das erste Ergebnis (in der Variable \textbf{firstResult}) verwendet, um eine neue Instanz der \textbf{GeoPoint}-Klasse zu erstellen. Diese Klasse ist Teil der Firebase-Admin-Bibliothek und ermöglicht die Speicherung von geografischen Koordinaten in einer Firestore-Datenbank.
-
-Schließlich gibt die Funktion die neuen Koordinaten als \textbf{GeoPoint}-Objekt zurück, das die Breiten- und Längengrade in Zahlen enthält.
+Wenn ein Ergebnis vorhanden ist, wird das erste Ergebnis (in der Variable \texttt{firstResult}) verwendet, um eine neue Instanz der \texttt{GeoPoint}-Klasse zu erstellen. Diese Klasse ist Teil der Firebase-Admin-Bibliothek und ermöglicht die Speicherung von geografischen Koordinaten in einer Firestore-Datenbank.
 
 \subsubsection{Entferung von zwei Nutzern berechnen}
 \setauthor{Martin Hausleitner}
-Die Cloud-Funktion "getDistanceFromTwoUsers" berechnet die
-Entfernung zwischen zwei Benutzern. Die Funktion erwartet
-eine PostId und einen Authentifizierten bneutzer. Dann wird eine
-Überprüfung durchgeführt, ob der Post mit der angegebenen ID
-existiert und ob der Post eine gültige Reichweite hat. Es
-werden auch Überprüfungen durchgeführt, ob die
-Benutzerkoordinaten vorhanden sind, und ob die Entfernung
-zwischen beiden Benutzern innerhalb des Postbereichs liegt.
+Die Cloud-Funktion \texttt{getDistanceFromTwoUsers} berechnet die Entfernung zwischen zwei Benutzern. Die Funktion erwartet eine \texttt{PostId} und einen authentifizierten Benutzer. Dann wird eine Überprüfung durchgeführt, ob der Post mit der angegebenen ID existiert und ob der Post eine gültige Reichweite hat. Es werden auch Überprüfungen durchgeführt, ob die Benutzerkoordinaten vorhanden sind, und ob die Entfernung zwischen beiden Benutzern innerhalb des Postbereichs liegt.
 
-Die Funktion nutzt die importierten Funktionen
-getDistanceFromLatLonInMeters und getNearestDistance, um die
-Entfernung in Metern zu berechnen. Allerdings wird die
-berechnete Distanz grob gerundet, um die Privatsphäre der
-Nutzer zu wahren. Dabei
-werden die Längen- und Breitengradkoordinaten von zwei
-Benutzern miteinander verglichen, die aus der
-Firestore-Datenbank abgerufen werden. Wenn die Entfernung
-größer als die Reichweite des Posts ist, wird ein Fehler
-ausgegeben.
+Die Funktion nutzt die importierten Funktionen \texttt{getDistanceFromLatLonInMeters} und \texttt{getNearestDistance}, um die Entfernung in Metern zu berechnen. Allerdings wird die berechnete Distanz grob gerundet, um die Privatsphäre der Nutzer zu wahren. Dabei werden die Längen- und Breitengradkoordinaten von zwei Benutzern miteinander verglichen, die aus der Firestore-Datenbank abgerufen werden. Wenn die Entfernung größer als die Reichweite des Posts ist, wird ein Fehler ausgegeben.
 
 Schließlich gibt die Funktion die Entfernung zurück.
 
@@ -748,55 +691,39 @@ Schließlich gibt die Funktion die Entfernung zurück.
 \end{lstlisting}
 Der vorliegende Code implementiert eine Funktion, die die Distanz in Metern zwischen zwei geographischen Koordinaten (Breitengrad und Längengrad) auf der Erdoberfläche berechnet. Die Funktion verwendet die Haversine-Formel, die auf der Kugelgeometrie basiert, um die kürzeste Entfernung zwischen zwei Punkten auf der Erdoberfläche zu berechnen.
 
-Die Funktion "getDistanceFromLatLonInMeters" hat vier Parameter: "lat1" und "lon1" sind die Breiten- und Längengrade des ersten Punktes, während "lat2" und "lon2" die Breiten- und Längengrade des zweiten Punktes sind, zwischen denen die Distanz berechnet werden soll.
+Die Funktion \texttt{getDistanceFromLatLonInMeters} hat vier Parameter: \texttt{lat1} und \texttt{lon1} sind die Breiten- und Längengrade des ersten Punktes, während \texttt{lat2} und \texttt{lon2} die Breiten- und Längengrade des zweiten Punktes sind, zwischen denen die Distanz berechnet werden soll.
 
-Zu Beginn des Codes werden die Eingabeparameter auf ihre Gültigkeit geprüft und eine Fehlermeldung wird ausgegeben, falls eine der Koordinaten außerhalb des Bereichs von -90 bis 90 für die Breite und -180 bis 180 für die Länge liegt.
+Zu Beginn des Codes werden die Eingabeparameter auf ihre Gültigkeit geprüft und eine Fehlermeldung wird ausgegeben, falls eine der Koordinaten außerhalb des Bereichs von \texttt{-90} bis \texttt{90} für die Breite und \texttt{-180} bis \texttt{180} für die Länge liegt.
 
-Die Funktion berechnet dann die Differenzen der Breiten- und Längengrade sowie den Radius der Erde (R) in Kilometern. Die Differenzen werden dann in Radianten umgewandelt und die Haversine-Formel wird angewendet, um die Entfernung in Kilometern zu berechnen. Schließlich wird das Ergebnis in Meter umgewandelt und zurückgegeben.
+Die Funktion berechnet dann die Differenzen der Breiten- und Längengrade sowie den Radius der Erde (\texttt{R}) in Kilometern. Die Differenzen werden dann in Radianten umgewandelt und die Haversine-Formel wird angewendet, um die Entfernung in Kilometern zu berechnen. Schließlich wird das Ergebnis in Meter umgewandelt und zurückgegeben.
 
-Die Funktion "deg2rad" wird als Hilfsfunktion definiert, um Grad in Radianten umzurechnen.
+Die Funktion \texttt{deg2rad} wird als Hilfsfunktion definiert, um Grad in Radianten umzurechnen.
 
-Die Funktion gibt 0 zurück, falls die beiden
-Eingabeparameter denselben Wert haben, um zu vermeiden, dass
-eine sehr kleine Distanz als Ergebnis ausgegeben wird, wenn
-es sich um denselben Punkt handelt.
+Die Funktion gibt \texttt{0} zurück, falls die beiden Eingabeparameter denselben Wert haben, um zu vermeiden, dass eine sehr kleine Distanz als Ergebnis ausgegeben wird, wenn es sich um denselben Punkt handelt.
 
 Quelle: https://www.movable-type.co.uk/scripts/latlong.html
 
 \subsubsection{Bestimmung der nächstgelegenen Entfernung}
 \setauthor{Martin Hausleitner}
+Um die Privatsphäre der Nachbarn zu gewährleisten, benötigen wir eine Funktion, die uns den nächstgelegenen Abstand zu den Nachbarn gibt, ohne den genauen Abstand preiszugeben. Die Funktion heißt \texttt{getNearestDistance} und bekommt einen Meterwert als Parameter.
 
-Um die Privatsphäre der Nachbarn zu gewährleisten, benötigen wir eine Funktion, die uns den nächstgelegenen Abstand zu den Nachbarn gibt, ohne den genauen Abstand preiszugeben. Die Funktion heißt "getNearestDistance" und bekommt einen Meterwert als Parameter.
+Die Funktion erstellt ein Array mit den Optionen \texttt{[100, 200, 500, 1000, 5000, 10000, 15000]} und setzt die Variable \texttt{nearest} auf den ersten Wert im Array.
 
-Die Funktion erstellt ein Array mit den Optionen [100, 200, 500, 1000, 5000, 10000, 15000] und setzt die Variable "nearest" auf den ersten Wert im Array.
+Dann wird eine Schleife ausgeführt, die durch jedes Element im Array \texttt{options} geht und prüft, welches Element am nächsten zum angegebenen Abstand \texttt{distance} liegt. Wenn ein Element näher ist als das bisher am nächsten liegende Element, wird \texttt{nearest} aktualisiert.
 
-Dann wird eine Schleife ausgeführt, die durch jedes Element im Array "options" geht und prüft, welches Element am nächsten zum angegebenen Abstand "distance" liegt. Wenn ein Element näher ist als das bisher am nächsten liegende Element, wird "nearest" aktualisiert.
-
-Schließlich wird überprüft, ob "nearest" größer oder gleich
-1000 ist, und je nachdem wird der Abstand entweder in
-Kilometern oder Metern zurückgegeben. Wenn der Abstand
-größer oder gleich 1000 ist, wird die Einheit "km"
-hinzugefügt, ansonsten wird "m" hinzugefügt. Wir haben
-absichtlich keine Switches oder If-Bedingungen benutzt, da
-wir es jetzt mit der aktuellen Funktion schneller schaffen,
-die Abstände zu ändern. Wir evaluieren noch, wie das Array
-mit den Optionen aussieht.
+Schließlich wird überprüft, ob \texttt{nearest} größer oder gleich 1000 ist, und je nachdem wird der Abstand entweder in Kilometern oder Metern zurückgegeben. Wenn der Abstand größer oder gleich 1000 ist, wird die Einheit \texttt{km} hinzugefügt, ansonsten wird \texttt{m} hinzugefügt. Wir haben absichtlich keine Switches oder If-Bedingungen benutzt, da wir es jetzt mit der aktuellen Funktion schneller schaffen, die Abstände zu ändern. Wir evaluieren noch, wie das Array mit den Optionen aussieht.
 
 
 \subsubsection{Nachbarschaft von Nutzer bestimmen}
 \setauthor{Martin Hausleitner}
-
 Um unseren App-Nutzern ein besseres Verständnis für die Nachbarschaften zu geben, in denen ihre Nachbarn wohnen, zeigen wir bei jedem Benutzer die Nachbarschaft an, in der sie leben. Diese Information wird automatisch in der Datenbank gespeichert, wenn der Nutzer verifiziert wird. Um diese Funktion zu ermöglichen, verwenden wir die folgende Funktion, die die geografischen Koordinaten des Benutzers verwendet, um die entsprechende Nachbarschaft mithilfe der OpenStreetMap-API abzurufen:
 
-\begin{verbatim}
+Die Funktion heißt \texttt{getOSMSuburbFromCoords} und nimmt zwei Parameter entgegen: \texttt{lat} für die geografische Breite und \texttt{lon} für die geografische Länge des Benutzers. Diese Funktion gibt eine Promise zurück, die eine Zeichenfolge \texttt{Stringn} mit dem Namen der Nachbarschaft des Benutzers enthält. Die Funktion verwendet die Axios-Bibliothek, um eine GET-Anfrage an die OpenStreetMap-API zu senden. Diese Anfrage enthält die geografischen Koordinaten des Benutzers und die gewünschte Zoomstufe \texttt{18}, um die Nachbarschaft zu finden. Wenn die Anfrage erfolgreich ist, gibt die Funktion den Namen der Nachbarschaft zurück, der aus den Daten extrahiert wird, die von der API zurückgegeben werden. Wenn der Name der Nachbarschaft nicht verfügbar ist, gibt die Funktion den Namen der Stadt oder der Gemeinde zurück, in der sich der Benutzer befindet. Wenn auch diese Informationen nicht verfügbar sind, gibt die Funktion \texttt{null} zurück. Wenn bei der Anfrage ein Fehler auftritt, wird eine Fehlermeldung ausgelöst.
 
-Die Funktion heißt \texttt{getOSMSuburbFromCoords} und nimmt zwei Parameter entgegen: \texttt{lat} für die geografische Breite und \texttt{lon} für die geografische Länge des Benutzers. Diese Funktion gibt eine Promise zurück, die eine Zeichenfolge \texttt{Stringn} mit dem Namen der Nachbarschaft des Benutzers enthält. Die Funktion verwendet die \texttt{axios}-Bibliothek, um eine GET-Anfrage an die OpenStreetMap-API zu senden. Diese Anfrage enthält die geografischen Koordinaten des Benutzers und die gewünschte Zoomstufe \texttt{18}, um die Nachbarschaft zu finden. Wenn die Anfrage erfolgreich ist, gibt die Funktion den Namen der Nachbarschaft zurück, der aus den Daten extrahiert wird, die von der API zurückgegeben werden. Wenn der Name der Nachbarschaft nicht verfügbar ist, gibt die Funktion den Namen der Stadt oder der Gemeinde zurück, in der sich der Benutzer befindet. Wenn auch diese Informationen nicht verfügbar sind, gibt die Funktion \texttt{null} zurück. Wenn bei der Anfrage ein Fehler auftritt, wird eine Fehlermeldung ausgelöst.
-
-Die entsprechende LaTeX-Darstellung des Textes wäre:
 
 \subsubsection{Verifizierungscode format überprüfen}
 \setauthor{Martin Hausleitner}
-Um die Laufzeit bei der Verifizierung von Cloud-Funktionen zu optimieren, ist es sinnvoll, am Anfang der Verifizierung eine Überprüfung durchzuführen, ob der Verifizierungscode das richtige Format hat. Dazu wird die Funktion \texttt{verifyVerificationCode} genutzt werden, welche einen \texttt{String} als Parameter erwartet und einen \texttt{Boolean}-Wert zurückgibt. In der Funktion wird ein regulärer Ausdruck Regex definiert, um sicherzustellen, dass der Verifizierungscode den Anforderungen entspricht. Der Regex lautet \texttt{/}\verb|^[a-zA-Z0-9]{10}$/|\texttt{,} was bedeutet, dass der Code aus genau 10 alphanumerischen Zeichen bestehen muss. Mit der Methode \texttt{tcheckVerificationCode} wird der übergebene Code auf Übereinstimmung mit dem Regex geprüft und das Ergebnis als \texttt{Boolean}-Wert zurückgegeben.
+Um die Laufzeit bei der Verifizierung von Cloud-Funktionen zu optimieren, ist es sinnvoll, am Anfang der Verifizierung eine Überprüfung durchzuführen, ob der Verifizierungscode das richtige Format hat. Dazu wird die Funktion \texttt{verifyVerificationCode} genutzt werden, welche einen \texttt{String} als Parameter erwartet und einen \texttt{Boolean}-Wert zurückgibt. In der Funktion wird ein regulärer Ausdruck Regex definiert, um sicherzustellen, dass der Verifizierungscode den Anforderungen entspricht. Der Regex lautet \texttt{/}\verb|^[a-zA-Z0-9]{10}$/|\texttt{,} was bedeutet, dass der Code aus genau 10 alphanumerischen Zeichen bestehen muss. Mit der Methode \texttt{checkVerificationCode} wird der übergebene Code auf Übereinstimmung mit dem Regex geprüft und das Ergebnis als \texttt{Boolean}-Wert zurückgegeben.
 
 \subsubsection{Verifizierungscode generator}
 \setauthor{Martin Hausleitner}
