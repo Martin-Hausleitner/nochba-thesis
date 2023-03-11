@@ -194,7 +194,7 @@ Die letzte Funktion in der Einstellungssicht ist das Löschen des eigenen Kontos
 
 \subsection{Feedback}
 \setauthor{Martin Hausleitner}
-Im Zuge unserer Testphase suchen wir nach einer effizienten Methode, um Feedback zu sammeln. Um ein fundiertes Verständnis einer Fehlermeldung zu erlangen, erweist sich die Bereitstellung eines Screenshots als besonders nützlich. Daher haben wir uns nach Packages umgesehen, welche die Möglichkeit bieten, Screenshots zu erstellen und ergänzende Informationen als Kontext hinzuzufügen. Wir haben uns für das Package https://pub.dev/packages/feedback entschieden. Dieses Package gestattet dem Nutzer, einen Screenshot anzufertigen und Annotationen hinzuzufügen, bevor ein entsprechender Kontext in Textform eingefügt werden kann. Eine weitere praktische Funktion besteht darin, dass der Nutzer bei Bedarf noch einmal navigieren und den Screenshot wiederholen kann. Zur Initiierung dieses Feedback-Views haben wir das Package https://pub.dev/packages/shake genutzt, welches bei einer entsprechenden Bewegung des Mobilgeräts aktiviert wird. Wir haben uns bei dieser Funktion an anderen Anwendungen orientiert, die ähnliche Mechanismen für die Feedback-Erhebung nutzen.
+Im Zuge unserer Testphase suchen wir nach einer effizienten Methode, um Feedback zu sammeln. Um ein fundiertes Verständnis einer Fehlermeldung zu erlangen, erweist sich die Bereitstellung eines Screenshots als besonders nützlich. Daher haben wir uns nach Packages umgesehen, welche die Möglichkeit bieten, Screenshots zu erstellen und ergänzende Informationen als Kontext hinzuzufügen. Wir haben uns für das Package \href{https://pub.dev/packages/feedback}{feedback} entschieden. Dieses Package gestattet dem Nutzer, einen Screenshot anzufertigen und Annotationen hinzuzufügen, bevor ein entsprechender Kontext in Textform eingefügt werden kann. Eine weitere praktische Funktion besteht darin, dass der Nutzer bei Bedarf noch einmal navigieren und den Screenshot wiederholen kann. Zur Initiierung dieses Feedback-Views haben wir das Package \href{https://pub.dev/packages/shake}{shake} genutzt, welches bei einer entsprechenden Bewegung des Mobilgeräts aktiviert wird. Wir haben uns bei dieser Funktion an anderen Anwendungen orientiert, die ähnliche Mechanismen für die Feedback-Erhebung nutzen.
 
 Das von uns gewählte Vorgehen zur Analyse des Feedbacks erfolgt über die Trello-API, welche es uns ermöglicht, ein entsprechendes Dashboard zur Erfassung und Bearbeitung der Meldungen zu erstellen. Die erfassten Informationen, wie beispielsweise der Screenshot, der Text, das Datum und relevante Systeminformationen, dienen uns als Grundlage für eine weitere Auswertung und Fehlerbehebung. Trello erleichtert uns die Verwaltung des Feedbacks auf kostenlose Weise und stellt somit ein adäquates Instrument zur Unterstützung des Entwicklungsprozesses dar.
 
@@ -293,8 +293,6 @@ Zusammenfassend kann festgestellt werden, dass Adobe XD ein leistungsstarkes Too
 allg.
 
 \subsubsection{Design System}
-bild von allen componetns
-
 \begin{figure}[h]
   \centering
   \includegraphics[width=1\textwidth]{pics/design-system.png}
@@ -302,9 +300,102 @@ bild von allen componetns
   \label{fig:design-system}
 \end{figure}
 
+Der Designer Martin Hausleitner hat ein Design-System
+entwickelt, um bei der Gestaltung der App eine klare
+Struktur zu haben. Das System umfasst verschiedene
+UI-Elemente, von denen die wichtigsten in Abbildung
+\ref{fig:design-system} dargestellt sind.
 
+\paragraph{Cards}
 
+Ein häufig genutztes UI-Element in der App ist das Card-Design. Der Designer hat hierbei darauf geachtet, alle Elemente in einem abgerundeten, grauen Container mit hellem Grau zu gestalten, um einen guten Kontrast zum Hintergrund zu erzeugen.
 
+Um den Nutzer zur Interaktion aufzufordern, wurde beispielsweise eine Einladungskarte für Nachbarn gestaltet, die in den Primär- und Sekundärfarben gehalten ist.
+
+Für die Switch Card wurde das Switch-Design des verfügbaren Cupertino UI-Widgets genutzt, da es dem Designer gut gefiel.
+
+Für den Radio Switch gibt es eine größere und eine kleinere Variante, um verschiedenen Design-Anforderungen gerecht zu werden.
+
+Der Logout-Button wurde bewusst mit einem roten Icon und roter Schrift gestaltet, um dem Nutzer deutlich zu machen, dass er sich ausloggt.
+
+Besondere Aufmerksamkeit erforderte der Tag-Editor, der einer der aufwändigsten Widgets in Flutter war. Der Designer hat diesen komplett neu durchdacht, um das Erstellen und Abspeichern von Tags leicht verständlich zu gestalten, so dass jeder Nutzer damit umgehen kann.
+
+\paragraph{Forms}
+Das Suchformular wurde mit einem organisch runden Design gestaltet, das zum Feed-Screen der App passt. Die Formulare, die in der gesamten App verwendet werden, wurden in Flutter sehr aufwändig gestaltet, um den Vorgaben des Designers zu entsprechen.
+
+Um dem Nutzer eine klare Rückmeldung zu geben, wurde ein
+orangefarbener Ring um das angeklickte Feld platziert. Es
+wurde darauf geachtet, dass das Label des Textfeldes immer
+gut lesbar ist auch wenn Cursor innerhalb des Feldes
+ist. Zudem wurde ein X-Button hinzugefügt, der den gesamten
+Inhalt des Textfelds löscht.
+
+Darunter befindet sich ein Upload-Formular, das im Design einer großen Card gestaltet ist, um dem Nutzer das Klicken zu erleichtern.
+
+Der Switch, der in den Formularen verwendet wird, wurde aus dem iOS-Design übernommen.
+
+Der Range-Slider wurde unter Verwendung des Material Designs gestaltet und mit den passenden Farben angepasst. Zusätzlich wurden Labels hinzugefügt, um dem Nutzer eine bessere Orientierung zu ermöglichen.
+
+Für den Datepicker wurde die Bibliothek
+\href{https://pub.dev/packages/syncfusion_flutter_datepicker}{Syncfusion\_flutter\_datepicker}
+verwendet. Das UI wurde entsprechend den Farben der App
+angepasst, um eine konsistente und ästhetische
+Benutzeroberfläche zu gewährleisten.
+
+\paragraph{Buttons}
+Die Icon-Buttons stellten das aufwändigste Design-Element
+dar, da es bei Flutter mehrere Möglichkeiten gibt, um sie zu
+implementieren. Dies führte dazu, dass sie häufig geändert
+werden mussten, um das richtige Design zu finden. Die
+runden Icon-Buttons ziehen sich durch die gesamte App.
+
+Der Big Icon Button wurde häufig eingesetzt, da er die Primary Color aufweist und somit eine wichtige Funktion anzeigt. Dem Designer war es wichtig, dass jeder Button immer ein Icon hatte, um dem Nutzer die Bedienung zu erleichtern. Es wurde darauf geachtet, dass alle Buttons die gleiche Rundung aufweisen.
+
+Für den normalen Icon-Button wurde ein dezenter grauer Hintergrund verwendet, um ihn als Secondary Button zu kennzeichnen. Auch hier wurden immer Icons verwendet.
+
+Da wir in unsere App auch Third-Party-Anmeldemöglichkeiten
+hinzufügen wollten, haben wir auch das Login mit Apple und
+das Login mit Google an das Design angepasst, um eine
+einheitliche Benutzeroberfläche zu gewährleisten.
+
+Die Progressbar wurde beim Registrierungsprozess und beim
+Erstellen eines Posts eingesetzt, um dem Nutzer eine bessere
+Orientierung zu geben, wie viele Schritte noch zu erledigen
+sind. Ursprünglich war geplant, das Design von Material zu
+nutzen. Aufgrund der Einschränkungen bei der Umsetzung des
+Designs mit dem Material-Design in Flutter und den spezifischen
+Anforderungen des Designers, war es erforderlich, die
+Progressbar komplett in Flutter zu gestalten.
+
+\paragraph{Profile}
+
+Der Edit Profile-Button wurde beim Registrieren und
+Bearbeiten eines Profils verwendet, um das Profilbild
+zu ändern. Es wurde darauf geachtet, dass der Button
+auffällig ist, damit der Nutzer ihn schnell erkennen kann.
+
+Die Profil-Informationen werden bei jedem Beitrag angezeigt,
+darunter die Zeit, in welchem Stadtteil der Nachbar wohnt
+und die ungefähre Entfernung zu ihm. Es wurde darauf
+geachtet, dass die Informationen übersichtlich mit
+Icons dargestellt werden, um dem Nutzer eine schnelle Orientierung
+zu ermöglichen.
+
+More Info wird beispielsweise bei einem Event-Eintrag oder
+den persönlichen Daten eines Profils verwendet. Hier wurden
+Icons verwendet, um dem Nutzer eine einfache und
+verständliche Darstellung zu ermöglichen.
+
+\paragraph{Chips}
+Chips wurden in unserer App oft verwendet, um Filter auszuwählen. Der Designer war mit dem finalen Design jedoch noch nicht vollständig zufrieden, da es viele unterschiedliche Varianten gibt. Es wird weiterhin an der Gestaltung der Chips gearbeitet, um eine einheitliche und ästhetisch ansprechende Darstellung zu erreichen.
+
+\paragraph{Tabs}
+Die Implementierung von Tabs war auch in Flutter eine
+Herausforderung, da die Positionierung nicht der
+Standard-Tabs-Position entsprach. Aus diesem Grund wurde die
+Gestaltung aufwändig gestaltet, um ein optimales Ergebnis zu
+erzielen. Die Mühe hat sich jedoch gelohnt, da die Tabs nun
+eine gute funktionale Benutzeroberfläche bieten.
 
 \subsubsection{Farben}
 Die Farbpalette einer Marke spielt eine wichtige Rolle im UI-Design, da sie dazu beiträgt, ein konsistentes Erscheinungsbild zu schaffen. Bei der Gestaltung einer Nachbarschafts-App wurde eine Vielzahl von Farbpaletten von anderen Apps untersucht. Es wurde festgestellt, dass die meisten großen Apps die Farbe Grün verwenden.
