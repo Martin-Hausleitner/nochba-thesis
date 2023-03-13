@@ -3,7 +3,7 @@
 % Eine \gls{guid} kollidiert nicht gerne.
 
 % Kabellose Technologien sind in abgelegenen Gebieten wichtig \cite{APCW2006}.
-
+\setauthor{Martin Hausleitner}
 % \includegraphics[width=0.2\textwidth]{pics/systemarchitektur_diagram.png}
 \begin{figure}[h]
     \centering
@@ -15,7 +15,47 @@
 % \includegraphics[width=0.2\textwidth]{pics/systemarchitektur_diagram.svg}
 
 % \includesvg{pics/systemarchitektur_diagram.svg}
+Die vorliegende Abbildung \ref{fig:systemarchitektur}
+veranschaulicht vereinfacht unsere Systemarchitektur. Der
+obere Teil stellt das Frontend dar, welches vollständig im
+Flutter Framework unter Verwendung der Programmiersprache
+Dart entwickelt wurde. Zur Kommunikation mit dem Backend
+wurden die \href{https://pub.dev/packages/algolia}{Algolia
+Flutter SDK} und
+\href{https://pub.dev/packages/firebase}{Firebase Flutter
+SDK} genutzt. Zur Vereinfachung wurden die Funktionen der
+Firebase Flutter SDK in einem einzigen Paket
+zusammengefasst, während Firebase für jedes Feature ein
+eigenes Package bereitstellt. Die Flutter-App wird
+anschließend für iOS und Android kompiliert.
 
+Im Backend wurde besonderer Wert auf die Implementierung von
+Sicherheitsmaßnahmen gelegt. Der erste Sicherheitslayer ist
+die
+\href{https://firebase.google.com/docs/auth}{Firebase-Authentifizierung},
+die das gesamte Authentifizierungssystem für den Zugriff auf
+das Backend regelt. Firebase Cloud Functions können nur von
+einem registrierten Account ausgeführt werden. Besondere
+Cloud Functions verlangen darüber hinaus eine zusätzliche
+Verifizierung der Adresse des Nutzers.
+
+Wir nutzen \href{https://firebase.google.com/docs/firestore}{Firestore}, eine NoSQL-Datenbank von Firebase, um unsere Daten zu speichern. Um auf die Firestore-Datenbank und den \href{https://firebase.google.com/docs/storage}{Cloud Storage} zugreifen zu können, müssen zuerst die \href{https://firebase.google.com/docs/firestore/security/overview}{Firestore Security Rules} durchlaufen werden, die sämtliche Zugriffsrechte auf die Dokumente in der Datenbank oder dem Cloud Storage regeln. Mehr dazu findet sich unter \hyperref[sec:security-rules]{Security Rules}.
+
+Firestore verfügt nicht über eine integrierte Funktion zur
+vollständigen Durchsuchung aller Dokumente, weshalb für die
+Suche nach Inhalten eine externe Suchmaschine wie Algolia
+erforderlich ist. Durch die Verbindung von Cloud Firestore
+mit der Algolia SQL-Datenbank wird sichergestellt, dass die
+Datenbanken synchronisiert werden. Ein bedeutender Vorteil
+dieser Vorgehensweise, der möglicherweise zunächst als
+Nachteil betrachtet werden könnte, besteht darin, dass wir
+über zwei Datenbanken verfügen, die dieselben Daten
+enthalten. Die Algolia-Datenbank verfügt jedoch über eine
+integrierte Suchfunktion, die die Suchgeschwindigkeit und
+-qualität verbessert, indem nur die Beitrag-Titel,
+-Beschreibungen und -Tags gespiegelt werden, anstatt die
+gesamte Datenbank zu replizieren. Weitere Informationen zu
+Algolia Search ist in dem Abschnitt \ref{sec:algolia} zu finden. 
 
 \section{Flutter}
 
@@ -59,7 +99,7 @@ https://firebase.google.com/docs/auth
 
 https://medium.com/flutter-community/firebase-authentication-in-flutter-752d14209a8a
 
-\subsubsection{Security Rules}
+\subsubsection{Security Rules}\label{sec:security-rules}
 \setauthor{Martin Hausleitner}
 In unserer App ist die Sicherheit ein sehr wichtiger Faktor,
 um die Vertraulichkeit und Integrität der Daten und der
@@ -143,7 +183,7 @@ Firebase Cloud Functions bietet viele Vorteile, wie zum Beispiel die Möglichkei
 
 Insgesamt sind Firebase Cloud Functions eine großartige Möglichkeit, um unsere Business-Logik in der Cloud abzubilden und unsere Anwendung zu skalieren und zu verbessern. Durch die Verwendung von TypeScript können wir sicherstellen, dass unser Code sauber und robust bleibt und leicht gewartet werden kann.
 
-\section{Algolia Search}
+\section{Algolia Search}\label{sec:algolia}
 \setauthor{Arsham Edalatkhah}
 Algolia ist eine Suchtechnologie, die es Entwicklern ermöglicht, relevante und schnelle Suchergebnisse für ihre Anwendungen bereitzustellen. Diese Technologie wurde speziell für moderne Anforderungen im Bereich der Suche entwickelt und bietet Funktionen wie automatisches Vervollständigen, Sortierung nach Relevanz und Suche nach Kategorien.
 

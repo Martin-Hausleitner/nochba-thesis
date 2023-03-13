@@ -2,8 +2,64 @@
 \subsection{GitHub Actions}
 
 allg. actions warum kosten
-\subsubsection{Build IOS}
+\subsubsection{iOS Build}
 \setauthor{Martin Hausleitner}
+Unser Ziel bestand darin, eine iOS-App im App Store zu
+veröffentlichen und eine Android-App im Play Store
+anzubieten. Da Martin Hausleitner der einzige im Team war,
+der ein iPhone besaß und über Erfahrungen mit Apple
+verfügte, beschäftigte er sich mit dem Build-Prozess der
+iOS-App.
+
+Zur Erstellung einer Flutter iOS-App ist ein Mac mit Xcode
+sowie ein Apple-Entwicklerkonto erforderlich. Da jedoch
+niemand im Team über ein solches Konto verfügte, gestaltete
+sich der Build-Prozess äußerst schwierig. Glücklicherweise
+konnte Martin Hausleitner einen alten iMac von seiner
+Familie ausleihen, auf dem er arbeiten konnte. Obwohl das
+Erstellen einer iOS-App auf den ersten Blick einfach
+erscheint, stellte es sich als eine der größten
+Herausforderungen in diesem Projekt heraus.
+
+Da MacOS und Xcode dem Entwickler nicht vertraut waren,
+musste er sich zunächst mühsam einarbeiten. Es bedurfte
+zahlreicher Anläufe, um die App zum ersten Mal zu erstellen,
+da zum damaligen Zeitpunkt von Flutter noch keine
+vorgefertigten Build-Abläufe zur Verfügung standen.
+
+\paragraph{Github Action}
+Es war eine mühsame Aufgabe, Xcode zu konfigurieren, und
+nach mehreren Versuchen wurde schließlich die erste
+.ipa-Datei erstellt. Allerdings war der schwierigste Teil
+noch nicht überwunden, da das Ziel darin bestand, bei jedem
+GitHub-Push automatisch eine iOS-App zu erstellen.
+
+Um über GitHub Actions eine iOS-App zu erstellen, sind
+mehrere Actions-Secrets erforderlich, die aus Xcode bezogen
+werden müssen. Folgende Secrets waren notwendig:
+
+\textbf{BUILD_CERTIFICATE_BASE64} : Dieses Secret enthält das Zertifikat, das zur Signierung der iOS-App verwendet wird. Es muss von einer vertrauenswürdigen Zertifizierungsstelle ausgestellt worden sein und wird normalerweise als Base64-codierte Zeichenfolge bereitgestellt.
+
+% \textbf{BUILD_PROVISION_PROFILE_BASE64}: Dieses Secret enthält das Provisioning-Profil, das zur Installation der iOS-App auf einem Gerät oder für die Verwendung von Testflight verwendet wird. Das Provisioning-Profil enthält Informationen über die Geräte, auf denen die App installiert werden kann, sowie das verwendete Zertifikat. Auch dieses Secret wird normalerweise als Base64-codierte Zeichenfolge bereitgestellt.
+
+% \textbf{KEYCHAIN_PASSWORD}: Dieses Secret ist das Passwort für den Zugriff auf den Schlüsselbund, in dem das Signaturzertifikat und der dazugehörige private Schlüssel gespeichert sind. Der private Schlüssel wird benötigt, um die App zu signieren, und das Passwort schützt den Zugriff auf den Schlüsselbund vor unbefugtem Zugriff.
+
+% \textbf{P12_PASSWORD}: Dieses Secret ist das Passwort für das PKCS#12-Dateiformat, das das Signaturzertifikat und den privaten Schlüssel enthält. Diese Datei wird normalerweise für die Signierung von iOS-Apps verwendet. Das Passwort schützt die Datei vor unbefugtem Zugriff und stellt sicher, dass nur autorisierte Personen Zugriff auf den privaten Schlüssel haben.
+
+
+% \begin{itemize}
+%   \begin{description}[style=nextline,format=--- \textbf]
+%     \item[The first] \textbf{BUILD_CERTIFICATE_BASE64}: Dieses Secret enthält das Zertifikat, das zur Signierung der iOS-App verwendet wird. Es muss von einer vertrauenswürdigen Zertifizierungsstelle ausgestellt worden sein und wird normalerweise als Base64-codierte Zeichenfolge bereitgestellt.
+%     \item \textbf{pages} - Hier werden Widgets entworfen, die jeweils eine Seite der App darstellen.
+%     \item \textbf{routes} - Hier werden die Routen definiert, die tiefere Links ermöglichen.
+%     \item \textbf{shared} - Hier werden UI-Widgets wie Buttons oder andere Widgets gespeichert, die oft wiederverwendet werden.
+%     \item \textbf{views} - Hier befinden sich Ansichten, die von mehreren Seiten der App verwendet werden können.
+%   \end{description}
+% \end{itemize}
+
+
+
+
 
 \subsubsection{Build Android}
 
@@ -288,9 +344,6 @@ bei der Zusammenarbeit an einem Design und aufgrund der
 zusätzlichen Funktionen besser geeignet ist.
 
 Zusammenfassend kann festgestellt werden, dass Adobe XD ein leistungsstarkes Tool für UI/UX-Designer ist, das einfach zu bedienen ist und für kleine bis mittelgroße Projekte geeignet ist. Obwohl es nicht so viele Funktionen wie andere Tools bietet, eignet es sich gut für die schnelle Erstellung von Prototypen und eine einfache Zusammenarbeit mit Entwicklern und Stakeholdern.
-
-\subsection{Design}
-allg.
 
 \subsubsection{Design System}
 \begin{figure}[h]
