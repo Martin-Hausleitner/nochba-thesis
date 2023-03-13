@@ -38,29 +38,12 @@ Um über GitHub Actions eine iOS-App zu erstellen, sind
 mehrere Actions-Secrets erforderlich, die aus Xcode bezogen
 werden müssen. Folgende Secrets waren notwendig:
 
-\verb|BUILD_CERTIFICATE_BASE64| Dieses Secret enthält das
-Zertifikat, das zur Signierung der iOS-App verwendet wird.
-Es muss von einer vertrauenswürdigen Zertifizierungsstelle
-ausgestellt worden sein und wird normalerweise als
-Base64-codierte Zeichenfolge bereitgestellt.
-
-BUILD_PROVISION_PROFILE_BASE64: Dieses Secret enthält das
-Provisioning-Profil, das zur Installation der iOS-App auf
-einem Gerät oder für die Verwendung von Testflight verwendet
-wird. Das Provisioning-Profil enthält Informationen über die
-Geräte, auf denen die App installiert werden kann, sowie das
-verwendete Zertifikat. Auch dieses Secret wird normalerweise
-als Base64-codierte Zeichenfolge bereitgestellt.
-
-KEYCHAIN_PASSWORD: Dieses Secret ist das Passwort für den
-Zugriff auf den Schlüsselbund, in dem das Signaturzertifikat
-und der dazugehörige private Schlüssel gespeichert sind. Der
-private Schlüssel wird benötigt, um die App zu signieren,
-und das Passwort schützt den Zugriff auf den Schlüsselbund
-vor unbefugtem Zugriff.
-
-P12_PASSWORD: Dieses Secret ist das Passwort für das PKCS#12-Dateiformat, das das Signaturzertifikat und den privaten Schlüssel enthält. Diese Datei wird normalerweise für die Signierung von iOS-Apps verwendet. Das Passwort schützt die Datei vor unbefugtem Zugriff und stellt sicher, dass nur autorisierte Personen Zugriff auf den privaten Schlüssel haben.
-
+\begin{itemize}
+  \item \verb|BUILD_CERTIFICATE_BASE64:| Dieses Secret enthält das Zertifikat, das zur Signierung der iOS-App verwendet wird. Es muss von einer vertrauenswürdigen Zertifizierungsstelle ausgestellt worden sein und wird normalerweise als Base64-codierte Zeichenfolge bereitgestellt.
+  \item \verb|BUILD_PROVISION_PROFILE_BASE64:| Dieses Secret enthält das Provisioning-Profil, das zur Installation der iOS-App auf einem Gerät oder für die Verwendung von Testflight verwendet wird. Das Provisioning-Profil enthält Informationen über die Geräte, auf denen die App installiert werden kann, sowie das verwendete Zertifikat. Auch dieses Secret wird normalerweise als Base64-codierte Zeichenfolge bereitgestellt.
+  \item \verb|KEYCHAIN_PASSWORD:| Dieses Secret ist das Passwort für den Zugriff auf den Schlüsselbund, in dem das Signaturzertifikat und der dazugehörige private Schlüssel gespeichert sind. Der private Schlüssel wird benötigt, um die App zu signieren, und das Passwort schützt den Zugriff auf den Schlüsselbund vor unbefugtem Zugriff.
+  \item \verb|P12_PASSWORD:| Dieses Secret ist das Passwort für das PKCS\#12-Dateiformat, das das Signaturzertifikat und den privaten Schlüssel enthält. Diese Datei wird normalerweise für die Signierung von iOS-Apps verwendet. Das Passwort schützt die Datei vor unbefugtem Zugriff und stellt sicher, dass nur autorisierte Personen Zugriff auf den privaten Schlüssel haben.
+\end{itemize}
 % \textbf{BUILD_PROVISION_PROFILE_BASE64}: Dieses Secret enthält das Provisioning-Profil, das zur Installation der iOS-App auf einem Gerät oder für die Verwendung von Testflight verwendet wird. Das Provisioning-Profil enthält Informationen über die Geräte, auf denen die App installiert werden kann, sowie das verwendete Zertifikat. Auch dieses Secret wird normalerweise als Base64-codierte Zeichenfolge bereitgestellt.
 
 % \textbf{KEYCHAIN_PASSWORD}: Dieses Secret ist das Passwort für den Zugriff auf den Schlüsselbund, in dem das Signaturzertifikat und der dazugehörige private Schlüssel gespeichert sind. Der private Schlüssel wird benötigt, um die App zu signieren, und das Passwort schützt den Zugriff auf den Schlüsselbund vor unbefugtem Zugriff.
