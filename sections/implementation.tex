@@ -44,6 +44,47 @@ werden müssen. Folgende Secrets waren notwendig:
   \item \verb|KEYCHAIN_PASSWORD:| Dieses Secret ist das Passwort für den Zugriff auf den Schlüsselbund, in dem das Signaturzertifikat und der dazugehörige private Schlüssel gespeichert sind. Der private Schlüssel wird benötigt, um die App zu signieren, und das Passwort schützt den Zugriff auf den Schlüsselbund vor unbefugtem Zugriff.
   \item \verb|P12_PASSWORD:| Dieses Secret ist das Passwort für das PKCS\#12-Dateiformat, das das Signaturzertifikat und den privaten Schlüssel enthält. Diese Datei wird normalerweise für die Signierung von iOS-Apps verwendet. Das Passwort schützt die Datei vor unbefugtem Zugriff und stellt sicher, dass nur autorisierte Personen Zugriff auf den privaten Schlüssel haben.
 \end{itemize}
+
+Nach mehreren Versuchen, die Actions funktionsfähig zu
+machen, gelang es schließlich, eine .ipa-Datei zu erstellen.
+
+\paragraph{Firebase App Distribution}
+Für die Testphase und die Beta-Version der iOS-App nutzten
+wir, wie auch bei der Android-App, Firebase App
+Distribution. Beim Hochladen der .ipa-Dateien gab es
+allerdings Probleme mit den Zertifikaten.
+
+\paragraph{Apple Developer Lizenz}
+Um eine .ipa-Datei auf einem iOS-Gerät auszuführen, ist eine verifizierte .ipa-Datei erforderlich. Die aktuelle Action konnte die App jedoch nur mit der lokalen Entwicklerlizenz verifizieren, um sie im Emulator auf MacOS auszuführen. Wenn die App also auf einem anderen Gerät installiert werden sollte, war dies nicht möglich. Dies war auch der Grund, warum der Upload auf Firebase App Distribution nicht funktionierte.
+
+Es gibt verschiedene Möglichkeiten, um eine .ipa-Datei zur
+Verfügung zu stellen, darunter:
+
+\begin{itemize}
+  \item \textbf{App Store-Verteilung}: Die offizielle Methode zur Verteilung von iOS-Apps an eine globale Benutzerbasis. Apple prüft jede App, bevor sie im App Store veröffentlicht wird.
+  \item \textbf{Ad-Hoc-Verteilung}: Die Ad-Hoc-Verteilung ermöglicht es Entwicklern, ihre Apps an eine begrenzte Anzahl von Personen außerhalb des App Stores zu verteilen. Entwickler müssen die UDIDs der Testgeräte manuell registrieren und eine Ad-Hoc-Provisioning-Datei erstellen, die zusammen mit der App an die Tester gesendet wird.
+  \item \textbf{TestFlight-Verteilung}: TestFlight ist eine kostenlose Plattform von Apple, die es Entwicklern ermöglicht, ihre Apps an ausgewählte Tester zu verteilen. Jeder Tester lädt einfach TestFlight herunter, meldet sich mit seiner Apple-ID an und erhält Zugriff auf die App.
+  \item \textbf{Enterprise-Verteilung}: Die Enterprise-Verteilung ermöglicht es Unternehmen, ihre Apps intern an Mitarbeiter oder Kunden zu verteilen, ohne den App Store zu nutzen. Sie benötigen jedoch eine spezielle Enterprise-Entwicklerlizenz von Apple und müssen die Apps auf einem eigenen Unternehmens-Server hosten.
+  \item \textbf{B2B-Verteilung}: Die B2B-Verteilung ermöglicht es Entwicklern, ihre Apps speziell für Unternehmen und Organisationen zu entwickeln und diese direkt an diese Kunden zu verkaufen. Die Apps können dann über den App Store oder über ein spezielles B2B-Programm verkauft werden.
+  \item \textbf{TestFlight für interne Tests}: TestFlight für interne Tests ist ähnlich wie die öffentliche TestFlight-Verteilung, jedoch speziell für interne Tests in Unternehmen. Diese Methode erfordert jedoch ein Apple Developer Enterprise-Programm.
+  \item \textbf{Sideloading}: Sideloading ist eine Methode, bei der eine App von einem Drittanbieter auf einem iOS-Gerät installiert werden kann. Diese Methode erfordert jedoch, dass die Sicherheitseinstellungen des Geräts geändert werden und die App möglicherweise nicht von Apple genehmigt wurde.
+\end{itemize}
+
+Zunächst wurde die Methode des Sideloading mittels des
+Tools Signulous \href{https://www.signulous.com/}{Signulous} ausprobiert,
+da sie als kostenfreie Option bekannt war. Dabei konnte
+die iOS-Anwendung erfolgreich installiert werden und
+manuelle Uploads auf Firebase App Distribution waren
+ebenfalls möglich. Um jedoch eine Automatisierung zu
+ermöglichen, musste eine andere Lösung gefunden werden.
+
+Da die HTL Leonding ihren Schülerinnen und Schülern Entwickler-Accounts zur Verfügung stellt, hat das Team um Zugriff auf einen solchen Account. Allerdings wurde dieser Account so eingeschränkt, dass es nicht möglich war, die Anwendung zu verifizieren. Nach weiteren Anfragen bezüglich einer Erweiterung der Berechtigungen für die Verifizierung wurde klar, dass dies nicht möglich war.
+
+Somit blieb nur noch die Möglichkeit, einen kostenpflichtigen Entwickler-Account für \$99 pro Jahr zu erwerben. Das Team entschied sich jedoch dagegen, da der Aufwand bereits zu hoch war und weitere Zeit verschwendet würde.
+
+Dennoch wurde versucht, auf TestFlight umzusteigen, was jedoch ebenfalls den Kauf eines Entwickler-Accounts erforderte. Sobald die Android-Version mit ihren Funktionen weiterentwickelt ist, plant das Team, die Arbeit an der iOS-Version wieder aufzunehmen, um die Anwendung im App Store zu veröffentlichen.
+
+
 % \textbf{BUILD_PROVISION_PROFILE_BASE64}: Dieses Secret enthält das Provisioning-Profil, das zur Installation der iOS-App auf einem Gerät oder für die Verwendung von Testflight verwendet wird. Das Provisioning-Profil enthält Informationen über die Geräte, auf denen die App installiert werden kann, sowie das verwendete Zertifikat. Auch dieses Secret wird normalerweise als Base64-codierte Zeichenfolge bereitgestellt.
 
 % \textbf{KEYCHAIN_PASSWORD}: Dieses Secret ist das Passwort für den Zugriff auf den Schlüsselbund, in dem das Signaturzertifikat und der dazugehörige private Schlüssel gespeichert sind. Der private Schlüssel wird benötigt, um die App zu signieren, und das Passwort schützt den Zugriff auf den Schlüsselbund vor unbefugtem Zugriff.
