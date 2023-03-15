@@ -818,7 +818,7 @@ da es Typsicherheit und erweiterte Fehlererkennung
 bietet.
 
 
-\subsubsection{Regestrierung mit einen Verifizierungscode}
+\subsubsection{Registrierung mit einem Verifizierungscode}\label{subsec:registrierung-verify}
 \setauthor{Martin Hausleitner}
 
 Die Cloud-Funktion \texttt{checkVerificationCode} wird ausgeführt, wenn ein Nutzer sich mit einem Verifizierungscode registrieren möchte. Wenn der Benutzer nicht authentifiziert ist, wird eine \texttt{HttpsError} ausgelöst. Dann wird der Verifizierungscode überprüft, um sicherzustellen, dass er die korrekte Formatierung hat. Wenn der Code ungültig ist, wird eine weitere \texttt{HttpsError} ausgelöst.
