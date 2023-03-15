@@ -287,7 +287,75 @@ Falls das Profil vom User unangebrachten Inhalt aufweist, besteht die Möglichke
 
 \subsection{Benachrichtigungen}
 \setauthor{Sandin Habibovic}
-Benachrichtigungen dienen dazu die Nachbarn über mögliche Hilfsbereitstellungen zu informieren, bevor der Kontakt überhaupt entsteht. Die Benachrichtigung zeigt den Nachbarn an, der in Kontakt treten möchte, und möglicherweise den Beitrag auf dem geantwortet wurde. Außerdem ist die Benachrichtigung mit einem „Annehmen“- und „Ablehnen“- Button ausgestattet, womit das Hilfsangebot angenommen oder abgelehnt werden kann.
+Benachrichtigungen dienen dazu die Nachbarn über mögliche
+Hilfsbereitstellungen zu informieren, bevor der Kontakt
+überhaupt entsteht. Die Benachrichtigung zeigt den Nachbarn
+an, der in Kontakt treten möchte, und möglicherweise den
+Beitrag auf dem geantwortet wurde. Außerdem ist die
+Benachrichtigung mit einem „Annehmen“- und „Ablehnen“-
+Button ausgestattet, womit das Hilfsangebot angenommen oder
+abgelehnt werden kann.
+
+\subsection{Einladecode}
+\setauthor{Martin Hausleitner}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{pics/einladecode-page.png}
+  \caption{Einladecode-Seite in der App}
+  \label{fig:einladecode}
+\end{figure}
+Eine der beiden Verifizierungsmethoden basiert auf der Nutzung von Einladungscodes. Als Inspiration diente die deutsche App "Nebenan", die ebenfalls eine Verifizierung über einen Code ermöglicht. Da das Team dies als gute Lösung erachtete, wurde ein ähnlicher Ansatz übernommen.
+
+Jeder Code hat eine Reichweite von 1 km, ausgehend von der Adresse des Benutzers, der den Code generiert. Dies soll verhindern, dass ein Code missbräuchlich verwendet wird. Der Aktionsradius, in dem der Benutzer den Code nutzen kann, kann von den Administratoren variabel eingestellt werden.
+
+Zudem wird für die Entwickler protokolliert, wer welchen
+Code zur Verifizierung verwendet hat, um im Falle eines
+Missbrauchs entsprechende Maßnahmen ergreifen zu können, wie
+beispielsweise das Sperren des Codes. Administratoren haben
+ebenfalls die Möglichkeit, Codes zu deaktivieren.
+\subsubsection{Einladungsmöglichkeiten}
+\setauthor{Martin Hausleitner}
+
+
+Folgende Punkte sinder in der Abbildung
+\ref{fig:einladecode} zu erkennen.
+
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{Generierung eines QR-Codes:}
+        \begin{itemize}
+          \item Beim Öffnen der Seite "Nachbar einladen" wird automatisch ein QR-Code generiert.
+          \item Nutzer können den generierten Code in die Zwischenablage kopieren, indem sie den Button neben dem Code betätigen.
+        \end{itemize}
+
+  \item \textbf{Teilen des Einladungscodes:}
+        \begin{itemize}
+          \item Bei dem Button "Einladungscode teilen" wird eine Nachricht mit dem generierten Code erstellt.
+          \item Der Nutzer kann die Nachricht mithilfe des systemspezifischen Sharesheets teilen.
+        \end{itemize}
+
+  \item \textbf{Herunterladen des QR-Codes:}
+        \begin{itemize}
+          \item Unter "QR-Code herunterladen" wird eine PNG-Datei des Einladungs-QR-Codes erstellt.
+          \item Die Datei wird im systemspezifischen Sharesheet geöffnet, um sie speichern zu können.
+        \end{itemize}
+
+  \item \textbf{Generierung eines neuen Einladungscodes:}
+        \begin{itemize}
+          \item Der orangefarbene Button "Neuen Einladungscode generieren" ermöglicht das Erstellen eines neuen Codes.
+          \item Sobald der Nutzer einen neuen Code erstellt, wird der vorherige Code deaktiviert.
+        \end{itemize}
+\end{enumerate}
+
+Verifizierte Nutzer können alle 24 Stunden einen
+Einladungscode generieren.
+
+Die Verifizierung erfolgt, indem der Benutzer bei der Registrierung die Option "Mit Einladungscode verifizieren" auswählt. Anschließend hat er die Möglichkeit, den Einladungscode entweder über den integrierten QR-Code-Scanner zu scannen oder manuell einzugeben. Für die Implementierung des QR-Code-Scanners wurde das Flutter-Paket \href{https://pub.dev/packages/mobile_scanner}{mobile\_scanner} verwendet, welches auf Googles MLKit \cite{googlemlkit} basiert. MLKit ist eine Machine-Learning-Bibliothek, die in unserem Fall QR-Codes zuverlässig und schnell scannen kann. Der einzige Nachteil dieses Pakets ist der hohe Speicherbedarf von etwa 10 MB. Daher ist in Zukunft geplant, das MLKit nur bei Bedarf herunterzuladen und nach erfolgreicher Verifizierung des Benutzers wieder zu entfernen.
+
+Der gescannte oder eingegebene Code wird anschließend an die Cloud-Funktion \texttt{checkVerificationCode} (siehe Abschnitt \ref{subsec:registrierung-verify}) gesendet und überprüft, ob der Code korrekt ist.
+
+
 
 \subsection{Einstellungen}
 \setauthor{Sandin Habibovic}
