@@ -945,7 +945,7 @@ Schließlich gibt die Funktion die Entfernung zurück.
 \subsubsection{Entfernung von zwei geographischen Koordinaten berechnen}
 \setauthor{Martin Hausleitner}
 
-\begin{lstlisting}[language=Java,caption=getDistanceFromLatLonInMeters Funktion]
+\begin{lstlisting}[language=Java,caption=getDistanceFromLatLonInMeters Funktion,label=lst:getDistanceFunction]
     export function getDistanceFromLatLonInMeters(
         lat1: number,
         lon1: number,
@@ -983,7 +983,8 @@ Schließlich gibt die Funktion die Entfernung zurück.
       }
       
 \end{lstlisting}
-Der vorliegende Code implementiert eine Funktion, die die
+Der vorliegende Code \ref{lst:getDistanceFunction}
+implementiert eine Funktion, die die
 Distanz in Metern zwischen zwei geographischen Koordinaten
 (Breitengrad und Längengrad) auf der Erdoberfläche
 berechnet. Die Funktion nutzt die Haversine-Formel, welche auf Kugelgeometrie basiert und aus der Quelle \cite{movabletype} movabletype in Javascript übernommen wurde, um die kürzeste Entfernung zwischen zwei Punkten auf der Erdoberfläche zu berechnen.
@@ -998,7 +999,6 @@ Die Funktion \texttt{deg2rad} wird als Hilfsfunktion definiert, um Grad in Radia
 
 Die Funktion gibt \texttt{0} zurück, falls die beiden Eingabeparameter denselben Wert haben, um zu vermeiden, dass eine sehr kleine Distanz als Ergebnis ausgegeben wird, wenn es sich um denselben Punkt handelt.
 
-Quelle: https://www.movable-type.co.uk/scripts/latlong.html
 
 \subsubsection{Bestimmung der nächstgelegenen Entfernung}
 \setauthor{Martin Hausleitner}
