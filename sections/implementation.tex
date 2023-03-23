@@ -257,9 +257,12 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
   \item Betrug
   \item Spam
   \item Sonstiges
+
+  
 \end{compactitem}
 
-\subsubsection{Künstliche Intelligenz}
+\subsubsection{Autovervollständigung
+ mit Künstliche Intelligenz}
 \setauthor{Martin Hausleitner}
 \paragraph{GPT-3.5-turbo}
 In jüngster Vergangenheit haben Fortschritte in der künstlichen Intelligenz (KI) dazu geführt, dass deren Implementierung in verschiedenen Produkten immer einfacher wird. Das Entwicklerteam hat daher beschlossen, auch in Nochba eine vereinfachte Implementierung durchzuführen. Mit der Veröffentlichung der GPT-3.5-turbo API von OpenAI wurde diese unmittelbar in Nochba integriert. Wie in der Abbildung [] ersichtlich, befindet sich im Titelfeld ein Zauberstab-Symbol in der rechten oberen Ecke. Bei einem Klick darauf wird eine API-Anfrage an OpenAI gesendet. Um einen Titel basierend auf der Beschreibung zu erstellen, wird folgender Prompt benötigt:
@@ -309,7 +312,7 @@ Da die Nutzung der KI kostenintensiv sein kann, wenn mehr Benutzer sie verwenden
 \subsubsection{Übersetzung mit Maschine Learning}
 
 \paragraph{Google Translation ML Kit}Für die Übersetzung von Beiträgen vom Deutschen ins Englische wurde eine kosteneffiziente Methode gesucht, um Kosten zu minimieren. Zunächst wurden bekannte Übersetzungs-APIs analysiert, aber dann stieß der Entwickler auf das Google ML Kit, welches 50 Sprachen übersetzen kann. Bemerkenswert ist, dass ein Sprachpaket etwa 5 MB umfasst und auch offline verwendet werden kann. Beim Start der App werden das deutsche und englische Sprachmodell heruntergeladen. Um einen Beitrag zu übersetzen, muss der Benutzer länger auf den Beitrag klicken, um die Übersetzung zu starten.
-\paragraph{Google Language identification ML Kit}
+\paragraph{Google Language identification ML Kit}Um eine Sprache überhaupt übersetzen zu können, benötigt man ein Werkzeug zur Spracherkennung. In dieser App wird das Google Spracherkennungs-ML-Kit verwendet. Bevor der Benutzer einen Beitrag übersetzen möchte, werden die Beschreibung und der Titel an das maschinelle Lernmodell gesendet, um die erkannte Sprache dem Übersetzungs-ML-Kit zu übergeben und eine Übersetzung durchzuführen.
 
 
 
