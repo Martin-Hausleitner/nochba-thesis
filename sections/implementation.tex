@@ -169,6 +169,13 @@ screenshots
 \setauthor{Sandin Habibovic}
 
 
+\paragraph{Google Barcode-Scanning ML Kit}
+\setauthor{Martin Hausleitner}
+In Anbetracht der Entscheidung, Einladungscodes mithilfe von QR-Codes zu implementieren, ist es erforderlich, einen QR-Code-Scanner während des Registrierungsprozesses zu integrieren. Um eine zuverlässige Benutzererfahrung zu gewährleisten, wurde das Google Barcode-Scanning ML Kit als bevorzugte Technologie ausgewählt. In internen Tests zeigte sich, dass dieses Kit eine hohe Genauigkeit und Zuverlässigkeit aufweist.
+
+Die Integration des Scanners wurde mithilfe des Pakets \href{https://pub.dev/packages/mobile_scanner}{mobile\_scanner} realisiert, welches auf der Plattform pub.dev verfügbar ist. Dieses Paket ermöglicht eine einfache Implementierung und Anpassung an die individuellen Anforderungen des Projekts. Die Verwendung des ML-Kits trägt dazu bei, die Leistungsfähigkeit der Anwendung zu verbessern und die Benutzerzufriedenheit zu erhöhen.
+
+
 Diagram
 erklärung
 screenshots
@@ -252,6 +259,63 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
   \item Sonstiges
 \end{compactitem}
 
+\subsubsection{Künstliche Intelligenz}
+\setauthor{Martin Hausleitner}
+\paragraph{GPT-3.5-turbo}
+In jüngster Vergangenheit haben Fortschritte in der künstlichen Intelligenz (KI) dazu geführt, dass deren Implementierung in verschiedenen Produkten immer einfacher wird. Das Entwicklerteam hat daher beschlossen, auch in Nochba eine vereinfachte Implementierung durchzuführen. Mit der Veröffentlichung der GPT-3.5-turbo API von OpenAI wurde diese unmittelbar in Nochba integriert. Wie in der Abbildung [] ersichtlich, befindet sich im Titelfeld ein Zauberstab-Symbol in der rechten oberen Ecke. Bei einem Klick darauf wird eine API-Anfrage an OpenAI gesendet. Um einen Titel basierend auf der Beschreibung zu erstellen, wird folgender Prompt benötigt:
+
+beschreibung{ \${widget.descriptionController!.text} } passender Titel:
+
+Die KI liefert stets zuverlässig einen passenden Titel.
+
+Ein ähnlicher Ansatz wurde auch für die Tags verfolgt. Der Titel und die Beschreibung wurden als Kontext für die KI verwendet. Nach mehreren Versuchen wurde der passende Prompt gefunden, da die KI-Ausgabe zunächst inkonsistent war und nicht erfolgreich in Tags umgewandelt werden konnte. Mit dem folgenden Prompt wurde der Output zuverlässiger:
+
+
+titel{ \${widget.titleController!.text} } beschreibung{ \${widget.descriptionController!.text} } json hashtags richtige sprache: ["\#
+
+
+
+Die letzten Zeichen ["\# wurden absichtlich gewählt, da die
+KI-Ausgabe manchmal mit oder ohne \# geschrieben wurde, was
+das Parsen der Tags erschwerte. Durch die Klammer und das \#
+werden nun zuverlässig im JSON-Format und Tags mit \#
+erstellt.
+
+Der folgende Code wird verwendet, um die Tags aus der KI-Ausgabe zu parsen und sie anschließend dem TagsController zu übergeben:
+
+\begin{lstlisting}[language=Java,caption=parseTags KI output,label=lst:parseTags]  
+  
+  List<String> parseTags(String chatOutput) {
+    RegExp regExp = RegExp(r'(?<=#)[\p{Letter}]+', unicode: true);
+    Iterable<RegExpMatch> matches = regExp.allMatches(chatOutput);
+    List<String> tags = [];
+
+    for (RegExpMatch match in matches) {
+      String tag = match.group(0)!;
+      tags.add(tag);
+    }
+
+    print(tags.toString());
+
+    return tags;
+  }
+    
+\end{lstlisting}
+
+
+
+Da die Nutzung der KI kostenintensiv sein kann, wenn mehr Benutzer sie verwenden, ist die Nutzung auf maximal zwei Anfragen pro Benutzer für Titel- oder Tag-Generierung begrenzt. Zukünftig ist geplant, das System durch ein Nochba AI-Abo mit unbegrenzten Anfragen zu monetarisieren.
+
+\subsubsection{Übersetzung mit Maschine Learning}
+
+\paragraph{Google Translation ML Kit}Für die Übersetzung von Beiträgen vom Deutschen ins Englische wurde eine kosteneffiziente Methode gesucht, um Kosten zu minimieren. Zunächst wurden bekannte Übersetzungs-APIs analysiert, aber dann stieß der Entwickler auf das Google ML Kit, welches 50 Sprachen übersetzen kann. Bemerkenswert ist, dass ein Sprachpaket etwa 5 MB umfasst und auch offline verwendet werden kann. Beim Start der App werden das deutsche und englische Sprachmodell heruntergeladen. Um einen Beitrag zu übersetzen, muss der Benutzer länger auf den Beitrag klicken, um die Übersetzung zu starten.
+\paragraph{Google Language identification ML Kit}
+
+
+
+
+
+
 \subsection{Filter}
 \setauthor{Sandin Habibovic}
 Der Filter bietet die Option die Beiträge nach bestimmten Kriterien zu filtern und die Suche nach bestimmten Beiträge zu vereinfachen. Der Filter unterteilt sich in einen Menüfilter und Hauptfilter.
@@ -268,7 +332,25 @@ diagram
 
 
 \subsection{Chat}
-package genommen warum
+
+
+
+
+\subsubsection{Google Smart Reply ML Kit}
+\setauthor{Martin Hausleitner}
+Die Implementierung des Google Smart Reply ML Kits wurde als sinnvolle Ergänzung in Betracht gezogen, um wiederkehrende und standardisierte Antworten in der Kommunikation zwischen Benutzern zu reduzieren. Ein Beispiel dafür ist die Nutzung solcher Plattformen wie Willhaben, bei denen häufig ähnliche Fragen und Antworten ausgetauscht werden.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{pics/einladecode-page.png}
+  \caption{Smart Replay im Chat}
+  \label{fig:einladecode}
+\end{figure}
+
+Die Integration des Google Smart Reply ML Kits bietet den Benutzern verschiedene Antwortmöglichkeiten, die direkt über den Eingabefeld des Chats angezeigt werden. Dies ermöglicht eine effizientere und benutzerfreundlichere Kommunikation, da aufwendige manuelle Texteingaben vermieden werden können. Die Abbildung verdeutlicht, wie verschiedene Vorschläge im Eingabefeld angezeigt werden.
+
+Das Google Smart Reply System nutzt die letzten zehn Nachrichten als Kontext, um adäquate und relevante Antwortvorschläge zu generieren. Die Anwendung von maschinellem Lernen in diesem Kontext trägt zur Verbesserung der Benutzererfahrung bei und ermöglicht eine effizientere Kommunikation. Auf diese Weise können die Benutzer schnell und einfach auf eingehende Nachrichten reagieren, wodurch wertvolle Zeit gespart und mögliche Frustrationen vermieden werden.
+
 \subsubsection{Flyer Package}
 
 \subsection{Profil}
