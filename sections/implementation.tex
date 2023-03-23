@@ -4,14 +4,7 @@
 allg. actions warum kosten
 \subsubsection{iOS Build}
 \setauthor{Martin Hausleitner}
-Unser Ziel bestand darin, eine
-\href{https://www.apple.com/ios/app-store/}{iOS-App im App
-  Store} zu veröffentlichen und eine
-\href{https://play.google.com/store/apps}{Android-App im
-  Play Store} anzubieten. Da Martin Hausleitner der einzige im
-Team war, der ein iPhone besaß und über Erfahrungen mit
-Apple verfügte, beschäftigte er sich mit dem Build-Prozess
-der iOS-App.
+Das Ziel des Projekts war es, eine \href{https://www.apple.com/ios/app-store/}{iOS-App im App Store} zu veröffentlichen und eine \href{https://play.google.com/store/apps}{Android-App im Play Store} anzubieten. Da Martin Hausleitner der einzige im Team war, der ein iPhone besaß und Erfahrungen mit Apple hatte, übernahm er die Verantwortung für den Build-Prozess der iOS-App.
 
 Zur Erstellung einer \href{https://flutter.dev/}{Flutter}
 iOS-App ist ein Mac mit
@@ -119,12 +112,14 @@ Dennoch wurde versucht, auf TestFlight umzusteigen, was jedoch ebenfalls den Kau
 \section{Mobile Anwendung}
 \subsection{Dateistruktur}
 \setauthor{Martin Hausleitner}
-In Flutter gibt es keine fixe Dateistruktur für eine App,
-man kann seine Struktur also selbst überlegen und gestalten.
-Im Folgenden beschreibe ich, wie wir unsere Dateistruktur
-für eine Flutter-App aufgebaut haben.
+Bei der Entwicklung einer Flutter-App gibt es keine vorgegebene Dateistruktur. Stattdessen können Entwickler ihre eigene Struktur entwerfen und gestalten. Im Folgenden wird beschrieben, wie die Dateistruktur für das betreffende Flutter-Projekt aufgebaut wurde.
 
-In Flutter gibt es keine feste Dateistruktur, stattdessen kann man die Struktur der Dateien und Ordner selbst bestimmen. Für unser Flutter-Projekt haben wir uns für eine Struktur entschieden, die sich an bewährten Praktiken orientiert.
+Da es keine festen Vorgaben gibt, kann man sich bei der
+Strukturierung an bewährten Praktiken orientieren. In diesem
+Fall wurde die Dateistruktur so gewählt, dass sie effizient,
+übersichtlich und gut organisiert ist, um eine reibungslose
+Entwicklung und Wartung der App zu ermöglichen.
+
 
 Die Dateistruktur sieht wie folgt aus:
 
@@ -136,9 +131,7 @@ Die Dateistruktur sieht wie folgt aus:
   \item \textbf{views} - Hier befinden sich Ansichten, die von mehreren Seiten der App verwendet werden können.
 \end{itemize}
 
-Im Nachhinein hätten wir die Dateistruktur anders gestaltet,
-z.B. hätten wir das UI als eigenes Package definiert und die
-pages und views besser unterteilt.
+Rückblickend wäre es möglich, die Dateistruktur anders zu gestalten, beispielsweise durch die Definition des UI als eigenes Package und eine bessere Unterteilung der Pages und Views. Diese Anpassungen könnten zu einer noch übersichtlicheren und besser organisierten Struktur beitragen.
 
 \subsection{State Management}
 In Flutter gibt es verschiedene Möglichkeiten\cite{flutter-docs-interactive}\cite{flutter-state-management-blog}, um mit dem State Management umzugehen. State Management bezieht sich auf die Art und Weise, wie Daten innerhalb einer App verwaltet werden. In jeder App gibt es bestimmte Daten, die von verschiedenen Komponenten und Widgets verwendet werden und sich im Laufe der Zeit ändern können. State Management bezieht sich auf die Methoden, die verwendet werden, um diese Daten innerhalb der App zu verwalten und zu aktualisieren.
@@ -149,9 +142,9 @@ In Flutter gibt es verschiedene Möglichkeiten\cite{flutter-docs-interactive}\ci
 
 GetX verwendet ein reaktives Ansatz zur Verwaltung des Zustands, was bedeutet, dass Änderungen im Zustand automatisch die UI aktualisieren, ohne dass der Entwickler manuell Code schreiben muss, um diese Aktualisierungen durchzuführen. Dies spart viel Entwicklungszeit und macht es einfach, auf Benutzerinteraktionen zu reagieren.
 
-Mit GetX können wir auch eine einheitliche Datenquelle haben, auf die alle Komponenten zugreifen können, was die Wartung und Erweiterung der Anwendung erleichtert. Darüber hinaus bietet GetX auch eine einfache Möglichkeit, Abhängigkeiten zu verwalten und Zustandsinformationen zwischen Bildschirmen zu teilen.
+Mit GetX lässt sich eine einheitliche Datenquelle erstellen, auf die alle Komponenten zugreifen können. Dies erleichtert die Wartung und Erweiterung der Anwendung. Zudem bietet GetX eine einfache Möglichkeit, Abhängigkeiten zu verwalten und Zustandsinformationen zwischen verschiedenen Bildschirmen zu teilen. Diese Funktionen tragen zu einer effizienteren und besser strukturierten App-Entwicklung bei.
 
-Insgesamt hat uns die Verwendung von GetX im Flutter-Framework sehr geholfen, eine effektive und skalierbare Anwendung zu erstellen, die auf die Bedürfnisse unserer Benutzer abgestimmt ist.
+Insgesamt hat die Verwendung von GetX im Flutter-Framework wesentlich dazu beigetragen, eine effektive und skalierbare Anwendung zu entwickeln, die auf die Bedürfnisse der Benutzer zugeschnitten ist.
 \setauthor{Sandin Habibovic}
 getx controller service etc...
 
@@ -262,7 +255,7 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
 \end{compactitem}
 
 \subsubsection{Autovervollständigung
- mit Künstliche Intelligenz}
+  mit Künstliche Intelligenz}
 \setauthor{Martin Hausleitner}
 \paragraph{GPT-3.5-turbo}
 
@@ -445,7 +438,7 @@ Folgende Punkte sinder in der Abbildung
 Verifizierte Nutzer können alle 24 Stunden einen
 Einladungscode generieren.
 
-Die Verifizierung erfolgt, indem der Benutzer bei der Registrierung die Option "Mit Einladungscode verifizieren" auswählt. Anschließend hat er die Möglichkeit, den Einladungscode entweder über den integrierten QR-Code-Scanner zu scannen oder manuell einzugeben. Für die Implementierung des QR-Code-Scanners wurde das Flutter-Paket \href{https://pub.dev/packages/mobile_scanner}{mobile\_scanner} verwendet, welches auf Googles MLKit \cite{googlemlkit} basiert. MLKit ist eine Machine-Learning-Bibliothek, die in unserem Fall QR-Codes zuverlässig und schnell scannen kann. Der einzige Nachteil dieses Pakets ist der hohe Speicherbedarf von etwa 10 MB. Daher ist in Zukunft geplant, das MLKit nur bei Bedarf herunterzuladen und nach erfolgreicher Verifizierung des Benutzers wieder zu entfernen.
+Die Verifizierung erfolgt, indem der Benutzer bei der Registrierung die Option "Mit Einladungscode verifizieren" auswählt. Anschließend hat er die Möglichkeit, den Einladungscode entweder über den integrierten QR-Code-Scanner zu scannen oder manuell einzugeben. Für die Implementierung des QR-Code-Scanners wurde das Flutter-Paket \href{https://pub.dev/packages/mobile_scanner}{mobile\_scanner} verwendet, welches auf Googles MLKit \cite{googlemlkit} basiert. MLKit ist eine Machine-Learning-Bibliothek, die im vorliegenden Fall für das zuverlässige und schnelle Scannen von QR-Codes eingesetzt wird. Diese Bibliothek ermöglicht es, komplexe Funktionen wie das Erkennen von QR-Codes effizient und präzise zu implementieren. Der einzige Nachteil dieses Pakets ist der hohe Speicherbedarf von etwa 10 MB. Daher ist in Zukunft geplant, das MLKit nur bei Bedarf herunterzuladen und nach erfolgreicher Verifizierung des Benutzers wieder zu entfernen.
 
 Der gescannte oder eingegebene Code wird anschließend an die Cloud-Funktion \texttt{checkVerificationCode} (siehe Abschnitt \ref{subsec:registrierung-verify}) gesendet und überprüft, ob der Code korrekt ist.
 
@@ -461,7 +454,9 @@ Die letzte Funktion in der Einstellungssicht ist das Löschen des eigenen Kontos
 
 \subsection{Feedback}
 \setauthor{Martin Hausleitner}
-Im Zuge unserer Testphase suchen wir nach einer effizienten Methode, um Feedback zu sammeln. Um ein fundiertes Verständnis einer Fehlermeldung zu erlangen, erweist sich die Bereitstellung eines Screenshots als besonders nützlich. Daher haben wir uns nach Packages umgesehen, welche die Möglichkeit bieten, Screenshots zu erstellen und ergänzende Informationen als Kontext hinzuzufügen. Wir haben uns für das Package \href{https://pub.dev/packages/feedback}{feedback} entschieden. Dieses Package gestattet dem Nutzer, einen Screenshot anzufertigen und Annotationen hinzuzufügen, bevor ein entsprechender Kontext in Textform eingefügt werden kann. Eine weitere praktische Funktion besteht darin, dass der Nutzer bei Bedarf noch einmal navigieren und den Screenshot wiederholen kann. Zur Initiierung dieses Feedback-Views haben wir das Package \href{https://pub.dev/packages/shake}{shake} genutzt, welches bei einer entsprechenden Bewegung des Mobilgeräts aktiviert wird. Wir haben uns bei dieser Funktion an anderen Anwendungen orientiert, die ähnliche Mechanismen für die Feedback-Erhebung nutzen.
+Während der Testphase besteht das Ziel darin, eine effiziente Methode zur Sammlung von Feedback zu finden. Für ein detailliertes Verständnis von Fehlermeldungen ist die Bereitstellung von Screenshots äußerst hilfreich. Aus diesem Grund wurden Packages untersucht, die das Erstellen von Screenshots ermöglichen und zusätzliche Informationen als Kontext hinzufügen können. Das ausgewählte Package ist \href{https://pub.dev/packages/feedback}{feedback}. Dieses erlaubt es den Nutzern, Screenshots anzufertigen, Annotationen hinzuzufügen und anschließend einen entsprechenden Textkontext einzufügen. Eine nützliche Funktion ermöglicht es den Nutzern, bei Bedarf erneut zu navigieren und den Screenshot zu wiederholen.
+
+Um den Feedback-View zu initiieren, wurde das Package \href{https://pub.dev/packages/shake}{shake} verwendet. Dieses wird durch eine bestimmte Bewegung des Mobilgeräts aktiviert. Bei der Implementierung dieser Funktion wurden ähnliche Mechanismen berücksichtigt, die in anderen Anwendungen zur Feedback-Erhebung verwendet werden.
 
 Das von uns gewählte Vorgehen zur Analyse des Feedbacks erfolgt über die Trello-API, welche es uns ermöglicht, ein entsprechendes Dashboard zur Erfassung und Bearbeitung der Meldungen zu erstellen. Die erfassten Informationen, wie beispielsweise der Screenshot, der Text, das Datum und relevante Systeminformationen, dienen uns als Grundlage für eine weitere Auswertung und Fehlerbehebung. Trello erleichtert uns die Verwaltung des Feedbacks auf kostenlose Weise und stellt somit ein adäquates Instrument zur Unterstützung des Entwicklungsprozesses dar.
 
@@ -542,12 +537,7 @@ Aufwand für die Umsetzung besser abzuschätzen.
   \label{fig:adobexd-prototyp}
 \end{figure}
 
-
-Die Abbildung \ref{fig:adobexd-prototyp} zeigt eine
-Sammlung von Designs und Designentwicklungen in unserem
-Prototypen. Adobe XD war für unser Projekt geeignet, da
-Martin Hausleitner als alleiniger Designer keine
-Kollaborationsfunktion benötigte.
+Die Abbildung \ref{fig:adobexd-prototyp} zeigt eine Sammlung von Designs und Designentwicklungen im Prototypen. Adobe XD erwies sich als passend für das Projekt, da Martin Hausleitner, der alleinige Designer, keine Kollaborationsfunktionen benötigte. Das Tool ermöglichte es ihm, verschiedene Designvarianten effizient zu entwickeln und zu optimieren, um eine ansprechende Benutzeroberfläche für die Anwendung zu erstellen.
 
 Jedoch ist der Designer mit
 dem bekannteren und kostengünstigeren Figma vertraut, das
@@ -617,10 +607,7 @@ Der Big Icon Button wurde häufig eingesetzt, da er die Primary Color aufweist u
 
 Für den normalen Icon-Button wurde ein dezenter grauer Hintergrund verwendet, um ihn als Secondary Button zu kennzeichnen. Auch hier wurden immer Icons verwendet.
 
-Da wir in unsere App auch Third-Party-Anmeldemöglichkeiten
-hinzufügen wollten, haben wir auch das Login mit Apple und
-das Login mit Google an das Design angepasst, um eine
-einheitliche Benutzeroberfläche zu gewährleisten.
+In der App wurden zusätzlich Third-Party-Anmeldemöglichkeiten Buttons integriert. Dazu gehören das Login mit Apple und das Login mit Google. Um eine konsistente Benutzeroberfläche sicherzustellen, wurden diese Anmeldeoptionen entsprechend an das Design angepasst.
 
 Die Progressbar wurde beim Registrierungsprozess und beim
 Erstellen eines Posts eingesetzt, um dem Nutzer eine bessere
@@ -651,7 +638,7 @@ Icons verwendet, um dem Nutzer eine einfache und
 verständliche Darstellung zu ermöglichen.
 
 \paragraph{Chips}
-Chips wurden in unserer App oft verwendet, um Filter auszuwählen. Der Designer war mit dem finalen Design jedoch noch nicht vollständig zufrieden, da es viele unterschiedliche Varianten gibt. Es wird weiterhin an der Gestaltung der Chips gearbeitet, um eine einheitliche und ästhetisch ansprechende Darstellung zu erreichen.
+Chips kommen in der App häufig zum Einsatz, um Filter auszuwählen. Der Designer ist allerdings mit dem finalen Design noch nicht vollständig zufrieden, da es zahlreiche unterschiedliche Varianten gibt. Die Gestaltung der Chips wird weiterhin optimiert, um eine einheitliche und ästhetisch ansprechende Darstellung zu erreichen. Dieser fortlaufende Prozess zeigt das Bestreben, die Benutzeroberfläche kontinuierlich zu verbessern und den Anforderungen der Benutzer gerecht zu werden.
 
 \paragraph{Tabs}
 Die Implementierung von Tabs war auch in Flutter eine
@@ -875,9 +862,9 @@ implementieren ist, weshalb darauf verzichtet wurde.
   \caption{Screenshot der Nochba Website: nochba.at}
 \end{figure}
 
-Aufgrund der Medienpräsenz, die unser Projekt durch unsere Teilnahme an Linz hACkT erfahren hat und der Tatsache, dass wir keinen zentralen Anlaufpunkt für Informationen hatten, haben wir uns dazu entschlossen, eine schlichte Landing Page mit grundlegenden Informationen unter \href{https://nochba.at}{nochba.at} zu gestalten.
+Die Medienpräsenz des Projekts, die durch die Teilnahme an Linz hACkT erlangt wurde, und das Fehlen eines zentralen Anlaufpunkts für Informationen führten zur Entscheidung, eine einfache Landing Page zu erstellen. Diese Seite bietet grundlegende Informationen und ist unter \href{https://nochba.at}{nochba.at} erreichbar.
 
-Unsere Teilnahme an dem mPreneur Social Mobile Entrepreneurship von Arsham Edalatkhah hat uns zu einer internationalen Aufmerksamkeit verholfen. Dies hat uns dazu bewogen, eine englischsprachige Website unter \href{https://nochba.com}{nochba.com} zu erstellen, um unsere Arbeit einem breiteren Publikum zugänglich zu machen und unsere Reichweite zu erhöhen.
+Die Teilnahme am mPreneur Social Mobile Entrepreneurship von Arsham Edalatkhah führte zu internationaler Aufmerksamkeit für das Projekt. Dies veranlasste die Erstellung einer englischsprachigen Website unter \href{https://nochba.com}{nochba.com}. Ziel ist es, die Arbeit einem breiteren Publikum zugänglich zu machen und die Reichweite des Projekts zu erhöhen. Durch die Präsenz in einer internationalen Sprache kann das Interesse von Menschen aus verschiedenen Ländern und Kulturen geweckt und potenziell eine größere Nutzerbasis erreicht werden.
 
 
 \subsection{Beta-tester anmeldung}
@@ -932,11 +919,7 @@ eingerichtet. Durch diese Maßnahme wurde im Browser bei der
 URL die gekaufte Domain angezeigt.
 
 \subsubsection{SSL-Zertifikat}
-Leider hat die Website derzeit kein SSL-Zertifikat, da durch
-die Maskierung das Framer SSL-Zertifikat verloren geht.
-Allerdings wird die Website im Browser nicht als bedrohlich
-angezeigt, weshalb wir uns entschieden haben, kein
-SSL-Zertifikat zu erstellen, um den Aufwand zu minimieren.
+Aktuell verfügt die Website über kein SSL-Zertifikat, da durch die Maskierung das Framer SSL-Zertifikat entfällt. Dennoch wird die Website im Browser nicht als bedrohlich eingestuft. Aus diesem Grund wurde entschieden, kein SSL-Zertifikat zu erstellen und somit den Aufwand zu reduzieren.
 
 \section{Backend}
 
@@ -975,9 +958,7 @@ sparen, da nur die Prozessorlaufzeit bezahlt werden muss.
 
 Firebase Cloud Functions ermöglichen es Entwicklern, auf verschiedene Ereignisse in Firebase-Produkten zu reagieren. Zum Beispiel, wenn sich Daten in der Firestore-Datenbank ändern oder ein neuer Nutzer in Firebase Authentication registriert wird. Wenn ein solches Ereignis eintritt, wird die entsprechende Cloud Function automatisch ausgeführt.
 
-Wir haben alle Cloud Functions in TypeScript programmiert,
-da es Typsicherheit und erweiterte Fehlererkennung
-bietet.
+Alle Cloud Functions wurden in TypeScript entwickelt, da diese Programmiersprache Typsicherheit und verbesserte Fehlererkennung bietet.
 
 
 \subsubsection{Registrierung mit einem Verifizierungscode}\label{subsec:registrierung-verify}
@@ -1016,7 +997,7 @@ Das Skript gibt dann den generierten Code zurück. In jeder Phase der Funktion w
 
 \subsubsection{Koordienaten von einer Adresse bestimmen}
 \setauthor{Martin Hausleitner}
-Ein wichtiger Teil für die Verifizierung ist, dass wir die Adresse des Nutzers in Koordinaten umwandeln, damit wir im Backend damit arbeiten können. Zunächst haben wir die Google Geocode API genutzt, allerdings kostet diese Geld. Wir haben eine bessere Option gefunden, die besser zu unserer Projekt-Philosophie passt: nämlich Nominatim, eine Open-Source-Geocoding-API für OpenStreetMap-Daten. Nominatim bietet eine kostenlose API für genau unser Problem an.
+Für die Verifizierung ist es von Bedeutung, die Adresse des Nutzers in Koordinaten umzuwandeln, um im Backend damit arbeiten zu können. Ursprünglich wurde die Google Geocode API verwendet, jedoch ist diese kostenpflichtig. Eine passendere Alternative, die besser zur Projektphilosophie passt, wurde gefunden: Nominatim. Nominatim ist eine Open-Source-Geocoding-API für OpenStreetMap-Daten und bietet eine kostenlose API für diese spezielle Anforderung.
 
 Die Funktion \texttt{getOSMCoordinatesFromAddress} nutzt die Bibliothek \texttt{axios}, um eine Anfrage an die Nominatim-API zu senden. Die API wird genutzt, um Koordinaten für eine Adresse zu erhalten.
 
@@ -1096,20 +1077,20 @@ Die Funktion gibt \texttt{0} zurück, falls die beiden Eingabeparameter denselbe
 
 \subsubsection{Bestimmung der nächstgelegenen Entfernung}
 \setauthor{Martin Hausleitner}
-Um die Privatsphäre der Nachbarn zu gewährleisten, benötigen wir eine Funktion, die uns den nächstgelegenen Abstand zu den Nachbarn gibt, ohne den genauen Abstand preiszugeben. Die Funktion heißt \texttt{getNearestDistance} und bekommt einen Meterwert als Parameter.
+Zur Wahrung der Privatsphäre der Nachbarn ist eine Funktion erforderlich, die den nächstgelegenen Abstand zu den Nachbarn angibt, ohne den genauen Abstand offenzulegen. Diese Funktion trägt den Namen \texttt{getNearestDistance} und erhält einen Meterwert als Parameter.
 
 Die Funktion erstellt ein Array mit den Optionen \texttt{[100, 200, 500, 1000, 5000, 10000, 15000]} und setzt die Variable \texttt{nearest} auf den ersten Wert im Array.
 
 Dann wird eine Schleife ausgeführt, die durch jedes Element im Array \texttt{options} geht und prüft, welches Element am nächsten zum angegebenen Abstand \texttt{distance} liegt. Wenn ein Element näher ist als das bisher am nächsten liegende Element, wird \texttt{nearest} aktualisiert.
 
-Schließlich wird überprüft, ob \texttt{nearest} größer oder gleich 1000 ist, und je nachdem wird der Abstand entweder in Kilometern oder Metern zurückgegeben. Wenn der Abstand größer oder gleich 1000 ist, wird die Einheit \texttt{km} hinzugefügt, ansonsten wird \texttt{m} hinzugefügt. Wir haben absichtlich keine Switches oder If-Bedingungen benutzt, da wir es jetzt mit der aktuellen Funktion schneller schaffen, die Abstände zu ändern. Wir evaluieren noch, wie das Array mit den Optionen aussieht.
+Letztendlich wird geprüft, ob \texttt{nearest} größer oder gleich 1000 ist. Abhängig davon wird der Abstand entweder in Kilometern oder Metern zurückgegeben. Ist der Abstand größer oder gleich 1000, wird die Einheit \texttt{km} hinzugefügt, andernfalls wird \texttt{m} verwendet. Verzichtet wurde bewusst auf Switches oder If-Bedingungen, da mit der aktuellen Funktion schneller Abstände geändert werden können. Die Evaluierung des Arrays mit den Optionen ist noch im Gange.
 
 
 \subsubsection{Nachbarschaft von Nutzer bestimmen}
 \setauthor{Martin Hausleitner}
-Um unseren App-Nutzern ein besseres Verständnis für die Nachbarschaften zu geben, in denen ihre Nachbarn wohnen, zeigen wir bei jedem Benutzer die Nachbarschaft an, in der sie leben. Diese Information wird automatisch in der Datenbank gespeichert, wenn der Nutzer verifiziert wird. Um diese Funktion zu ermöglichen, verwenden wir die folgende Funktion, die die geografischen Koordinaten des Benutzers verwendet, um die entsprechende Nachbarschaft mithilfe der OpenStreetMap-API abzurufen:
+Um den App-Nutzern ein besseres Verständnis der Nachbarschaften zu vermitteln, in denen ihre Nachbarn leben, wird bei jedem Benutzer die jeweilige Nachbarschaft angezeigt. Diese Information wird automatisch in der Datenbank gespeichert, sobald der Nutzer verifiziert ist. Zur Umsetzung dieser Funktion wird eine Methode eingesetzt, die die geografischen Koordinaten des Benutzers verwendet, um die entsprechende Nachbarschaft mithilfe der OpenStreetMap-API abzurufen:
 
-Die Funktion heißt \texttt{getOSMSuburbFromCoords} und nimmt zwei Parameter entgegen: \texttt{lat} für die geografische Breite und \texttt{lon} für die geografische Länge des Benutzers. Diese Funktion gibt eine Promise zurück, die eine Zeichenfolge \texttt{Stringn} mit dem Namen der Nachbarschaft des Benutzers enthält. Die Funktion verwendet die Axios-Bibliothek, um eine GET-Anfrage an die OpenStreetMap-API zu senden. Diese Anfrage enthält die geografischen Koordinaten des Benutzers und die gewünschte Zoomstufe \texttt{18}, um die Nachbarschaft zu finden. Wenn die Anfrage erfolgreich ist, gibt die Funktion den Namen der Nachbarschaft zurück, der aus den Daten extrahiert wird, die von der API zurückgegeben werden. Wenn der Name der Nachbarschaft nicht verfügbar ist, gibt die Funktion den Namen der Stadt oder der Gemeinde zurück, in der sich der Benutzer befindet. Wenn auch diese Informationen nicht verfügbar sind, gibt die Funktion \texttt{null} zurück. Wenn bei der Anfrage ein Fehler auftritt, wird eine Fehlermeldung ausgelöst.
+Die Funktion heißt \texttt{getOSMSuburbFromCoords} und nimmt zwei Parameter entgegen: \texttt{lat} für die geografische Breite und \texttt{lon} für die geografische Länge des Benutzers. Diese Funktion gibt eine Promise zurück, die eine Zeichenfolge \texttt{String} mit dem Namen der Nachbarschaft des Benutzers enthält. Die Funktion verwendet die Axios-Bibliothek, um eine GET-Anfrage an die OpenStreetMap-API zu senden. Diese Anfrage enthält die geografischen Koordinaten des Benutzers und die gewünschte Zoomstufe \texttt{18}, um die Nachbarschaft zu finden. Wenn die Anfrage erfolgreich ist, gibt die Funktion den Namen der Nachbarschaft zurück, der aus den Daten extrahiert wird, die von der API zurückgegeben werden. Wenn der Name der Nachbarschaft nicht verfügbar ist, gibt die Funktion den Namen der Stadt oder der Gemeinde zurück, in der sich der Benutzer befindet. Wenn auch diese Informationen nicht verfügbar sind, gibt die Funktion \texttt{null} zurück. Wenn bei der Anfrage ein Fehler auftritt, wird eine Fehlermeldung ausgelöst.
 
 
 \subsubsection{Verifizierungscode format überprüfen}
@@ -1151,10 +1132,4 @@ einheitlich mit der neuen E-Mail-Adresse zu gestalten.
 Das gesamte Team hatte Zugang zur E-Mail-Adresse und zum Webmail-Zugriff, obwohl die E-Mail-Adresse hauptsächlich von Martin Hausleitner und Arsham Edalatkhah genutzt wurde.
 
 \subsection{Vorteile}
-Im Nachhinein stellte sich die Entscheidung, eine eigene
-E-Mail-Adresse zu erstellen, als sehr sinnvoll heraus, da
-dies einen professionellen Eindruck vermittelte und unser
-Projekt ernster genommen wurde. Es erleichterte uns auch die
-Verwaltung von E-Mails an einem zentralen Ort, was aufgrund
-der verschiedenen Anfragen, die im Laufe unseres Projekts
-eingegangen sind, äußerst praktisch war.
+Rückblickend erwies sich die Entscheidung, eine eigene E-Mail-Adresse zu erstellen, als äußerst vorteilhaft. Sie vermittelte einen professionellen Eindruck und führte dazu, dass das Projekt ernster genommen wurde. Zudem erleichterte die eigene E-Mail-Adresse die Verwaltung von E-Mails an einem zentralen Ort. Dies war besonders praktisch, da im Laufe des Projekts verschiedene Anfragen eingingen und so die Kommunikation effizienter gestaltet werden konnte.
