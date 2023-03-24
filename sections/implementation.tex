@@ -260,7 +260,15 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
 \paragraph{GPT-3.5-turbo}
 
 
-In jüngster Vergangenheit haben Fortschritte in der künstlichen Intelligenz (KI) dazu geführt, dass deren Implementierung in verschiedenen Produkten immer einfacher wird. Das Entwicklerteam hat daher beschlossen, auch in Nochba eine vereinfachte Implementierung durchzuführen. Mit der Veröffentlichung der GPT-3.5-turbo API von OpenAI wurde diese unmittelbar in Nochba integriert. Wie in der Abbildung [] ersichtlich, befindet sich im Titelfeld ein Zauberstab-Symbol in der rechten oberen Ecke. Bei einem Klick darauf wird eine API-Anfrage an OpenAI gesendet. Um einen Titel basierend auf der Beschreibung zu erstellen, wird folgender Prompt benötigt:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{pics/create-post.png}
+  \caption{Schritt: 2 Beitrag erstellen}
+  \label{fig:createpost}
+\end{figure}
+
+
+In jüngster Vergangenheit haben Fortschritte in der künstlichen Intelligenz (KI) dazu geführt, dass deren Implementierung in verschiedenen Produkten immer einfacher wird. Das Entwicklerteam hat daher beschlossen, auch in Nochba eine vereinfachte Implementierung durchzuführen. Mit der Veröffentlichung der GPT-3.5-turbo API von OpenAI wurde diese unmittelbar in Nochba integriert. Wie in der Abbildung \ref{createpost} ersichtlich, befindet sich im Titelfeld ein Zauberstab-Symbol in der rechten oberen Ecke. Bei einem Klick darauf wird eine API-Anfrage an OpenAI gesendet. Um einen Titel basierend auf der Beschreibung zu erstellen, wird folgender Prompt benötigt:
 
 beschreibung{ \${widget.descriptionController!.text} } passender Titel:
 
@@ -279,7 +287,7 @@ das Parsen der Tags erschwerte. Durch die Klammer und das \#
 werden nun zuverlässig im JSON-Format und Tags mit \#
 erstellt.
 
-Der folgende Code wird verwendet, um die Tags aus der KI-Ausgabe zu parsen und sie anschließend dem TagsController zu übergeben:
+Der folgende Code \ref{lst:parseTags} wird verwendet, um die Tags aus der KI-Ausgabe zu parsen und sie anschließend dem TagsController zu übergeben:
 
 \begin{lstlisting}[language=Java,caption=parseTags KI output,label=lst:parseTags]  
   
@@ -1138,47 +1146,52 @@ vermittelte einen professionellen Eindruck und führte dazu,
 dass das Projekt ernster genommen wurde. Zudem erleichterte
 die eigene E-Mail-Adresse die Verwaltung von E-Mails an
 einem zentralen Ort. Dies war besonders praktisch, da im
+
+
 Laufe des Projekts verschiedene Anfragen eingingen und so
 die Kommunikation effizienter gestaltet werden konnte.
 \section{Zukünftige mögliche implementierungen}
+Das Ziel des Teams besteht darin, die App jedem Österreicher und jeder Österreicherin zugänglich zu machen, weshalb die Entwicklung noch lange nicht abgeschlossen ist. Aus diesem Grund wurden im Folgenden einige Ideen aufgelistet, die während des Brainstormings entstanden sind.
+
+
 \begin{itemize}
   \item App soll komplett auf Open-Source-Plattformen basieren
   \item Neuentwicklung der App
   \item Supabase statt Firebase verwenden
-  \end{itemize}
-  
-  \section{Benutzererfahrung (UX) und Benutzeroberfläche (UI)}
-  \begin{itemize}
+\end{itemize}
+
+\subsection{Benutzererfahrung (UX) und Benutzeroberfläche (UI)}
+\begin{itemize}
   \item UI/UX-Überarbeitung
   \item Eigenes UI-Package für die App
   \item Vereinfachung der Beitragserstellung
   \item Automatische Kategorisierung von Beiträgen durch KI
   \item Anpassbare Benachrichtigungseinstellungen
   \item Erweiterte persönliche Daten im Profil
-  \end{itemize}
-  
-  \section{Registrierung und Profil}
-  \begin{itemize}
+\end{itemize}
+
+\subsection{Registrierung und Profil}
+\begin{itemize}
   \item Vereinfachung des Registrierungsprozesses
-  \begin{itemize}
-  \item Adressen-Autocomplete
-  \end{itemize}
+        \begin{itemize}
+          \item Adressen-Autocomplete
+        \end{itemize}
   \item Identitätsverifizierung mit Ausweis
   \item Weitere Verifizierungsmöglichkeiten
-  \end{itemize}
-  
-  \section{Kommunikation und Interaktion}
-  \begin{itemize}
+\end{itemize}
+
+\subsection{Kommunikation und Interaktion}
+\begin{itemize}
   \item Neuentwicklung des Chats
-  \begin{itemize}
-  \item Gruppenchats
-  \item Chat-Reaktionen
-  \item Sprachnachrichten
-  \item Beiträge in Chats versenden
-  \item Google ML Kit Entity Extraction
-  \item Chat-Übersetzung
-  \item Erweiterte Anhangsoptionen: Standort
-  \end{itemize}
+        \begin{itemize}
+          \item Gruppenchats
+          \item Chat-Reaktionen
+          \item Sprachnachrichten
+          \item Beiträge in Chats versenden
+          \item Google ML Kit Entity Extraction
+          \item Chat-Übersetzung
+          \item Erweiterte Anhangsoptionen: Standort
+        \end{itemize}
   \item Punktesystem wie Karma auf Reddit, um fleißige Nachbarn zu belohnen
   \item Zusätzliche Karma-Belohnungen für Reaktionen
   \item Weitere Kategorien, z.B. Umfragen
@@ -1187,31 +1200,31 @@ die Kommunikation effizienter gestaltet werden konnte.
   \item Integration von Veranstaltungskalendern und lokalen Events
   \item Nachbarschaftsprojekte und gemeinsame Aktivitäten vorschlagen
   \item Lokale Geschäfts- und Serviceempfehlungen
-  \end{itemize}
-  
-  \section{Internationalisierung und Übersetzungen}
-  \begin{itemize}
+\end{itemize}
+
+\subsection{Internationalisierung und Übersetzungen}
+\begin{itemize}
   \item App in mehreren Sprachen übersetzen
   \item Automatische Übersetzung für alle Teile der App
-  \end{itemize}
-  
-  \section{Hilfe und Support}
-  \begin{itemize}
+\end{itemize}
+
+\subsection{Hilfe und Support}
+\begin{itemize}
   \item Erweiterte Hilfe und Tutorials
   \item Erweiterte Einstellungsmöglichkeiten
-  \end{itemize}
-  
-  \section{Technische Verbesserungen}
-  \begin{itemize}
+\end{itemize}
+
+\subsection{Technische Verbesserungen}
+\begin{itemize}
   \item Umfangreiches Caching in der App
   \item Erweitertes Caching
   \item Chat-Verschlüsselung
   \item Deep Links für jede Seite
   \item Einladecodes mit Links
-  \end{itemize}
-  
-  \section{Sicherheit und Datenschutz}
-  \begin{itemize}
+\end{itemize}
+
+\subsection{Sicherheit und Datenschutz}
+\begin{itemize}
   \item Erweiterte Sicherheitsmechanismen
   \item Integration von Wetter- und Verkehrsinformationen
   \item Erweiterte Benachrichtigungsoptionen
