@@ -10,7 +10,7 @@
     \includegraphics[width=1\textwidth]{pics/systemarchitektur_diagram.png}
     \caption{Systemarchitektur Diagramm}
     \label{fig:systemarchitektur}
-    \end{figure}
+\end{figure}
 % todo: add systemarchitektur_diagram
 % \includegraphics[width=0.2\textwidth]{pics/systemarchitektur_diagram.svg}
 
@@ -21,10 +21,10 @@ obere Teil stellt das Frontend dar, welches vollständig im
 Flutter Framework unter Verwendung der Programmiersprache
 Dart entwickelt wurde. Zur Kommunikation mit dem Backend
 wurden die \href{https://pub.dev/packages/algolia}{Algolia
-Flutter SDK} und
+    Flutter SDK} und
 \href{https://pub.dev/packages/firebase}{Firebase Flutter
-SDK} genutzt. Zur Vereinfachung wurden die Funktionen der
-Firebase Flutter SDK in einem einzigen Paket
+    SDK} genutzt. Zur Vereinfachung wurden die Funktionen der
+Firebase Flutter SDK in einem einzigen Block
 zusammengefasst, während Firebase für jedes Feature ein
 eigenes Package bereitstellt. Die Flutter-App wird
 anschließend für iOS und Android kompiliert.
@@ -55,7 +55,7 @@ integrierte Suchfunktion, die die Suchgeschwindigkeit und
 -qualität verbessert, indem nur die Beitrag-Titel,
 -Beschreibungen und -Tags gespiegelt werden, anstatt die
 gesamte Datenbank zu replizieren. Weitere Informationen zu
-Algolia Search ist in dem Abschnitt \ref{sec:algolia} zu finden. 
+Algolia Search ist in dem Abschnitt \ref{sec:algolia} zu finden.
 
 \section{Flutter}
 
@@ -177,7 +177,7 @@ https://medium.com/flutter-community/firebase-cloud-storage-in-flutter-flutter-a
 \setauthor{Martin Hausleitner}
 Firebase Cloud Functions\cite{firebase-cloud-functions} ermöglichen es uns, unsere Business-Logik wie beispielsweise den Registrierungsprozess und viele andere Logikvorgänge einfach und effektiv in der Cloud abzubilden. Wir haben uns entschieden, die Funktionen in TypeScript zu schreiben, da es uns viele Vorteile bietet, wie zum Beispiel eine statische Typisierung, verbesserte IDE-Unterstützung und eine erhöhte Code-Lesbarkeit.
 
-Der Registrierungsprozess ist ein gutes Beispiel dafür, wie wir Firebase Cloud Functions einsetzen können. Anstatt eine monolithische Anwendung zu erstellen, die alles in einem einzigen Server handhabt, können wir die Logik in kleinere Funktionen aufteilen, die jeweils eine spezifische Aufgabe erfüllen. 
+Der Registrierungsprozess ist ein gutes Beispiel dafür, wie wir Firebase Cloud Functions einsetzen können. Anstatt eine monolithische Anwendung zu erstellen, die alles in einem einzigen Server handhabt, können wir die Logik in kleinere Funktionen aufteilen, die jeweils eine spezifische Aufgabe erfüllen.
 
 Firebase Cloud Functions bietet viele Vorteile, wie zum Beispiel die Möglichkeit, die Funktionen einfach zu skalieren und automatisch zu verteilen, um hohe Lasten zu bewältigen. Außerdem können wir die Funktionen einfach testen und debuggen, indem wir lokale Emulatoren verwenden, bevor wir sie in der Cloud bereitstellen.
 
