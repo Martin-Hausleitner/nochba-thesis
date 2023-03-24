@@ -16,7 +16,7 @@
 
 % \includesvg{pics/systemarchitektur_diagram.svg}
 Die vorliegende Abbildung \ref{fig:systemarchitektur}
-veranschaulicht vereinfacht unsere Systemarchitektur. Der
+veranschaulicht vereinfacht die Systemarchitektur. Der
 obere Teil stellt das Frontend dar, welches vollständig im
 Flutter Framework unter Verwendung der Programmiersprache
 Dart entwickelt wurde. Zur Kommunikation mit dem Backend
@@ -39,7 +39,7 @@ einem registrierten Account ausgeführt werden. Besondere
 Cloud Functions verlangen darüber hinaus eine zusätzliche
 Verifizierung der Adresse des Nutzers.
 
-Wir nutzen \href{https://firebase.google.com/docs/firestore}{Firestore}, eine NoSQL-Datenbank von Firebase, um unsere Daten zu speichern. Um auf die Firestore-Datenbank und den \href{https://firebase.google.com/docs/storage}{Cloud Storage} zugreifen zu können, müssen zuerst die \href{https://firebase.google.com/docs/firestore/security/overview}{Firestore Security Rules} durchlaufen werden, die sämtliche Zugriffsrechte auf die Dokumente in der Datenbank oder dem Cloud Storage regeln. Mehr dazu findet sich unter \hyperref[sec:security-rules]{Security Rules}.
+Die Nutzung von \href{https://firebase.google.com/docs/firestore}{Firestore}, einer NoSQL-Datenbank von Firebase, ermöglicht die Speicherung von Daten. Um auf die Firestore-Datenbank und den \href{https://firebase.google.com/docs/storage}{Cloud Storage} zuzugreifen, ist es erforderlich, die \href{https://firebase.google.com/docs/firestore/security/overview}{Firestore Security Rules} zu durchlaufen. Diese Regeln steuern sämtliche Zugriffsrechte auf Dokumente in der Datenbank oder dem Cloud Storage. Weiterführende Informationen dazu sind unter \hyperref[sec:security-rules]{Security Rules} zu finden.
 
 Firestore verfügt nicht über eine integrierte Funktion zur
 vollständigen Durchsuchung aller Dokumente, weshalb für die
@@ -101,7 +101,7 @@ https://medium.com/flutter-community/firebase-authentication-in-flutter-752d1420
 
 \subsubsection{Security Rules}\label{sec:security-rules}
 \setauthor{Martin Hausleitner}
-In unserer App ist die Sicherheit ein sehr wichtiger Faktor,
+In der App ist die Sicherheit ein sehr wichtiger Faktor,
 um die Vertraulichkeit und Integrität der Daten und der
 Nutzer zu gewährleisten. Firebase bietet für seine
 Cloud-basierten Datenbank- und Speicherlösungen - Cloud
@@ -125,7 +125,7 @@ Diese Regel definiert, dass jeder Nutzer Lesezugriff auf
 alle Posts hat, aber nur der Autor des Posts ihn auch ändern
 darf.
 
-Insgesamt bieten die Security Rules für Cloud Firestore und Cloud Storage eine leistungsstarke und flexible Möglichkeit, die Zugriffsrechte auf die Daten und Ressourcen in einer Firebase-App zu steuern. Mit Hilfe der Security Rules können wir sicherstellen, dass die Daten ihrer Nutzer geschützt und nur von berechtigten Personen abgerufen oder geändert werden können.
+Zusammenfassend stellen die Security Rules für Cloud Firestore und Cloud Storage eine wirkungsvolle und anpassungsfähige Option dar, um Zugriffsrechte auf Daten und Ressourcen innerhalb einer Firebase-App zu kontrollieren. Mithilfe der Security Rules lässt sich gewährleisten, dass Nutzerdaten geschützt sind und ausschließlich von berechtigten Personen eingesehen oder verändert werden können.
 
 
 
@@ -175,13 +175,13 @@ https://medium.com/flutter-community/firebase-cloud-storage-in-flutter-flutter-a
 
 \subsection{Firebase Cloud Functions}
 \setauthor{Martin Hausleitner}
-Firebase Cloud Functions\cite{firebase-cloud-functions} ermöglichen es uns, unsere Business-Logik wie beispielsweise den Registrierungsprozess und viele andere Logikvorgänge einfach und effektiv in der Cloud abzubilden. Wir haben uns entschieden, die Funktionen in TypeScript zu schreiben, da es uns viele Vorteile bietet, wie zum Beispiel eine statische Typisierung, verbesserte IDE-Unterstützung und eine erhöhte Code-Lesbarkeit.
+Dank Firebase Cloud Functions\cite{firebase-cloud-functions} lässt sich Business-Logik, wie etwa der Registrierungsprozess und viele andere logische Vorgänge, einfach und effektiv in der Cloud umsetzen. Die Entscheidung, die Funktionen in TypeScript zu verfassen, ergibt sich aus zahlreichen Vorteilen, wie statischer Typisierung, verbesserter IDE-Unterstützung und erhöhter Code-Lesbarkeit.
 
-Der Registrierungsprozess ist ein gutes Beispiel dafür, wie wir Firebase Cloud Functions einsetzen können. Anstatt eine monolithische Anwendung zu erstellen, die alles in einem einzigen Server handhabt, können wir die Logik in kleinere Funktionen aufteilen, die jeweils eine spezifische Aufgabe erfüllen.
+Der Registrierungsprozess verdeutlicht den Einsatz von Firebase Cloud Functions. Statt einer monolithischen Anwendung, welche alles auf einem Server verwaltet, wird die Logik in kleinere Funktionen zerlegt, die jeweils spezifische Aufgaben erfüllen.
 
-Firebase Cloud Functions bietet viele Vorteile, wie zum Beispiel die Möglichkeit, die Funktionen einfach zu skalieren und automatisch zu verteilen, um hohe Lasten zu bewältigen. Außerdem können wir die Funktionen einfach testen und debuggen, indem wir lokale Emulatoren verwenden, bevor wir sie in der Cloud bereitstellen.
+Firebase Cloud Functions bieten viele Vorzüge, darunter einfache Skalierbarkeit und automatische Verteilung zur Bewältigung hoher Lasten. Die Funktionen lassen sich zudem einfach testen und debuggen, indem lokale Emulatoren genutzt werden, bevor sie in der Cloud bereitgestellt werden.
 
-Insgesamt sind Firebase Cloud Functions eine großartige Möglichkeit, um unsere Business-Logik in der Cloud abzubilden und unsere Anwendung zu skalieren und zu verbessern. Durch die Verwendung von TypeScript können wir sicherstellen, dass unser Code sauber und robust bleibt und leicht gewartet werden kann.
+Insgesamt stellen Firebase Cloud Functions eine ausgezeichnete Möglichkeit dar, Business-Logik in der Cloud abzubilden und Anwendungen zu skalieren und zu optimieren. Durch den Einsatz von TypeScript bleibt der Code sauber, robust und wartungsfreundlich.
 
 \section{Algolia Search}\label{sec:algolia}
 \setauthor{Arsham Edalatkhah}

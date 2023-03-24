@@ -27,7 +27,7 @@ Allerdings erfordert die native Entwicklung spezialisierte Kenntnisse in den ver
 
 Ein Framework für plattformübergreifende Entwicklung ermöglicht die Erstellung einer einzigen Codebasis, die auf verschiedenen Plattformen wie iOS, Android und dem Web ausgeführt werden kann. Ein solches Framework nutzt häufig eine gemeinsame Programmiersprache wie JavaScript und bietet eine Vielzahl von Bibliotheken und Tools, um die Entwicklung zu erleichtern. Das Framework ermöglicht es Entwicklern, schnell und effizient Apps zu erstellen, ohne sich mit den Unterschieden in den Plattformen und Programmiersprachen auseinandersetzen zu müssen. Ein weiterer Vorteil von Frameworks für plattformübergreifende Entwicklung besteht darin, dass sie eine schnellere Markteinführung ermöglichen und den Entwicklungsaufwand reduzieren können. Allerdings kann die Verwendung eines Frameworks die Performance beeinträchtigen, da es schwierig sein kann, die App für jede Plattform zu optimieren.
 
-Infolge einer schnellen Entscheidung haben wir beschlossen, dass die Bewältigung dieser Angelegenheit mithilfe nativer Programmierung nicht erfolgen wird. Die Unvertrautheit eines jeden Mitglieds unseres Teams mit den Plattformen würde einen doppelten Arbeitsaufwand bedeuten, der für ein kleines Team von nur drei Personen zeitlich unverhältnismäßig wäre.
+Als Resultat einer schnellen Entscheidung wurde festgelegt, dass die Bewältigung dieser Aufgabe nicht durch native Programmierung erfolgen soll. Die mangelnde Vertrautheit aller Teammitglieder mit den Plattformen würde zu einem doppelten Arbeitsaufwand führen, der für ein kleines Team von lediglich drei Personen unverhältnismäßig wäre.
 
 \begin{figure}[htbp]
     \centering
@@ -37,8 +37,7 @@ Infolge einer schnellen Entscheidung haben wir beschlossen, dass die Bewältigun
     % \source{Quelle: Statista (https://www.statista.com/statistics/869224/worldwide-software-developer-working-hours/)}
 \end{figure}
 
-
-Um eine effektive und plattformübergreifende Entwicklung zu gewährleisten, haben wir uns dazu entschieden, ein Cross-Platform-Framework zu verwenden. Wir haben die Statistik in de der Abblidung \ref{fig:cross-platform-stats} betrachtet, welche Plattformen am meisten genutzt werden und dabei festgestellt, dass Flutter mit 42 Prozent das meistgenutzte Framework ist und die Tendenz steigend ist. Auf Platz 2 liegt React Native, das fast genauso beliebt ist.
+Um eine effiziente und plattformübergreifende Entwicklung sicherzustellen, fiel die Wahl auf die Verwendung eines Cross-Platform-Frameworks. Dabei wurde die Statistik in Abbildung \ref{fig:cross-platform-stats} herangezogen, um die am häufigsten genutzten Plattformen zu ermitteln. Es stellte sich heraus, dass Flutter mit 42 Prozent das am meisten verwendete Framework ist und die Tendenz steigend ist. React Native belegt mit nahezu gleicher Beliebtheit den zweiten Platz.
 
 \begin{figure}[h]
     \centering
@@ -52,22 +51,22 @@ Im Rahmen der vorliegenden Untersuchung wurden die wichtigsten Informationen zu 
 Insbesondere hat das Framework Xamarin aufgrund der jahrelangen Programmiererfahrung des Teams mit der Sprache C\# ein gewisses Interesse geweckt. Es ist jedoch zu erwähnen, dass auch das Framework Dart aufgrund der ähnlichen Syntax zu C\# eine geeignete Option für das Team darstellt.
 
 \paragraph{Programmiersprachen}
-\newline
+% \newline
 React Native ist zwar in JavaScript geschrieben, aber man kann keine React-Komponenten importieren und verwenden. Wenn man jedoch bereits Erfahrung mit React.js hat, kann man sich als Entwickler leichter in React Native einarbeiten. Die letzten beiden Plattformen Cordova und Ionic basieren auf HTML, CSS und JavaScript, was den Vorteil bietet, dass man auf jede JavaScript-Library zugreifen kann.
 
 
 \paragraph{UI Widgets}
-\newline
+% \newline
 
 Flutter hat als UI-Widget-Library sowohl Material Design 2 und 3 als auch eine iOS Library, die das native iOS-Design 1:1 abbildet. Dadurch kann der Nutzer den Unterschied zwischen nativen und Flutter-Designs kaum erkennen. Xamarin hat ebenfalls eine UI-Library namens Xamarin.Forms, die auf allen Plattformen funktioniert und native UI-Libraries für jede Plattform enthält.
 
 \paragraph{Hot Reload}
-\newline
+% \newline
 
 Ein wichtiger Faktor bei der Wahl des Frameworks ist auch der Hot Reload. Cordova bietet diese Funktion nicht, alle anderen Plattformen hingegen schon, was für uns ein dealbreaker ist.
 
 \paragraph{Package Manager}
-\newline
+% \newline
 
 In der vorliegenden Vergleich wurden verschiedene Package-Manager miteinander verglichen. Nach sorgfältiger Analyse hat sich gezeigt, dass der Package-Manager von Flutter am überzeugendsten ist. Ein ausschlaggebender Faktor hierfür war, dass jeder einzelne Package eine Beispielanwendung beinhaltet. Zudem bietet der Package-Manager die Möglichkeit, durch die Verwendung von Pub Points die Leistung und Qualität des Packages anhand verschiedener Kriterien zu bewerten. Ein weiterer Vorteil besteht darin, dass man leicht erkennen kann, welche Plattformen das jeweilige Package unterstützt. Zusammenfassend lässt sich sagen, dass der Package-Manager von Flutter aufgrund seiner umfangreichen Funktionen und Tools eine herausragende Wahl darstellt.
 
@@ -75,12 +74,12 @@ In der vorliegenden Vergleich wurden verschiedene Package-Manager miteinander ve
 Obwohl npm der meistgenutzte Package-Manager ist, ist er nicht spezifisch auf ein bestimmtes Framework ausgerichtet und es fehlen einige Funktionen, die Pub hat. In der C\#-Entwicklung ist NuGet bereits bekannt, jedoch wirkt er veraltet und weist ebenfalls einige Funktionslücken im Vergleich zu Pub auf.
 
 \paragraph{Packages}
-\newline
+% \newline
 
 Ein weiterer wichtiger Faktor bei der Wahl des Frameworks sind die verfügbaren Packages. Flutter bietet hier eine große Auswahl, wobei zu beachten ist, dass bei Frameworks, die auf JavaScript basieren, auf alle JavaScript-Libraries zugegriffen werden kann. Insgesamt sind die meisten Flutter-Packages auf mobile Apps ausgerichtet.
 
 \paragraph{Github Stars}
-\newline
+% \newline
 
 Die Community wurde anhand der Anzahl der Github-Stars gemessen, wobei Flutter mit gut einem Drittel vor React Native liegt. Obwohl Flutter noch nicht so lange auf dem Markt ist, spricht dies dafür, dass Entwickler mit Flutter sehr zufrieden sind.
 
@@ -91,13 +90,13 @@ Wichtig ist zu beachten, dass die Performance-Tests im Dezember 2021 durchgefüh
 
 \subsection
 {Backend}
-Dank Martin Hausleitners fundiertem Wissen in verschiedenen Backend-Technologien fiel uns die Entscheidung für unser Projekt leichter. Bei der Auswahl konzentrierten wir uns auf "Backend-as-a-Service"-Plattformen, da sie bereits zahlreiche Funktionen implementiert haben und das Team somit nicht alles von Grund auf programmieren mussten.
+Durch Martin Hausleitners umfassende Kenntnisse in verschiedenen Backend-Technologien wurde die Entscheidungsfindung für das Projekt erleichtert. Bei der Auswahl lag der Fokus auf "Backend-as-a-Service"-Plattformen, da diese bereits viele Funktionen implementiert haben und das Team dadurch nicht alles von Grund auf programmieren musste.
 
 Bei der Auswahl für das Projekt wurden drei Technologien berücksichtigt: Supabase, Firebase und Appwrite. Jede dieser Optionen stellt SDKs für Flutter und React Native bereit. Zudem verfügen alle über eine Datenbank, die Geoqueries unterstützt, die für das zentrale Merkmal des Radius der Beiträge benötigt wird. Zusätzlich bietet jede Plattform eine Speicherlösung für Beitragsfotos und andere Funktionen.
 
 Supabase hat zum Zeitpunkt der Evaluierung im Februar 2022 jedoch noch keine Cloud-Functions wie Firebase und Appwrite, was es schwierig machte, eine robuste Business-Logik umzusetzen. Obwohl Supabase am 1. April 2022 experimentell Edge Functions eingeführt hat, ist dies für eine Produktions-App nicht empfehlenswert.
 
-Daher blieben Appwrite und Firebase als die beiden besten Optionen übrig. Obwohl Appwrite nicht mit den Features von Firebase mithalten konnte, ist Appwrite 100 Prozent Open Source und Firebase Closed Source, was für Appwrite spricht. Da wir uns bei unserem Cross-Platform-Framework noch nicht sicher waren, war es uns nun leichter, uns für Firebase zu entscheiden, da es das beste Flutter-SDK hatte, was man anhand der verfügbaren Features erkennen konnte.
+Somit verblieben Appwrite und Firebase als die beiden vielversprechendsten Optionen. Obwohl Appwrite in Bezug auf die Funktionen nicht mit Firebase mithalten konnte, spricht für Appwrite, dass es zu 100 Prozent Open Source ist, während Firebase Closed Source ist. Da noch keine endgültige Entscheidung bezüglich des Cross-Platform-Frameworks getroffen wurde, fiel es nun leichter, sich für Firebase zu entscheiden, da es das beste Flutter-SDK aufwies, was an den verfügbaren Features erkennbar war.
 
 \section{Technologieentscheidung}
 Die Kombination von Flutter und Firebase harmonieren gut. Flutter ist schnell und hat eine breite Palette von Erweiterungen für mobile Anwendungen sowie eine starke Community. Flutter wird voraussichtlich Marktführer, was ein gutes Gefühl bezüglich der Entscheidung gibt. Zu Beginn gab es Zweifel bei der Arbeit mit Flutter aufgrund der vielen Klammern, die schnell unübersichtlich wurden. Jedoch konnte die Herausforderung dank der super VS Code-Integration mit einem Reformat-Feature gemeistert werden. Auch nach einem Jahr Entwicklung mit Flutter ist es immer noch beeindruckend, wie einfach Features zu implementieren sind und wie straight-forward die Entwicklung ist. Der Syntax von Dart, der Programmiersprache hinter Flutter, ist schnell erlernbar und ermöglicht es, schnell viele Programmierpatterns zu beherrschen.
