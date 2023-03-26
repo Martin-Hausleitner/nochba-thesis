@@ -1123,12 +1123,26 @@ Diese Funktion wird in der Cloud-Funktion \texttt{generateVerificationCode} verw
 \subsubsection{Typesense Search}
 \subsection{Typesense SDK}
 
-\section{Repository Logik}
+\section{Verwaltungslogik}
 \setauthor{Sandin Habibovic}
 
 \includegraphics[width=1\textwidth]{pics/Repository-Resource-Diagram.jpg}
 
-
+Grafik wird noch verbessert.
+\\
+Die oben dargestellte Struktur ermöglicht es, Daten von einem Firestore-Server abzurufen und in einer Flutter-App zu verwalten. Die Struktur besteht aus mehreren Komponenten, die im Folgenden näher erläutert werden:
+\\
+Die Struktur beginnt auf der UI-Ebene mit der Seite, die Daten aus dem Firestore benötigt. Diese Seite verfügt über einen GetxController, der für die Verwaltung des Zustands und die Implementierung von Logik zuständig ist. Dieser Controller initialisiert Repositories, die den Zugriff auf die Daten vereinfachen.
+\\
+Jedes Repository erbt von einer GenericRepository-Klasse. Das GenericRepository ist ein generischer Typ, der es ermöglicht, Repositories für verschiedene Datenmodelle zu erstellen, ohne dass jeder Repository-Typ dieselben grundlegenden Operationen implementieren muss. Das bedeutet, dass ein Repository für jede Sammlung im Firestore erstellt werden kann, indem einfach der entsprechende Typ als generischer Parameter angegeben wird.
+\\
+Ein wichtiger Vorteil bei der Verwendung von generischen Repositories besteht darin, dass dadurch Code-Duplizierung vermieden wird. Durch die Implementierung von grundlegenden CRUD-Operationen in der GenericRepository-Klasse müssen diese nicht in jedem Repository wiederholt werden, was die Wartbarkeit des Codes erhöht und die Wahrscheinlichkeit von Fehlern verringert.
+\\
+Darüber hinaus ermöglicht die Verwendung von Generics auch die einfache Erweiterung und Anpassung der Implementierung. Wenn beispielsweise spezielle Anforderungen für bestimmte Datenmodelle bestehen, können diese problemlos in einem spezialisierten Repository hinzugefügt werden, ohne dass andere Teile des Codes beeinflusst werden.
+\\
+Das GenericRepository erbt von einer RepositoryObject-Klasse, die den ResourceContext beinhaltet. Der ResourceContext stellt den Zugriff auf verschiedene Ressourcen bereit.
+\\
+Jede Ressource ermöglicht den Zugriff auf Daten der entsprechenden Sammlung auf dem Firestore und implementiert grundlegende CRUD-Operationen.
 
 
 \section{Visual Studio Code Extensions}
