@@ -146,7 +146,149 @@ Mit GetX lässt sich eine einheitliche Datenquelle erstellen, auf die alle Kompo
 
 Insgesamt hat die Verwendung von GetX im Flutter-Framework wesentlich dazu beigetragen, eine effektive und skalierbare Anwendung zu entwickeln, die auf die Bedürfnisse der Benutzer zugeschnitten ist.
 \setauthor{Sandin Habibovic}
-getx controller service etc...
+
+GetX verfügt über zwei wichtige Konzepte: GetxController und GetxService
+
+\subsubsection{GetxController}
+\setauthor{Sandin Habibovic}
+GetxController ist eine Klasse, die verwendet wird, um den Zustand eines Widgets oder einer Gruppe von Widgets zu verwalten. Ein GetxController ähnelt dem StatefulWidget von Flutter, bietet jedoch zusätzliche Funktionen wie reaktive Programmierung und Dependency Injection. GetxController werden verwendet, um die Logik eines Widgets von seiner Präsentation zu trennen, was das Warten und Testen vereinfachen soll.
+
+Ein GetxController bietet einige Vorteile gegenüber anderen Zustandsverwaltungslösungen wie Provider, Bloc und Mobx. Dazu gehören:
+
+Einfachheit: GetxController ist einfach zu verstehen und zu implementieren. Es erfordert keine zusätzlichen Boilerplate-Code oder das Erlernen von komplexen Konzepten, um es in einer Anwendung zu verwenden.
+
+Leistung: GetxController ist optimiert für Leistung und Ressourcenverbrauch. Durch die Verwendung von reaktiven Zuständen und automatischen UI-Aktualisierungen wird die Notwendigkeit von zusätzlichen Aktualisierungen der Anwendung reduziert, wodurch die Leistung der App verbessert wird.
+
+Flexibilität: GetxController kann in jeder Flutter-Anwendung verwendet werden, unabhängig von ihrer Größe oder Komplexität. Es kann leicht in bestehende Projekte integriert oder für neue Anwendungen verwendet werden.
+
+Kapselung: GetxController kapselt den Zustand und die Logik der Anwendung und ermöglicht eine saubere Trennung von Zuständigkeiten. Dadurch wird der Code besser organisiert und wartbarer.
+
+\paragraph{Beispiel}
+\begin{lstlisting}[caption=Beispiel zum Einsatz von einem GetxController in Kombination mit GetView,label=lst:GetxControllerExample]
+  import 'package:get/get.dart';
+
+  class HomeController extends GetxController {
+    var counter = 0;
+
+    void incrementCounter() {
+      counter++;
+      update();
+    }
+  }
+
+  class HomePage extends GetView<HomeController> {
+    const HomePage({Key? key}) : super(key: key);
+
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Home Page'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GetBuilder<HomeController>(
+                builder: (_) {
+                  return Text(
+                    'Counter: ${controller.counter}',
+                    style: TextStyle(fontSize: 24),
+                  );
+                },
+              ),
+              SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: controller.incrementCounter,
+                child: Text('Increment'),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+  }
+\end{lstlisting}
+Der vorliegende Code \ref{lst:GetxControllerExample} ist ein beispielhafter Code, der demonstrieren soll wie ein GetxController in Kombination mit einem GetView verwendet werden kann, um reaktive Funktionalität in einer Flutter-App zu implementieren.
+
+Der HomeController ist eine Klasse, die von GetxController erbt. Die Klasse definiert eine Eigenschaft \textit{counter} und eine Methode \textit{incrementCounter()}, die den Wert der Eigenschaft um 1 erhöht und \textit{update()} aufruft. \textit{update()} ist eine Methode von GetxController, die dem jeweiligen Widget mitteilt, dass das UI aktualisiert werden soll.
+
+Die HomePage-Klasse erbt von einem GetView-Widget, welches den HomeController implementiert hat. Die GetView-Klasse hat eine eingebaute Variable namens \textit{controller}, die den Zugriff auf den HomeController ermöglicht.
+
+
+\subsubsection{GetxService}
+\setauthor{Sandin Habibovic}
+GetxService ist eine Klasse, die eine globale Instanz eines Dienstes bereitstellt, die in der gesamten Anwendung verwendet werden kann. GetxService werden in der Regel für Operationen verwendet, die einmal ausgeführt werden müssen, wie zum Beispiel das Erstellen, Updaten oder Löschen von Daten in der Datenbanken, API-Aufrufen und anderen Backend-Services. Im Gegensatz zum GetxController bietet GetxService keine automatische Aktualisierung der UI.
+
+Einige Vorteile von GetxServices sind:
+
+Langlebigkeit: GetxServices bleiben für die gesamte Lebensdauer der App bestehen, was bedeutet, dass sie einmal initialisiert werden und dann für die gesamte Nutzungsdauer der App zur Verfügung stehen. Dies ist besonders nützlich für Dienste, die nicht direkt an das UI gebunden sind und keine ständige Aktualisierung benötigen.
+
+Wiederverwendbarkeit: GetxServices können in verschiedenen Teilen der Anwendung wiederverwendet werden, ohne dass sie mehrfach initialisiert werden müssen. Dadurch wird der Code effizienter und einfacher zu verwalten.
+
+Zentrale Verwaltung: GetxServices ermöglichen eine zentrale Verwaltung von Anwendungsdiensten und -ressourcen, wodurch der Code besser organisiert und leichter zu warten ist.
+
+Einfache Integration: GetxServices können leicht in bestehende Flutter-Projekte integriert werden, ohne dass große Änderungen am Code vorgenommen werden müssen. Dies erleichtert die Migration von bestehenden Projekten zu GetX.
+
+\paragraph{Beispiel}
+\begin{lstlisting}[caption=Beispiel zum Einsatz von einem GetxService,label=lst:GetxServiceExample]
+  import 'package:get/get.dart';
+
+  class MyService extends GetxService {
+    void callService() {
+      Get.snackbar('Service', 'The Service was called');
+    }
+  }
+
+  class HomeController extends GetxController {
+    final MyService myService = Get.find<MyService>();
+  
+    void callService() {
+      myService.callService();
+    }
+  }
+  
+  class HomePage extends GetView<HomeController> {
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Home Page'),
+        ),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: controller.callService,
+            child: const Text('Call Service'),
+          ),
+        ),
+      );
+    }
+  }
+  
+\end{lstlisting}
+Der vorliegende Code \ref{lst:GetxServiceExample} ist ein beispielhafter Code, wie ein GetxService verwendet werden kann, um einen Dienst in einer Flutter-App zu implementieren.
+
+Die MyService-Klasse erbt von GetxService und definiert eine Methode \textit{callService()}. Diese Methode ruft eine Snackbar auf, die dem User eine Meldung anzeigen soll.
+
+Die HomeController-Klasse erbt von GetxController und hat eine Instanz von \textit{MyService}, mit Hilfe von \textit{Get.find<MyService>()}, initialisiert. Wenn die Methode \textit{callService()} aufgerufen wird, ruft der Controller die Methode \textit{callService()} der MyService-Instanz auf.
+
+\subsubsection{Kriterium zum Einsatz von GetxController und GetxService}
+\setauthor{Sandin Habibovic}
+Um einen GetxController oder GetxService verwenden zu können, muss der jeweilige GetxController oder der jeweilige GetxService zuerst registriert werden. Dafür stellt GetX sogenannte Bindings zur Verfügung. Diese Bindings erstellen Instanzen von den jeweiligen GetxControllern oder den jeweiligen GetxServices, die mit \textit{GetView<Controller>} bzw. \textit{Get.find<Service>()} aufgerufen werden können.
+
+\paragraph{Beispiel}
+\begin{lstlisting}[caption=Beispiel von einem Binding,label=lst:GetxBindingExample]
+  import 'package:get/get.dart';
+
+  class HomeBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.put(MyService());
+    Get.put(HomeController());
+  }
+}
+
+\end{lstlisting}
 
 
 \subsection{Authentifizierung}
