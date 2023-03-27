@@ -90,8 +90,25 @@ Firebase bietet auch eine Echtzeit-Datenbank, die es Entwicklern ermöglicht, Da
 Dank dieser Systemarchitektur und der bereitgestellten Tools und Dienste können Entwickler mit Firebase schnell und einfach skalierbare Anwendungen erstellen und betreiben.
 
 \subsection{Firebase Authentication}
+\author{Sandin Habibovic}
 
-Beschreibung der Firebase Authentication Technologie, inklusive Sicherheitsregeln und Best Practices.
+Firebase Authentication ist eine Technologie von Google, die Entwicklern die Möglichkeit bietet, Authentifizierung und Autorisierung für ihre Apps und Webseiten unkompliziert und sicher einzubinden. Als Teil der Firebase-Plattform stellt Firebase Authentication eine vollständig gehostete Backend-Authentifizierungslösung bereit, die es Entwicklern erlaubt, sich auf die Anwendungsentwicklung zu konzentrieren, ohne sich mit Authentifizierungs- und Sicherheitsimplementierungen auseinandersetzen zu müssen.
+\\
+Es stehen verschiedene Authentifizierungsoptionen zur Verfügung, wie zum Beispiel:
+\begin{compactitem}
+    \item E-Mail und Passwort
+    \item Telefonnummer
+    \item Soziale Medien wie Google, Facebook und Twitter
+    \item benutzerdefinierte Authentifizierungsmethoden
+\end{compactitem}
+\\
+Firebase Authentication unterstützt zudem Multi-Faktor-Authentifizierung, um die Sicherheit zu verstärken und den Schutz von Benutzerkonten sicherzustellen.
+\\
+Die Technologie setzt auf Token-basierte Authentifizierung, um Benutzer zu erkennen und deren Authentifizierungsdaten zu verwalten. Nach erfolgreicher Authentifizierung eines Benutzers kann die App den von Firebase Authentication bereitgestellten Token nutzen, um auf weitere Firebase-Services zuzugreifen. Dazu zählen Firestore für Datenbanken, Storage für Dateien und Functions für serverlose Berechnungen.
+\\
+Firebase Authentication ist auf verschiedenen Plattformen wie Web, iOS, Android und Flutter verfügbar. Die Integration in Firebase-basierte Apps ist einfach und auch die Nutzung in Verbindung mit anderen Plattformen oder Anwendungen, die nicht auf Firebase aufbauen, ist möglich.
+\\
+Insgesamt bietet Firebase Authentication eine sichere, skalierbare und benutzerfreundliche Lösung für die Implementierung von Authentifizierung und Autorisierung in Anwendungen und Websites.
 
 Quellen:
 
@@ -131,7 +148,7 @@ Zusammenfassend stellen die Security Rules für Cloud Firestore und Cloud Storag
 
 \subsection{Cloud Firestore}
 
-Vorstellung der Datenbanktechnologie Firestore
+Cloud Firestore ist eine NoSQL-Datenbank, die von Google entwickelt wurde und als Teil der Firebase-Plattform angeboten wird. Sie ermöglicht es Entwicklern, Daten in der Cloud zu speichern und in Echtzeit zwischen verschiedenen Geräten zu synchronisieren. Firestore ist ideal für Anwendungen, die auf Skalierbarkeit, Echtzeitaktualisierungen und Offline-Zugriff angewiesen sind. Die Datenbank bietet flexible Datenstrukturen, granulare Sicherheitsregeln und einen leistungsstarken Abfrage-Mechanismus.
 
 Quellen:
 
@@ -141,7 +158,8 @@ https://medium.com/flutter-community/firebase-cloud-firestore-in-flutter-26c6e8c
 
 \subsubsection{Datenmodel}
 
-Hier kommt die Erklärung des Datenmodells in Firebase Firestore und dessen Auswirkungen auf die App-Architektur.
+Das Datenmodell in Firestore ist hierarchisch und besteht aus Dokumenten und Sammlungen. Dokumente sind einzelne Datenobjekte, die Felder mit Werten enthalten. Sammlungen sind Container für Dokumente und können weitere Sammlungen enthalten. Dieses hierarchische Datenmodell erlaubt es Entwicklern, Daten effizient zu organisieren und abzufragen.
+
 
 Quellen:
 
@@ -165,7 +183,15 @@ https://firebase.google.com/docs/firestore/data-model\#structure\_your\_data
 
 \subsection{Cloud Storage}
 
-Beschreibung der Cloud Storage Technologie in Firebase und deren Einsatz in der App.
+Cloud Storage ist eine Technologie von Firebase, die es Entwicklern ermöglicht, Dateien wie Bilder, Videos und Dokumente sicher und effizient in der Cloud zu speichern und abzurufen.
+\\
+Firebase Cloud Storage ist ein leistungsstarkes, sicheres und skalierbares Speichersystem, das auf Google Cloud Storage aufbaut und speziell für die Anforderungen mobiler und Webanwendungen entwickelt wurde. Es ermöglicht Entwicklern, Dateien direkt von den Geräten der Benutzer in die Cloud hochzuladen, ohne dass ein eigener Server erforderlich ist. Cloud Storage bietet zudem Funktionen wie Sicherheitsregeln, die den Zugriff auf Dateien auf Benutzerbasis steuern, sowie On-the-fly-Komprimierung und Caching, um die Netzwerkbandbreite zu optimieren und die Leistung zu verbessern.
+\\
+Die Integration von Cloud Storage in die App ist einfach und effizient. Firebase stellt SDKs für verschiedene Plattformen wie Android, iOS, Flutter und das Web zur Verfügung, die es Entwicklern ermöglichen, nahtlos auf Cloud Storage zuzugreifen und Dateioperationen wie Hochladen, Herunterladen, Anzeigen und Löschen durchzuführen. Die SDKs bieten auch Funktionen wie automatische Wiederaufnahme bei Netzwerkfehlern und Echtzeit-Fortschrittsüberwachung, um eine hohe Benutzerfreundlichkeit und Zuverlässigkeit zu gewährleisten.
+\\
+Ein wesentlicher Aspekt von Cloud Storage ist die Sicherheit und Zugriffskontrolle. Firebase Cloud Storage ermöglicht Entwicklern, granulare Sicherheitsregeln zu definieren, die den Zugriff auf Dateien basierend auf verschiedenen Kriterien wie Benutzer-Authentifizierung, Dateipfade und Metadaten steuern. Die Sicherheitsregeln sind in einer einfachen, aber leistungsfähigen Sprache geschrieben und können flexibel an die Anforderungen der App angepasst werden. Durch die Kombination von Cloud Storage-Sicherheitsregeln mit Firebase Authentication können Entwickler sicherstellen, dass nur berechtigte Benutzer auf die entsprechenden Dateien zugreifen und Operationen ausführen können.
+\\
+Firebase Cloud Storage ist auf Performance und Skalierbarkeit ausgelegt und eignet sich sowohl für kleine als auch für große Anwendungen mit hohem Datenaufkommen. Durch die Verwendung von Google Cloud Storage als Basis profitiert Cloud Storage von der globalen Infrastruktur und den Optimierungen von Google, um eine hohe Verfügbarkeit, geringe Latenz und hohe Übertragungsgeschwindigkeiten zu gewährleisten. Zudem können Entwickler Funktionen wie automatische Komprimierung und Caching nutzen, um die Netzwerkbandbreite zu optimieren und die Ladezeiten für die Benutzer zu minimieren. Da Firebase Cloud Storage automatisch skaliert, können Entwickler sicher sein, dass ihre Anwendungen auch bei steigenden Nutzerzahlen und Datenvolumen reibungslos funktionieren.
 
 Quellen:
 

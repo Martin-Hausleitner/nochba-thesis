@@ -1202,6 +1202,20 @@ Firebase Cloud Functions ermöglichen es Entwicklern, auf verschiedene Ereigniss
 
 Alle Cloud Functions wurden in TypeScript entwickelt, da diese Programmiersprache Typsicherheit und verbesserte Fehlererkennung bietet.
 
+\subsubsection{Überprüfen der Addresse}
+\setauthor{Sandin Habibovic}
+
+Die Cloud-Funktion \texttt{checkAddress} erfordert eine authentifizierte Anfrage und erhält eine Adresse vom User, die aus Straße, Hausnummer, Stadt und Postleitzahl besteht.
+\\
+Um sicherzustellen, dass die Anfrage authentifiziert ist, wird zuerst überprüft, ob der Aufrufer authentifiziert ist. Wenn das nicht der Fall sein sollte, wird eine Fehlermeldung ausgegeben, die besagt, dass die Anfrage nicht authentifiziert ist.
+\\
+Die Funktion überprüft danach, ob alle erforderlichen Daten für die Adresse vorhanden sind. Wenn Daten fehlen, wird eine Fehlermeldung ausgegeben, die besagt, dass gültige Adressdaten benötigt werden.
+\\
+Die Adresse wird dann formatiert und an die Funktion \texttt{getOSMCoordinatesFromAddress} übergeben, um die Koordinaten der Adresse abzurufen. Wenn ein Fehler auftritt, was passieren kann, wenn eine nicht existierende Addresse angegeben wird, wird eine Fehlermeldung ausgegeben, die besagt, dass die Koordinaten nicht abgerufen werden konnten.
+\\
+Falls die Addresse verifiziert werden konnte, werden die Addressdaten vom User, also Straße, Hausnummer, Stadt und Postleitzahl, im Firestore gespeichert.
+\\
+Am Ende gibt die Funktion \texttt{true} zurück, um anzuzeigen, dass die Verifizierung erfolgreich abgeschlossen wurde.
 
 \subsubsection{Registrierung mit einem Verifizierungscode}\label{subsec:registrierung-verify}
 \setauthor{Martin Hausleitner}
