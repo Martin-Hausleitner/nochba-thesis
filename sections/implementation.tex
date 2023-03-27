@@ -1341,7 +1341,7 @@ Diese Funktion wird in der Cloud-Funktion \texttt{generateVerificationCode} verw
 
 Die Verwendung einer Cloud-Function zur Änderung des Like-Zählers erfolgt aus dem Grund, dass Daten von einem Beitrag in der Regel nur vom Ersteller des Beitrags verändert werden können. Um dennoch sicherzustellen, dass alle Nutzer, die den Beitrag mögen, den Like-Zähler erhöhen können, wird eine Cloud-Function verwendet, die automatisch auf die Hinzufügung von Likes reagiert und den Zähler aktualisiert. Dadurch wird sichergestellt, dass der Like-Zähler korrekt und in Echtzeit aktualisiert wird, ohne dass der Ersteller des Beitrags manuell Änderungen vornehmen muss.
 
-\subsubsubsection{Likes von Beiträge erhöhen}
+\paragraph{Likes von Beiträge erhöhen}
 \setauthor{Sandin Habibovic}
 
 \begin{lstlisting}[language=Java,caption=incrementLikeCounterOfPost Funktion,label=lst:incrementLikePostFunction]
@@ -1363,15 +1363,15 @@ Die Verwendung einer Cloud-Function zur Änderung des Like-Zählers erfolgt aus 
 
 Der vorliegende Code \ref{lst:incrementLikePostFunction} implementiert einen Cloud-Function-Trigger, der es ermöglicht, Funktionen automatisch auszulösen, wenn bestimmte Ereignisse auftreten. Die Funktion verwendet dabei Firebase Cloud Functions, um auf Änderungen in der Datenbank zu reagieren und entsprechende Aktionen auszuführen.
 \\
-Die Cloud-Funktion \texttt{incrementLikeCounterOfPost} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedPosts} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Beitrags in der Firestore-Sammlung posts zu erhöhen, wenn ein Nutzer den Beitrag als "gefällt mir" markiert.
+Die Cloud-Funktion \texttt{incrementLikeCounterOfPost} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedPosts} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Beitrags in der Firestore-Sammlung \texttt{posts} zu erhöhen, wenn ein Nutzer den Beitrag als "gefällt mir" markiert.
 \\
-Der erste Schritt der Funktion besteht darin, die ID des Beitrags zu ermitteln, dessen Like-Zähler erhöht werden soll. Dies geschieht durch den Zugriff auf den Kontext-Parameter likedPostId. Anschließend wird eine Referenz auf den entsprechenden Beitrag in der Firestore-Sammlung posts erstellt.
+Der erste Schritt der Funktion besteht darin, die ID des Beitrags zu ermitteln, dessen Like-Zähler erhöht werden soll. Dies geschieht durch den Zugriff auf den Kontext-Parameter \texttt{likedPostId}. Anschließend wird eine Referenz auf den entsprechenden Beitrag in der Firestore-Sammlung \texttt{posts} erstellt.
 \\
-In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. In dieser Transaktion wird der aktuelle Like-Zähler des Beitrags abgerufen und um eins erhöht. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung posts gespeichert.
+In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. In dieser Transaktion wird der aktuelle Like-Zähler des Beitrags abgerufen und um eins erhöht. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung \texttt{posts} gespeichert.
 \\
 Die Verwendung von Transaktionen gewährleistet, dass die Like-Zähler-Operation atomar ausgeführt wird und es somit zu keiner Inkonsistenz der Daten kommt. Wenn mehrere Nutzer gleichzeitig den gleichen Beitrag als "gefällt mir" markieren würden, könnte es sonst zu Konflikten und Fehlern bei der Aktualisierung des Like-Zählers kommen.
 
-\subsubsubsection{Likes von Beiträge verringern}
+\paragraph{Likes von Beiträge verringern}
 \setauthor{Sandin Habibovic}
 
 \begin{lstlisting}[language=Java,caption=decrementLikeCounterOfPost Funktion,label=lst:decrementLikePostFunction]
@@ -1393,11 +1393,68 @@ Die Verwendung von Transaktionen gewährleistet, dass die Like-Zähler-Operation
 
 Der vorliegende Code \ref{lst:decrementLikePostFunction} implementiert einen Cloud-Function-Trigger, der ähnlich zum vorherigen Trigger aufgebaut ist.
 \\
-Die Cloud-Funktion \texttt{incrementLikeCounterOfPost} wird aufgerufen, wenn ein Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedPosts} gelöscht wird. Der Zweck dieser Funktion besteht darin, den Like-Zähler des Beitrags in der Firestore-Sammlung posts zu verringern, wenn ein Nutzer seinen Like entfernt.
+Die Cloud-Funktion \texttt{incrementLikeCounterOfPost} wird aufgerufen, wenn ein Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedPosts} gelöscht wird. Der Zweck dieser Funktion besteht darin, den Like-Zähler des Beitrags in der Firestore-Sammlung \texttt{posts} zu verringern, wenn ein Nutzer seinen Like entfernt.
 \\
 Auch hier wird eine Transaktion verwendet, um sicherzustellen, dass die Änderung atomar ausgeführt wird und somit keine Inkonsistenzen in den Daten entstehen. Die Funktion ruft dabei den aktuellen Like-Zähler des Beitrags ab und verringert diesen um eins. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung posts gespeichert.
 \\
 Die Verwendung von Cloud-Funktionen zur Verwaltung der Like-Zähler stellt sicher, dass diese in Echtzeit aktualisiert werden und Nutzer eine korrekte und aktuelle Anzahl der Likes sehen.
+
+\subsubsection{Likes von Kommentare steuern}
+\setauthor{Sandin Habibovic}
+
+Ähnlich wie bei der Verwaltung der Like-Zähler von Beiträgen werden auch bei der Verwaltung von Likes für Kommentare Cloud-Funktionen eingesetzt. Diese gewährleisten, dass die Like-Zähler in Echtzeit aktualisiert werden und Nutzer eine korrekte und aktuelle Anzahl der Likes sehen können.
+
+\paragraph{Likes von Kommentare erhöhen}
+\setauthor{Sandin Habibovic}
+
+\begin{lstlisting}[language=Java,caption=incrementLikeCounterOfComment Funktion,label=lst:incrementLikeCommentFunction]
+  export const incrementLikeCounterOfComment = functions
+  .region("europe-west1")
+  .firestore.document("users/{userId}/private/record/likedComments/{likedCommentId}")
+  .onCreate(async (snapshot, context) => {
+    const likedCommentId = context.params.likedCommentId;
+    const likedCommentRef = snapshot.ref;
+
+    const likedComment = db.collection("posts").doc(likedCommentRef['post']).collection('comments').doc(likedCommentId);
+
+    await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(likedComment);
+      const newLikeCounter = snapshot.get("likes") + 1;
+      transaction.update(likedComment, { likes: newLikeCounter });
+    });
+  });
+\end{lstlisting}
+
+Der vorliegende Code \ref{lst:incrementLikeCommentFunction} implementiert einen weiteren Cloud-Function-Trigger.
+\\
+Die Cloud-Funktion \texttt{incrementLikeCounterOfComment} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Kommentars in der Firestore-Sammlung \texttt{posts} zu erhöhen, wenn ein Nutzer den Kommentar als "gefällt mir" markiert.
+\\
+Der erste Schritt der Funktion besteht darin, die ID des Kommentars zu ermitteln, dessen Like-Zähler erhöht werden soll. Dies geschieht durch den Zugriff auf den Kontext-Parameter \texttt{likedCommentId}. Anschließend wird eine Referenz auf den entsprechenden Kommentar in der Firestore-Sammlung \texttt{posts} erstellt.
+\\
+In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. In dieser Transaktion wird der aktuelle Like-Zähler des Kommentars abgerufen und um eins erhöht. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung \texttt{posts} gespeichert.
+
+\paragraph{Likes von Kommentare verringern}
+\setauthor{Sandin Habibovic}
+
+\begin{lstlisting}[language=Java,caption=decrementLikeCounterOfComment Funktion,label=lst:decrementLikeCommentFunction]
+  export const decrementLikeCounterOfComment = functions
+  .region("europe-west1")
+  .firestore.document("users/{userId}/private/record/likedComments/{likedCommentId}")
+  .onDelete(async (snapshot, context) => {
+    const likedCommentId = context.params.likedCommentId;
+    const likedCommentRef = snapshot.ref;
+
+    const likedComment = db.collection("posts").doc(likedCommentRef['post']).collection('comments').doc(likedCommentId);
+
+    await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(likedComment);
+      const newLikeCounter = snapshot.get("likes") - 1;
+      transaction.update(likedComment, { likes: newLikeCounter });
+    });
+  });
+\end{lstlisting}
+
+Der vorliegende Code \ref{lst:decrementLikeCommentFunction} die Cloud-Funktion \texttt{decrementLikeCounterOfComment}, welche aufgerufen wird, wenn ein Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} gelöscht wird. Ziel dieser Funktion ist es, den Like-Zähler des Kommentars in der Firestore-Sammlung \texttt{posts} zu verringern, wenn ein Nutzer seinen Like entfernt. Ähnlich zur \texttt{incrementLikeCounterOfComment}-Funktion ermittelt die Funktion zunächst die ID des entsprechenden Kommentars und erstellt eine Referenz auf diesen in der Firestore-Sammlung \texttt{posts}. Danach wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. Der aktuelle Like-Zähler des Kommentars wird abgerufen und um eins verringert. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung \texttt{posts} gespeichert.
 
 \subsection{Algolia Search}
 \subsection{Algolia SDK}
