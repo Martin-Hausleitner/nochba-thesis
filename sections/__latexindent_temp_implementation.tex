@@ -292,12 +292,27 @@ Um einen GetxController oder GetxService verwenden zu können, muss der jeweilig
 \subsection{Authentifizierung}
 \setauthor{Sandin Habibovic}
 
-\subsubsection{Anmelde Flow}
+Bei der Authentifizierung wird zwischen dem Anmelden und dem Registrieren unterschieden.
+
+\subsubsection{Anmeldeprozess}
 \setauthor{Sandin Habibovic}
 
-Diagram
-erklärung
-screenshots
+\begin{minipage}[b]{0.3\textwidth}
+  \includegraphics[width=\textwidth]{pics/login-sequence.JPG}
+  \caption{Anmeldeprozess}
+  \label{fig:login-sequenze}
+\end{minipage}
+
+\begin{minipage}[b]{0.3\textwidth}
+  \includegraphics[width=\textwidth]{pics/login-page.jpg}
+  \caption{Login Ansicht}
+  \label{fig:login-page}
+\end{minipage}
+
+Die Abbildung \ref{fig:login-sequenze} repräsentiert ein Sequenzdiagram, welches den Anmeldeprozess für einen User veranschaulichen soll. Der Login-Prozess ist ein wichtiger Schritt in der Benutzerauthentifizierung, bei dem die Identität des Benutzers überprüft wird, um den Zugriff auf die Anwendung zu gewähren oder zu verweigern. Die Anmeldedaten werden an Firebase weitergeleitet, wo diese überprüft werden, um sicherzustellen, dass der User eine gültige E-Mail-Adresse und das korrekte Passwort eingegeben hat.
+\\
+Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung angezeigt, die den User darauf hinweist, dass die Anmeldedaten falsch sind.
+
 \subsubsection{Registrierungsprozess}
 \setauthor{Sandin Habibovic}
 
