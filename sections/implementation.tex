@@ -1164,7 +1164,6 @@ Firebase SDK ist für eine Vielzahl von Programmiersprachen verfügbar, darunter
   \item Java
   \item Dart von Flutter
 \end{compactitem}
-\\
 Die Firebase SDK bietet eine breite Palette von Funktionen, mit denen leistungsstarke Anwendungen erstellt werden können, darunter Authentifizierung, Cloud Messaging, Cloud Firestore, Realtime Database, Cloud Functions. Mit diesen Funktionen können schnell und einfach Funktionen wie Benutzerverwaltung, Datenverwaltung, Messaging und Benachrichtigungen in Anwendungen integriert werden. Außerdem gibt es zu Firebase SDK eine umfangreiche Dokumentation und Support-Tools.
 
 \subsection{Firebase Authentication}
@@ -1340,46 +1339,65 @@ Diese Funktion wird in der Cloud-Funktion \texttt{generateVerificationCode} verw
 \subsubsection{Likes von Beiträge steuern}
 \setauthor{Sandin Habibovic}
 
+Die Verwendung einer Cloud-Function zur Änderung des Like-Zählers erfolgt aus dem Grund, dass Daten von einem Beitrag in der Regel nur vom Ersteller des Beitrags verändert werden können. Um dennoch sicherzustellen, dass alle Nutzer, die den Beitrag mögen, den Like-Zähler erhöhen können, wird eine Cloud-Function verwendet, die automatisch auf die Hinzufügung von Likes reagiert und den Zähler aktualisiert. Dadurch wird sichergestellt, dass der Like-Zähler korrekt und in Echtzeit aktualisiert wird, ohne dass der Ersteller des Beitrags manuell Änderungen vornehmen muss.
 
+\subsubsubsection{Likes von Beiträge erhöhen}
+\setauthor{Sandin Habibovic}
 
-\begin{lstlisting}[language=Java,caption=getDistanceFromLatLonInMeters Funktion,label=lst:getDistanceFunction]
-    export function getDistanceFromLatLonInMeters(
-        lat1: number,
-        lon1: number,
-        lat2: number,
-        lon2: number
-      ) {
-        if (lat1 < -90 || lat1 > 90 || lon1 < -180 || lon1 > 180) {
-          throw new Error(
-            "Invalid coordinate: lat1 must be between -90 and 90, lon1 must be between -180 and 180"
-          );
-        }
-        if (lat2 < -90 || lat2 > 90 || lon2 < -180 || lon2 > 180) {
-          throw new Error(
-            "Invalid coordinate: lat2 must be between -90 and 90, lon2 must be between -180 and 180"
-          );
-        }
-        const R = 6371; // Radius der Erde in km
-        const dLat = deg2rad(lat2 - lat1); // deg2rad unten
-        const dLon = deg2rad(lon2 - lon1);
-        const a =
-          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-          Math.cos(deg2rad(lat1)) *
-            Math.cos(deg2rad(lat2)) *
-            Math.sin(dLon / 2) *
-            Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        const d = R * c * 1000; // Distanz in Metern
-      
-        if (lat1 === lat2 && lon1 === lon2) return 0;
-        return d;
-      }
-      
-      function deg2rad(deg: number) {
-        return deg * (Math.PI / 180);
-      }
-      
+\begin{lstlisting}[language=Java,caption=incrementLikeCounterOfPost Funktion,label=lst:incrementLikePostFunction]
+  export const incrementLikeCounterOfPost = functions
+  .region("europe-west1")
+  .firestore.document("users/{userId}/private/record/likedPosts/{likedPostId}")
+  .onCreate(async (snapshot, context) => {
+    const likedPostId = context.params.likedPostId;
+
+    const likedPost = db.collection("posts").doc(likedPostId);
+
+    await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(likedPost);
+      const newLikeCounter = snapshot.get("likes") + 1;
+      transaction.update(likedPost, { likes: newLikeCounter });
+    });
+  });
 \end{lstlisting}
+
+Der vorliegende Code \ref{lst:incrementLikePostFunction} implementiert einen Cloud-Function-Trigger, der es ermöglicht, Funktionen automatisch auszulösen, wenn bestimmte Ereignisse auftreten. Die Funktion verwendet dabei Firebase Cloud Functions, um auf Änderungen in der Datenbank zu reagieren und entsprechende Aktionen auszuführen.
+\\
+Die Cloud-Funktion \texttt{incrementLikeCounterOfPost} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedPosts} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Beitrags in der Firestore-Sammlung posts zu erhöhen, wenn ein Nutzer den Beitrag als "gefällt mir" markiert.
+\\
+Der erste Schritt der Funktion besteht darin, die ID des Beitrags zu ermitteln, dessen Like-Zähler erhöht werden soll. Dies geschieht durch den Zugriff auf den Kontext-Parameter likedPostId. Anschließend wird eine Referenz auf den entsprechenden Beitrag in der Firestore-Sammlung posts erstellt.
+\\
+In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. In dieser Transaktion wird der aktuelle Like-Zähler des Beitrags abgerufen und um eins erhöht. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung posts gespeichert.
+\\
+Die Verwendung von Transaktionen gewährleistet, dass die Like-Zähler-Operation atomar ausgeführt wird und es somit zu keiner Inkonsistenz der Daten kommt. Wenn mehrere Nutzer gleichzeitig den gleichen Beitrag als "gefällt mir" markieren würden, könnte es sonst zu Konflikten und Fehlern bei der Aktualisierung des Like-Zählers kommen.
+
+\subsubsubsection{Likes von Beiträge verringern}
+\setauthor{Sandin Habibovic}
+
+\begin{lstlisting}[language=Java,caption=decrementLikeCounterOfPost Funktion,label=lst:decrementLikePostFunction]
+  export const decrementLikeCounterOfPost = functions
+  .region("europe-west1")
+  .firestore.document("users/{userId}/private/record/likedPosts/{likedPostId}")
+  .onDelete(async (snapshot, context) => {
+    const likedPostId = context.params.likedPostId;
+
+    const likedPost = db.collection("posts").doc(likedPostId);
+
+    await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(likedPost);
+      const newLikeCounter = snapshot.get("likes") - 1;
+      transaction.update(likedPost, { likes: newLikeCounter });
+    });
+  });
+\end{lstlisting}
+
+Der vorliegende Code \ref{lst:decrementLikePostFunction} implementiert einen Cloud-Function-Trigger, der ähnlich zum vorherigen Trigger aufgebaut ist.
+\\
+Die Cloud-Funktion \texttt{incrementLikeCounterOfPost} wird aufgerufen, wenn ein Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedPosts} gelöscht wird. Der Zweck dieser Funktion besteht darin, den Like-Zähler des Beitrags in der Firestore-Sammlung posts zu verringern, wenn ein Nutzer seinen Like entfernt.
+\\
+Auch hier wird eine Transaktion verwendet, um sicherzustellen, dass die Änderung atomar ausgeführt wird und somit keine Inkonsistenzen in den Daten entstehen. Die Funktion ruft dabei den aktuellen Like-Zähler des Beitrags ab und verringert diesen um eins. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung posts gespeichert.
+\\
+Die Verwendung von Cloud-Funktionen zur Verwaltung der Like-Zähler stellt sicher, dass diese in Echtzeit aktualisiert werden und Nutzer eine korrekte und aktuelle Anzahl der Likes sehen.
 
 \subsection{Algolia Search}
 \subsection{Algolia SDK}
