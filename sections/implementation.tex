@@ -305,17 +305,17 @@ Bei der Authentifizierung wird zwischen dem Anmelden und dem Registrieren unters
 \subsubsection{Anmeldeprozess}
 \setauthor{Sandin Habibovic}
 
-\begin{minipage}[b]{0.3\textwidth}
+\begin{figure}[h]
   \includegraphics[width=\textwidth]{pics/login-sequence.JPG}
   \caption{Anmeldeprozess}
   \label{fig:login-sequenze}
-\end{minipage}
+\end{figure}
 
-\begin{minipage}[b]{0.3\textwidth}
+\begin{figure}[h]
   \includegraphics[width=\textwidth]{pics/login-page.jpg}
   \caption{Login Ansicht}
   \label{fig:login-page}
-\end{minipage}
+\end{figure}
 
 Die Abbildung \ref{fig:login-sequenze} repräsentiert ein Sequenzdiagram, welches den Anmeldeprozess für einen User veranschaulichen soll. Der Login-Prozess ist ein wichtiger Schritt in der Benutzerauthentifizierung, bei dem die Identität des Benutzers überprüft wird, um den Zugriff auf die Anwendung zu gewähren oder zu verweigern. Die Anmeldedaten werden an Firebase weitergeleitet, wo diese überprüft werden, um sicherzustellen, dass der User eine gültige E-Mail-Adresse und das korrekte Passwort eingegeben hat.
 \\
@@ -324,11 +324,11 @@ Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung ange
 \subsubsection{Registrierungsprozess}
 \setauthor{Sandin Habibovic}
 
-\begin{minipage}[b]{0.3\textwidth}
+\begin{figure}[h]
   \includegraphics[width=\textwidth]{pics/registration-sequence.JPG}
   \caption{Registrierungsprozess}
   \label{fig:registration-sequenze}
-\end{minipage}
+\end{figure}
 
 \begin{figure}[h]
   \centering
@@ -1337,6 +1337,49 @@ Die Funktion \texttt{generateRandomVerificationCode} erzeugt einen zufälligen C
 
 Diese Funktion wird in der Cloud-Funktion \texttt{generateVerificationCode} verwendet, um einen zufälligen Code zu generieren. Es ist wichtig, dass der Code-Generator in der Lage ist, eine ausreichende Anzahl von Codes zu generieren, damit es keine Kollisionen gibt. Da jeder Code zufällig generiert wird und die Funktion eine zufällige Zeichenkette aus 62 möglichen Zeichen erzeugt, ist es äußerst unwahrscheinlich, dass der gleiche Code zweimal generiert wird. Die Anzahl der möglichen Kombinationen beträgt $62^{10}$, was ungefähr $8.39 \times 10^{17}$ Möglichkeiten entspricht. Daher ist die Wahrscheinlichkeit, dass zwei identische Codes generiert werden, vernachlässigbar.
 
+\subsubsection{Likes von Beiträge steuern}
+\setauthor{Sandin Habibovic}
+
+
+
+\begin{lstlisting}[language=Java,caption=getDistanceFromLatLonInMeters Funktion,label=lst:getDistanceFunction]
+    export function getDistanceFromLatLonInMeters(
+        lat1: number,
+        lon1: number,
+        lat2: number,
+        lon2: number
+      ) {
+        if (lat1 < -90 || lat1 > 90 || lon1 < -180 || lon1 > 180) {
+          throw new Error(
+            "Invalid coordinate: lat1 must be between -90 and 90, lon1 must be between -180 and 180"
+          );
+        }
+        if (lat2 < -90 || lat2 > 90 || lon2 < -180 || lon2 > 180) {
+          throw new Error(
+            "Invalid coordinate: lat2 must be between -90 and 90, lon2 must be between -180 and 180"
+          );
+        }
+        const R = 6371; // Radius der Erde in km
+        const dLat = deg2rad(lat2 - lat1); // deg2rad unten
+        const dLon = deg2rad(lon2 - lon1);
+        const a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(deg2rad(lat1)) *
+            Math.cos(deg2rad(lat2)) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const d = R * c * 1000; // Distanz in Metern
+      
+        if (lat1 === lat2 && lon1 === lon2) return 0;
+        return d;
+      }
+      
+      function deg2rad(deg: number) {
+        return deg * (Math.PI / 180);
+      }
+      
+\end{lstlisting}
 
 \subsection{Algolia Search}
 \subsection{Algolia SDK}
