@@ -326,9 +326,9 @@ Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung ange
 \subsubsection{Registrierungsprozess}
 \setauthor{Sandin Habibovic}
 
-\begin{figure}[h]
+\begin{figure}[t]
   \centering
-  \includegraphics[width=0.5\textwidth]{pics/registration-sequence.JPG}
+  \includegraphics[width=0.8\textwidth]{pics/registration-sequence.JPG}
   \caption{Registrierungsprozess}
   \label{fig:registration-sequenze}
 \end{figure}
@@ -346,6 +346,13 @@ Wenn die Adresse validiert wurde, wird der Benutzer aufgefordert, die Verifizier
 Wenn die Verifizierung beendet wurde, ist der Registrierungsprozess abgeschlossen.
 \\
 Während des Registrierungsprozesses wird der User durch eine Authentifizierungsfunktion bereits eingeloggt, da eine Anmeldung für die Ausführung von Cloud Functions erforderlich ist. Wenn der Benutzer den Registrierungsprozess abbricht, werden alle bis zu diesem Punkt gesammelten Daten automatisch gelöscht, um die Datensicherheit und Privatsphäre des Users zu schützen. Wenn der User bei einem Schritt zurückgeht, werden die gespeicherten Daten von diesem Punkt zurückgesetzt, um sicherzustellen, dass nur korrekte Daten im Firestore gespeichert werden und dass keine ungültigen oder unvollständigen Daten gespeichert werden.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{pics/registration-process.JPG}
+  \caption{Registrierungsprozess in der App}
+  \label{fig:registration-process}
+\end{figure}
 
 \begin{figure}[h]
   \centering
