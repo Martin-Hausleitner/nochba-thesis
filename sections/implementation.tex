@@ -277,11 +277,11 @@ Der vorliegende Code \ref{lst:GetxServiceExample} ist ein beispielhafter Code, w
 \\
 Die MyService-Klasse erbt von GetxService und definiert eine Methode \textit{callService()}. Diese Methode ruft eine Snackbar auf, die dem User eine Meldung anzeigen soll.
 \\
-Die HomeController-Klasse erbt von GetxController und hat eine Instanz von \textit{MyService}, mit Hilfe von \textit{Get.find<MyService>()}, initialisiert. Wenn die Methode \textit{callService()} aufgerufen wird, ruft der Controller die Methode \textit{callService()} der MyService-Instanz auf.
+Die HomeController-Klasse erbt von GetxController und hat eine Instanz von \textit{MyService} mit Hilfe von \textit{Get.find<MyService>()} initialisiert. Wenn die Methode \textit{callService()} aufgerufen wird, ruft der Controller die Methode \textit{callService()} der MyService-Instanz auf.
 
 \subsubsection{Kriterium zum Einsatz von GetxController und GetxService}
 \setauthor{Sandin Habibovic}
-Um einen GetxController oder GetxService verwenden zu können, muss der jeweilige GetxController oder der jeweilige GetxService zuerst registriert werden. Dafür stellt GetX sogenannte Bindings zur Verfügung. Diese Bindings erstellen Instanzen von den jeweiligen GetxControllern oder den jeweiligen GetxServices, die mit \textit{GetView<Controller>} bzw. \textit{Get.find<Service>()} aufgerufen werden können.
+Um einen GetxController oder GetxService verwenden zu können, muss der jeweilige GetxController oder der jeweilige GetxService zuerst registriert werden. Dafür stellt GetX sogenannte Bindings zur Verfügung. Diese Bindings erstellen Instanzen von den jeweiligen GetxControllern oder den jeweiligen GetxServices, die dann mit \textit{GetView<Controller>} bzw. \textit{Get.find<Service>()} aufgerufen werden können.
 
 \paragraph{Beispiel}
 \begin{lstlisting}[caption=Beispiel von einem Binding,label=lst:GetxBindingExample]
@@ -306,13 +306,15 @@ Bei der Authentifizierung wird zwischen dem Anmelden und dem Registrieren unters
 \setauthor{Sandin Habibovic}
 
 \begin{figure}[h]
+  \centering
   \includegraphics[width=\textwidth]{pics/login-sequence.JPG}
   \caption{Anmeldeprozess}
   \label{fig:login-sequenze}
 \end{figure}
 
 \begin{figure}[h]
-  \includegraphics[width=\textwidth]{pics/login-page.jpg}
+  \centering
+  \includegraphics[width=0.3\textwidth]{pics/login-page.jpg}
   \caption{Login Ansicht}
   \label{fig:login-page}
 \end{figure}
@@ -325,6 +327,7 @@ Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung ange
 \setauthor{Sandin Habibovic}
 
 \begin{figure}[h]
+  \centering
   \includegraphics[width=\textwidth]{pics/registration-sequence.JPG}
   \caption{Registrierungsprozess}
   \label{fig:registration-sequenze}
@@ -332,27 +335,27 @@ Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung ange
 
 \begin{figure}[h]
   \centering
-  \begin{minipage}[b]{0.3\textwidth}
+  \begin{minipage}[b]{0.2\textwidth}
     \includegraphics[width=\textwidth]{pics/registration-step-1.jpg}
     \caption{Email angeben}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.3\textwidth}
+  \begin{minipage}[b]{0.2\textwidth}
     \includegraphics[width=\textwidth]{pics/registration-step-2.jpg}
     \caption{Namen angeben}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.3\textwidth}
+  \begin{minipage}[b]{0.2\textwidth}
     \includegraphics[width=\textwidth]{pics/registration-step-3.jpg}
     \caption{Addresse angeben}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.3\textwidth}
+  \begin{minipage}[b]{0.2\textwidth}
     \includegraphics[width=\textwidth]{pics/registration-step-4.jpg}
     \caption{Addresse verifizieren}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.3\textwidth}
+  \begin{minipage}[b]{0.2\textwidth}
     \includegraphics[width=\textwidth]{pics/registration-step-5.jpg}
     \caption{Registrierung abgeschlossen}
   \end{minipage}
