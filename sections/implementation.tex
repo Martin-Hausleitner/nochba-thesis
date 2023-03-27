@@ -312,6 +312,10 @@ Bei der Authentifizierung wird zwischen dem Anmelden und dem Registrieren unters
   \label{fig:login-sequenze}
 \end{figure}
 
+Die Abbildung \ref{fig:login-sequenze} repräsentiert ein Sequenzdiagram, welches den Anmeldeprozess für einen User veranschaulichen soll. Der Login-Prozess ist ein wichtiger Schritt in der Benutzerauthentifizierung, bei dem die Identität des Benutzers überprüft wird, um den Zugriff auf die Anwendung zu gewähren oder zu verweigern. Die Anmeldedaten werden an Firebase weitergeleitet, wo diese überprüft werden, um sicherzustellen, dass der User eine gültige E-Mail-Adresse und das korrekte Passwort eingegeben hat.
+\\
+Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung angezeigt, die den User darauf hinweist, dass die Anmeldedaten falsch sind.
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.3\textwidth]{pics/login-page.jpg}
@@ -319,19 +323,29 @@ Bei der Authentifizierung wird zwischen dem Anmelden und dem Registrieren unters
   \label{fig:login-page}
 \end{figure}
 
-Die Abbildung \ref{fig:login-sequenze} repräsentiert ein Sequenzdiagram, welches den Anmeldeprozess für einen User veranschaulichen soll. Der Login-Prozess ist ein wichtiger Schritt in der Benutzerauthentifizierung, bei dem die Identität des Benutzers überprüft wird, um den Zugriff auf die Anwendung zu gewähren oder zu verweigern. Die Anmeldedaten werden an Firebase weitergeleitet, wo diese überprüft werden, um sicherzustellen, dass der User eine gültige E-Mail-Adresse und das korrekte Passwort eingegeben hat.
-\\
-Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung angezeigt, die den User darauf hinweist, dass die Anmeldedaten falsch sind.
-
 \subsubsection{Registrierungsprozess}
 \setauthor{Sandin Habibovic}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\textwidth]{pics/registration-sequence.JPG}
+  \includegraphics[width=0.5\textwidth]{pics/registration-sequence.JPG}
   \caption{Registrierungsprozess}
   \label{fig:registration-sequenze}
 \end{figure}
+
+Die Abbildung \ref{fig:registration-sequenze} repräsentiert ein Sequenzdiagram, welches den Registrierungsprozess für einen User veranschaulichen soll. Der Registrierungsprozess ist ein mehrstufiger Ablauf, wo sichergestellt werden soll, dass alle notwendigen Daten des Users erfasst und validiert werden, bevor die Registrierung abgeschlossen wird. Durch diesen Prozess wird gewährleistet, dass die erfassten Daten korrekt sind und dass nur verifizierte Benutzer Zugriff auf die Anwendung haben.
+\\
+Der Registrierungsprozess beginnt damit, dass der Benutzer aufgefordert wird, seine E-Mail-Adresse und ein Passwort anzugeben. Das Registrierungsformular leitet dann die E-Mail-Adresse und das Passwort Firebase weiter um es auf dessen Gültigkeit und Richtigkeit zu prüfen. Bei einer erfogreichen Prüfung werden die Daten eingespeichert und der User wird eingelogt.
+\\
+Nach überstehen des ersten Schrittes wird der nächste Schritt eingeleitet, die Namensansicht. Hier wird der Benutzer aufgefordert, seinen Namen und optional schon sein Profilbild anzugeben. Der Name wird dann ebenfalls vom Registrierungsformular auf Korrektheit und Vollständigkeit überprüft und im Firestore eingespeichert.
+\\
+Nachdem der Benutzer seinen Namen eingegeben hat, wird er zur Addressenansicht weitergeleitet, wo er aufgefordert wird, seine Adresse anzugeben. Wenn der User seine Adresse eingegeben hat, wird sie vom Registrierungsformular zu einer Cloud Function weitergeleitet und validiert. Falls sich die Addresse als eine korrekt Addresse erweist, wird sie direkt von der Cloud Function in den Firestore eingespeichert.
+\\
+Wenn die Adresse validiert wurde, wird der Benutzer aufgefordert, die Verifizierung seiner Adresse durchzuführen. Die Verifizierung kann durch zwei Methoden erfolgen. Entweder durch eine Überprüfung der Adresse anhand des Standortes oder durch eine Überprüfung der Adresse anhand eines gültigen QR-Codes. Das Registrierungsformular leitet den Standort oder QR-Code an eine Cloud Function weiter, die die Verifizierung übernimmt und bei erfolgreicher Verifizierung, die Koordinaten im Firestore einspeichert.
+\\
+Wenn die Verifizierung beendet wurde, ist der Registrierungsprozess abgeschlossen.
+\\
+Während des Registrierungsprozesses wird der User durch eine Authentifizierungsfunktion bereits eingeloggt, da eine Anmeldung für die Ausführung von Cloud Functions erforderlich ist. Wenn der Benutzer den Registrierungsprozess abbricht, werden alle bis zu diesem Punkt gesammelten Daten automatisch gelöscht, um die Datensicherheit und Privatsphäre des Users zu schützen. Wenn der User bei einem Schritt zurückgeht, werden die gespeicherten Daten von diesem Punkt zurückgesetzt, um sicherzustellen, dass nur korrekte Daten im Firestore gespeichert werden und dass keine ungültigen oder unvollständigen Daten gespeichert werden.
 
 \begin{figure}[h]
   \centering
@@ -360,20 +374,6 @@ Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung ange
     \caption{Registrierung abgeschlossen}
   \end{minipage}
 \end{figure}
-
-Die Abbildung \ref{fig:registration-sequenze} repräsentiert ein Sequenzdiagram, welches den Registrierungsprozess für einen User veranschaulichen soll. Der Registrierungsprozess ist ein mehrstufiger Ablauf, wo sichergestellt werden soll, dass alle notwendigen Daten des Users erfasst und validiert werden, bevor die Registrierung abgeschlossen wird. Durch diesen Prozess wird gewährleistet, dass die erfassten Daten korrekt sind und dass nur verifizierte Benutzer Zugriff auf die Anwendung haben.
-\\
-Der Registrierungsprozess beginnt damit, dass der Benutzer aufgefordert wird, seine E-Mail-Adresse und ein Passwort anzugeben. Das Registrierungsformular leitet dann die E-Mail-Adresse und das Passwort Firebase weiter um es auf dessen Gültigkeit und Richtigkeit zu prüfen. Bei einer erfogreichen Prüfung werden die Daten eingespeichert und der User wird eingelogt.
-\\
-Nach überstehen des ersten Schrittes wird der nächste Schritt eingeleitet, die Namensansicht. Hier wird der Benutzer aufgefordert, seinen Namen und optional schon sein Profilbild anzugeben. Der Name wird dann ebenfalls vom Registrierungsformular auf Korrektheit und Vollständigkeit überprüft und im Firestore eingespeichert.
-\\
-Nachdem der Benutzer seinen Namen eingegeben hat, wird er zur Addressenansicht weitergeleitet, wo er aufgefordert wird, seine Adresse anzugeben. Wenn der User seine Adresse eingegeben hat, wird sie vom Registrierungsformular zu einer Cloud Function weitergeleitet und validiert. Falls sich die Addresse als eine korrekt Addresse erweist, wird sie direkt von der Cloud Function in den Firestore eingespeichert.
-\\
-Wenn die Adresse validiert wurde, wird der Benutzer aufgefordert, die Verifizierung seiner Adresse durchzuführen. Die Verifizierung kann durch zwei Methoden erfolgen. Entweder durch eine Überprüfung der Adresse anhand des Standortes oder durch eine Überprüfung der Adresse anhand eines gültigen QR-Codes. Das Registrierungsformular leitet den Standort oder QR-Code an eine Cloud Function weiter, die die Verifizierung übernimmt und bei erfolgreicher Verifizierung, die Koordinaten im Firestore einspeichert.
-\\
-Wenn die Verifizierung beendet wurde, ist der Registrierungsprozess abgeschlossen.
-\\
-Während des Registrierungsprozesses wird der User durch eine Authentifizierungsfunktion bereits eingeloggt, da eine Anmeldung für die Ausführung von Cloud Functions erforderlich ist. Wenn der Benutzer den Registrierungsprozess abbricht, werden alle bis zu diesem Punkt gesammelten Daten automatisch gelöscht, um die Datensicherheit und Privatsphäre des Users zu schützen. Wenn der User bei einem Schritt zurückgeht, werden die gespeicherten Daten von diesem Punkt zurückgesetzt, um sicherzustellen, dass nur korrekte Daten im Firestore gespeichert werden und dass keine ungültigen oder unvollständigen Daten gespeichert werden.
 
 \paragraph{Google Barcode-Scanning ML Kit}
 \setauthor{Martin Hausleitner}
