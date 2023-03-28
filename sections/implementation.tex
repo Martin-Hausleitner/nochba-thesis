@@ -326,7 +326,7 @@ Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung ange
 \subsubsection{Registrierungsprozess}
 \setauthor{Sandin Habibovic}
 
-\begin{figure}[t]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{pics/registration-sequence.JPG}
   \caption{Registrierungsprozess}
@@ -354,33 +354,33 @@ Während des Registrierungsprozesses wird der User durch eine Authentifizierungs
   \label{fig:registration-process}
 \end{figure}
 
-\begin{figure}[h]
-  \centering
-  \begin{minipage}[b]{0.2\textwidth}
-    \includegraphics[width=\textwidth]{pics/registration-step-1.jpg}
-    \caption{Email angeben}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.2\textwidth}
-    \includegraphics[width=\textwidth]{pics/registration-step-2.jpg}
-    \caption{Namen angeben}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.2\textwidth}
-    \includegraphics[width=\textwidth]{pics/registration-step-3.jpg}
-    \caption{Addresse angeben}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.2\textwidth}
-    \includegraphics[width=\textwidth]{pics/registration-step-4.jpg}
-    \caption{Addresse verifizieren}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.2\textwidth}
-    \includegraphics[width=\textwidth]{pics/registration-step-5.jpg}
-    \caption{Registrierung abgeschlossen}
-  \end{minipage}
-\end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \begin{minipage}[b]{0.2\textwidth}
+%     \includegraphics[width=\textwidth]{pics/registration-step-1.jpg}
+%     \caption{Email angeben}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[b]{0.2\textwidth}
+%     \includegraphics[width=\textwidth]{pics/registration-step-2.jpg}
+%     \caption{Namen angeben}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[b]{0.2\textwidth}
+%     \includegraphics[width=\textwidth]{pics/registration-step-3.jpg}
+%     \caption{Addresse angeben}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[b]{0.2\textwidth}
+%     \includegraphics[width=\textwidth]{pics/registration-step-4.jpg}
+%     \caption{Addresse verifizieren}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[b]{0.2\textwidth}
+%     \includegraphics[width=\textwidth]{pics/registration-step-5.jpg}
+%     \caption{Registrierung abgeschlossen}
+%   \end{minipage}
+% \end{figure}
 
 \paragraph{Google Barcode-Scanning ML Kit}
 \setauthor{Martin Hausleitner}
@@ -548,15 +548,42 @@ Für die Übersetzung von Beiträgen vom Deutschen ins Englische wurde eine kost
 Um eine Sprache überhaupt übersetzen zu können, benötigt man ein Werkzeug zur Spracherkennung. In dieser App wird das Google Spracherkennungs-ML-Kit verwendet. Bevor der Benutzer einen Beitrag übersetzen möchte, werden die Beschreibung und der Titel an das maschinelle Lernmodell gesendet, um die erkannte Sprache dem Übersetzungs-ML-Kit zu übergeben und eine Übersetzung durchzuführen.
 
 
-
-
-
-
 \subsection{Filter}
 \setauthor{Sandin Habibovic}
 Der Filter bietet die Option die Beiträge nach bestimmten Kriterien zu filtern und die Suche nach bestimmten Beiträge zu vereinfachen. Der Filter unterteilt sich in einen Menüfilter und Hauptfilter.
+
+\subsubsection{Menüfilter}
+\setauthor{Sandin Habibovic}
+
 Die Ansicht vom Menüfilter befindet sich direkt über den Beiträgen und ermöglicht eine schnelle Filterung nach einzig allein den Hauptkategorien.
-Die Ansicht vom Hauptfilter taucht erst nach dem Antippen vom Filtersymbol auf und beinhaltet eine größere Auswahl an Filteroptionen. Darunter zählt neben dem Filtern nach Hauptkategorien auch die zusätzliche Möglichkeit genauer nach Unterkategorien zu suchen. Außerdem besteht auch die Option die Beiträge nach Datum oder Likes zu sortieren oder die Beiträge aufsteigend oder absteigend zu ordnen. Die wichtigste Filterkomponente ist der Range-Slider, womit die Beiträge nach der Reichweite gefiltert werden können, da die Entfernung zum Nachbarn eine der wichtigsten Entscheidungsfaktoren zum Antworten auf einem Beitrag ist.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{pics/menu-filter.jpg}
+  \caption{Menüfilteransicht auf der App}
+\end{figure}
+
+\subsubsection{Hauptfilter}
+\setauthor{Sandin Habibovic}
+
+Die Ansicht vom Hauptfilter taucht erst nach dem Antippen vom Filtersymbol auf und beinhaltet eine größere Auswahl an Filteroptionen. Darunter zählt neben dem Filtern nach Hauptkategorien auch die zusätzliche Möglichkeit genauer nach Unterkategorien zu suchen. Außerdem besteht auch die Option die Beiträge nach Datum oder Likes zu sortieren oder die Beiträge aufsteigend oder absteigend zu ordnen.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{pics/main-filter.jpg}
+  \caption{Hauptfilteransicht auf der App}
+\end{figure}
+
+\subsubsection{Filtern der Reichweite}
+\setauthor{Sandin Habibovic}
+
+Die wichtigste Filterkomponente ist der Range-Slider, womit die Beiträge nach der Reichweite gefiltert werden können, da die Entfernung zum Nachbarn eine der wichtigsten Entscheidungsfaktoren zum Antworten auf einem Beitrag ist.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{pics/range-filter.JPG}
+  \caption{Filtern der Reichweite}
+\end{figure}
 
 \subsection{Suche}
 \subsection{Typesense}
@@ -1183,6 +1210,13 @@ Email und Passwort authentication
 \subsection{Cloud Firestore}
 \setauthor{Sandin Habibovic}
 NoSQL-Database, Dokument-basierte Speicherung, Subcollections
+
+\subsection{Datenmodell}
+\setauthor{Sandin Habibovic}
+
+
+
+
 \subsection{Cloud Storage}
 \setauthor{Sandin Habibovic}
 Speicherung von Profilbilder und Post-Bilder
