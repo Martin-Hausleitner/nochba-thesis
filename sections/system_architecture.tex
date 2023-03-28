@@ -148,7 +148,23 @@ Zusammenfassend stellen die Security Rules für Cloud Firestore und Cloud Storag
 
 \subsection{Cloud Firestore}
 
-Cloud Firestore ist eine NoSQL-Datenbank, die von Google entwickelt wurde und als Teil der Firebase-Plattform angeboten wird. Sie ermöglicht es Entwicklern, Daten in der Cloud zu speichern und in Echtzeit zwischen verschiedenen Geräten zu synchronisieren. Firestore ist ideal für Anwendungen, die auf Skalierbarkeit, Echtzeitaktualisierungen und Offline-Zugriff angewiesen sind. Die Datenbank bietet flexible Datenstrukturen, granulare Sicherheitsregeln und einen leistungsstarken Abfrage-Mechanismus.
+Cloud Firestore ist eine skalierbare, serverlose NoSQL-Datenbank, die von Google entwickelt wurde und als Teil der Firebase-Plattform angeboten wird. Sie ermöglicht es Entwicklern, Daten in der Cloud zu speichern, Echtzeit-Synchronisierung zwischen verschiedenen Geräten bereitzustellen und Anwendungen ohne die Notwendigkeit einer eigenen Serverinfrastruktur zu erstellen. Firestore eignet sich besonders für mobile und Webanwendungen, die auf Skalierbarkeit, Echtzeitaktualisierungen, und hohe Verfügbarkeit angewiesen sind.
+\\\\
+Vorteile von Cloud Firestore
+
+\textbf{Skalierbarkeit:} Firestore ist in der Lage, automatisch zu skalieren, um Millionen von gleichzeitigen Verbindungen und große Mengen von Daten zu unterstützen. Das bedeutet, dass Entwickler sich keine Gedanken über die Kapazitätsgrenzen machen müssen, und Unternehmen können ihre Anwendungen problemlos erweitern, um einem wachsenden Benutzerstamm gerecht zu werden.
+
+\textbf{Echtzeitaktualisierungen:} Firestore ermöglicht Echtzeitaktualisierungen, indem Änderungen an den Daten automatisch an alle verbundenen Geräte gepusht werden, ohne dass die Entwickler zusätzliche Code schreiben müssen. Dies ist besonders nützlich für Anwendungen, die ständig aktualisierte Daten anzeigen oder Benutzerinteraktionen in Echtzeit verarbeiten müssen.
+
+\textbf{Flexible Datenstrukturen:} Firestore unterstützt flexible Datenstrukturen, die es Entwicklern ermöglichen, ihre Datenmodelle einfach an sich ändernde Anforderungen anzupassen. Dokumente können verschachtelte Felder, Arrays und komplexe Datenstrukturen wie Maps enthalten, was eine effiziente Organisation und Abfrage von Daten ermöglicht.
+
+\textbf{Leistungsstarke Abfragen:} Firestore bietet leistungsstarke Abfragefunktionen, die komplexe Datenabfragen unterstützen. Entwickler können Daten sortieren, filtern und aggregieren, um genau die Informationen abzurufen, die sie benötigen, ohne unnötige Daten zu übertragen.
+
+\textbf{Indexes und Abfrageoptimierung:} Um Abfragen in Firestore effizienter zu gestalten, verwendet die Datenbank automatisch erstellte Single-Field-Indexes für alle Felder in den Dokumenten. Für zusätzliche Leistung und Komplexität bei Abfragen können Entwickler auch benutzerdefinierte zusammengesetzte Indexe erstellen, die mehrere Felder kombinieren. Diese ermöglichen Entwicklern, leistungsstarke und komplexe Abfragen auszuführen, ohne die Leistung ihrer Anwendungen zu beeinträchtigen.
+
+
+
+
 
 Quellen:
 
@@ -156,10 +172,11 @@ https://firebase.google.com/docs/firestore
 
 https://medium.com/flutter-community/firebase-cloud-firestore-in-flutter-26c6e8c6f90c
 
-\subsubsection{Datenmodel}
 
-Das Datenmodell in Firestore ist hierarchisch und besteht aus Dokumenten und Sammlungen, oder auch Collections. Dokumente sind einzelne Datenobjekte, die Felder mit Werten enthalten. Sammlungen sind Container für Dokumente und können weitere Sammlungen enthalten, sogenannte Sub-Collections. Dieses hierarchische Datenmodell erlaubt es Entwicklern, Daten effizient zu organisieren und abzufragen.
 
+\subsubsection{Datenmodell}
+
+Das Datenmodell in Firestore ist hierarchisch und besteht aus Dokumenten und Sammlungen, auch Collections genannt. Dokumente sind einzelne Datenobjekte, die Felder mit Werten enthalten. Sammlungen sind Container für Dokumente und können weitere Sammlungen enthalten, sogenannte Sub-Collections. Dieses hierarchische Datenmodell erlaubt es Entwicklern, Daten effizient zu organisieren und abzufragen.
 
 Quellen:
 
