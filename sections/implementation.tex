@@ -1218,11 +1218,50 @@ Email und Passwort authentication
 \setauthor{Sandin Habibovic}
 NoSQL-Database, Dokument-basierte Speicherung, Subcollections
 
-\subsection{Datenmodell}
+\subsubsection{Datenmodell}
 \setauthor{Sandin Habibovic}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{pics/nochba-erd-old.png}
+  \caption{Das erste Datenmodell}
+  \label{fig:old-erd}
+\end{figure}
 
+Die vorliegende Grafik \ref{fig:old-erd} repräsentiert den Ansatz des ersten Datenmodells, welches im Zuge der Diplomarbeit erstellt wurde. Da das Team zum Zeitpunkt des Erstellens des Datenmodells über keine praktische Erfahrung mit Firestore oder mit NoSQL-Datenbanken verfügte, ist das Datenmodell dementsprechend unvollständig und lückenhaft.
+\\
+Es besteht aus vier Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{comments} und \texttt{chats}
+\\
+\paragraph{Users}
+Die \texttt{Users}-Collection ist die Sammlung, die die Daten des Users aufbewahren sollte. Die Dokumente der Collection beinhalten die Felder \texttt{fullName} für den Anzeigename, \texttt{profilePicture} für das Profilbild und \texttt{addressCoordinates} für die Koordinaten des Users. Der Anzeigename ist der Name der dem anderen Usern angezeigt wird und kann sich entweder aus dem Vor- und Nachnamen zusammensetzen (Max Mustermann) oder aus dem Vornamen und Initial des Nachnamen (Max M.). Weiters beinhaltet jedes Dokument die drei weiteren Sub-Collections \texttt{public}, \texttt{private} und \texttt{intern}.
+\\
+Die \texttt{public}-Collection beinhaltet öffentliche Informationen von dem User, die für jeden anderen User zugänglich sind. Die Dokumente der Collection beinhalten die folgenden Felder:
+\begin{compactitem}
+  \item \texttt{birthday} für den Geburtstag des Nachbarn oder der Nachbarin
+  \item \texttt{InTheNeighbourhoodSince} für das Datum seitdem der Nachbar oder die Nachbarin in der Nachbarschaft ist
+  \item \texttt{Profession} für den Beruf des Nachbarn oder der Nachbarin
+  \item \texttt{originallyFrom} für den Heimatsort des Nachbarn oder der Nachbarin
+  \item \texttt{familyStatus} für den Familienstatus des Nachbarn oder der Nachbarin
+  \item \texttt{children} ob der Nachbar oder die Nachbarin Kinder hat
+  \item \texttt{pets} ob der Nachbar oder die Nachbarin Haustiere hat
+  \item \texttt{interests} für die Interessen des Nachbarn oder der Nachbarin
+  \item \texttt{offers} für was angeboten werden kann von dem Nachbarn oder der Nachbarin
+  \item \texttt{moreAboutMe} für eine genauere Selbst-Beschreibung des Nachbarn oder der Nachbarin
+\end{compactitem}
+Diese Daten werden vom User selbst festgelegt und dann beim öffentlichen Profil angezeigt.
+\\
+Die \texttt{public}-Collection beinhaltet private Informationen von dem User, zu denen kein anderer Zugriff hat. Daten die in diese Sammlung gespeichert werden, sind die Addresse mit Hilfe der Felder \texttt{street}, \texttt{streetNumber}, \texttt{city} und \texttt{zipCode}, der vollständige Nachname des Users mit dem Feld \texttt{fullLastName}, die eingestellte Sprache mit dem Feld \texttt{language} und die vom User durch Markierung gespeicherten Beiträge mit dem Feld \texttt{bookMarkedPosts}.
+\\
+Die \texttt{intern}-Collection beinhaltet interne Informationen von dem User, die für die saubere Funktionalität der App wichtig sind, wie die Benutzeridentifikationsnummer mit dem Feld \texttt{uid} und die geliketen Posts des Users mit dem Feld \texttt{postId}
 
+\paragraph{Posts}
+Die \texttt{posts}-Collection ist die Sammlung, die die Beiträge der User aufbewahren soll. Die Dokumente der Collection beinhalten die Felder \texttt{titel} für den Titel, \texttt{decription} für die Beschreibung, \texttt{image} für das anhängbare Bild, \texttt{tags} für die anhängbaren Tags, \texttt{range} für die Reichweite innerhalb der Beitrag nur gesehen werden soll, \texttt{like} für den Like-Zähler, \texttt{user} für die Benutzer-Id von dem der Beitrag stammt und \texttt{publishDate} für das Veröffentlichungsdatum. Als weiteres Feld zählt noch \texttt{category}, welches im DatenModell als eine Enumeration dargestellt wird.
+
+\paragraph{Comments}
+Die \texttt{comments}-Collection ist die Sammlung, die die Kommentare der Beiträge aufbewahren soll. Die Dokumente der Collection beinhalten die Felder \texttt{comment} für den Text, \texttt{user} für die Benutzer-Id von dem der Kommentar stammt und \texttt{publishDate} für das Veröffentlichungsdatum. In diesem Ansatz wurde auf die Id des Beitrags vergessen, unter welchem der Kommenater hinterlassen wurde.
+
+\paragraph{Chats}
+Obwohl die \texttt{chats}-Collection im ursprünglichen Datenmodell enthalten ist, sind die zugehörigen Felder und Strukturen nicht weiter definiert.
 
 \subsection{Cloud Storage}
 \setauthor{Sandin Habibovic}
