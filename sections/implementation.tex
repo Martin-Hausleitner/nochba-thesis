@@ -691,7 +691,7 @@ Die Verifizierung erfolgt, indem der Benutzer bei der
 Registrierung die Option "Mit Einladungscode verifizieren"
 auswählt. Anschließend hat er die Möglichkeit, den
 Einladungscode entweder über den integrierten
-QR-Code-Scanner zu scannen oder manuell einzugeben. 
+QR-Code-Scanner zu scannen oder manuell einzugeben.
 
 
 Für die
@@ -702,7 +702,7 @@ basiert.
 
 MLKit ist eine Machine-Learning-Bibliothek, die im
 vorliegenden Fall für das zuverlässige und schnelle Scannen
-von QR-Codes eingesetzt wird. 
+von QR-Codes eingesetzt wird.
 Diese Bibliothek ermöglicht es, komplexe Funktionen wie das Erkennen von QR-Codes effizient und präzise zu implementieren. Der einzige Nachteil dieses Pakets ist der hohe Speicherbedarf von etwa 10 MB. Daher ist in Zukunft geplant, das MLKit nur bei Bedarf herunterzuladen und nach erfolgreicher Verifizierung des Benutzers wieder zu entfernen.
 
 Der gescannte oder eingegebene Code wird anschließend an die Cloud-Funktion \texttt{checkVerificationCode} (siehe Abschnitt \ref{subsec:registrierung-verify}) gesendet und überprüft, ob der Code korrekt ist.
@@ -725,12 +725,12 @@ ein detailliertes Verständnis von Fehlermeldungen ist die
 Bereitstellung von Screenshots äußerst hilfreich. Aus diesem
 Grund wurden Packages untersucht, die das Erstellen von
 Screenshots ermöglichen und zusätzliche Informationen als
-Kontext hinzufügen können. 
+Kontext hinzufügen können.
 Das ausgewählte Package ist \cite{feedback}.
 Dieses erlaubt es den Nutzern, Screenshots anzufertigen, Annotationen hinzuzufügen und anschließend einen entsprechenden Textkontext einzufügen. Eine nützliche Funktion ermöglicht es den Nutzern, bei Bedarf erneut zu navigieren und den Screenshot zu wiederholen.
 
 Um den Feedback-View zu initiieren, wurde das Package
-\cite{shake} shake verwendet. 
+\cite{shake} shake verwendet.
 Dieses wird durch eine bestimmte Bewegung des Mobilgeräts aktiviert. Bei der Implementierung dieser Funktion wurden ähnliche Mechanismen berücksichtigt, die in anderen Anwendungen zur Feedback-Erhebung verwendet werden.
 
 Das von uns gewählte Vorgehen zur Analyse des Feedbacks erfolgt über die Trello-API, welche es uns ermöglicht, ein entsprechendes Dashboard zur Erfassung und Bearbeitung der Meldungen zu erstellen. Die erfassten Informationen, wie beispielsweise der Screenshot, der Text, das Datum und relevante Systeminformationen, dienen uns als Grundlage für eine weitere Auswertung und Fehlerbehebung. Trello erleichtert uns die Verwaltung des Feedbacks auf kostenlose Weise und stellt somit ein adäquates Instrument zur Unterstützung des Entwicklungsprozesses dar.
@@ -866,10 +866,12 @@ Der Switch, der in den Formularen verwendet wird, wurde aus dem iOS-Design über
 Der Range-Slider wurde unter Verwendung des Material Designs gestaltet und mit den passenden Farben angepasst. Zusätzlich wurden Labels hinzugefügt, um dem Nutzer eine bessere Orientierung zu ermöglichen.
 
 Für den Datepicker wurde die Bibliothek
-\href{https://pub.dev/packages/syncfusion_flutter_datepicker}{Syncfusion\_flutter\_datepicker}
-verwendet. Das UI wurde entsprechend den Farben der App
-angepasst, um eine konsistente und ästhetische
-Benutzeroberfläche zu gewährleisten.
+Syncfusion flutter datepicker
+
+\cite{syncfusion_flutter_datepicker} verwendet. Das UI wurde
+entsprechend den Farben der App angepasst, um eine
+konsistente und ästhetische Benutzeroberfläche zu
+gewährleisten.
 
 \paragraph{Buttons}
 Die Icon-Buttons stellten das aufwändigste Design-Element
@@ -959,21 +961,12 @@ Die obige Abbildung \ref{fig:app-icons} zeigt alle Icons,
 die in einer App verwendet werden. Das Ziel war es, eine
 möglichst große Anzahl von Icons zu integrieren, um die
 Benutzerfreundlichkeit und Bedienbarkeit der App zu
-verbessern. Nachdem verschiedene Icon-Packs betrachtet
-wurden, wurde hauptsächlich das frei verfügbare
-\href{https://github.com/Remix-Design/remixicon}{Remixicon}-Pack
-verwendet, um der App ein einzigartiges Aussehen zu
-verleihen und sie von anderen Apps abzuheben. Das runde
-Design der Icons wurde besonders geschätzt. Ein weiterer
-Vorteil von Remixicons ist, dass es ein
-\href{https://pub.dev/packages/remixicon}{Flutter-Package}
-gibt, was
-die Implementierung erleichtert hat.
+verbessern.
 
-Obwohl Remixicons viele Icons zur Verfügung stellt, wurden
-bei einigen Icons die
-\href{https://fonts.google.com/icons?icon.set=Material+Icons}{Material Icons}
-von Google bevorzugt.
+Nachdem verschiedene Icon-Packs betrachtet wurden, wurde hauptsächlich das frei verfügbare Remixicon-Pack\cite{remixicon} verwendet, um der App ein einzigartiges Aussehen zu verleihen und sie von anderen Apps abzuheben. Das runde Design der Icons wurde besonders geschätzt. Ein weiterer Vorteil von Remixicons ist, dass es ein Flutter-Package\cite{remixicon_flutter_package} gibt, was die Implementierung erleichtert hat.
+
+Obwohl Remixicons viele Icons zur Verfügung stellt, wurden bei einigen Icons die Material Icons\cite{material_icons} von Google bevorzugt.
+
 Insbesondere die abgerundeten Icons wurden verwendet, um das
 Design insgesamt weicher zu gestalten. Da kein passendes
 Icon vorhanden war, um den Abstand zwischen zwei Nachbarn zu
@@ -1138,9 +1131,17 @@ implementieren ist, weshalb darauf verzichtet wurde.
   \caption{Screenshot der Nochba Website: nochba.at}
 \end{figure}
 
-Die Medienpräsenz des Projekts, die durch die Teilnahme an Linz hACkT erlangt wurde, und das Fehlen eines zentralen Anlaufpunkts für Informationen führten zur Entscheidung, eine einfache Landing Page zu erstellen. Diese Seite bietet grundlegende Informationen und ist unter \href{https://nochba.at}{nochba.at} erreichbar.
+Die Medienpräsenz des Projekts, die durch die Teilnahme an
+Linz hACkT erlangt wurde, und das Fehlen eines zentralen
+Anlaufpunkts für Informationen führten zur Entscheidung,
+eine einfache Landing Page zu erstellen.
+Diese Seite bietet grundlegende Informationen und ist unter nochba.at\cite{nochba_at} erreichbar.
 
-Die Teilnahme am mPreneur Social Mobile Entrepreneurship von Arsham Edalatkhah führte zu internationaler Aufmerksamkeit für das Projekt. Dies veranlasste die Erstellung einer englischsprachigen Website unter \href{https://nochba.com}{nochba.com}. Ziel ist es, die Arbeit einem breiteren Publikum zugänglich zu machen und die Reichweite des Projekts zu erhöhen. Durch die Präsenz in einer internationalen Sprache kann das Interesse von Menschen aus verschiedenen Ländern und Kulturen geweckt und potenziell eine größere Nutzerbasis erreicht werden.
+Die Teilnahme am mPreneur Social Mobile Entrepreneurship von Arsham Edalatkhah führte zu internationaler Aufmerksamkeit für das Projekt. Dies veranlasste die Erstellung einer englischsprachigen Website unter nochba.com\cite{nochba_com}.
+
+
+
+Ziel ist es, die Arbeit einem breiteren Publikum zugänglich zu machen und die Reichweite des Projekts zu erhöhen. Durch die Präsenz in einer internationalen Sprache kann das Interesse von Menschen aus verschiedenen Ländern und Kulturen geweckt und potenziell eine größere Nutzerbasis erreicht werden.
 
 
 \subsection{Beta-tester anmeldung}
@@ -1160,10 +1161,10 @@ Auf der Website sind folgende Informationen abgebildet:
 \begin{itemize}
   \item Zeitungsartikel
         \begin{itemize}
-          \item \href{https://www.meinbezirk.at/linz/c-wirtschaft/linzer-nachwuchs-hacker-beweisen-sich-in-nordmazedonien_a5654095}{Mein Bezirk}
-          \item \href{https://www.linz.at/medienservice/2022/202203_114704.php}{Linz}
-          \item \href{https://www.nachrichten.at/oberoesterreich/linz/von-linz-nach-nordmazedonien;art66,3728292}{OÖNachrichten}
-          \item \href{https://jugendhackt.org/video/nochba/}{DorfTV}
+          \item Mein Bezirk\cite{mein_bezirk}
+          \item Linz\cite{linz}
+          \item OÖNachrichten\cite{oo_nachrichten}
+          \item DorfTV\cite{dorf_tv}
           \item Kronen Zeitung (nur auf Papier)
         \end{itemize}
   \item Unsere Mission
@@ -1179,11 +1180,12 @@ Auf der Website sind folgende Informationen abgebildet:
   \item Über uns
   \item Links
         \begin{itemize}
-          \item \href{https://github.com/Martin-Hausleitner/Nochba}{Github Repo}
-          \item \href{https://www.instagram.com/nochba.at/}{Instagram}
+          \item Github Repo\cite{github_repo}
+          \item Instagram\cite{nochba_instagram}
           \item Email \href{mailto:project@nochba.com}{project@nochba.com}
         \end{itemize}
 \end{itemize}
+
 
 
 \subsection{Hosting}
