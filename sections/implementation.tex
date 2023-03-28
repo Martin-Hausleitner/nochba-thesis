@@ -1515,7 +1515,9 @@ Die Verwendung von Cloud-Funktionen zur Verwaltung der Like-Zähler stellt siche
     const likedCommentId = context.params.likedCommentId;
     const likedCommentRef = snapshot.ref;
 
-    const likedComment = db.collection("posts").doc(likedCommentRef['post']).collection('comments').doc(likedCommentId);
+    const likedComment =
+    db.collection("posts").doc(likedCommentRef['post']).collection('comments')
+    .doc(likedCommentId);
 
     await db.runTransaction(async (transaction) => {
       const snapshot = await transaction.get(likedComment);
@@ -1544,7 +1546,9 @@ In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, 
     const likedCommentId = context.params.likedCommentId;
     const likedCommentRef = snapshot.ref;
 
-    const likedComment = db.collection("posts").doc(likedCommentRef['post']).collection('comments').doc(likedCommentId);
+    const likedComment =
+    db.collection("posts").doc(likedCommentRef['post']).collection('comments')
+    .doc(likedCommentId);
 
     await db.runTransaction(async (transaction) => {
       const snapshot = await transaction.get(likedComment);
