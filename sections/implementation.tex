@@ -2,26 +2,9 @@
 \subsection{GitHub Actions}
 
 allg. actions warum kosten
-\subsubsection{iOS Build}
-\setauthor{Martin Hausleitner}
-Das Ziel des Projekts war es, eine \href{https://www.apple.com/ios/app-store/}{iOS-App im App Store} zu veröffentlichen und eine \href{https://play.google.com/store/apps}{Android-App im Play Store} anzubieten. Da Martin Hausleitner der einzige im Team war, der ein iPhone besaß und Erfahrungen mit Apple hatte, übernahm er die Verantwortung für den Build-Prozess der iOS-App.
-
-Zur Erstellung einer \href{https://flutter.dev/}{Flutter}
-iOS-App ist ein Mac mit
-\href{https://developer.apple.com/xcode/}{Xcode} sowie ein
-\href{https://developer.apple.com/programs/}{Apple-Entwicklerkonto}
-erforderlich. Da jedoch niemand im Team über ein solches
-Konto verfügte, gestaltete sich der Build-Prozess äußerst
-schwierig. Glücklicherweise konnte Martin Hausleitner einen
-alten iMac von seiner Familie ausleihen, auf dem er arbeiten
-konnte. Obwohl das Erstellen einer iOS-App auf den ersten
-Blick einfach erscheint, stellte es sich als eine der
-größten Herausforderungen in diesem Projekt heraus.
-
+\subsubsection{iOS Build} \setauthor{Martin Hausleitner} Das Ziel des Projekts war es, eine \cite{ios_app_store} iOS-App im App Store zu veröffentlichen und eine \cite{android_play_store} Android-App im Play Store anzubieten. Da Martin Hausleitner der einzige im Team war, der ein iPhone besaß und Erfahrungen mit Apple hatte, übernahm er die Verantwortung für den Build-Prozess der iOS-App.
+Zur Erstellung einer \cite{flutter} Flutter iOS-App ein Mac mit \cite{xcode} Xcode sowie ein \cite{apple_developer_program} Apple-Entwicklerkonto erforderlich. Da jedoch niemand im Team über ein solches Konto verfügte, gestaltete sich der Build-Prozess äußerst schwierig. Glücklicherweise konnte Martin Hausleitner einen alten iMac von seiner Familie ausleihen, auf dem er arbeiten konnte. Obwohl das Erstellen einer iOS-App auf den ersten Blick einfach erscheint, stellte es sich als eine der größten Herausforderungen in diesem Projekt heraus.
 Da MacOS und Xcode dem Entwickler nicht vertraut waren, musste er sich zunächst mühsam einarbeiten. Es bedurfte zahlreicher Anläufe, um die App zum ersten Mal zu erstellen, da zum damaligen Zeitpunkt von Flutter noch keine vorgefertigten Build-Abläufe zur Verfügung standen.
-
-
-
 
 
 \paragraph{Github Action}
@@ -68,7 +51,7 @@ Verfügung zu stellen, darunter:
 \end{itemize}
 
 Zunächst wurde die Methode des Sideloading mittels des
-Tools \href{https://www.signulous.com/}{Signulous} ausprobiert,
+Tools \cite{signulous} Signulous ausprobiert,
 da sie als kostenfreie Option bekannt war. Dabei konnte
 die iOS-Anwendung erfolgreich installiert werden und
 manuelle Uploads auf Firebase App Distribution waren
@@ -384,8 +367,7 @@ Während des Registrierungsprozesses wird der User durch eine Authentifizierungs
 \paragraph{Google Barcode-Scanning ML Kit}
 \setauthor{Martin Hausleitner}
 In Anbetracht der Entscheidung, Einladungscodes mithilfe von QR-Codes zu implementieren, ist es erforderlich, einen QR-Code-Scanner während des Registrierungsprozesses zu integrieren. Um eine zuverlässige Benutzererfahrung zu gewährleisten, wurde das Google Barcode-Scanning ML Kit als bevorzugte Technologie ausgewählt. In internen Tests zeigte sich, dass dieses Kit eine hohe Genauigkeit und Zuverlässigkeit aufweist.
-
-Die Integration des Scanners wurde mithilfe des Pakets \href{https://pub.dev/packages/mobile_scanner}{mobile\_scanner} realisiert, welches auf der Plattform pub.dev verfügbar ist. Dieses Paket ermöglicht eine einfache Implementierung und Anpassung an die individuellen Anforderungen des Projekts. Die Verwendung des ML-Kits trägt dazu bei, die Leistungsfähigkeit der Anwendung zu verbessern und die Benutzerzufriedenheit zu erhöhen.
+Die Integration des Scanners wurde mithilfe des Pakets \cite{mobile_scanner} mobile\_scanner realisiert, welches auf der Plattform pub.dev verfügbar ist. Dieses Paket ermöglicht eine einfache Implementierung und Anpassung an die individuellen Anforderungen des Projekts. Die Verwendung des ML-Kits trägt dazu bei, die Leistungsfähigkeit der Anwendung zu verbessern und die Benutzerzufriedenheit zu erhöhen.
 
 
 Diagram
@@ -705,7 +687,23 @@ Folgende Punkte sinder in der Abbildung
 Verifizierte Nutzer können alle 24 Stunden einen
 Einladungscode generieren.
 
-Die Verifizierung erfolgt, indem der Benutzer bei der Registrierung die Option "Mit Einladungscode verifizieren" auswählt. Anschließend hat er die Möglichkeit, den Einladungscode entweder über den integrierten QR-Code-Scanner zu scannen oder manuell einzugeben. Für die Implementierung des QR-Code-Scanners wurde das Flutter-Paket \href{https://pub.dev/packages/mobile_scanner}{mobile\_scanner} verwendet, welches auf Googles MLKit \cite{googlemlkit} basiert. MLKit ist eine Machine-Learning-Bibliothek, die im vorliegenden Fall für das zuverlässige und schnelle Scannen von QR-Codes eingesetzt wird. Diese Bibliothek ermöglicht es, komplexe Funktionen wie das Erkennen von QR-Codes effizient und präzise zu implementieren. Der einzige Nachteil dieses Pakets ist der hohe Speicherbedarf von etwa 10 MB. Daher ist in Zukunft geplant, das MLKit nur bei Bedarf herunterzuladen und nach erfolgreicher Verifizierung des Benutzers wieder zu entfernen.
+Die Verifizierung erfolgt, indem der Benutzer bei der
+Registrierung die Option "Mit Einladungscode verifizieren"
+auswählt. Anschließend hat er die Möglichkeit, den
+Einladungscode entweder über den integrierten
+QR-Code-Scanner zu scannen oder manuell einzugeben. 
+
+
+Für die
+Implementierung des QR-Code-Scanners wurde das Flutter-Paket
+\cite{mobile_scanner} mobile\_scanner
+verwendet, welches auf Googles MLKit \cite{googlemlkit}
+basiert.
+
+MLKit ist eine Machine-Learning-Bibliothek, die im
+vorliegenden Fall für das zuverlässige und schnelle Scannen
+von QR-Codes eingesetzt wird. 
+Diese Bibliothek ermöglicht es, komplexe Funktionen wie das Erkennen von QR-Codes effizient und präzise zu implementieren. Der einzige Nachteil dieses Pakets ist der hohe Speicherbedarf von etwa 10 MB. Daher ist in Zukunft geplant, das MLKit nur bei Bedarf herunterzuladen und nach erfolgreicher Verifizierung des Benutzers wieder zu entfernen.
 
 Der gescannte oder eingegebene Code wird anschließend an die Cloud-Funktion \texttt{checkVerificationCode} (siehe Abschnitt \ref{subsec:registrierung-verify}) gesendet und überprüft, ob der Code korrekt ist.
 
@@ -721,9 +719,19 @@ Die letzte Funktion in der Einstellungssicht ist das Löschen des eigenen Kontos
 
 \subsection{Feedback}
 \setauthor{Martin Hausleitner}
-Während der Testphase besteht das Ziel darin, eine effiziente Methode zur Sammlung von Feedback zu finden. Für ein detailliertes Verständnis von Fehlermeldungen ist die Bereitstellung von Screenshots äußerst hilfreich. Aus diesem Grund wurden Packages untersucht, die das Erstellen von Screenshots ermöglichen und zusätzliche Informationen als Kontext hinzufügen können. Das ausgewählte Package ist \href{https://pub.dev/packages/feedback}{feedback}. Dieses erlaubt es den Nutzern, Screenshots anzufertigen, Annotationen hinzuzufügen und anschließend einen entsprechenden Textkontext einzufügen. Eine nützliche Funktion ermöglicht es den Nutzern, bei Bedarf erneut zu navigieren und den Screenshot zu wiederholen.
+Während der Testphase besteht das Ziel darin, eine
+effiziente Methode zur Sammlung von Feedback zu finden. Für
+ein detailliertes Verständnis von Fehlermeldungen ist die
+Bereitstellung von Screenshots äußerst hilfreich. Aus diesem
+Grund wurden Packages untersucht, die das Erstellen von
+Screenshots ermöglichen und zusätzliche Informationen als
+Kontext hinzufügen können. 
+Das ausgewählte Package ist \cite{feedback}.
+Dieses erlaubt es den Nutzern, Screenshots anzufertigen, Annotationen hinzuzufügen und anschließend einen entsprechenden Textkontext einzufügen. Eine nützliche Funktion ermöglicht es den Nutzern, bei Bedarf erneut zu navigieren und den Screenshot zu wiederholen.
 
-Um den Feedback-View zu initiieren, wurde das Package \href{https://pub.dev/packages/shake}{shake} verwendet. Dieses wird durch eine bestimmte Bewegung des Mobilgeräts aktiviert. Bei der Implementierung dieser Funktion wurden ähnliche Mechanismen berücksichtigt, die in anderen Anwendungen zur Feedback-Erhebung verwendet werden.
+Um den Feedback-View zu initiieren, wurde das Package
+\cite{shake} shake verwendet. 
+Dieses wird durch eine bestimmte Bewegung des Mobilgeräts aktiviert. Bei der Implementierung dieser Funktion wurden ähnliche Mechanismen berücksichtigt, die in anderen Anwendungen zur Feedback-Erhebung verwendet werden.
 
 Das von uns gewählte Vorgehen zur Analyse des Feedbacks erfolgt über die Trello-API, welche es uns ermöglicht, ein entsprechendes Dashboard zur Erfassung und Bearbeitung der Meldungen zu erstellen. Die erfassten Informationen, wie beispielsweise der Screenshot, der Text, das Datum und relevante Systeminformationen, dienen uns als Grundlage für eine weitere Auswertung und Fehlerbehebung. Trello erleichtert uns die Verwaltung des Feedbacks auf kostenlose Weise und stellt somit ein adäquates Instrument zur Unterstützung des Entwicklungsprozesses dar.
 
@@ -732,11 +740,11 @@ Das von uns gewählte Vorgehen zur Analyse des Feedbacks erfolgt über die Trell
 Das Design der Nachbarschafts-App war für das Team von hoher Bedeutung, weshalb der Designer Martin Hausleitner erheblichen Zeit- und Arbeitsaufwand aufwendete, um ein anspruchsvolles Design zu gestalten. Angesichts der Tatsache, dass die App ein breites Publikum ansprechen soll, einschließlich verschiedener Altersgruppen, war es von entscheidender Bedeutung sicherzustellen, dass die Benutzer die App einfach und intuitiv bedienen können. Um dieses Ziel zu erreichen, wurde eine klare Struktur und Navigation in das Design integriert, um den Benutzern eine einfache und effektive Nutzung der gewünschten Funktionen zu ermöglichen. Es wurde darauf geachtet, dass die Buttons gut erkennbar und mit aussagekräftigen Icons und verständlichen Beschriftungen versehen sind, um Verwirrung zu vermeiden. Weiterhin wurde das Design der Karten auf eine organische Weise gestaltet, um ein harmonisches und ästhetisches Gesamtbild zu erzeugen.
 \setauthor{Martin Hausleitner}
 \subsection{Inspiration}
-Während des Designprozesses für die App wurden umfangreiche Recherchen im Bereich App-Design durchgeführt. Das Ziel war, die App so intuitiv wie möglich zu gestalten, um eine benutzerfreundliche Erfahrung sicherzustellen. Dabei wurden bekannte Social-Media-Apps wie \href{https://twitter.com/}{Twitter}, \href{https://www.instagram.com/}{Instagram} und \href{https://www.tiktok.com/}{TikTok} als Orientierung genutzt, da diese bereits erfolgreich auf dem Markt etabliert sind und von vielen Menschen vertraut genutzt werden.
+Während des Designprozesses für die App wurden umfangreiche Recherchen im Bereich App-Design durchgeführt. Das Ziel war, die App so intuitiv wie möglich zu gestalten, um eine benutzerfreundliche Erfahrung sicherzustellen. Dabei wurden bekannte Social-Media-Apps wie Twitter\cite{twitter}, Instagram\cite{instagram} und TikTok\cite{tiktok} als Orientierung genutzt, da diese bereits erfolgreich auf dem Markt etabliert sind und von vielen Menschen vertraut genutzt werden.
 
-Zusätzlich diente die erfolgreichste Nachbarschafts-App in Deutschland, \href{https://nebenan.de/}{Nebenan}, als Grundlage für die App-Entwicklung. Allerdings wurde festgestellt, dass ihre App sehr kompliziert aufgebaut und unübersichtlich ist. Daher wurde dies als Chance gesehen, um es besser zu machen.
+Zusätzlich diente die erfolgreichste Nachbarschafts-App in Deutschland, Nebenan\cite{nebenan}, als Grundlage für die App-Entwicklung. Allerdings wurde festgestellt, dass ihre App sehr kompliziert aufgebaut und unübersichtlich ist. Daher wurde dies als Chance gesehen, um es besser zu machen.
 
-Zur Entwicklung eines einfachen und schlichten Designs wurden Inspirationen von Websites wie \href{https://dribbble.com/}{Dribble} und \href{https://mobbin.design/}{Mobbin} genutzt. Insgesamt war die Recherche und Inspiration für das Design der App ein wichtiger Schritt, um sicherzustellen, dass Benutzer eine ansprechende und intuitive Erfahrung haben.
+Zur Entwicklung eines einfachen und schlichten Designs wurden Inspirationen von Websites wie Dribble\cite{dribble} und Mobbin\cite{mobbin} genutzt. Insgesamt war die Recherche und Inspiration für das Design der App ein wichtiger Schritt, um sicherzustellen, dass Benutzer eine ansprechende und intuitive Erfahrung haben.
 
 \subsection{Prototyping}
 Das Team legte von Anfang an großen Wert auf eine exzellente
@@ -1591,7 +1599,7 @@ Aufgrund des erhöhten E-Mail-Verkehrs des Teams nach dem Wettbewerb Linz haCKt 
 Als das Team von Locoo auf Nochba wechselte und eine .com- und .at-Domain erwarb, entstand die Idee, eine eigene E-Mail-Adresse zu erstellen. Beim Versuch, einen E-Mail-Server auf Azure selbst zu hosten, wurde schnell klar, dass dies nicht möglich war. Im Allgemeinen gestaltet sich das Hosten eines E-Mail-Servers schwierig, da viele Cloud-Anbieter dies nicht erlauben.
 
 \subsection{Hosting-Anbieter}
-Um den Aufwand zu minimieren, wurde der Hosting-Anbieter \href{https://www.namecheap.com/}{Namecheap} ausgewählt, der ein sehr günstiges Angebot für ein Jahr E-Mail-Hosting hatte, bestehend aus 2 Monaten gratis und einem Jahr zum Preis von \$8.93.
+Um den Aufwand zu minimieren, wurde der Hosting-Anbieter \cite{namecheap} ausgewählt, der ein sehr günstiges Angebot für ein Jahr E-Mail-Hosting hatte, bestehend aus 2 Monaten gratis und einem Jahr zum Preis von \$8.93.
 
 \subsection{E-Mail-Adresse und Google-Account}
 Die Entscheidung fiel auf die E-Mail-Adresse
@@ -1618,18 +1626,19 @@ die Kommunikation effizienter gestaltet werden konnte.
 \section{Visual Studio Code Extention}
 
 Für die Programmierung einer App wurde das Werkzeug ChatGPT
-eingesetzt, das auch nach der Veröffentlichung von GPT-4relevanter wurde. Eine einfache VSCode-Erweiterung wurde
-entwickelt, um den Dart-Code zu minimieren. Da GPT-4 jedoch
-nur eine Eingabe von 8000 Tokens zulässt, ist es schnell
-erreicht, wenn der Code nicht minimiert wird, insbesondere
-wenn viele Leerzeichen aufgrund von Einrückungen vorhanden
-sind. Jedes Leerzeichen stellt dabei ein Token dar, was
-schnell zu einer Überschreitung der maximalen Tokenanzahl
-führen kann. Die Erweiterung wurde vollständig von GPT-4
-programmiert und ist unter \ref{copyminify}[https://github.com/Martin-Hausleitner/vscode-copyminify] verfügbar.
+eingesetzt, das auch nach der Veröffentlichung von
+GPT-4relevanter wurde.  Eine einfache VSCode-Erweiterung
+wurde entwickelt, um den Dart-Code zu minimieren. Da GPT-4
+jedoch nur eine Eingabe von 8000 Tokens zulässt, ist es
+schnell erreicht, wenn der Code nicht minimiert wird,
+insbesondere wenn viele Leerzeichen aufgrund von
+Einrückungen vorhanden sind. Jedes Leerzeichen stellt dabei
+ein Token dar, was schnell zu einer Überschreitung der
+maximalen Tokenanzahl führen kann. Die Erweiterung wurde
+vollständig von GPT-4 programmiert und ist unter
+\cite{copyminify} verfügbar.
 
-Später wurde eine weitere Erweiterung programmiert, die die Anzahl der Tokens im aktuellen Code-File mithilfe von Codex oder GPT-3 Tokenizer anzeigt. Wenn ein bestimmter Bereich im Code-File ausgewählt ist, wird nur die Anzahl der Tokens in diesem Bereich angezeigt. Die Erweiterung wurde im VSCode Marketplace veröffentlicht und ist unter \ref{GPT-3 & Codex Tokenizer}[https://marketplace.visualstudio.com/items?itemName=MartinHausleitner.vscode-tokenizer-gpt3-codex] erhältlich.
-
+Später wurde eine weitere Erweiterung programmiert, die die Anzahl der Tokens im aktuellen Code-File mithilfe von Codex oder GPT-3 Tokenizer anzeigt. Wenn ein bestimmter Bereich im Code-File ausgewählt ist, wird nur die Anzahl der Tokens in diesem Bereich angezeigt. Die Erweiterung wurde im VSCode Marketplace veröffentlicht und ist unter \cite{tokenizer} erhältlich.
 
 
 \section{Zukünftige mögliche implementierungen}
