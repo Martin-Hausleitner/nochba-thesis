@@ -1332,7 +1332,54 @@ Die \texttt{chats}-Collection ist die Sammlung, wo die Chats und dazugehörigen 
 
 \subsection{Cloud Storage}
 \setauthor{Sandin Habibovic}
-Speicherung von Profilbilder und Post-Bilder
+Der Cloud-Storage dient der Applikation als Speichermedium für Bilder. Darunter zählen Profilbilder und Bilder, die Beiträgen hinzugefügt werden.
+\\
+\subsubsection{Aufbau}
+\setauthor{Sandin Habibovic}
+\begin{itemize}
+  \item profile
+        \begin{itemize}
+          \item [pictures]
+        \end{itemize}
+  \item posts
+        \begin{itemize}
+          \item {uid}
+                \begin{itemize}
+                  \item [pictures]
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+Die Dateistruktur teilt sich in zwei Ordner auf: \texttt{profile} und \texttt{posts}.
+\\\\
+Im Ordner \texttt{profile} werden die Profilbilder der User gesichert. Dabei werden die Namen der Profilbilder als Id der User gesetzt, um das effizientere Speichern und Suchen von Profilbilder einzelner User zu erreichen.
+\\\\
+Im Ordner \texttt{posts} werden die Bilder die zu Beiträge gehören gesichert. Dabei besitzt der \texttt{posts}-Ordner noch weitere Unterordner die nach der Id der User benannt werden. Das soll garantieren, dass die Bilder, die von User hochgeladen werden, nur in deren Ordner gespeichert werden.
+
+\subsubsection{Funktionsweise}
+\setauthor{Sandin Habibovic}
+
+\begin{lstlisting}[caption=uploadProfileImageToStorage Funktion,label=lst:uploadProfileImageFunction]
+  Future<String> uploadProfileImageToStorage(Uint8List file) async {
+    final authService = Get.find<AuthService>();
+
+    final uid = authService.uid;
+
+    if (uid.isEmpty) {
+      return '';
+    }
+
+    Reference ref = FirebaseStorage.instance.ref().child('profile/$uid');
+    UploadTask uploadTask = ref.putData(file);
+
+    TaskSnapshot snap = await uploadTask;
+    String downloadUrl = await snap.ref.getDownloadURL();
+    return downloadUrl;
+  }
+
+\end{lstlisting}
+Der vorliegende Code \ref{lst:uploadProfileImageFunction} soll die Funktionsweise des Cloud Storage demonstrieren. Die Funktion soll das Profilbild des Users im Cloud Storage einspeichern. Im Code lässt sich sehen, dass die Funktion das Bild in Form einer \texttt{Uint8List} bekommt und sich zuerst die Id des aktuellen Users durch den \texttt{AuthService} holt. Danach wird eine Referenz zum Cloud Storage auf den Pfad \texttt{profile/\$uid} gebildet und die Bilddatei wird auf die Referenz hochgeladen. Wenn das Hochladen erfolgreich war, wird die URL, unter der das Bild verfügbar ist, zurüchgegeben. Diese URL kann dann in den Userdaten unter der \texttt{users}-Collection im Feld \texttt{imageUrl} gespeichert werden.
+
 \subsection{Firebase Cloud Functions}
 \setauthor{Martin Hausleitner}
 Firebase Cloud Functions sind eine großartige Möglichkeit,
