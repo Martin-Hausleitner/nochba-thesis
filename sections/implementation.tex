@@ -1229,7 +1229,7 @@ Die vorliegende Grafik \ref{fig:old-erd} repräsentiert den Ansatz des ersten Da
 Es besteht aus vier Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{comments} und \texttt{chats}
 \\\\
 \paragraph{Users}
-Die \texttt{Users}-Collection ist die Sammlung, die die Daten des Users aufbewahren sollte. Die Dokumente der Collection beinhalten die Felder \texttt{fullName} für den Anzeigename, \texttt{profilePicture} für das Profilbild und \texttt{addressCoordinates} für die Koordinaten des Users. Der Anzeigename ist der Name der den anderen Usern angezeigt wird und kann sich entweder aus dem Vor- und Nachnamen zusammensetzen (Max Mustermann) oder aus dem Vornamen und Initial des Nachnamen (Max M.). Weiters beinhaltet jedes Dokument die drei weiteren Sub-Collections \texttt{public}, \texttt{private} und \texttt{intern}.
+Die \texttt{users}-Collection ist die Sammlung, die die Daten des Users aufbewahren sollte. Die Dokumente der Collection beinhalten die Felder \texttt{fullName} für den Anzeigename, \texttt{profilePicture} für das Profilbild und \texttt{addressCoordinates} für die Koordinaten des Users. Der Anzeigename ist der Name der den anderen Usern angezeigt wird und kann sich entweder aus dem Vor- und Nachnamen zusammensetzen (Max Mustermann) oder aus dem Vornamen und Initial des Nachnamen (Max M.). Weiters beinhaltet jedes Dokument die drei weiteren Sub-Collections \texttt{public}, \texttt{private} und \texttt{intern}.
 \\\\
 Die \texttt{public}-Collection beinhaltet öffentliche Informationen von dem User, die für jeden anderen User zugänglich sind. Die Dokumente der Collection beinhalten die folgenden Felder:
 \begin{compactitem}
@@ -1258,6 +1258,77 @@ Die \texttt{comments}-Collection ist die Sammlung, die die Kommentare der Beitr�
 
 \paragraph{Chats}
 Obwohl die \texttt{chats}-Collection im ursprünglichen Datenmodell enthalten ist, sind die zugehörigen Felder und Strukturen nicht weiter definiert.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/nochba-erd-new.JPG}
+  \caption{Das neue Datenmodell}
+  \label{fig:new-erd}
+\end{figure}
+
+Die vorliegende Grafik \ref{fig:new-erd} repräsentiert das aktuelle Datenmodell. Durch das erweitere Know-How, welches sich das Team im Lauf der Diplomarbeit angeeignet hat, wurde darauf geachtet eine möglichst effiziente Datenaufteilung und Datenspeicherung zu gestalten.
+\\\\
+Um das zu gewährleisten wurden folgende Prinzipien erstellt:
+\begin{enumerate}
+  \item Falls eine Collection abhängig von einer anderen Collection ist, wird diese der anderen Collection als Sub-Collection hinzugefügt - Beispiel: Beiträge und Kommentare
+  \item Daten, die miteinander nichts zu tun haben werden in eigene Dokumente gespeichert
+  \item Falls eine Collection einmalig verschiedene Daten speichern soll, so bekommen die Dokumente eine vorbstimmte Id, um das Verwalten der Dokumente zu erleichtern - Beispiel: Die \texttt{private}-Subcollection innerhalb der \texttt{users}-Collection beinhaltet das Dokument \texttt{name}, wo der Name gespeichert wird und das Dokument \texttt{address}, wo die Addressdaten gespeichert werden
+
+\end{enumerate}
+\\\\
+Im Gegensatz zum alten Datenmodell wurde das neue Datenmodell um mehrere Collections erweitert und manche Collections wurden angepasst. Es besteht aus folgenden Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{notifications}, \texttt{reports}, \texttt{codes} und \texttt{chats}
+\\\\
+\paragraph{Users}
+Die \texttt{users}-Collection ist die Sammlung, die die Daten des Users aufbewahren sollte. Die Dokumente der Collection beinhalten wie beim alten Datenmodell die Felder \texttt{fullName} für den Anzeigename und \texttt{profilePicture} für das Profilbild. Das Feld \texttt{addressCoordinates} für die Koordinaten des Users wurde entfernt, weil es sich als Datenleck von privaten Userdaten herausstellte. Die Felder der \texttt{users}-Collections dienen als Anzeigedaten, von daher wurde das \texttt{addressCoordinates}-Feld mit dem \texttt{suburb}-Feld ersetzt, was vielmehr das Stadtviertel oder die Gemeinschaft des Users speichern soll.
+Der Ansatz, dass die \texttt{users}-Collection drei weitere Sub-Collections (\texttt{public}, \texttt{private} und \texttt{intern}) beinhalten soll wurde beibehalten.
+\\\\
+Die \texttt{public}-Collection beinhaltet öffentliche Informationen von dem User, die für jeden anderen User zugänglich sind. Die öffentlichen Daten werden unter dem Dokument \texttt{data} gspeichert. Die Datenfelder der öffentlichen Daten haben sich auf die Folgenden angepasst:
+\begin{compactitem}
+  \item \texttt{birthday} für den Geburtstag des Nachbarn oder der Nachbarin
+  \item \texttt{InTheNeighbourhoodSince} für das Datum seitdem der Nachbar oder die Nachbarin in der Nachbarschaft ist
+  \item \texttt{Profession} für den Beruf des Nachbarn oder der Nachbarin
+  \item \texttt{originallyFrom} für den Heimatsort des Nachbarn oder der Nachbarin
+  \item \texttt{interests} für die Interessen des Nachbarn oder der Nachbarin
+  \item \texttt{offers} für was angeboten werden kann von dem Nachbarn oder der Nachbarin
+  \item \texttt{bio} für eine genauere Selbst-Beschreibung des Nachbarn oder der Nachbarin
+\end{compactitem}
+Diese Daten werden nach wie vor vom User selbst festgelegt und dann beim öffentlichen Profil angezeigt. Der Grund für die Anpassungen ging dem Wunsch nach, das öffentliche Profil etwas simpler zu halten.
+\\\\
+Die \texttt{private}-Collection beinhaltet private Informationen von dem User, zu denen kein anderer Zugriff hat. Zur besseren Aufteilung wurden die privaten Daten des Users auf mehrere Dokumente aufgeteilt.
+\\
+Das Dokument \texttt{name} beinhaltet den Vornamen und Nachnamen, was ---.
+\\
+Als nächstes ist das Dokument \texttt{address}, welches die Addressdaten des Users beinhaltet, also das Feld \texttt{street} für die Straße, das Feld \texttt{streetNumber} für die Straßennummer, das Feld \texttt{city} für die Stadt und das Feld \texttt{zip} für die Postleitzahl.
+\\
+Ein für den User--- wichtiges Dokument ist das Dokument \texttt{records}, welches die vom User markierten und geliketen Beiträge speichern soll. Das Dokument beinhaltet das Feld \texttt{posts}, welches die vom User markierten Posts speichert. Das Dokument beinhaltet außerdem zwei Sub-Collections: \texttt{likedPosts} und \texttt{likedComments}. Diese zwei Subcollections speichern die vom User geliketen Beiträge bzw. Kommentare. Die Funktionsweise der Subcollection \texttt{likedPosts} baut auf dem Konzept auf, dass die angelegten Entitäten nach der Id des Beitrags erstellt werden. Das heißt, dass die angelegte Entität die gleiche Id hat, wie der Beitrag, welcher vom User markiert wurde und sonst nichts. Das soll für eine möglichst effiziente Datenspeicherung sorgen. Die Funktionsweise der Subcollection \texttt{likedComments} baut auf dem selben Konzept auf, nur mit der Id des Kommentars als Entitäts-Id und zusätzlich wird noch die Id des Beitrags unter dem der Kommentar gelassen wurde mitgespeichert.
+\\
+Das nächste Dokument \texttt{settings} soll die Benutzereinstellungen speichern. Darunter zählt das Feld \texttt{lastNameInitialOnly}, mit welchem der User bestimmt, ob sein ganzer Name angezeigt werden soll oder nur der Vorname mit dem Initial des Nachnamens, und \texttt{permReqBeforeChat}, mit welchem der User bestimmt, ob er/sie eine Anfrage erhalten möchte, bevor er/sie angeschrieben wird.
+\\
+Das letzte Dokument \texttt{codes} soll die vom User erstellten Einlade-QR-Codes speichern. Um alle Einlade-QR-Codes vom User mittracken zu können, werden alle QR-Codes in einer Subcollection \texttt{generatedCodes} gesammelt. Der zuletzt generierte QR-Code und das Datum der Erstellung werden in die Felder \texttt{lastGeneratedCode} und \texttt{lastGeneratedCodeDate} gespeichtert.
+\\\\
+Die \texttt{intern}-Collection beinhaltet interne Informationen von dem User, die für die saubere Funktionalität der App wichtig sind. In dem neuen Datenmodell beinhaltet das Dokument zwei Dokemente: \texttt{address} und \texttt{verification}.
+\\
+Im Dokument \texttt{address} werden im Feld \texttt{coords} die Koordinaten der angegeben Addresse gespeichert.
+\\
+Falls sich der User durch einen Einlade-QR-Code verifiziert hat, hat das Dokument \texttt{verification} die Felder \texttt{deviceCoords} für die Gerätkoordinaten, \texttt{code} für den Einlade-QR-Code der eingesetzt wurde und \texttt{distance}, welches angibt wie groß die Distanz zwischen den Gerätkoordinaten und den Koordinaten des QR-Codes ist.
+
+\paragraph{Codes}
+Die \texttt{codes}-Collection ist die Sammlung, wo alle QR-Codes die jemals erzeugt wurden, gespeichert ist. Die Dokumente der Collection beinhalten die Felder \texttt{coords} und \texttt{range} für die Koordinaten und Reichweite innerhalb der QR-Code gültig ist, \texttt{isActive} ob der Code noch gültig ist, \texttt{createdAt} für das Veröffentlichungsdatum, \texttt{maxCodeLimit} für wie viele User mit diesem Einlade-QR-Code eingeladen werden können und \texttt{uid} für den User der den QR-Code erzeugt hat.
+
+\paragraph{Posts}
+Die \texttt{posts}-Collection ist die Sammlung, die die Beiträge der User aufbewahren soll. Die Felder der Dokumente der Collection haben sich im Vergleich zum alten Datenmodell nicht verändert.
+\\
+Was sich im Datenmodell im Bezug auf die Beiträge verändert hat, ist dass die \texttt{comments}-Collection als Subcollection zur \texttt{posts}-Collection hinzugefügt wurde. Die Felder der Dokumente der \texttt{comments}-Collection haben sich auch angepasst. Die Dokumente der Collection beinhalten die Felder \texttt{text} für den Text, \texttt{likes} für den Like-Zähler, \texttt{createdAt} für das Veröffentlichungsdatum, \texttt{uid} für die Id des Users, welcher den Kommentar hinterlassen hat, und \texttt{postId} für die Id des Beitrags unter welchem der Kommentar hinterlassen wurde.
+
+\paragraph{Notifications}
+Die \texttt{notification}-Collection ist die Sammlung, die die Benachrichtigungen der User aufbewahren soll. Benachrichtigungen sollen den User über neue Chat-Anfragen benachrichtigen. Die Dokumente der Collection beinhalten die Felder \texttt{fromUid} und \texttt{toUID} für den User der die Benachrichtigung abgeschickt hat und den User der die Benachrichtigung erhält, \texttt{createdAt} für das Erstellungsdatum, \texttt{visible} ob die Benachrichtigung für den User sichtbar ist, \texttt{hasSeen} ob der User die Benachrichtigung gesehen hat und falls die Chat-Anfrage von einem Beitrag kommt noch das Feld \texttt{postId} für die Id des Beitrags. Außerdem existiert noch das Feld \texttt{type}, die den Typ der Anfrage beschreiben soll. Es gibt zwei Typen. Ein \texttt{postRequest} um für das Antworten eines Beitrags eine Chat-Anfrage zu erstellen und ein \texttt{userRequest} um zum Kontakt erstellen zu einen User eine Chat-Anfrage zu erstellen.
+
+\paragraph{Reports}
+Die \texttt{reports}-Collection ist die Sammlung, wo die Meldungen auf Beiträge oder User gespeichert werden. Die Dokumente der Collection beinhalten die Felder \texttt{fromUser} für den User der die Meldung abgeschickt hat, \texttt{text} für die Erklärung warum die Meldung abgeschickt wurde, \texttt{createdAt} für das Erstellungsdatum, \texttt{visible} ob die Meldung für den User sichtbar ist und \texttt{reason} für den ausgewählten Grund warum die Meldung abgeschickt wurde. Außerdem existiert noch das Feld \texttt{type}, welches angibt, was gemeldet wurde. Es kann entweder ein Beitrag, Kommentar oder User gemeldet werden. Daneben gibt es noch das Feld \texttt{reportedId}, was die Id vom jeweiligen Beitrag, Kommentar oder User speichert.
+
+\paragraph{Chats}
+Die \texttt{chats}-Collection ist die Sammlung, wo die Chats und dazugehörigen Nachrichten der User gespeichert werden.
+
 
 \subsection{Cloud Storage}
 \setauthor{Sandin Habibovic}
