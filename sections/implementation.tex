@@ -518,8 +518,6 @@ Der folgende Code \ref{lst:parseTags} wird verwendet, um die Tags aus der KI-Aus
 \end{lstlisting}
 
 
-
-
 Da die Nutzung der KI kostenintensiv sein kann, wenn mehr Benutzer sie verwenden, ist die Nutzung auf maximal zwei Anfragen pro Benutzer für Titel- oder Tag-Generierung begrenzt. Zukünftig ist geplant, das System durch ein Nochba AI-Abo mit unbegrenzten Anfragen zu monetarisieren.
 
 \subsubsection{Übersetzung mit Maschine Learning}
@@ -573,17 +571,318 @@ Die wichtigste Filterkomponente ist der Range-Slider, womit die Beiträge nach d
 \end{figure}
 
 \subsection{Suche}
+
+Eine gut umgesetzte Suchfunktion in einer Social-Media-App stellt eine wichtige Funktion für den Aufbau einer lokalen Gemeinschaft und die gemeinsame Nutzung von Ressourcen dar. Durch die Verbesserung der Entdeckungsmöglichkeiten und der Personalisierung kann die Suchfunktion erheblich zum Erfolg der Plattform beitragen und die häufige Nutzung durch die Community-Mitglieder fördern.
+
+Eine Suchfunktion kann auf folgende Weise zum Erfolg einer Social Media App beitragen:
+
+Entdeckungsmöglichkeit: Eine robuste Suchfunktion ermöglicht es den Nutzern, problemlos wichtige Inhalte, Personen und Ressourcen innerhalb ihrer lokalen Gemeinschaft zu finden. Dies hilft bei der Entdeckung neuer Verbindungen und Veranstaltungen und trägt letztlich zur Verstärkung der lokalen Gemeinschaft und zur Förderung des sozialen Engagements bei.
+
+    Personalisierung: Die Nutzer können die Suchfunktion nutzen, um Inhalte zu finden, die auf ihre individuellen Interessen und Bedürfnisse zugeschnitten sind. Diese Personalisierung führt zu einer höheren Kundenzufriedenheit, da sich die Nutzer stärker mit der Plattform assoziiert fühlen.
+
+    Zeiteffizienz: Eine Suchfunktion ermöglicht es den Benutzern, die gesuchten Informationen schnell und effizient zu finden. Das spart Zeit und Mühe, macht die Plattform attraktiver und erhöht die Wahrscheinlichkeit, dass sie häufig genutzt wird.
+
+
 \subsection{Typesense}
+
+Das Nochba-Team versuchte ursprünglich, Typesense für die Suchfunktionalität zu verwenden, da es sich um eine schnelle, fehlertolerante Suchmaschine handelt, die für sofortige Suchvorgänge optimiert ist. Aufgrund der unvollständigen Dokumentation hatte das Team jedoch Schwierigkeiten, Typesense in die Flutter-Applikation zu implementieren. Arsham Edalatkhah versuchte, die Typesense-Entwickler um Unterstützung zu bitten, aber dieser Schritt war sehr zeitaufwändig.
+
+Typesense war aus mehreren Gründen eine ausgezeichnete Wahl für das Nochba-Team:
+
+Geschwindigkeit: Typesense ist darauf optimiert, Suchergebnisse schnell zu liefern und so ein flüssiges und reibungsloses Sucherlebnis zu ermöglichen. 
+
+Tippfehler-Toleranz: Typesense kann mit Tippfehlern umgehen und trotzdem relevante Suchergebnisse liefern. Dies ist eine wichtige Funktion für eine Suchmaschine, da Nutzer beim Tippen oft Fehler machen. Durch die Berücksichtigung dieser Fehler stellt Typesense sicher, dass die Nutzer auch dann korrekte Ergebnisse erhalten, wenn ihre Anfrage Tippfehler enthält.
+
+In diesem Fall entschied sich das Nochba-Team, zu Algolia zu wechseln, das ähnliche Funktionen wie Typesense bietet. Beide Suchmaschinen bieten schnelle, typentolerante und anpassbare Suchergebnisse. Die Entscheidung für Algolia ermöglichte es dem Team, die mit Typesense aufgetretenen Herausforderungen bei der Implementierung zu überwinden und eine effektive Suchfunktionalität innerhalb der App bereitzustellen.
+
 \subsection{Algolia}
-diagram
+
+Die finale Entscheidung des Nochba-Teams fiel auf die Algolia-Suche, da sowohl Typesense als auch Algolia den gleichen Feature-Set für Suchfunktionen bieten. Ein bemerkenswerter Unterschied zwischen beiden ist, dass Algolia eine umfangreichere Dokumentation und Unterstützung bietet, was es für Entwickler einfacher macht, die Suchfunktion zu implementieren und in ihre Anwendung zu integrieren.
+
+Das Team Nochba hat die folgenden Schritte zur Einrichtung und Installation der Algolia-Suche durchgeführt:
+
+Zusätzlich wurde das Algolia-Paket als "Abhängigkeit" in der Datei pubspec.yaml eingetragen.
+"Flutter packages get" wurde ausgeführt, um die Abhängigkeit zu installieren.
+Import des Algolia-Pakets in die entsprechende Dart-Datei.
+Initialisierung einer Algolia-Instanz durch Angabe der Applikations-ID und des API-Keys.
+Konfiguration der durchsuchbaren Kategorien durch die Einstellung der "searchableAttributes" im Algolia-Dashboard, die "description", "title", "tags" und "category" umfassen.
+
 \subsubsection{Firestore Sync}
 
-\subsubsection{Algolia SDK}
+\subsubsection{Testbenutzer}
+
+Das Team Nochba hat beschlossen, auf der Registrierungs-/Anmeldeseite eine weitere Funktion speziell für die Entwickler einzurichten. Diese Option ermöglicht die sofortige Erstellung eines "Testbenutzers". Nach dem Anklicken der Schaltfläche wird der Testbenutzer automatisch registriert und verifiziert. Der wesentliche Grund für die Entscheidung von Team Nochba war die Vereinfachung des Entwicklungsvorgangs, da sich das Team nicht mehr jedes Mal neu anmelden oder registrieren muss, wenn es die Applikation während der Entwicklung erneut geladen wird. Dieser Ansatz spart viel Zeit und beschleunigt den Entwicklungsprozess.
+
+Testbenutzer oder Mock-User stehen in der Entwicklungsversion ausschließlich den Developern zur Verfügung, während sie im Release-Modus für die Tester nicht zugänglich sind. Durch die Trennung der Testbenutzer von den tatsächlichen Benutzern stellt das Team Nochba sicher, dass die Entwicklungsumgebung von der Testumgebung getrennt bleibt, um unbeabsichtigte Folgen oder Störungen des Testprozesses zu vermeiden. Diese Strategie ermöglicht es dem Team, eine hohe Softwarequalität beizubehalten und stellt sicher, dass das finale Produkt zuverlässig, sicher und effizient ist.
 
 
 \subsection{Chat}
+\setauthor{Arsham Edalatkhah}
+
+Für die Nutzer einer Nachbarschaftshilfe-App, die sich auf den Aufbau von Gemeinschaften und die gemeinsame Nutzung von Ressourcen spezialisiert hat, bedeutet die Möglichkeit, miteinander zu chatten, dass die Nutzer leicht mit ihren Nachbarn in Kontakt treten, Ideen austauschen, Ressourcen gemeinsam nutzen und stärkere Beziehungen innerhalb ihrer Gemeinschaft aufbauen können. So können sie sich über lokale Geschehnisse auf dem Laufenden halten und haben eine Plattform, um Probleme in der Gemeinschaft zu besprechen und zu lösen.
+
+Die Studie "Core Networks, Social Isolation, and New Media: Internet and Mobile Phone Use, Network Size and Diversity" von Keith Hampton und anderen aus dem Jahr 2011 (Quelle: \cite{hampton2011core} ) untersuchte den Zusammenhang zwischen der Nutzung von Internet und Mobiltelefonen und der Größe und Diversität sozialer Netzwerke. Obwohl diese Studie nicht speziell Nachbarschafts-Apps untersuchte, zeigt sie den potenziellen Nutzen von Online-Netzwerken für den Aufbau von Gemeinschaften und die Stärkung von Beziehungen.
+
+Die Möglichkeit, in einer Nachbarschafts-App wie Nochba zu chatten, kann dazu beitragen, den Austausch von Ideen und Ressourcen unter den Nutzern zu erleichtern, lokale Geschehnisse zu verfolgen und Probleme in der Gemeinschaft zu lösen. Diese Chat-Funktion kann daher dazu beitragen, den Aufbau von Gemeinschaften und sozialem Engagement zu fördern, wie es auch von den Entwicklern von Nochba betont wird.
+
+Aus Sicht der Entwickler ist die Möglichkeit, mit anderen Nutzern zu chatten, eine wichtige Funktion der App, die den Aufbau von Gemeinschaften und das soziale Engagement fördert. Das Nochba-Team ist sich bewusst, wie wichtig es ist, starke Community-Verbindungen zu fördern, und ist der Ansicht, dass die Möglichkeit der Kommunikation zwischen den Nutzern eine entscheidende Rolle bei der Erreichung dieses Ziels spielt. Durch die Bereitstellung einer Chat-Funktion ist das Nochba-Team in der Lage, eine umfassendere und interaktivere Plattform zu schaffen, die die Benutzer dazu ermutigt, sich untereinander auszutauschen und ein stärkeres Gemeinschaftsgefühl zu entwickeln.
+
+Gemäß der Studie "Neighborly Networks: A Study of Online Community Life" von Keith N. Hampton und anderen werden im Folgenden einige weitere Gründe aufgeführt, warum die Möglichkeit, in einer Social-Media-App für die Nachbarschaft miteinander zu chatten, von Vorteil sein kann:
+
+Für die Nutzer:
+
+Sie können ihre Nachbarn um Empfehlungen für nahe gelegene Dienstleistungen oder Geschäfte bitten.
+Sie können lokale Events oder Treffen organisieren und die Details mit anderen interessierten Mitgliedern der Nachbarschaft besprechen.
+Sie bietet eine Plattform für den Austausch von Neuigkeiten aus der Umgebung, wie beispielsweise aktuelle Informationen über Bauarbeiten oder Straßensperrungen, die sich auf die Anwohner auswirken können.
+Es kann das Gefühl der Sicherheit fördern, da die Nachbarn im Notfall schnell und einfach miteinander in Kontakt treten können.
+Es kann dazu beitragen, ein stärkeres Gemeinschaftsgefühl zu bilden, da die Nutzer Geschichten, Erinnerungen und Erfahrungen miteinander teilen können.
+
+Für Entwickler:
+
+Das Engagement der Nutzer und die Zeit, die sie mit der App verbringen, können gesteigert werden, da die Nutzer mehr Zeit mit dem Chatten verbringen können.
+Es kann zu mehr Inhalten führen, die von Nutzern erstellt werden, wie beispielsweise Fotos oder Informationen zu Events, die in der App geteilt werden können.
+Sie kann wichtige Daten über das Verhalten und die Vorlieben der Nutzer liefern, die in künftige Entwicklungsentscheidungen einfließen können.
+Es kann die App von der übrigen Konkurrenz abheben und sie für potenzielle Nutzer attraktiver machen.
+Sie kann dazu beitragen, dass Benutzer, die die gemeinschaftsbildenden Aspekte der App zu schätzen wissen, dem Hersteller und seinen Produkten vertrauen und für sie eintreten.
 
 
+
+
+Vergleich "Flyer Chat" und "Stream Chat Flutter"
+
+
+
+Es gibt ein Flutter-Chatpaket namens "Flyer Chat", das momentan das am besten bewertete Chatpaket auf dem Gebiet ist. Ein weiteres hoch geschätztes Chat-Paket für Flutter-Applikationen ist "Stream Chat Flutter".
+
+Vergleich von "Flyer Chat" und "Stream Chat Flutter":
+
+"Flyer Chat" bietet eine Chat-Benutzeroberfläche und unterstützt die Grundfunktionalität, indem es Entwicklern vorgefertigte Chat-UI-Komponenten wie Chat-Bubbles, Eingabefelder und Nachrichtenlisten zur Verfügung stellt. Dieses Paket ermöglicht es Entwicklern, auf einfache und schnelle Weise Chat-Funktionen in ihre Applikationen zu implementieren und sie an das Design der App anzupassen. Darüber hinaus ist "Flyer Chat" so gestaltet, dass es reibungslos mit gängigen Backend-Diensten für die Speicherung und den Abruf von Chat-Daten zusammenarbeitet und bietet eine übersichtliche Dokumentation, Code-Beispiele und Tutorials, um die Benutzerfreundlichkeit zu unterstützen.
+
+Stream Chat Flutter" hingegen ist ein SDK, mit dem Entwickler Echtzeit-Chat-Anwendungen für Flutter erstellen können. Es bietet Funktionen wie integrierte UI-Komponenten, Offline-Unterstützung, anpassbare Themen und Unterstützung für mehrere Plattformen, einschließlich Android, iOS und Web.
+
+Für das Team Nochba war es aus folgenden Gründen eine bessere Idee, das "Flyer Chat"-Paket zu verwenden:
+
+1.	Integration: "Flyer Chat" bietet eine nahezu reibungslose Installation in bestehende Flutter-Applikationen, was eine unkomplizierte Erfahrung für Entwickler darstellt.
+2.	Funktionsumfang: "Flyer Chat" verfügt über einen umfassenden Feature-Set, das ein optimales Verhältnis zwischen häufig verwendeten Chat-Funktionen und innovativen, individuellen Eigenschaften ermöglicht.
+3.	Leistung: Der "Flyer Chat" ist für verschiedene Plattformen optimiert, um ein flüssiges Benutzererlebnis zu ermöglichen, ohne die Leistung der App zu verringern.
+4.	Dokumentation und Unterstützung: Mit gut dokumentierten Materialien und einer starken Community macht es "Flyer Chat" den Entwicklern besonders einfach, Lösungen für allgemeine Probleme zu finden und Anpassungen vorzunehmen.
+
+
+
+
+
+Software-Engineering mit komponentenorientierter Entwicklung
+
+Laut dem 1998 veröffentlichten Fachbuch (Quelle: \cite{szyperski1998component} )"Component-Oriented Programming" von Clemens Szyperski können Komponenten unabhängig voneinander entwickelt, getestet und gewartet werden, was mehrere Vorteile bietet:
+
+1.	Wiederverwendbarkeit: Komponenten können über mehrere Applikationen hinweg wiederverwendet werden, was die Entwicklungszeit und den Aufwand verkürzt.
+2.	Wartbarkeit: Gut definierte Grenzen machen es viel bequemer, Probleme in einer bestimmten Komponente zu erkennen und zu beheben, ohne den Rest der Applikation zu beeinträchtigen.
+3.	Skalierbarkeit: Anwendungen können durch den Import oder die Substitution von Komponenten ohne größere Anpassungen leicht skaliert werden.
+4.	Flexibel: Der modulare Aufbau ermöglicht eine einfache Anpassung an sich verändernde Anforderungen.
+
+
+Die Verwendung des Flutter-Pakets "Flyer Chat" im Kontext der komponentenorientierten Programmierung verdeutlicht die Vorteile dieses Entwicklungskonzepts, insbesondere in der rasanten Welt der heutigen Applikationsentwicklung. Durch die Verwendung eines voll funktionsfähigen Pakets wie "Flyer Chat" können sich Entwickler auf den Aufbau und die Einbindung von Komponenten konzentrieren und so wertvolle Zeit und Ressourcen sparen.
+
+Im Fall von "Flyer Chat" dient das Paket als vorgefertigte Chat-Komponente, die für eine einfache Einbindung und individuelle Anpassung in jede Flutter-Applikation entworfen worden ist. Durch den komponentenorientierten Ansatz bei der Programmierung können Entwickler "Flyer Chat" nutzen, um Chat-Funktionen schnell zu implementieren, ohne eine ganze Chat-Komponente von Grund auf neu schreiben zu müssen. Dies beschleunigt nicht nur den gesamten Entwicklungsprozess, sondern stellt auch sicher, dass die Chat-Funktion nach Standards der Industrie erstellt wird und ein hochwertiges User-Erlebnis bietet.
+Darüber hinaus ermöglicht die Verwendung einer vorgefertigten Komponente wie "Flyer Chat" den Developern, mehr Zeit auf andere Aspekte der Applikation zu investieren, wie beispielsweise die Anpassung der Benutzeroberfläche oder das Ergänzen von einzigartigen Funktionen. Dies ermöglicht die Erstellung von benutzerfreundlichen und qualitativ hochwertigen Applikationen, die schneller auf den Markt gebracht werden können.
+
+Zusammenfassend lässt sich sagen, dass die Integration des "Flyer Chat"-Pakets in eine Flutter-Anwendung ein hervorragendes Beispiel für komponentenorientierte Programmierung in der Praxis ist. Dieser Ansatz hilft Entwicklern, Zeit zu sparen, qualitativ hochwertige Standards einzuhalten und sich auf die Realisierung eines hervorragenden Benutzererlebnisses zu konzentrieren, wovon letztendlich sowohl der Entwickler als auch der Endbenutzer profitieren.
+
+
+
+
+Aufnahmeprozess für ein Foto
+
+
+
+\begin{lstlisting}[language=Java,caption=Aufnahmeprozess für ein Foto,label=lst:fotoArufnahme]  
+
+void handleTakePhoto(BuildContext context) async {
+  var result = await ImagePicker().pickImage(
+    imageQuality: 70,
+    maxWidth: 1440,
+    source: ImageSource.camera,
+  );
+
+  final image = await result!.readAsBytes();
+  if (image == null) {
+    Get.snackbar("null", "null");
+  }
+
+  if (result != null) {
+    setAttachmentUploading(true);
+    final file = File(result.path);
+    final size = file.lengthSync();
+    final bytes = await result.readAsBytes();
+    final image = await decodeImageFromList(bytes);
+    final name = result.name;
+
+    try {
+      String userId = room.users[0].id;
+      final reference = FirebaseStorage.instance.ref('$userId/$name');
+      await reference.putFile(file);
+      final uri = await reference.getDownloadURL();
+
+      final message = types.PartialImage(
+        height: image.height.toDouble(),
+        name: name,
+        size: size,
+        uri: uri,
+        width: image.width.toDouble(),
+      );
+
+      chat.FirebaseChatCore.instance.sendMessage(message, room.id);
+      setAttachmentUploading(false);
+    } finally {
+      setAttachmentUploading(false);
+    }
+  }
+}
+
+\end{lstlisting}
+
+Dieses Codebeispiel definiert eine Funktion, "handleTakePhoto", die ein Foto mit der Kamera des Geräts über das ImagePicker-Plugin mit einer Bildqualität von 70\% und einer maximalen Breite von 1440 Pixeln aufnimmt.
+
+Die Funktion "handleTakePhoto" wird definiert, die einen "BuildContext" als Parameter erhält. Diese Funktion wird den Aufnahmeprozess für ein Foto mit der Kamera des Endgeräts regeln.
+
+Innerhalb der Funktion wird die Methode "ImagePicker().pickImage()" mit drei Parametern aufgerufen: "imageQuality", "maxWidth", und "source". Diese Methode gibt ein "Future" zurück, das auf die Datei des jeweiligen Bildes verweist.
+
+"imageQuality" wird auf 70\% gesetzt, was die Größe der Bilddatei reduziert und gleichzeitig eine akzeptable Qualität gewährleistet.
+
+"maxWidth" wird auf 1440 Pixel gesetzt, um sicherzustellen, dass die Bildgröße diese Grenze nicht Überschreitet.
+
+"source" wird auf "ImageSource.camera" gesetzt, was bedeutet, dass das Bild mit der Kamera des Geräts aufgenommen werden soll.
+
+Das Schlüsselwort "await" wird verwendet, um auf die Auflösung von "Future" zu warten, und das Ergebnis wird in der Variablen "result" gespeichert.
+
+Die Methode liest das Bild als Byte-Array mit "await result!.readAsBytes()" und weist es der Variablen image zu.
+
+    Wenn das Bild null ist, wird mit "Get.snackbar("null", "null")" eine "Snackbar" mit dem Text "null" angezeigt. Eine Snackbar ist eine kurze, nicht allzu aufdringliche Meldung, die am oberen Rand des Bildschirms angezeigt wird, um dem Benutzer Feedback oder Informationen zu geben.
+
+    Wenn das Ergebnis nicht null ist, fährt die Methode mit der Verarbeitung des Bildes fort.
+        Sie setzt einen internen Zustand "setAttachmentUploading(true)", um anzuzeigen, dass ein Anhang hochgeladen wird.
+        Die Bilddatei wird mit "File(result.path)" initialisiert, und die Dateigröße wird mit "file.lengthSync()" ermittelt.
+Das Byte-Array des Bildes wird mit "await result.readAsBytes()" gelesen, und das Bild wird mit "await decodeImageFromList(bytes)" entschlüsselt.
+Der Dateiname des Bildes wird mit "result.name" ermittelt.
+
+Die Methode ladet das Bild in Firebase Storage hoch.
+        Zunächst wird eine Speicherreferenz mit der ID des Benutzers und dem Namen des Bildes mit "FirebaseStorage.instance.ref('\$userId/\$name')" erstellt.
+        Die Bilddatei wird dann mit "await reference.putFile(file)" hochgeladen.
+        Die Download-URL für das hochgeladene Bild wird mit "await reference.getDownloadURL()" ermittelt.
+
+Es wird ein "types.PartialImage" Objekt mit der Bildgröße, dem Namen, der URL und der Breite des Bildes erstellt.
+
+    Das Bild wird als Nachricht mit "chat.FirebaseChatCore.instance.sendMessage(message, room.id)" gesendet.
+
+    Nachdem das Bild erfolgreich hochgeladen und gesendet wurde, wird der interne Status aktualisiert, um anzuzeigen, dass das Hochladen des Anhangs mit "setAttachmentUploading(false)" abgeschlossen ist.
+
+Wenn während des Hochladen des Bildes oder des Versenden der Nachricht eine Fehlermeldung auftritt, sorgt der Final Block dafür, dass der Status mit "setAttachmentUploading(false)" trotzdem aktualisiert wird.
+
+
+
+
+Prozess der Bildauswahl und -verarbeitung
+
+
+\begin{lstlisting}[language=Java,caption=Prozess der Bildauswahl und -verarbeitung,label=lst:fotoSelektion]  
+
+void _handleImageSelection(BuildContext context) async {
+  var result = await ImagePicker().pickImage(
+    imageQuality: 70,
+    maxWidth: 1440,
+    source: ImageSource.gallery,
+  );
+
+  final image = await result!.readAsBytes();
+  if (image == null) {
+    Get.snackbar("null", "null");
+  }
+
+  if (result != null) {
+    _setAttachmentUploading(true);
+    final file = File(result.path);
+    final size = file.lengthSync();
+    final bytes = await result.readAsBytes();
+    final image = await decodeImageFromList(bytes);
+    final name = result.name;
+
+    try {
+      String userId = room.users[0].id;
+      final reference = FirebaseStorage.instance.ref('$userId/$name');
+      await reference.putFile(file);
+      final uri = await reference.getDownloadURL();
+
+      final message = types.PartialImage(
+        height: image.height.toDouble(),
+        name: name,
+        size: size,
+        uri: uri,
+        width: image.width.toDouble(),
+      );
+
+      chat.FirebaseChatCore.instance.sendMessage(
+        message,
+        room.id,
+      );
+      _setAttachmentUploading(false);
+    } finally {
+      _setAttachmentUploading(false);
+    }
+  }
+}
+
+\end{lstlisting}
+
+Die Funktion "handleImageSelection" wählt ein Bild aus der Galerie des Benutzers aus, lädt es in den Firebase-Speicher hoch und sendet es als Nachricht in den Chatraum. Die Schritte, die die Funktion ausführt, werden wie folgt ausgeführt:
+
+Die Funktion verwendet "ImagePicker().pickImage", um die Galerie des Benutzers asynchron zu öffnen und dem Benutzer die Möglichkeit zu geben, ein Bild mit der angegebenen "imageQuality" und "maxWidth" auszuwählen. Das ausgewählte Bild wird in der Ergebnisvariablen gespeichert.
+
+Es liest das Bild als Bytes und prüft, ob es null ist. Wenn dies der Fall ist, wird eine Snackbar mit "null" als Warnung angezeigt.
+
+Wenn das Ergebnis nicht null ist, dann macht die Funktion mit den folgenden Schritten weiter:
+
+a. Der Status des Uploads von Anhängen wird mit der Funktion "setAttachmentUploading" auf "true" gesetzt.
+b. Ein File wird aus dem Pfad des Bildes erstellt, und die Größe wird mit "lengthSync()" berechnet.
+c. Die Bytes des Bildes werden gelesen, und das Bild wird aus der Byteliste dekodiert.
+d. Der Name des Bildes wird aus dem result object ausgelesen.
+
+In einem try-final-Block:
+a. Die ID des Benutzers wird aus der Liste "room.users" abgerufen.
+b. Ein Referenz zu dem Ort in Firebase Storage, an dem das Bild gespeichert wird, wird erstellt, indem die ID des Benutzers und der Name des Bildes verwendet werden.
+c. Die Datei wird mit "putFile" in Firebase Storage hochgeladen.
+d. Die Download-URL der hochgeladenen Datei wird von Firebase Storage abgerufen.
+e. Es wird eine "types. PartialImage"-Nachricht mit den Merkmalen des Bildes (Höhe, Breite, Name, Größe und URI) erstellt.
+f. Die Bildnachricht wird mit "chat.FirebaseChatCore.instance.sendMessage" an den Chatraum gesendet.
+g. Der Upload-Status des Bildes wird auf "false" gesetzt.
+
+Im final-Block stellt die Funktion sicher, dass der Hochladestatus des Anhangs auf "false" gesetzt wird, auch wenn ein Fehler während des Vorgangs auftaucht. Dadurch wird sichergestellt, dass die Benutzeroberfläche im Falle von Fehlern unverändert bleibt.
+
+
+
+Indexing-Problem
+
+
+\begin{lstlisting}[language=Java,caption=Anzeige des Profilbildes,label=lst:fotoSelektion]  
+
+Image displayProfileImage() {
+  String fullname = "${room.users[0].firstName} ${room.users[0].lastName}";
+  if (room.name == fullname) {
+    return Image.network('${room.users[0].imageUrl}');
+  } else {
+    return Image.network('${room.users[1].imageUrl}');
+  }
+}
+
+\end{lstlisting}
+
+Das "Indexing-Problem" entsteht, wenn man versucht, auf ein Element mit einem Index zuzugreifen, der in einem Array oder einer Liste nicht vorhanden ist. Um solche Fälle zu vermeiden, müssen Entwickler sicherstellen, dass gültige Indexe geprüft werden, bevor auf Elemente in einer Liste oder einem Array zugegriffen wird.
+
+Im angegebenen Beispiel behandelt die Methode displayProfileImage() ein spezielles Indexierungsproblem:
+
+Aufbau eines "fullname"-Strings durch Verkettung des "firstName" und "lastName" des Benutzers bei Index 0 in der Liste "room.users".
+Zuerst wird geprüft, ob "room.name" gleich dem "fullname" ist:
+Wenn ja, wird das Profilbild des Benutzers bei Index 0 angezeigt, indem ein "Image.network" Widget mit der "imageUrl" des Benutzers erstellt wird.
+Wenn false, wird davon ausgegangen, dass das gewünschte Profilbild das des Benutzers bei Index 1 ist und es wird ein "Image.network" Widget mit der "imageUrl" des Benutzers bei Index 1 geliefert.
 
 
 \subsubsection{Google Smart Reply ML Kit}
@@ -1282,8 +1581,10 @@ Um das zu gewährleisten wurden folgende Prinzipien erstellt:
 
 \end{enumerate}
 
-Im Gegensatz zum alten Datenmodell wurde das neue Datenmodell um mehrere Collections erweitert und manche Collections wurden angepasst. Es besteht aus folgenden Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{notifications}, \texttt{reports}, \texttt{codes} und \texttt{chats}
-\\\\
+%\\\\
+%Im Gegensatz zum alten Datenmodell wurde das neue Datenmodell um mehrere Collections erweitert und manche Collections wurden angepasst. Es besteht aus folgenden Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{notifications}, \texttt{reports}, \texttt{codes} und \texttt{chats}
+%\\\\
+
 \paragraph{Users}
 Die \texttt{users}-Collection ist die Sammlung, die die Daten des Users aufbewahren sollte. Die Dokumente der Collection beinhalten wie beim alten Datenmodell die Felder \texttt{fullName} für den Anzeigename und \texttt{profilePicture} für das Profilbild. Das Feld \texttt{addressCoordinates} für die Koordinaten des Users wurde entfernt, weil es sich als Datenleck von privaten Userdaten herausstellte. Die Felder der \texttt{users}-Collections dienen als Anzeigedaten, von daher wurde das \texttt{addressCoordinates}-Feld mit dem \texttt{suburb}-Feld ersetzt, was vielmehr das Stadtviertel oder die Gemeinschaft des Users speichern soll.
 Der Ansatz, dass die \texttt{users}-Collection drei weitere Sub-Collections (\texttt{public}, \texttt{private} und \texttt{intern}) beinhalten soll wurde beibehalten.
