@@ -1929,7 +1929,15 @@ Die Funktion verwendet dann GeoFireStore, um alle User innerhalb der mitgegebene
 Um sicherzustellen, dass der User innerhalb der Reichweite in der, der Beitrag sichtbar sein soll, liegt, wird für jeden Beitrag die Entfernung zwischen dem User, der die Cloud Functions aufgerufen hat, und dem User, der den Beitrag erstellt hat, berechnet. Wenn die Entfernung kleiner als die Reichweite innerhalb der Beitrag sichtbar sein soll ist, wird der Beitrag in die Liste der gültigen Beiträge aufgenommen.
 \\
 Schließlich gibt die Funktion eine Liste mit den Ids der gültigen Beiträge zurück, die innerhalb der mitgegebenen Reichweite liegen.
+\\
+Die vorliegende Grafik \ref{fig:near-neighbours} zeigt die Funktionsweise beispielsweise als Bild an.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{pics/nachbarn-in-der-nähe.JPG}
+  \caption{Reichweiten verschiedener Nachbarn}
+  \label{fig:near-neighbours}
+\end{figure}
 
 \subsubsection{Verifizierungscode format überprüfen}
 \setauthor{Martin Hausleitner}
