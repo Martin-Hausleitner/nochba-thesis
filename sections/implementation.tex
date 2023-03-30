@@ -303,11 +303,13 @@ Bei der Authentifizierung wird zwischen dem Anmelden und dem Registrieren unters
 Die Abbildung \ref{fig:login-sequenze} repräsentiert ein Sequenzdiagram, welches den Anmeldeprozess für einen User veranschaulichen soll. Der Login-Prozess ist ein wichtiger Schritt in der Benutzerauthentifizierung, bei dem die Identität des Benutzers überprüft wird, um den Zugriff auf die Anwendung zu gewähren oder zu verweigern. Die Anmeldedaten werden an Firebase weitergeleitet, wo diese überprüft werden, um sicherzustellen, dass der User eine gültige E-Mail-Adresse und das korrekte Passwort eingegeben hat.
 \\
 Falls der User falsche Anmeldedaten eingegeben hat, wird eine Fehlermeldung angezeigt, die den User darauf hinweist, dass die Anmeldedaten falsch sind.
+\\
+Die Abbildung \ref{fig:login-page} zeigt, wie die Login-Seite in der App dargestellt wird.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.3\textwidth]{pics/login-page.jpg}
-  \caption{Login Ansicht}
+  \caption{Login Ansicht auf der App}
   \label{fig:login-page}
 \end{figure}
 
@@ -334,6 +336,8 @@ Wenn die Adresse validiert wurde, wird der Benutzer aufgefordert, die Verifizier
 Wenn die Verifizierung beendet wurde, ist der Registrierungsprozess abgeschlossen.
 \\
 Während des Registrierungsprozesses wird der User durch eine Authentifizierungsfunktion bereits eingeloggt, da eine Anmeldung für die Ausführung von Cloud Functions erforderlich ist. Wenn der Benutzer den Registrierungsprozess abbricht, werden alle bis zu diesem Punkt gesammelten Daten automatisch gelöscht, um die Datensicherheit und Privatsphäre des Users zu schützen. Wenn der User bei einem Schritt zurückgeht, werden die gespeicherten Daten von diesem Punkt zurückgesetzt, um sicherzustellen, dass nur korrekte Daten im Firestore gespeichert werden und dass keine ungültigen oder unvollständigen Daten gespeichert werden.
+\\
+Die Abbildung \ref{fig:registration-process} zeigt, wie der Registrierungs-Prozess in der App dargestellt wird.
 
 \begin{figure}[h]
   \centering
@@ -341,34 +345,6 @@ Während des Registrierungsprozesses wird der User durch eine Authentifizierungs
   \caption{Registrierungsprozess in der App}
   \label{fig:registration-process}
 \end{figure}
-
-% \begin{figure}[h]
-%   \centering
-%   \begin{minipage}[b]{0.2\textwidth}
-%     \includegraphics[width=\textwidth]{pics/registration-step-1.jpg}
-%     \caption{Email angeben}
-%   \end{minipage}
-%   \hfill
-%   \begin{minipage}[b]{0.2\textwidth}
-%     \includegraphics[width=\textwidth]{pics/registration-step-2.jpg}
-%     \caption{Namen angeben}
-%   \end{minipage}
-%   \hfill
-%   \begin{minipage}[b]{0.2\textwidth}
-%     \includegraphics[width=\textwidth]{pics/registration-step-3.jpg}
-%     \caption{Addresse angeben}
-%   \end{minipage}
-%   \hfill
-%   \begin{minipage}[b]{0.2\textwidth}
-%     \includegraphics[width=\textwidth]{pics/registration-step-4.jpg}
-%     \caption{Addresse verifizieren}
-%   \end{minipage}
-%   \hfill
-%   \begin{minipage}[b]{0.2\textwidth}
-%     \includegraphics[width=\textwidth]{pics/registration-step-5.jpg}
-%     \caption{Registrierung abgeschlossen}
-%   \end{minipage}
-% \end{figure}
 
 \paragraph{Google Barcode-Scanning ML Kit}
 \setauthor{Martin Hausleitner}
@@ -379,13 +355,6 @@ Die Integration des Scanners wurde mithilfe des Pakets \cite{mobile_scanner} mob
 Diagram
 erklärung
 screenshots
-
-
-\subsubsection{Firebase Authentifizierung}
-\setauthor{Sandin Habibovic}
-
-allg.
-
 
 \subsection{Feed}
 \setauthor{Sandin Habibovic}
@@ -427,10 +396,14 @@ Es existieren folgende Kategorien bzw. Unterkategorien:
 
 \textbf{Event:} Die Kategorie des Events dient dazu die Nachbarn auf eine bevorstehende Veranstaltung aufmerksam zu machen.
 
+\\
+Die Abbildung \ref{fig:categories} zeigt, wie die Auswahl der Kategorie bzw. Unterkategorie in der App dargestellt wird.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{pics/categories.JPG}
-  \caption{Ansicht der Kategorien und Unterkategorien auf der App}
+  \caption{Auswahlansicht der Kategorien und Unterkategorien auf der App}
+  \label{fig:categories}
 \end{figure}
 
 
@@ -540,33 +513,42 @@ Der Filter bietet die Option die Beiträge nach bestimmten Kriterien zu filtern 
 \setauthor{Sandin Habibovic}
 
 Die Ansicht vom Menüfilter befindet sich direkt über den Beiträgen und ermöglicht eine schnelle Filterung nach einzig allein den Hauptkategorien.
+\\
+Die folgende Abbildung \ref{fig:menu-filter} zeigt, wie der Menüfilter in der App dargestellt wird.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.3\textwidth]{pics/menu-filter.jpg}
   \caption{Menüfilteransicht auf der App}
+  \label{fig:menu-filter}
 \end{figure}
 
 \subsubsection{Hauptfilter}
 \setauthor{Sandin Habibovic}
 
 Die Ansicht vom Hauptfilter taucht erst nach dem Antippen vom Filtersymbol auf und beinhaltet eine größere Auswahl an Filteroptionen. Darunter zählt neben dem Filtern nach Hauptkategorien auch die zusätzliche Möglichkeit genauer nach Unterkategorien zu suchen. Außerdem besteht auch die Option die Beiträge nach Datum oder Likes zu sortieren oder die Beiträge aufsteigend oder absteigend zu ordnen.
+\\
+Die folgende Abbildung \ref{fig:main-filter} zeigt, wie der Hauptfilter in der App dargestellt wird.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.3\textwidth]{pics/main-filter.jpg}
   \caption{Hauptfilteransicht auf der App}
+  \label{fig:main-filter}
 \end{figure}
 
 \subsubsection{Filtern der Reichweite}
 \setauthor{Sandin Habibovic}
 
 Die wichtigste Filterkomponente ist der Range-Slider, womit die Beiträge nach der Reichweite gefiltert werden können, da die Entfernung zum Nachbarn eine der wichtigsten Entscheidungsfaktoren zum Antworten auf einem Beitrag ist.
+\\
+Die folgende Abbildung \ref{fig:range-filter} zeigt, wie der Reichweitenfilter in der App dargestellt wird.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{pics/range-filter.JPG}
   \caption{Filtern der Reichweite}
+  \label{fig:range-filter}
 \end{figure}
 
 \subsection{Suche}
@@ -951,12 +933,14 @@ Die Profilanzeige ist die öffentliche Informationsstelle über den User. In die
   \item Bietet an
 \end{compactitem}
 Außerdem beinhaltet die Anzeige eine eigene Beitragssicht, wo alle Beiträge vom jeweiligen User eingesehen werden können.
+\\
+Die folgende Abbildung \ref{fig:public-profile} zeigt, wie das öffentliche Profil in der App dargestellt wird.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{pics/public-profile.JPG}
   \caption{Öffentliche Profilansicht auf der App}
-  % \label{fig:einladecode}
+  \label{fig:public-profile}
 \end{figure}
 
 \subsubsection{Profil Melden}
@@ -1699,19 +1683,19 @@ Die \texttt{chats}-Collection ist die Sammlung, wo die Chats und dazugehörigen 
 \subsection{Cloud Storage}
 \setauthor{Sandin Habibovic}
 Der Cloud Storage fungiert in der Applikation als Speicherlösung für Bilder, einschließlich Profilbilder und Bilder, die zu Beiträgen hinzugefügt werden.
-\\
+
 \subsubsection{Aufbau}
 \setauthor{Sandin Habibovic}
 \begin{itemize}
   \item profile
         \begin{itemize}
-          \item [pictures]
+          \item pictures
         \end{itemize}
   \item posts
         \begin{itemize}
           \item {uid}
                 \begin{itemize}
-                  \item [pictures]
+                  \item pictures
                 \end{itemize}
         \end{itemize}
 \end{itemize}
@@ -1925,7 +1909,7 @@ Um sicherzustellen, dass der User innerhalb der Reichweite in der, der Beitrag s
 \\
 Schließlich gibt die Funktion eine Liste mit den Ids der gültigen Beiträge zurück, die innerhalb der mitgegebenen Reichweite liegen.
 \\
-Die vorliegende Grafik \ref{fig:near-neighbours} zeigt die Funktionsweise beispielsweise als Bild an.
+Die vorliegende Grafik \ref{fig:near-neighbours} zeigt die Funktionsweise der Cloud Function beispielsweise als Bild an.
 
 \begin{figure}[h]
   \centering
