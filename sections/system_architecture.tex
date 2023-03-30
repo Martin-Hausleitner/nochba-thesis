@@ -58,8 +58,15 @@ gesamte Datenbank zu replizieren. Weitere Informationen zu
 Algolia Search ist in dem Abschnitt \ref{sec:algolia} zu finden.
 
 \section{Flutter}
+\setauthor{Sandin Habibovic}
 
-Hier kommt die Beschreibung der Technologie und deren Vorteile/Nachteile, auf Basis von wissenschaftlichen Studien und Erfahrungen aus der Praxis.
+Flutter ist ein crossplatform Frontend-Entwicklungsframework von Google, das die Entwicklung von hochperformanten, nativen Apps für iOS und Android vereinfacht. Flutter verwendet eine Widget-basierte Architektur, bei der jedes Element der Benutzeroberfläche als Widget definiert wird. Diese Architektur ermöglicht es, schnell benutzerdefinierte Benutzeroberflächen zu erstellen, die auf allen Plattformen konsistent und schnell laufen.
+\\
+Ein weiterer Vorteil von Flutter ist, dass es eine hohe Entwicklerproduktivität ermöglicht. Flutter bietet eine schnelle Iteration und ein Hot-Reload-Feature, das es ermöglicht, Änderungen im Code sofort zu sehen, ohne die App neu starten zu müssen. Dies ermöglicht es, schnell Fehler zu beheben und neue Funktionen hinzuzufügen.
+\\
+Flutter verfügt über eine umfangreiche Sammlung von Bibliotheken und Tools, die auf der offiziellen Paket-Repository-Website von Flutter, pub.dev, zu finden sind. Diese Website ist ein Verzeichnis von Paketen, dass von der Flutter-Community erstellt und gewartet wird, und bietet eine Vielzahl von Flutter-Paketen unter Open-Source-Lizenzen an. Dort können nützliche Bibliotheken gesucht und in Flutter-Projekte integriert werden. Das Vorhandensein so einer umfangreichen Sammlung von Tools und Bibliotheken ist ein wichtiger Faktor, der die Attraktivität von Flutter als Entwicklungsframework erhöht.
+
+% Hier kommt die Beschreibung der Technologie und deren Vorteile/Nachteile, auf Basis von wissenschaftlichen Studien und Erfahrungen aus der Praxis.
 
 Quellen:
 
@@ -165,7 +172,7 @@ Zusammenfassend stellen die Security Rules für Cloud Firestore und Cloud Storag
 
 Cloud Firestore ist eine skalierbare, serverlose NoSQL-Datenbank, die von Google entwickelt wurde und als Teil der Firebase-Plattform angeboten wird. Sie ermöglicht es Entwicklern, Daten in der Cloud zu speichern, Echtzeit-Synchronisierung zwischen verschiedenen Geräten bereitzustellen und Anwendungen ohne die Notwendigkeit einer eigenen Serverinfrastruktur zu erstellen. Firestore eignet sich besonders für mobile und Webanwendungen, die auf Skalierbarkeit, Echtzeitaktualisierungen, und hohe Verfügbarkeit angewiesen sind.
 \\\\
-Vorteile von Cloud Firestore
+Vorteile von Cloud Firestore:
 
 \textbf{Skalierbarkeit:} Firestore ist in der Lage, automatisch zu skalieren, um Millionen von gleichzeitigen Verbindungen und große Mengen von Daten zu unterstützen. Das bedeutet, dass Entwickler sich keine Gedanken über die Kapazitätsgrenzen machen müssen, und Unternehmen können ihre Anwendungen problemlos erweitern, um einem wachsenden Benutzerstamm gerecht zu werden.
 
@@ -191,7 +198,7 @@ https://medium.com/flutter-community/firebase-cloud-firestore-in-flutter-26c6e8c
 
 \subsubsection{Datenmodell}
 
-Das Datenmodell in Firestore ist hierarchisch und besteht aus Dokumenten und Sammlungen, auch Collections genannt. Dokumente sind einzelne Datenobjekte, die Felder mit Werten enthalten. Sammlungen sind Container für Dokumente und können weitere Sammlungen enthalten, sogenannte Sub-Collections. Dieses hierarchische Datenmodell erlaubt es Entwicklern, Daten effizient zu organisieren und abzufragen.
+Das Datenmodell in Firestore ist hierarchisch und besteht aus Dokumenten und Sammlungen, auch Collections genannt. Dokumente sind einzelne Datenobjekte, die Felder mit Werten enthalten. Sammlungen sind Container für Dokumente und können weitere Sammlungen enthalten, sogenannte Sub-Collections. Dieses hierarchische Datenmodell erlaubt es, Daten effizient zu organisieren und abzufragen.
 
 Quellen:
 
@@ -199,19 +206,19 @@ https://firebase.google.com/docs/firestore/data-model
 
 https://www.raywenderlich.com/6628345-cloud-firestore-for-flutter-getting-started
 
-Weitere wichtige punkte:
+% Weitere wichtige punkte:
 
-\begin{compactitem}
-    \item Präsentation des eigenen Datenmodells in der Arbeit.
-    \item Diagramme werden verwendet, um das Modell zu präsentieren und Entscheidungen zu erläutern und zu begründen.
-    \item Anforderungen der App-Architektur werden dabei berücksichtigt werden.
-    \item Performance, Skalierbarkeit und Strukturierung können thematisiert werden.
-    \item Zur Veranschaulichung unserer eigenen Datenmodell-Entwicklung kann auf ein Beispiel-Datenmodell-Diagramm auf der offiziellen Firebase-Website verwiesen werden, welches uns als Orientierungshilfe diente.
-\end{compactitem}
+% \begin{compactitem}
+%     \item Präsentation des eigenen Datenmodells in der Arbeit.
+%     \item Diagramme werden verwendet, um das Modell zu präsentieren und Entscheidungen zu erläutern und zu begründen.
+%     \item Anforderungen der App-Architektur werden dabei berücksichtigt werden.
+%     \item Performance, Skalierbarkeit und Strukturierung können thematisiert werden.
+%     \item Zur Veranschaulichung unserer eigenen Datenmodell-Entwicklung kann auf ein Beispiel-Datenmodell-Diagramm auf der offiziellen Firebase-Website verwiesen werden, welches uns als Orientierungshilfe diente.
+% \end{compactitem}
 
-Beispiel-Datenmodell-Diagramm Quelle:
+% Beispiel-Datenmodell-Diagramm Quelle:
 
-https://firebase.google.com/docs/firestore/data-model\#structure\_your\_data
+% https://firebase.google.com/docs/firestore/data-model\#structure\_your\_data
 
 \subsection{Cloud Storage}
 
