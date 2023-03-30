@@ -1629,8 +1629,6 @@ Um das zu gewährleisten wurden folgende Prinzipien erstellt:
 
 Im Gegensatz zum alten Datenmodell wurde das neue Datenmodell um mehrere Collections erweitert und manche Collections wurden angepasst. Es besteht aus folgenden Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{notifications}, \texttt{reports}, \texttt{codes} und \texttt{chats}
 
-\\
-
 \paragraph{Users}\mbox{} \\
 Die \texttt{users}-Collection ist die Sammlung, die die Daten des Users aufbewahren sollte. Die Dokumente der Collection beinhalten wie beim alten Datenmodell die Felder \texttt{fullName} für den Anzeigename und \texttt{profilePicture} für das Profilbild. Das Feld \texttt{addressCoordinates} für die Koordinaten des Users wurde entfernt, weil es sich als Datenleck von privaten Userdaten herausstellte. Die Felder der \texttt{users}-Collections dienen als Anzeigedaten, von daher wurde das \texttt{addressCoordinates}-Feld mit dem \texttt{suburb}-Feld ersetzt, was vielmehr das Stadtviertel oder die Gemeinschaft des Users speichern soll.
 Der Ansatz, dass die \texttt{users}-Collection drei weitere Sub-Collections (\texttt{public}, \texttt{private} und \texttt{intern}) beinhalten soll wurde beibehalten.
