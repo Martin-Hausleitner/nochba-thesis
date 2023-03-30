@@ -13,7 +13,7 @@ Zur Erstellung einer \cite{flutter} Flutter iOS-App ein Mac mit \cite{xcode} Xco
 Da MacOS und Xcode dem Entwickler nicht vertraut waren, musste er sich zunächst mühsam einarbeiten. Es bedurfte zahlreicher Anläufe, um die App zum ersten Mal zu erstellen, da zum damaligen Zeitpunkt von Flutter noch keine vorgefertigten Build-Abläufe zur Verfügung standen.
 
 
-\paragraph{Github Action}
+\paragraph{Github Action}\leavevmode
 Es war eine mühsame Aufgabe, Xcode zu konfigurieren, und
 nach mehreren Versuchen wurde schließlich die erste
 .ipa-Datei erstellt. Allerdings war der schwierigste Teil
@@ -34,13 +34,13 @@ werden müssen. Folgende Secrets waren notwendig:
 Nach mehreren Versuchen, die Actions funktionsfähig zu
 machen, gelang es schließlich, eine .ipa-Datei zu erstellen.
 
-\paragraph{Firebase App Distribution}
+\paragraph{Firebase App Distribution}\leavevmode
 Für die Testphase und die Beta-Version der iOS-App nutzten
 wir, wie auch bei der Android-App, Firebase App
 Distribution. Beim Hochladen der .ipa-Dateien gab es
 allerdings Probleme mit den Zertifikaten.
 
-\paragraph{Apple Developer Lizenz}
+\paragraph{Apple Developer Lizenz}\leavevmode
 Um eine .ipa-Datei auf einem iOS-Gerät auszuführen, ist eine verifizierte .ipa-Datei erforderlich. Die aktuelle Action konnte die App jedoch nur mit der lokalen Entwicklerlizenz verifizieren, um sie im Emulator auf MacOS auszuführen. Wenn die App also auf einem anderen Gerät installiert werden sollte, war dies nicht möglich. Dies war auch der Grund, warum der Upload auf Firebase App Distribution nicht funktionierte.
 
 Es gibt verschiedene Möglichkeiten, um eine .ipa-Datei zur
@@ -225,7 +225,7 @@ GetxServices ermöglichen eine zentrale Verwaltung von Anwendungsdiensten und -r
 \textbf{Einfache Integration:}
 GetxServices können leicht in bestehende Flutter-Projekte integriert werden, ohne dass große Änderungen am Code vorgenommen werden müssen. Dies erleichtert die Migration von bestehenden Projekten zu GetX.
 
-\paragraph{Beispiel}
+\paragraph{Beispiel}\leavevmode
 \begin{lstlisting}[caption=Beispiel zum Einsatz von einem GetxService,label=lst:GetxServiceExample]
   import 'package:get/get.dart';
 
@@ -271,7 +271,7 @@ Die HomeController-Klasse erbt von GetxController und hat eine Instanz von \text
 \setauthor{Sandin Habibovic}
 Um einen GetxController oder GetxService verwenden zu können, muss der jeweilige GetxController oder der jeweilige GetxService zuerst registriert werden. Dafür stellt GetX sogenannte Bindings zur Verfügung. Diese Bindings erstellen Instanzen von den jeweiligen GetxControllern oder den jeweiligen GetxServices, die dann mit \textit{GetView<Controller>} bzw. \textit{Get.find<Service>()} aufgerufen werden können.
 
-\paragraph{Beispiel}
+\paragraph{Beispiel}\leavevmode
 \begin{lstlisting}[caption=Beispiel von einem Binding,label=lst:GetxBindingExample]
   import 'package:get/get.dart';
 
@@ -370,7 +370,7 @@ Während des Registrierungsprozesses wird der User durch eine Authentifizierungs
 %   \end{minipage}
 % \end{figure}
 
-\paragraph{Google Barcode-Scanning ML Kit}
+\paragraph{Google Barcode-Scanning ML Kit}\leavevmode
 \setauthor{Martin Hausleitner}
 In Anbetracht der Entscheidung, Einladungscodes mithilfe von QR-Codes zu implementieren, ist es erforderlich, einen QR-Code-Scanner während des Registrierungsprozesses zu integrieren. Um eine zuverlässige Benutzererfahrung zu gewährleisten, wurde das Google Barcode-Scanning ML Kit als bevorzugte Technologie ausgewählt. In internen Tests zeigte sich, dass dieses Kit eine hohe Genauigkeit und Zuverlässigkeit aufweist.
 Die Integration des Scanners wurde mithilfe des Pakets \cite{mobile_scanner} mobile\_scanner realisiert, welches auf der Plattform pub.dev verfügbar ist. Dieses Paket ermöglicht eine einfache Implementierung und Anpassung an die individuellen Anforderungen des Projekts. Die Verwendung des ML-Kits trägt dazu bei, die Leistungsfähigkeit der Anwendung zu verbessern und die Benutzerzufriedenheit zu erhöhen.
@@ -463,7 +463,7 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
 \subsubsection{Autovervollständigung
   mit Künstliche Intelligenz}
 \setauthor{Martin Hausleitner}
-\paragraph{GPT-3.5-turbo}
+\paragraph{GPT-3.5-turbo}\leavevmode
 
 
 \begin{figure}[H]
@@ -521,13 +521,13 @@ Da die Nutzung der KI kostenintensiv sein kann, wenn mehr Benutzer sie verwenden
 
 \subsubsection{Übersetzung mit Maschine Learning}
 
-\paragraph{Google Translation ML Kit}
+\paragraph{Google Translation ML Kit}\leavevmode
 
 Für die Übersetzung von Beiträgen vom Deutschen ins Englische wurde eine kosteneffiziente Methode gesucht, um Kosten zu minimieren. Zunächst wurden bekannte Übersetzungs-APIs analysiert, aber dann stieß der Entwickler auf das Google ML Kit, welches 50 Sprachen übersetzen kann. Bemerkenswert ist, dass ein Sprachpaket etwa 5 MB umfasst und auch offline verwendet werden kann. Beim Start der App werden das deutsche und englische Sprachmodell heruntergeladen. Um einen Beitrag zu übersetzen, muss der Benutzer länger auf den Beitrag klicken, um die Übersetzung zu starten.
 
 
 
-\paragraph{Google Language identification ML Kit}
+\paragraph{Google Language identification ML Kit}\leavevmode
 
 Um eine Sprache überhaupt übersetzen zu können, benötigt man ein Werkzeug zur Spracherkennung. In dieser App wird das Google Spracherkennungs-ML-Kit verwendet. Bevor der Benutzer einen Beitrag übersetzen möchte, werden die Beschreibung und der Titel an das maschinelle Lernmodell gesendet, um die erkannte Sprache dem Übersetzungs-ML-Kit zu übergeben und eine Übersetzung durchzuführen.
 
@@ -951,10 +951,10 @@ Die Profilanzeige ist die öffentliche Informationsstelle über den User. In die
   \item Bietet an
 \end{compactitem}
 Außerdem beinhaltet die Anzeige eine eigene Beitragssicht, wo alle Beiträge vom jeweiligen User eingesehen werden können.
-
+s
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{pics/public-profile.JPG}
+  \includegraphics[width=0.6\textwidth]{pics/public-profile.JPG}
   \caption{Öffentliche Profilansicht auf der App}
   % \label{fig:einladecode}
 \end{figure}
@@ -1177,7 +1177,7 @@ Struktur zu haben. Das System umfasst verschiedene
 UI-Elemente, von denen die wichtigsten in Abbildung
 \ref{fig:design-system} dargestellt sind.
 
-\paragraph{Cards}
+\paragraph{Cards}\leavevmode
 
 Ein häufig genutztes UI-Element in der App ist das Card-Design. Der Designer hat hierbei darauf geachtet, alle Elemente in einem abgerundeten, grauen Container mit hellem Grau zu gestalten, um einen guten Kontrast zum Hintergrund zu erzeugen.
 
@@ -1191,7 +1191,7 @@ Der Logout-Button wurde bewusst mit einem roten Icon und roter Schrift gestaltet
 
 Besondere Aufmerksamkeit erforderte der Tag-Editor, der einer der aufwändigsten Widgets in Flutter war. Der Designer hat diesen komplett neu durchdacht, um das Erstellen und Abspeichern von Tags leicht verständlich zu gestalten, so dass jeder Nutzer damit umgehen kann.
 
-\paragraph{Forms}
+\paragraph{Forms}\leavevmode
 Das Suchformular wurde mit einem organisch runden Design gestaltet, das zum Feed-Screen der App passt. Die Formulare, die in der gesamten App verwendet werden, wurden in Flutter sehr aufwändig gestaltet, um den Vorgaben des Designers zu entsprechen.
 
 Um dem Nutzer eine klare Rückmeldung zu geben, wurde ein
@@ -1215,7 +1215,7 @@ entsprechend den Farben der App angepasst, um eine
 konsistente und ästhetische Benutzeroberfläche zu
 gewährleisten.
 
-\paragraph{Buttons}
+\paragraph{Buttons}\leavevmode
 Die Icon-Buttons stellten das aufwändigste Design-Element
 dar, da es bei Flutter mehrere Möglichkeiten gibt, um sie zu
 implementieren. Dies führte dazu, dass sie häufig geändert
@@ -1237,7 +1237,7 @@ Designs mit dem Material-Design in Flutter und den spezifischen
 Anforderungen des Designers, war es erforderlich, die
 Progressbar komplett in Flutter zu gestalten.
 
-\paragraph{Profile}
+\paragraph{Profile}\leavevmode
 
 Der Edit Profile-Button wurde beim Registrieren und
 Bearbeiten eines Profils verwendet, um das Profilbild
@@ -1256,10 +1256,10 @@ den persönlichen Daten eines Profils verwendet. Hier wurden
 Icons verwendet, um dem Nutzer eine einfache und
 verständliche Darstellung zu ermöglichen.
 
-\paragraph{Chips}
+\paragraph{Chips}\leavevmode
 Chips kommen in der App häufig zum Einsatz, um Filter auszuwählen. Der Designer ist allerdings mit dem finalen Design noch nicht vollständig zufrieden, da es zahlreiche unterschiedliche Varianten gibt. Die Gestaltung der Chips wird weiterhin optimiert, um eine einheitliche und ästhetisch ansprechende Darstellung zu erreichen. Dieser fortlaufende Prozess zeigt das Bestreben, die Benutzeroberfläche kontinuierlich zu verbessern und den Anforderungen der Benutzer gerecht zu werden.
 
-\paragraph{Tabs}
+\paragraph{Tabs}\leavevmode
 Die Implementierung von Tabs war auch in Flutter eine
 Herausforderung, da die Positionierung nicht der
 Standard-Tabs-Position entsprach. Aus diesem Grund wurde die
@@ -1267,7 +1267,7 @@ Gestaltung aufwändig gestaltet, um ein optimales Ergebnis zu
 erzielen. Die Mühe hat sich jedoch gelohnt, da die Tabs nun
 eine gute funktionale Benutzeroberfläche bieten.
 
-\subsubsection{Farben}
+\subsubsection{Farben}\leavevmode
 Die Farbpalette einer Marke spielt eine wichtige Rolle im UI-Design, da sie dazu beiträgt, ein konsistentes Erscheinungsbild zu schaffen. Bei der Gestaltung einer Nachbarschafts-App wurde eine Vielzahl von Farbpaletten von anderen Apps untersucht. Es wurde festgestellt, dass die meisten großen Apps die Farbe Grün verwenden.
 
 Obwohl Grün oft mit Natur und Gemeinschaft assoziiert wird, wurde sich bewusst dazu entschieden, sich von diesen etablierten Konventionen abzuheben. Stattdessen wurde die Farbe Orange ausgewählt, da sie auffällig und ungewöhnlich ist und somit das Potenzial hat, die App von anderen Nachbarschafts-Apps zu unterscheiden.
@@ -1342,7 +1342,7 @@ Schließlich ist Inter auch eine Open-Source-Schriftart, die kostenlos verwendet
 Zusammenfassend lässt sich sagen, dass Inter eine ausgezeichnete Wahl für die Nachbarschafts-App ist. Die Schriftart ist modern, ansprechend und gut lesbar, und bietet eine breite Unterstützung für verschiedene Sprachen und Schriftsysteme. Die Verwendung von Inter hat dem Designer der App geholfen, eine professionelle und kosteneffektive Lösung für die Entwicklung der App zu finden.
 \subsubsection{Logo}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{pics/final-logo.png}
   \caption{Finales Logo}
@@ -1352,20 +1352,24 @@ Zusammenfassend lässt sich sagen, dass Inter eine ausgezeichnete Wahl für die 
 % \includegraphics[width=0.35\textwidth]{pics/app-logo.png}
 
 % überschrift logo historie
-\paragraph{Logo Historie}
+\paragraph{Logo Historie}\leavevmode
+% \hspace*{\parindent}
 
-\begin{figure}[h]
+
+Im Zuge des Designprozesses wurden hohe Ansprüche an das
+Logo der App gestellt, da es das Projekt repräsentiert und
+es dem Team wichtig ist. Es
+war wichtig, dass das Logo einfach gehalten und leicht
+erkennbar ist.
+
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{pics/logo-historie.png}
   \caption{Logo Design Ideen}
   \label{fig:logo-historie}
 \end{figure}
 
-Im Zuge des Designprozesses wurden hohe Ansprüche an das
-Logo der App gestellt, da es das Projekt repräsentiert und
-es dem Team wichtig ist. Es
-war wichtig, dass das Logo einfach gehalten und leicht
-erkennbar ist. Die endgültige Gestaltung des Logos hat viel Zeit
+Die endgültige Gestaltung des Logos hat viel Zeit
 in Anspruch genommen, da die vorherigen Entwürfe nicht
 vollständig zufriedenstellten die man bei Abbildung
 \ref{fig:logo-historie} sieht. Nach anderen Logos, die eine
@@ -1553,6 +1557,7 @@ Aktuell verfügt die Website über kein SSL-Zertifikat, da durch die Maskierung 
 
 \section{Backend}
 
+
 \subsection{Firebase}
 \setauthor{Martin Hausleitner}
 Firebase ist ein Backend-as-a-Service (BaaS), das Entwicklern eine enorme Erleichterung bei der Arbeit bietet. Das Hosting von Datenbanken und Cloud-Funktionen kann mit nur wenigen Klicks erfolgen, was die Notwendigkeit von Skalierung oder Ausfallvermeidung eliminiert. Das Firebase-Backend wird auf der Google Cloud in Frankfurt (EUR3 Europe-West) gehostet, um eine niedrige Latenz zu gewährleisten. Der kostenlose Spark-Plan war für den Gebrauch ausreichend, als der Dienst noch nicht die Firebase-Cloud-Funktionen genutzt hat. Um Kosten zu sparen, wurde lange Zeit mit dem Firebase-Emulator an den Cloud-Funktionen gearbeitet. Im Januar 2023 wurde auf den Blaze-Plan umgestiegen, um die Firebase-Cloud-Funktionen nutzen zu können. Bis März 2022 wurden nur wenige Euro für den Verbrauch gezahlt. Die Dokumentation und Tutorials von Firebase sind exzellent und es gibt viele Ressourcen auf YouTube.
@@ -1592,7 +1597,7 @@ Die vorliegende Grafik \ref{fig:old-erd} repräsentiert den Ansatz des ersten Da
 \\\\
 Es besteht aus vier Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{comments} und \texttt{chats}
 \\\\
-\paragraph{Users}
+\paragraph{Users}\leavevmode
 Die \texttt{users}-Collection ist die Sammlung, die die Daten des Users aufbewahren sollte. Die Dokumente der Collection beinhalten die Felder \texttt{fullName} für den Anzeigename, \texttt{profilePicture} für das Profilbild und \texttt{addressCoordinates} für die Koordinaten des Users. Der Anzeigename ist der Name der den anderen Usern angezeigt wird und kann sich entweder aus dem Vor- und Nachnamen zusammensetzen (Max Mustermann) oder aus dem Vornamen und Initial des Nachnamen (Max M.). Weiters beinhaltet jedes Dokument die drei weiteren Sub-Collections \texttt{public}, \texttt{private} und \texttt{intern}.
 \\\\
 Die \texttt{public}-Collection beinhaltet öffentliche Informationen von dem User, die für jeden anderen User zugänglich sind. Die Dokumente der Collection beinhalten die folgenden Felder:
@@ -1614,18 +1619,18 @@ Die \texttt{private}-Collection beinhaltet private Informationen von dem User, z
 \\\\
 Die \texttt{intern}-Collection beinhaltet interne Informationen von dem User, die für die saubere Funktionalität der App wichtig sind, wie die Benutzeridentifikationsnummer mit dem Feld \texttt{uid} und die geliketen Posts des Users mit dem Feld \texttt{postId}
 
-\paragraph{Posts}
+\paragraph{Posts}\leavevmode
 Die \texttt{posts}-Collection ist die Sammlung, die die Beiträge der User aufbewahren soll. Die Dokumente der Collection beinhalten die Felder \texttt{titel} für den Titel, \texttt{decription} für die Beschreibung, \texttt{image} für das anhängbare Bild, \texttt{tags} für die anhängbaren Tags, \texttt{range} für die Reichweite innerhalb der Beitrag nur gesehen werden soll, \texttt{like} für den Like-Zähler, \texttt{user} für die Benutzer-Id von dem der Beitrag stammt und \texttt{publishDate} für das Veröffentlichungsdatum. Als weiteres Feld zählt noch \texttt{category}, welches im DatenModell als eine Enumeration dargestellt wird.
 
-\paragraph{Comments}
+\paragraph{Comments}\leavevmode
 Die \texttt{comments}-Collection ist die Sammlung, die die Kommentare der Beiträge aufbewahren soll. Die Dokumente der Collection beinhalten die Felder \texttt{comment} für den Text, \texttt{user} für die Benutzer-Id von dem der Kommentar stammt und \texttt{publishDate} für das Veröffentlichungsdatum. In diesem Ansatz wurde auf die Id des Beitrags vergessen, unter welchem der Kommenater hinterlassen wurde.
 
-\paragraph{Chats}
+\paragraph{Chats}\leavevmode
 Obwohl die \texttt{chats}-Collection im ursprünglichen Datenmodell enthalten ist, sind die zugehörigen Felder und Strukturen nicht weiter definiert.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{pics/nochba-erd-new.png}
+  \includegraphics[width=1\textwidth]{pics/nochba-erd-new.png}
   \caption{Das neue Datenmodell}
   \label{fig:new-erd}
 \end{figure}
@@ -1644,7 +1649,7 @@ Um das zu gewährleisten wurden folgende Prinzipien erstellt:
 %Im Gegensatz zum alten Datenmodell wurde das neue Datenmodell um mehrere Collections erweitert und manche Collections wurden angepasst. Es besteht aus folgenden Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{notifications}, \texttt{reports}, \texttt{codes} und \texttt{chats}
 %\\\\
 
-\paragraph{Users}
+\paragraph{Users}\leavevmode
 Die \texttt{users}-Collection ist die Sammlung, die die Daten des Users aufbewahren sollte. Die Dokumente der Collection beinhalten wie beim alten Datenmodell die Felder \texttt{fullName} für den Anzeigename und \texttt{profilePicture} für das Profilbild. Das Feld \texttt{addressCoordinates} für die Koordinaten des Users wurde entfernt, weil es sich als Datenleck von privaten Userdaten herausstellte. Die Felder der \texttt{users}-Collections dienen als Anzeigedaten, von daher wurde das \texttt{addressCoordinates}-Feld mit dem \texttt{suburb}-Feld ersetzt, was vielmehr das Stadtviertel oder die Gemeinschaft des Users speichern soll.
 Der Ansatz, dass die \texttt{users}-Collection drei weitere Sub-Collections (\texttt{public}, \texttt{private} und \texttt{intern}) beinhalten soll wurde beibehalten.
 \\\\
@@ -1678,21 +1683,21 @@ Im Dokument \texttt{address} werden im Feld \texttt{coords} die Koordinaten der 
 \\
 Falls sich der User durch einen Einlade-QR-Code verifiziert hat, hat das Dokument \texttt{verification} die Felder \texttt{deviceCoords} für die Gerätkoordinaten, \texttt{code} für den Einlade-QR-Code der eingesetzt wurde und \texttt{distance}, welches angibt wie groß die Distanz zwischen den Gerätkoordinaten und den Koordinaten des QR-Codes ist.
 
-\paragraph{Codes}
+\paragraph{Codes}\leavevmode
 Die \texttt{codes}-Collection ist die Sammlung, wo alle QR-Codes die jemals erzeugt wurden, gespeichert ist. Die Dokumente der Collection beinhalten die Felder \texttt{coords} und \texttt{range} für die Koordinaten und Reichweite innerhalb der QR-Code gültig ist, \texttt{isActive} ob der Code noch gültig ist, \texttt{createdAt} für das Veröffentlichungsdatum, \texttt{maxCodeLimit} für wie viele User mit diesem Einlade-QR-Code eingeladen werden können und \texttt{uid} für den User der den QR-Code erzeugt hat.
 
-\paragraph{Posts}
+\paragraph{Posts}\leavevmode
 Die \texttt{posts}-Collection ist die Sammlung, die die Beiträge der User aufbewahren soll. Die Felder der Dokumente der Collection haben sich im Vergleich zum alten Datenmodell nicht verändert.
 \\
 Was sich im Datenmodell im Bezug auf die Beiträge verändert hat, ist dass die \texttt{comments}-Collection als Subcollection zur \texttt{posts}-Collection hinzugefügt wurde. Die Felder der Dokumente der \texttt{comments}-Collection haben sich auch angepasst. Die Dokumente der Collection beinhalten die Felder \texttt{text} für den Text, \texttt{likes} für den Like-Zähler, \texttt{createdAt} für das Veröffentlichungsdatum, \texttt{uid} für die Id des Users, welcher den Kommentar hinterlassen hat, und \texttt{postId} für die Id des Beitrags unter welchem der Kommentar hinterlassen wurde.
 
-\paragraph{Notifications}
+\paragraph{Notifications}\leavevmode
 Die \texttt{notification}-Collection ist die Sammlung, die die Benachrichtigungen der User aufbewahren soll. Benachrichtigungen sollen den User über neue Chat-Anfragen benachrichtigen. Die Dokumente der Collection beinhalten die Felder \texttt{fromUid} und \texttt{toUID} für den User der die Benachrichtigung abgeschickt hat und den User der die Benachrichtigung erhält, \texttt{createdAt} für das Erstellungsdatum, \texttt{visible} ob die Benachrichtigung für den User sichtbar ist, \texttt{hasSeen} ob der User die Benachrichtigung gesehen hat und falls die Chat-Anfrage von einem Beitrag kommt noch das Feld \texttt{postId} für die Id des Beitrags. Außerdem existiert noch das Feld \texttt{type}, die den Typ der Anfrage beschreiben soll. Es gibt zwei Typen. Ein \texttt{postRequest} um für das Antworten eines Beitrags eine Chat-Anfrage zu erstellen und ein \texttt{userRequest} um zum Kontakt erstellen zu einen User eine Chat-Anfrage zu erstellen.
 
-\paragraph{Reports}
+\paragraph{Reports}\leavevmode
 Die \texttt{reports}-Collection ist die Sammlung, wo die Meldungen auf Beiträge oder User gespeichert werden. Die Dokumente der Collection beinhalten die Felder \texttt{fromUser} für den User der die Meldung abgeschickt hat, \texttt{text} für die Erklärung warum die Meldung abgeschickt wurde, \texttt{createdAt} für das Erstellungsdatum, \texttt{visible} ob die Meldung für den User sichtbar ist und \texttt{reason} für den ausgewählten Grund warum die Meldung abgeschickt wurde. Außerdem existiert noch das Feld \texttt{type}, welches angibt, was gemeldet wurde. Es kann entweder ein Beitrag, Kommentar oder User gemeldet werden. Daneben gibt es noch das Feld \texttt{reportedId}, was die Id vom jeweiligen Beitrag, Kommentar oder User speichert.
 
-\paragraph{Chats}
+\paragraph{Chats}\leavevmode
 Die \texttt{chats}-Collection ist die Sammlung, wo die Chats und dazugehörigen Nachrichten der User gespeichert werden.
 
 
@@ -1942,7 +1947,7 @@ Diese Funktion wird in der Cloud-Funktion \texttt{generateVerificationCode} verw
 
 Die Verwendung einer Cloud-Function zur Änderung des Like-Zählers erfolgt aus dem Grund, dass Daten von einem Beitrag in der Regel nur vom Ersteller des Beitrags verändert werden können. Um dennoch sicherzustellen, dass alle Nutzer, die den Beitrag mögen, den Like-Zähler erhöhen können, wird eine Cloud-Function verwendet, die automatisch auf die Hinzufügung von Likes reagiert und den Zähler aktualisiert. Dadurch wird sichergestellt, dass der Like-Zähler korrekt und in Echtzeit aktualisiert wird, ohne dass der Ersteller des Beitrags manuell Änderungen vornehmen muss.
 
-\paragraph{Likes von Beiträge erhöhen}
+\paragraph{Likes von Beiträge erhöhen}\leavevmode
 \setauthor{Sandin Habibovic}
 
 \begin{lstlisting}[language=Java,caption=incrementLikeCounterOfPost Funktion,label=lst:incrementLikePostFunction]
@@ -1972,7 +1977,7 @@ In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, 
 \\
 Die Verwendung von Transaktionen gewährleistet, dass die Like-Zähler-Operation atomar ausgeführt wird und es somit zu keiner Inkonsistenz der Daten kommt. Wenn mehrere Nutzer gleichzeitig den gleichen Beitrag als 'gefällt mir' markieren würden, könnte es sonst zu Konflikten und Fehlern bei der Aktualisierung des Like-Zählers kommen.
 
-\paragraph{Likes von Beiträge verringern}
+\paragraph{Likes von Beiträge verringern}\leavevmode
 \setauthor{Sandin Habibovic}
 
 \begin{lstlisting}[language=Java,caption=decrementLikeCounterOfPost Funktion,label=lst:decrementLikePostFunction]
@@ -2005,7 +2010,7 @@ Die Verwendung von Cloud-Funktionen zur Verwaltung der Like-Zähler stellt siche
 
 Ähnlich wie bei der Verwaltung der Like-Zähler von Beiträgen werden auch bei der Verwaltung von Likes für Kommentare Cloud-Funktionen eingesetzt. Diese gewährleisten, dass die Like-Zähler in Echtzeit aktualisiert werden und Nutzer eine korrekte und aktuelle Anzahl der Likes sehen können.
 
-\paragraph{Likes von Kommentare erhöhen}
+\paragraph{Likes von Kommentare erhöhen}\leavevmode
 \setauthor{Sandin Habibovic}
 
 \begin{lstlisting}[language=Java,caption=incrementLikeCounterOfComment Funktion,label=lst:incrementLikeCommentFunction]
@@ -2036,7 +2041,7 @@ Der erste Schritt der Funktion besteht darin, die ID des Kommentars zu ermitteln
 \\
 In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. In dieser Transaktion wird der aktuelle Like-Zähler des Kommentars abgerufen und um eins erhöht. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung \texttt{posts} gespeichert.
 
-\paragraph{Likes von Kommentare verringern}
+\paragraph{Likes von Kommentare verringern}\leavevmode
 \setauthor{Sandin Habibovic}
 
 \begin{lstlisting}[language=Java,caption=decrementLikeCounterOfComment Funktion,label=lst:decrementLikeCommentFunction]
