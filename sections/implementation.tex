@@ -1394,30 +1394,39 @@ die vorherige Schriftart.
 
 \subsection{App Design}
 \subsubsection{Thumb Zone Prinzip}
+\setauthor{Martin Hausleitner}
+
 \begin{figure}[h]
   \centering
-  \begin{minipage}[b]{0.3\textwidth}
-    \includegraphics[width=\textwidth]{pics/edit-name-screen.png}
-    \caption{Screenshot des 'Name bearbeiten'-Screens}
-    \label{fig:edit-name-screen}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.3\textwidth}
-    \includegraphics[width=\textwidth]{pics/post-more-menu.png}
-    \caption{Screenshot des 'Mehr'-Menüs für Beiträge}
-    \label{fig:post-more-menu}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.3\textwidth}
-    \includegraphics[width=\textwidth]{pics/post-report-menu.png}
-    \caption{Screenshot des 'Beitrag melden'-Menüs}
-    \label{fig:post-report-menu}
-  \end{minipage}
+  \includegraphics[width=1\textwidth]{pics/thumb-zone.png}
+  \caption{Abbildung mehere Thumbs Zones in der App}
+  \label{fig:thumb-zone}
 \end{figure}
+
+% \begin{figure}[h]
+%   \centering
+%   \begin{minipage}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{pics/edit-name-screen.png}
+%     \caption{Screenshot des 'Name bearbeiten'-Screens}
+%     \label{fig:edit-name-screen}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{pics/post-more-menu.png}
+%     \caption{Screenshot des 'Mehr'-Menüs für Beiträge}
+%     \label{fig:post-more-menu}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{pics/post-report-menu.png}
+%     \caption{Screenshot des 'Beitrag melden'-Menüs}
+%     \label{fig:post-report-menu}
+%   \end{minipage}
+% \end{figure}
 Im Design-Muster wurde versucht, das Thumb Zone Prinzip zu
 implementieren, indem wichtige UI-Elemente immer im unteren
 Bereich der App platziert wurden. Das Layout für die
-Namensbearbeitung \ref{fig:edit-name-screen} wurde extra
+Namensbearbeitung \ref{fig:thumb-zone} wurde extra
 unten platziert, um alle Klick-Elemente bequem mit dem
 Daumen bedienen zu können. Wichtige
 wie 'Speichern'
@@ -1427,7 +1436,7 @@ Das Textfeld kann einfach durch Drücken der Enter-Taste auf
 der Tastatur geändert werden, um das Eintippen von Daten zu
 erleichtern.
 
-Wie bei Abbildung \ref{fig:post-more-menu} \ref{fig:post-report-menu} zu sehen ist, erfolgt eine weitere Implementierung einer Bottom View, um dem Thumb Zone Prinzip gerecht zu werden.
+Wie bei Abbildung \ref{fig:thumb-zone} zu sehen ist, erfolgt eine weitere Implementierung einer Bottom View, um dem Thumb Zone Prinzip gerecht zu werden.
 
 Unwichtige Buttons wurden in grau gestaltet, wie z.B. der X-Button in der Abbildung. Ein Löschen-Button neben dem Textfeld wurde eingebaut, der es dem Benutzer ermöglicht, den gesamten Text bequem zu löschen. Jedoch war es nicht möglich, diese Prinzipien vollständig umzusetzen, da die Zeit gegen Ende knapp wurde. In zukünftigen Versionen der App soll sichergestellt werden, dass diese Prinzipien einheitlich angewendet werden.
 \subsubsection{Design Historie}
@@ -1616,7 +1625,7 @@ Obwohl die \texttt{chats}-Collection im ursprünglichen Datenmodell enthalten is
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{pics/nochba-erd-new.JPG}
+  \includegraphics[width=0.8\textwidth]{pics/nochba-erd-new.png}
   \caption{Das neue Datenmodell}
   \label{fig:new-erd}
 \end{figure}
