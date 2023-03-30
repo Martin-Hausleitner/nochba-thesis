@@ -389,16 +389,16 @@ allg.
 
 \subsection{Feed}
 \setauthor{Sandin Habibovic}
-Die Feed-Page ist die erste und wichtigste Anzeige auf der App. Hier werden alle aktuellen Beiträge und Updates von der Nachbarschaft angezeigt.
+Die Feed-Page stellt den zentralen Einstiegspunkt in der App dar und zeigt dem User alle aktuellen Beiträge und Updates aus der Nachbarschaft an.
 
 \subsection{Beiträge}
 \setauthor{Sandin Habibovic}
-Beiträge sind das Hauptkommunikationsmittel auf der App. Jedem Beitrag muss ein Titel, eine Beschreibung und eine Reichweite, unter der, der Beitrag sichtbar ist, angegeben werden. Weiters ist es möglich einem Beitrag ein Bild und Tags anzuhängen.
+Beiträge sind das primäre Kommunikationsmittel auf der Plattform und erfordern vor der Veröffentlichung einen Titel, eine Beschreibung sowie eine Reichweite, unter der der Beitrag sichtbar sein soll. Zusätzlich können Bilder und Tags angehängt werden, um den Inhalt des Beitrags besser zu beschreiben und ihn leichter auffindbar zu machen.
 
 \subsubsection{Kategorien}
 \setauthor{Sandin Habibovic}
-Um Beiträge besser zuordnen zu können, muss der User den Beitrag vor dem Veröffentlichen in eine bestimmte Kategorie einteilen. Diese Kategorien ermöglichen es Usern, die Art Ihrer Anfrage ihm vorhinein besser zu spezifizieren und die Suche nach Beiträgen einer bestimmten Art zu vereinfachen. Bestimmte Kategorien werden weiters in Unterkategorien aufgeteilt, da diese ein zu weit gefächertes Genre an Anfragen umfassen.
-
+Um die Beiträge besser zuordnen zu können, müssen diese vor dem veröffentlichen einer bestimmten Kategorie zugeordnet werden. Diese Kategorien ermöglichen es den Usern, die Art Ihrer Anfrage ihm vorhinein besser zu spezifizieren und die Suche nach bestimmten Arten von Beiträgen zu vereinfachen. Bestimmte Kategorien werden weiters in Unterkategorien aufgeteilt, um die Art des Beitrags nochmals genauer zu spezifizieren.
+\\
 Es existieren folgende Kategorien bzw. Unterkategorien:
 
 \begin{compactitem}
@@ -419,19 +419,19 @@ Es existieren folgende Kategorien bzw. Unterkategorien:
   \item Event
 \end{compactitem}
 
+\textbf{Mitteilung:} Die Kategorie der Mitteilung dient dazu, die Nachbarn über bestimmte Ereignisse oder Nachrichten zu informieren oder sie um eine Meinung oder Empfehlung zu bitten.
 
+\textbf{Suche:} Die Kategorie der Suche ermöglicht es den Nachbarn, im Falle von Hilfebedarf oder einem verlorenen Gegenstand, Kontakt mit ihren Nachbarn aufzunehmen.
 
-Mitteilung:
-Die Kategorie der Mitteilung dient dazu die Nachbarn über ein bestimmtes Ereignis oder Meldung zu informieren oder zu befragen.
+\textbf{Ausleihen:} Die Kategorie der Ausleihens dient dazu die Nachbarn nach der Erlaubnis, sich ein bestimmtes Werkzeug oder Objekt ausborgen zu dürfen, zu bitten.
 
-Suche:
-Die Kategorie der Suche dient dazu mit den Nachbarn im Falle einer Hilfesuche oder eines verloren gegangenen Objekts in Kontakt zu treten.
+\textbf{Event:} Die Kategorie des Events dient dazu die Nachbarn auf eine bevorstehende Veranstaltung aufmerksam zu machen.
 
-Ausleihen:
-Die Kategorie des Ausleihens dient dazu die Nachbarn nach der Erlaubnis, sich ein bestimmtes Werkzeug oder Objekt ausborgen zu dürfen, zu bitten.
-
-Event:
-Die Kategorie des Events dient dazu die Nachbarn auf eine bestimmte Veranstaltung aufmerksam zu machen.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{pics/categories.JPG}
+  \caption{Ansicht der Kategorien und Unterkategorien auf der App}
+\end{figure}
 
 
 \subsubsection{Tags}
@@ -440,7 +440,7 @@ Als Tag wird ein Schlüsselwort beschrieben, was man an ein Informationsgut anh�
 
 \subsubsection{Info}
 \setauthor{Sandin Habibovic}
-Jeder Beitrag hat eine eigene Sektion, wo wichtige Entscheidungsinformationen angegeben werden, wie der Stadtteil und die ungefähre Entfernung zum gegebenen Nachbarn und das Erstelldatum des Beitrags.
+Jeder Beitrag hat eine eigene Sektion, wo wichtige Informationen über den Beitrag und den Ersteller des Beitrags angegeben werden, wie der Stadtteil, die ungefähre Entfernung zum gegebenen Nachbarn und das Erstelldatum des Beitrags.
 
 \subsubsection{Kommentare}
 \setauthor{Sandin Habibovic}
@@ -448,7 +448,8 @@ Die Kommentarfunktion ermöglicht es den Usern unter einem Beitrag Ihre Meinung,
 
 \subsubsection{Beitrag oder Kommentar Melden}
 \setauthor{Sandin Habibovic}
-Um auf unangebrachte Beiträge oder Kommentare schnell reagieren zu können, gibt es die Möglichkeit Beiträge oder Kommentare zu melden. Diese Meldungen werden auf Firestore gespeichert und können dann im Einzelnen überprüft werden. Fürs Melden muss ein Grund ausgewählt und eine genauere Beschreibung angegeben werden.
+Um unangebrachte Beiträge oder Kommentare schnell zu identifizieren und auf diese schnell reagieren zu können, gibt es die Möglichkeit Beiträge oder Kommentare zu melden. Diese Meldungen können dann im Einzelnen überprüft werden. Fürs Melden muss ein Grund ausgewählt und eine genauere Beschreibung angegeben werden.
+\\
 Gründe fürs Melden eines Beitrags oder Kommentars:
 
 \begin{compactitem}
@@ -457,8 +458,6 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
   \item Betrug
   \item Spam
   \item Sonstiges
-
-
 \end{compactitem}
 
 \subsubsection{Autovervollständigung
@@ -578,9 +577,9 @@ Eine Suchfunktion kann auf folgende Weise zum Erfolg einer Social Media App beit
 
 Entdeckungsmöglichkeit: Eine robuste Suchfunktion ermöglicht es den Nutzern, problemlos wichtige Inhalte, Personen und Ressourcen innerhalb ihrer lokalen Gemeinschaft zu finden. Dies hilft bei der Entdeckung neuer Verbindungen und Veranstaltungen und trägt letztlich zur Verstärkung der lokalen Gemeinschaft und zur Förderung des sozialen Engagements bei.
 
-    Personalisierung: Die Nutzer können die Suchfunktion nutzen, um Inhalte zu finden, die auf ihre individuellen Interessen und Bedürfnisse zugeschnitten sind. Diese Personalisierung führt zu einer höheren Kundenzufriedenheit, da sich die Nutzer stärker mit der Plattform assoziiert fühlen.
+Personalisierung: Die Nutzer können die Suchfunktion nutzen, um Inhalte zu finden, die auf ihre individuellen Interessen und Bedürfnisse zugeschnitten sind. Diese Personalisierung führt zu einer höheren Kundenzufriedenheit, da sich die Nutzer stärker mit der Plattform assoziiert fühlen.
 
-    Zeiteffizienz: Eine Suchfunktion ermöglicht es den Benutzern, die gesuchten Informationen schnell und effizient zu finden. Das spart Zeit und Mühe, macht die Plattform attraktiver und erhöht die Wahrscheinlichkeit, dass sie häufig genutzt wird.
+Zeiteffizienz: Eine Suchfunktion ermöglicht es den Benutzern, die gesuchten Informationen schnell und effizient zu finden. Das spart Zeit und Mühe, macht die Plattform attraktiver und erhöht die Wahrscheinlichkeit, dass sie häufig genutzt wird.
 
 
 \subsection{Typesense}
@@ -589,7 +588,7 @@ Das Nochba-Team versuchte ursprünglich, Typesense für die Suchfunktionalität 
 
 Typesense war aus mehreren Gründen eine ausgezeichnete Wahl für das Nochba-Team:
 
-Geschwindigkeit: Typesense ist darauf optimiert, Suchergebnisse schnell zu liefern und so ein flüssiges und reibungsloses Sucherlebnis zu ermöglichen. 
+Geschwindigkeit: Typesense ist darauf optimiert, Suchergebnisse schnell zu liefern und so ein flüssiges und reibungsloses Sucherlebnis zu ermöglichen.
 
 Tippfehler-Toleranz: Typesense kann mit Tippfehlern umgehen und trotzdem relevante Suchergebnisse liefern. Dies ist eine wichtige Funktion für eine Suchmaschine, da Nutzer beim Tippen oft Fehler machen. Durch die Berücksichtigung dieser Fehler stellt Typesense sicher, dass die Nutzer auch dann korrekte Ergebnisse erhalten, wenn ihre Anfrage Tippfehler enthält.
 
@@ -757,24 +756,24 @@ Das Schlüsselwort "await" wird verwendet, um auf die Auflösung von "Future" zu
 
 Die Methode liest das Bild als Byte-Array mit "await result!.readAsBytes()" und weist es der Variablen image zu.
 
-    Wenn das Bild null ist, wird mit "Get.snackbar("null", "null")" eine "Snackbar" mit dem Text "null" angezeigt. Eine Snackbar ist eine kurze, nicht allzu aufdringliche Meldung, die am oberen Rand des Bildschirms angezeigt wird, um dem Benutzer Feedback oder Informationen zu geben.
+Wenn das Bild null ist, wird mit "Get.snackbar("null", "null")" eine "Snackbar" mit dem Text "null" angezeigt. Eine Snackbar ist eine kurze, nicht allzu aufdringliche Meldung, die am oberen Rand des Bildschirms angezeigt wird, um dem Benutzer Feedback oder Informationen zu geben.
 
-    Wenn das Ergebnis nicht null ist, fährt die Methode mit der Verarbeitung des Bildes fort.
-        Sie setzt einen internen Zustand "setAttachmentUploading(true)", um anzuzeigen, dass ein Anhang hochgeladen wird.
-        Die Bilddatei wird mit "File(result.path)" initialisiert, und die Dateigröße wird mit "file.lengthSync()" ermittelt.
+Wenn das Ergebnis nicht null ist, fährt die Methode mit der Verarbeitung des Bildes fort.
+Sie setzt einen internen Zustand "setAttachmentUploading(true)", um anzuzeigen, dass ein Anhang hochgeladen wird.
+Die Bilddatei wird mit "File(result.path)" initialisiert, und die Dateigröße wird mit "file.lengthSync()" ermittelt.
 Das Byte-Array des Bildes wird mit "await result.readAsBytes()" gelesen, und das Bild wird mit "await decodeImageFromList(bytes)" entschlüsselt.
 Der Dateiname des Bildes wird mit "result.name" ermittelt.
 
 Die Methode ladet das Bild in Firebase Storage hoch.
-        Zunächst wird eine Speicherreferenz mit der ID des Benutzers und dem Namen des Bildes mit "FirebaseStorage.instance.ref('\$userId/\$name')" erstellt.
-        Die Bilddatei wird dann mit "await reference.putFile(file)" hochgeladen.
-        Die Download-URL für das hochgeladene Bild wird mit "await reference.getDownloadURL()" ermittelt.
+Zunächst wird eine Speicherreferenz mit der ID des Benutzers und dem Namen des Bildes mit "FirebaseStorage.instance.ref('\$userId/\$name')" erstellt.
+Die Bilddatei wird dann mit "await reference.putFile(file)" hochgeladen.
+Die Download-URL für das hochgeladene Bild wird mit "await reference.getDownloadURL()" ermittelt.
 
 Es wird ein "types.PartialImage" Objekt mit der Bildgröße, dem Namen, der URL und der Breite des Bildes erstellt.
 
-    Das Bild wird als Nachricht mit "chat.FirebaseChatCore.instance.sendMessage(message, room.id)" gesendet.
+Das Bild wird als Nachricht mit "chat.FirebaseChatCore.instance.sendMessage(message, room.id)" gesendet.
 
-    Nachdem das Bild erfolgreich hochgeladen und gesendet wurde, wird der interne Status aktualisiert, um anzuzeigen, dass das Hochladen des Anhangs mit "setAttachmentUploading(false)" abgeschlossen ist.
+Nachdem das Bild erfolgreich hochgeladen und gesendet wurde, wird der interne Status aktualisiert, um anzuzeigen, dass das Hochladen des Anhangs mit "setAttachmentUploading(false)" abgeschlossen ist.
 
 Wenn während des Hochladen des Bildes oder des Versenden der Nachricht eine Fehlermeldung auftritt, sorgt der Final Block dafür, dass der Status mit "setAttachmentUploading(false)" trotzdem aktualisiert wird.
 
@@ -1513,11 +1512,24 @@ Firebase ist ein Backend-as-a-Service (BaaS), das Entwicklern eine enorme Erleic
 
 \subsection{Firebase Authentication}
 \setauthor{Sandin Habibovic}
-Email und Passwort authentication
+
+Firebase Authentication ist ein wichtiger Bestandteil für die Integration von Benutzerauthentifizierung in der Applikation. Die Implementierung dieses Dienstes soll zur Einhaltung der Privatsphäre der User beitragen, indem ein sicherer und zuverlässiger Authentifizierungsmechanismus bereitgestellt wird.
+\\
+Darüber hinaus ermöglicht der Dienst eine unkomplizierte Integration mit anderen Firebase-Services, wie zum Beispiel Cloud Firestore.
+\\
+Für die vorliegende Applikation wurden zwei Authentifizierungsmethoden ausgewählt, die über Firebase Authentication bereitgestellt werden: E-Mail und Passwort sowie Google Authentication. Die Wahl dieser beiden Methoden basiert auf ihrer weiten Verbreitung und Akzeptanz unter den Usern. Beide Methoden bieten unterschiedliche Vorteile und ermöglichen den Benutzern, je nach ihren Präferenzen und Anforderungen, eine geeignete Anmeldeoption auszuwählen.
+
 
 \subsection{Cloud Firestore}
 \setauthor{Sandin Habibovic}
-NoSQL-Database, Dokument-basierte Speicherung, Subcollections
+Cloud Firestore dient der Anwendung als NoSQL-Datenbank, die eine dokumentbasierte Speicherung von Daten ermöglicht. Dadurch kann das Datenmodell möglichst an die Kriterien der Anwendungen zugeschnitten und trotzdem noch effizient und performant gestaltet werden.
+\\
+Ein wichtiger Vorteil der Firestore bietet ist, dass Collections und dazugehörige Subcollections erstellt werden können, um damit Daten in hierarchischen Strukturen zu organisieren. Diese Subcollections können verwendet werden, um abhängige Daten in einer einzigen Anfrage abzurufen und damit den Datenzugriff zu optimieren. Darüber hinaus bietet Firestore die Möglichkeit, Daten auf verschiedenen Ebenen zu filtern und zu sortieren, um nur die benötigten Daten abzurufen, was beim Filtern von Beiträge eine große Rolle spielen kann.
+\\
+Ein weiterer Vorteil ist die Skalierung von Daten auf Firestore, womit die Anwendung mit hohen Nutzerzahlen und großen Datenmengen, wie zum Beispiel dem Abrufen von Beiträgen, zurecht kommen kann.
+\\
+Außerdem bietet Firestore noch die Möglichkeit an, Daten in Echtzeit zu synchronisieren, um damit auf Änderungen in der Datenbank sofort reagieren zu können und die Applikation somit reaktiv zu halten.
+
 
 \subsubsection{Datenmodell}
 \setauthor{Sandin Habibovic}
@@ -1607,7 +1619,7 @@ Das Dokument \texttt{name} beinhaltet den Vornamen und Nachnamen, was ---.
 \\
 Als nächstes ist das Dokument \texttt{address}, welches die Addressdaten des Users beinhaltet, also das Feld \texttt{street} für die Straße, das Feld \texttt{streetNumber} für die Straßennummer, das Feld \texttt{city} für die Stadt und das Feld \texttt{zip} für die Postleitzahl.
 \\
-Ein für den User--- wichtiges Dokument ist das Dokument \texttt{records}, welches die vom User markierten und geliketen Beiträge speichern soll. Das Dokument beinhaltet das Feld \texttt{posts}, welches die vom User markierten Posts speichert. Das Dokument beinhaltet außerdem zwei Sub-Collections: \texttt{likedPosts} und \texttt{likedComments}. Diese zwei Subcollections speichern die vom User geliketen Beiträge bzw. Kommentare. Die Funktionsweise der Subcollection \texttt{likedPosts} baut auf dem Konzept auf, dass die angelegten Entitäten nach der Id des Beitrags erstellt werden. Das heißt, dass die angelegte Entität die gleiche Id hat, wie der Beitrag, welcher vom User markiert wurde und sonst nichts. Das soll für eine möglichst effiziente Datenspeicherung sorgen. Die Funktionsweise der Subcollection \texttt{likedComments} baut auf dem selben Konzept auf, nur mit der Id des Kommentars als Entitäts-Id und zusätzlich wird noch die Id des Beitrags unter dem der Kommentar gelassen wurde mitgespeichert.
+Ein für den Nutzungswert der App wichtiges Dokument ist das Dokument \texttt{records}, welches die vom User markierten und geliketen Beiträge speichern soll. Das Dokument beinhaltet das Feld \texttt{posts}, welches die vom User markierten Posts speichert. Das Dokument beinhaltet außerdem zwei Sub-Collections: \texttt{likedPosts} und \texttt{likedComments}. Diese zwei Subcollections speichern die vom User geliketen Beiträge bzw. Kommentare. Die Funktionsweise der Subcollection \texttt{likedPosts} baut auf dem Konzept auf, dass die angelegten Entitäten nach der Id des Beitrags erstellt werden. Das heißt, dass die angelegte Entität die gleiche Id hat, wie der Beitrag, welcher vom User markiert wurde und sonst nichts. Das soll für eine möglichst effiziente Datenspeicherung sorgen. Die Funktionsweise der Subcollection \texttt{likedComments} baut auf dem selben Konzept auf, nur mit der Id des Kommentars als Entitäts-Id und zusätzlich wird noch die Id des Beitrags unter dem der Kommentar gelassen wurde mitgespeichert.
 \\
 Das nächste Dokument \texttt{settings} soll die Benutzereinstellungen speichern. Darunter zählt das Feld \texttt{lastNameInitialOnly}, mit welchem der User bestimmt, ob sein ganzer Name angezeigt werden soll oder nur der Vorname mit dem Initial des Nachnamens, und \texttt{permReqBeforeChat}, mit welchem der User bestimmt, ob er/sie eine Anfrage erhalten möchte, bevor er/sie angeschrieben wird.
 \\
@@ -1639,7 +1651,7 @@ Die \texttt{chats}-Collection ist die Sammlung, wo die Chats und dazugehörigen 
 
 \subsection{Cloud Storage}
 \setauthor{Sandin Habibovic}
-Der Cloud-Storage dient der Applikation als Speichermedium für Bilder. Darunter zählen Profilbilder und Bilder, die Beiträgen hinzugefügt werden.
+Der Cloud Storage fungiert in der Applikation als Speicherlösung für Bilder, einschließlich Profilbilder und Bilder, die zu Beiträgen hinzugefügt werden.
 \\
 \subsubsection{Aufbau}
 \setauthor{Sandin Habibovic}
@@ -1850,10 +1862,13 @@ Um den App-Nutzern ein besseres Verständnis der Nachbarschaften zu vermitteln, 
 Die Funktion heißt \texttt{getOSMSuburbFromCoords} und nimmt zwei Parameter entgegen: \texttt{lat} für die geografische Breite und \texttt{lon} für die geografische Länge des Benutzers. Diese Funktion gibt eine Promise zurück, die eine Zeichenfolge \texttt{String} mit dem Namen der Nachbarschaft des Benutzers enthält. Die Funktion verwendet die Axios-Bibliothek, um eine GET-Anfrage an die OpenStreetMap-API zu senden. Diese Anfrage enthält die geografischen Koordinaten des Benutzers und die gewünschte Zoomstufe \texttt{18}, um die Nachbarschaft zu finden. Wenn die Anfrage erfolgreich ist, gibt die Funktion den Namen der Nachbarschaft zurück, der aus den Daten extrahiert wird, die von der API zurückgegeben werden. Wenn der Name der Nachbarschaft nicht verfügbar ist, gibt die Funktion den Namen der Stadt oder der Gemeinde zurück, in der sich der Benutzer befindet. Wenn auch diese Informationen nicht verfügbar sind, gibt die Funktion \texttt{null} zurück. Wenn bei der Anfrage ein Fehler auftritt, wird eine Fehlermeldung ausgelöst.
 
 
-\subsubsection{Beiträge von Nachbarn in der Umgebung erhalten}
+\subsubsection{Beiträge von Nachbarn in der Umgebung ermitteln}
 \setauthor{Sandin Habibovic}
 
 Die Cloud Function \texttt{getUserPostsWithinRange} ist dafür verantwortlich, Beiträge von User innerhalb einer bestimmten Reichweite abzurufen. Dies wird durch den Aufruf von Firestore und GeoFireStore erreicht, um die User innerhalb des Bereichs zu ermitteln und dann ihre Beiträge abzurufen.
+\\
+GeoFirestore ist eine Open-Source-Bibliothek, die auf der Firebase-Plattform basiert und die Funktionen von Firestore erweitert, um Geofencing und so die Filterung von Daten nach geografischen Entfernungen und Koordinaten zu ermöglichen.
+Quelle: https://geofirestore.com
 \\
 Die Cloud Function bekommt als Parameter die Rechweite innerhalb der gefiltert werden soll und prüft zunächst, ob der User authentifiziert ist. Wenn nicht, wird ein Fehler ausgelöst, der besagt, dass die Anfrage nicht authentifiziert ist. Wenn der User authentifiziert ist, wird seine Id verwendet, um seine Koordinaten aus der Firestore-Datenbank abzurufen.
 \\
@@ -1863,7 +1878,6 @@ Um sicherzustellen, dass der User innerhalb der Reichweite in der, der Beitrag s
 \\
 Schließlich gibt die Funktion eine Liste mit den Ids der gültigen Beiträge zurück, die innerhalb der mitgegebenen Reichweite liegen.
 
-Quelle: https://geofirestore.com
 
 \subsubsection{Verifizierungscode format überprüfen}
 \setauthor{Martin Hausleitner}
@@ -2013,11 +2027,12 @@ Der vorliegende Code \ref{lst:decrementLikeCommentFunction} die Cloud-Funktion \
   \centering
   \includegraphics[width=1\textwidth]{pics/Repository-Resource-Diagram.jpg}
   \caption{Verwaltungslogik Diagramm}
+  \label{fig:management-logic-diagram}
 \end{figure}
 
 Grafik wird noch verbessert.
 \\
-Die oben dargestellte Struktur ermöglicht es, Daten von einem Firestore-Server abzurufen und in einer Flutter-App zu verwalten. Die Struktur besteht aus mehreren Komponenten, die im Folgenden näher erläutert werden:
+Die vorliegende Grafik \ref{fig:management-logic-diagram} stellt eine Struktur dar, die es ermöglicht Daten von einem Firestore-Server abzurufen und in einer Flutter-App zu verwalten. Die Struktur besteht aus mehreren Komponenten, die im Folgenden näher erläutert werden:
 \\
 Die Struktur beginnt auf der UI-Ebene mit der Seite, die Daten aus dem Firestore benötigt. Diese Seite verfügt über einen GetxController, der für die Verwaltung des Zustands und die Implementierung von Logik zuständig ist. Dieser Controller initialisiert Repositories, die den Zugriff auf die Daten vereinfachen.
 \\
@@ -2027,9 +2042,13 @@ Ein wichtiger Vorteil bei der Verwendung von generischen Repositories besteht da
 \\
 Darüber hinaus ermöglicht die Verwendung von Generics auch die einfache Erweiterung und Anpassung der Implementierung. Wenn beispielsweise spezielle Anforderungen für bestimmte Datenmodelle bestehen, können diese problemlos in einem spezialisierten Repository hinzugefügt werden, ohne dass andere Teile des Codes beeinflusst werden.
 \\
-Das GenericRepository erbt von einer RepositoryObject-Klasse, die den ResourceContext beinhaltet. Der ResourceContext stellt den Zugriff auf verschiedene Ressourcen bereit.
+Die GenericRepository-Klasse erbt von der RepositoryObject-Klasse, welche den ResourceContext beinhaltet. Der ResourceContext stellt den Zugriff auf unterschiedliche Ressourcen bereit, wodurch die Interaktion mit den zugrunde liegenden Datenquellen ermöglicht wird.
 \\
-Jede Ressource ermöglicht den Zugriff auf Daten der entsprechenden Sammlung auf dem Firestore und implementiert grundlegende CRUD-Operationen.
+Jede Ressource ist für den Zugriff auf Daten einer entsprechenden Sammlung innerhalb des Firestore zuständig und implementiert grundlegende CRUD-Operationen. Durch die Kapselung dieser Operationen in dedizierten Ressourcen wird eine klare Trennung der Verantwortlichkeiten erreicht.
+\\
+Darüber hinaus erlaubt die Verwendung von ResourceContext eine einheitliche Schnittstelle für den Zugriff auf verschiedene Ressourcen, wodurch die Interoperabilität zwischen verschiedenen Komponenten der Verwaltungslogik gefördert wird. Diese Architektur erlaubt es, neue Ressourcen hinzuzufügen oder bestehende Ressourcen anzupassen, ohne die Gesamtstruktur der Anwendung zu beeinträchtigen.
+
+
 
 
 \section{Visual Studio Code Extensions}
