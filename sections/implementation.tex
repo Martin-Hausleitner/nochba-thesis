@@ -587,10 +587,6 @@ Typesense war aus mehreren Gründen eine ausgezeichnete Wahl für das Nochba-Tea
         \begin{itemize}
           \item {Typesense kann mit Tippfehlern umgehen und trotzdem relevante Suchergebnisse liefern. Dies ist eine wichtige Funktion für eine Suchmaschine, da Nutzer beim Tippen oft Fehler machen. Durch die Berücksichtigung dieser Fehler stellt Typesense sicher, dass die Nutzer auch dann korrekte Ergebnisse erhalten, wenn ihre Anfrage Tippfehler enthält.}
         \end{itemize}
-  \item \textbf{Tippfehler-Toleranz:}
-        \begin{itemize}
-          \item {Typesense kann mit Tippfehlern umgehen und trotzdem relevante Suchergebnisse liefern. Dies ist eine wichtige Funktion für eine Suchmaschine, da Nutzer beim Tippen oft Fehler machen. Durch die Berücksichtigung dieser Fehler stellt Typesense sicher, dass die Nutzer auch dann korrekte Ergebnisse erhalten, wenn ihre Anfrage Tippfehler enthält.}
-        \end{itemize}
 \end{itemize}
 
 In diesem Fall entschied sich das Nochba-Team, zu Algolia zu wechseln, das ähnliche Funktionen wie Typesense bietet. Beide Suchmaschinen bieten schnelle, typentolerante und anpassbare Suchergebnisse. Die Entscheidung für Algolia ermöglichte es dem Team, die mit Typesense aufgetretenen Herausforderungen bei der Implementierung zu überwinden und eine effektive Suchfunktionalität innerhalb der App bereitzustellen.
@@ -612,12 +608,19 @@ Das Team Nochba hat die folgenden Schritte zur Einrichtung und Installation der 
 
 \subsubsection{Firestore Sync}
 
-\subsubsection{Testbenutzer für Entwickler}
+\subsubsection{Testbenutzer für die Entwickler}
 \setauthor{Arsham Edalatkhah}
 
 Das Team Nochba hat beschlossen, auf der Registrierungs-/Anmeldeseite eine weitere Funktion speziell für die Entwickler einzurichten. Diese Option ermöglicht die sofortige Erstellung eines 'Testbenutzers'. Nach dem Anklicken der Schaltfläche wird der Testbenutzer automatisch registriert und verifiziert. Der wesentliche Grund für die Entscheidung von Team Nochba war die Vereinfachung des Entwicklungsvorgangs, da sich das Team nicht mehr jedes Mal neu anmelden oder registrieren muss, wenn es die Applikation während der Entwicklung erneut geladen wird. Dieser Ansatz spart viel Zeit und beschleunigt den Entwicklungsprozess.
 
 Testbenutzer oder Mock-User stehen in der Entwicklungsversion ausschließlich den Developern zur Verfügung, während sie im Release-Modus für die Tester nicht zugänglich sind. Durch die Trennung der Testbenutzer von den tatsächlichen Benutzern stellt das Team Nochba sicher, dass die Entwicklungsumgebung von der Testumgebung getrennt bleibt, um unbeabsichtigte Folgen oder Störungen des Testprozesses zu vermeiden. Diese Strategie ermöglicht es dem Team, eine hohe Softwarequalität beizubehalten und stellt sicher, dass das finale Produkt zuverlässig, sicher und effizient ist.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{pics/dummy-user-screenshots.png}
+  \caption{Testbenutzer für die Entwickler}
+  \label{fig:dummy-user-screenshots}
+\end{figure}
 
 
 \subsection{Chat}
@@ -656,7 +659,7 @@ Gemäß der Studie 'Neighborly Networks: A Study of Online Community Life' von K
         \end{itemize}
 \end{itemize}
 
-Vergleich 'Flyer Chat' und 'Stream Chat Flutter'
+\subsection{Vergleich 'Flyer Chat' und 'Stream Chat Flutter'}
 
 Es gibt ein Flutter-Chatpaket namens 'Flyer Chat', das momentan das am besten bewertete Chatpaket auf dem Gebiet ist. Ein weiteres hoch geschätztes Chat-Paket für Flutter-Applikationen ist 'Stream Chat Flutter'.
 
@@ -685,7 +688,7 @@ Für das Team Nochba war es aus folgenden Gründen eine bessere Idee, das 'Flyer
         \end{itemize}
 \end{itemize}
 
-Software-Engineering mit komponentenorientierter Entwicklung
+\subsection{Komponentenorientierte Software-Entwicklung}
 
 Laut dem 1998 veröffentlichten Fachbuch (Quelle: \cite{szyperski-component} )'Component-Oriented Programming' von Clemens Szyperski können Komponenten unabhängig voneinander entwickelt, getestet und gewartet werden, was mehrere Vorteile bietet:
 
@@ -715,9 +718,7 @@ Darüber hinaus ermöglicht die Verwendung einer vorgefertigten Komponente wie '
 
 Zusammenfassend lässt sich sagen, dass die Integration des 'Flyer Chat'-Pakets in eine Flutter-Anwendung ein hervorragendes Beispiel für komponentenorientierte Programmierung in der Praxis ist. Dieser Ansatz hilft Entwicklern, Zeit zu sparen, qualitativ hochwertige Standards einzuhalten und sich auf die Realisierung eines hervorragenden Benutzererlebnisses zu konzentrieren, wovon letztendlich sowohl der Entwickler als auch der Endbenutzer profitieren.
 
-
-Fotoaufnahme im Chat
-
+\subsection{Fotoaufnahme im Chat}
 
 \begin{lstlisting}[language=Java,caption=Aufnahmeprozess für ein Foto,label=lst:foto]  
 
@@ -802,7 +803,8 @@ Nachdem das Bild erfolgreich hochgeladen und gesendet wurde, wird der interne St
 
 Wenn während des Hochladen des Bildes oder des Versenden der Nachricht eine Fehlermeldung auftritt, sorgt der Final Block dafür, dass der Status mit 'setAttachmentUploading(false)' trotzdem aktualisiert wird.
 
-Prozess der Bildauswahl im Chat
+
+\subsection{Prozess der Bildauswahl im Chat}
 
 \begin{lstlisting}[language=Java,caption=Prozess der Bildauswahl und -verarbeitung,label=lst:fotoSelektion]  
 
@@ -861,25 +863,31 @@ Es liest das Bild als Bytes und prüft, ob es null ist. Wenn dies der Fall ist, 
 
 Wenn das Ergebnis nicht null ist, dann macht die Funktion mit den folgenden Schritten weiter:
 
-a. Der Status des Uploads von Anhängen wird mit der Funktion 'setAttachmentUploading' auf 'true' gesetzt.
-b. Ein File wird aus dem Pfad des Bildes erstellt, und die Größe wird mit 'lengthSync()' berechnet.
-c. Die Bytes des Bildes werden gelesen, und das Bild wird aus der Byteliste dekodiert.
-d. Der Name des Bildes wird aus dem result object ausgelesen.
+Der Status des Uploads von Anhängen wird mit der Funktion 'setAttachmentUploading' auf 'true' gesetzt.
+
+Ein File wird aus dem Pfad des Bildes erstellt, und die Größe wird mit 'lengthSync()' berechnet.
+
+Die Bytes des Bildes werden gelesen, und das Bild wird aus der Byteliste dekodiert.
+
+Der Name des Bildes wird aus dem result object ausgelesen.
+
+
 
 In einem try-final-Block:
-a. Die ID des Benutzers wird aus der Liste 'room.users' abgerufen.
-b. Ein Referenz zu dem Ort in Firebase Storage, an dem das Bild gespeichert wird, wird erstellt, indem die ID des Benutzers und der Name des Bildes verwendet werden.
-c. Die Datei wird mit 'putFile' in Firebase Storage hochgeladen.
-d. Die Download-URL der hochgeladenen Datei wird von Firebase Storage abgerufen.
-e. Es wird eine 'types.PartialImage'-Nachricht mit den Merkmalen des Bildes (Höhe, Breite, Name, Größe und URI) erstellt.
-f. Die Bildnachricht wird mit 'chat.FirebaseChatCore.instance.sendMessage' an den Chatraum gesendet.
-g. Der Upload-Status des Bildes wird auf 'false' gesetzt.
+
+Die ID des Benutzers wird aus der Liste 'room.users' abgerufen.
+
+Ein Referenz zu dem Ort in Firebase Storage, an dem das Bild gespeichert wird, wird erstellt, indem die ID des Benutzers und der Name des Bildes verwendet werden.
+
+Die Datei wird mit 'putFile' in Firebase Storage hochgeladen.
+Die Download-URL der hochgeladenen Datei wird von Firebase Storage abgerufen.
+Es wird eine 'types.PartialImage'-Nachricht mit den Merkmalen des Bildes (Höhe, Breite, Name, Größe und URI) erstellt.
+Die Bildnachricht wird mit 'chat.FirebaseChatCore.instance.sendMessage' an den Chatraum gesendet.
+Der Upload-Status des Bildes wird auf 'false' gesetzt.
 
 Im final-Block stellt die Funktion sicher, dass der Hochladestatus des Anhangs auf 'false' gesetzt wird, auch wenn ein Fehler während des Vorgangs auftaucht. Dadurch wird sichergestellt, dass die Benutzeroberfläche im Falle von Fehlern unverändert bleibt.
 
-
-Indexing-Problem
-
+\subsection{Indexing-Problem}
 
 \begin{lstlisting}[language=Java,caption=Anzeige des Profilbildes,label=lst:fotoSelektion]  
 
