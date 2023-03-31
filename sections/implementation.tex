@@ -143,15 +143,15 @@ GetX verfügt über zwei wichtige Konzepte: GetxController und GetxService
 \subsubsection{GetxController}
 \setauthor{Sandin Habibovic}
 GetxController ist eine Klasse, die verwendet wird, um den Zustand eines Widgets oder einer Gruppe von Widgets zu verwalten. Ein GetxController ähnelt dem StatefulWidget von Flutter, bietet jedoch zusätzliche Funktionen wie reaktive Programmierung und Dependency Injection. GetxController werden verwendet, um die Logik eines Widgets von seiner Präsentation zu trennen, was das Warten und Testen vereinfachen soll.
-\\
+\\\\
 GetxController bieten einige Vorteile. Dazu gehören:
-\\
+
 \textbf{Einfachheit:}
 GetxController sind einfach zu verstehen und zu implementieren und erfordern keine zusätzlichen Boilerplate-Code oder das Erlernen von komplexen Konzepten, um es in einer Anwendung zu verwenden.
-\\
+
 \textbf{Flexibilität:}
 GetxController können in jeder Flutter-Anwendung verwendet werden, unabhängig von ihrer Größe oder Komplexität. Es kann leicht in bestehende Projekte integriert oder für neue Anwendungen verwendet werden.
-\\
+
 \textbf{Kapselung:}
 GetxController kapseln den Zustand und die Logik der Anwendung und ermöglichen eine saubere Trennung von Zuständigkeiten. Dadurch wird der Code besser organisiert und wartbarer.
 \\
@@ -210,22 +210,21 @@ Die HomePage-Klasse erbt von einem GetView-Widget, welches den HomeController im
 \subsubsection{GetxService}
 \setauthor{Sandin Habibovic}
 GetxService ist eine Klasse, die eine globale Instanz eines Dienstes bereitstellt, die in der gesamten Anwendung verwendet werden kann. GetxService werden in der Regel für Operationen verwendet, die einmal ausgeführt werden müssen, wie zum Beispiel das Erstellen, Updaten oder Löschen von Daten in der Datenbanken, API-Aufrufen und anderen Backend-Services. Im Gegensatz zum GetxController bietet GetxService keine automatische Aktualisierung der UI.
-\\
+\\\\
 Einige Vorteile von GetxServices sind:
-\\
+
 \textbf{Langlebigkeit:}
 GetxServices bleiben für die gesamte Lebensdauer der App bestehen, was bedeutet, dass sie einmal initialisiert werden und dann für die gesamte Nutzungsdauer der App zur Verfügung stehen. Dies ist besonders nützlich für Dienste, die nicht direkt an das UI gebunden sind und keine ständige Aktualisierung benötigen.
-\\
+
 \textbf{Wiederverwendbarkeit:}
 GetxServices können in verschiedenen Teilen der Anwendung wiederverwendet werden, ohne dass sie mehrfach initialisiert werden müssen. Dadurch wird der Code effizienter und einfacher zu verwalten.
-\\
+
 \textbf{Zentrale Verwaltung:}
 GetxServices ermöglichen eine zentrale Verwaltung von Anwendungsdiensten und -ressourcen, wodurch der Code besser organisiert und leichter zu warten ist.
-\\
+
 \textbf{Einfache Integration:}
 GetxServices können leicht in bestehende Flutter-Projekte integriert werden, ohne dass große Änderungen am Code vorgenommen werden müssen. Dies erleichtert die Migration von bestehenden Projekten zu GetX.
-
-\paragraph{Beispiel}
+\\
 \begin{lstlisting}[caption=Beispiel zum Einsatz von einem GetxService,label=lst:GetxServiceExample]
   import 'package:get/get.dart';
 
@@ -271,7 +270,6 @@ Die HomeController-Klasse erbt von GetxController und hat eine Instanz von \text
 \setauthor{Sandin Habibovic}
 Um einen GetxController oder GetxService verwenden zu können, muss der jeweilige GetxController oder der jeweilige GetxService zuerst registriert werden. Dafür stellt GetX sogenannte Bindings zur Verfügung. Diese Bindings erstellen Instanzen von den jeweiligen GetxControllern oder den jeweiligen GetxServices, die dann mit \textit{GetView<Controller>} bzw. \textit{Get.find<Service>()} aufgerufen werden können.
 
-\paragraph{Beispiel}
 \begin{lstlisting}[caption=Beispiel von einem Binding,label=lst:GetxBindingExample]
   import 'package:get/get.dart';
 
@@ -327,7 +325,7 @@ Die Abbildung \ref{fig:registration-sequenze} repräsentiert ein Sequenzdiagram,
 \\
 Der Registrierungsprozess beginnt damit, dass der Benutzer aufgefordert wird, seine E-Mail-Adresse und ein Passwort anzugeben. Das Registrierungsformular leitet dann die E-Mail-Adresse und das Passwort Firebase weiter um es auf dessen Gültigkeit und Richtigkeit zu prüfen. Bei einer erfogreichen Prüfung werden die Daten eingespeichert und der User wird eingelogt.
 \\
-Nach überstehen des ersten Schrittes wird der nächste Schritt eingeleitet, die Namensansicht. Hier wird der Benutzer aufgefordert, seinen Namen und optional schon sein Profilbild anzugeben. Der Name wird dann ebenfalls vom Registrierungsformular auf Korrektheit und Vollständigkeit überprüft und im Firestore eingespeichert.
+Nach dem ersten Schritt wird der nächste Schritt, die Namensansicht, eingeleitet. Hier wird der Benutzer aufgefordert, seinen Namen und optional schon sein Profilbild anzugeben. Der Name wird dann ebenfalls vom Registrierungsformular auf Korrektheit und Vollständigkeit überprüft und im Firestore eingespeichert.
 \\
 Nachdem der Benutzer seinen Namen eingegeben hat, wird er zur Addressenansicht weitergeleitet, wo er aufgefordert wird, seine Adresse anzugeben. Wenn der User seine Adresse eingegeben hat, wird sie vom Registrierungsformular zu einer Cloud Function weitergeleitet und validiert. Falls sich die Addresse als eine korrekt Addresse erweist, wird sie direkt von der Cloud Function in den Firestore eingespeichert.
 \\
@@ -951,9 +949,35 @@ Die folgende Abbildung \ref{fig:public-profile} zeigt, wie das öffentliche Prof
   \label{fig:public-profile}
 \end{figure}
 
+
+\subsubsection{Profil beabreiten}
+\setauthor{Sandin Habibovic}
+
+Das öffentliche Profil von einem User kann von denjenigen User bearbeitet werden.
+\\
+Die folgende Abbildung \ref{fig:edit-profile} zeigt, wie die Profilbearbeitung in der App dargestellt wird.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{pics/edit-profile.jpg}
+  \caption{Profilbearbeitungsansicht auf der App}
+  \label{fig:edit-profile}
+\end{figure}
+
+
 \subsubsection{Profil Melden}
 \setauthor{Sandin Habibovic}
-Falls das Profil vom User unangebrachten Inhalt aufweist, besteht die Möglichkeit das Profil zu melden.
+Falls das Profil von einem User unangebrachten Inhalt aufweist, besteht die Möglichkeit das Profil zu melden.
+\\
+Die folgende Abbildung \ref{fig:report-profile} zeigt, wie die Profilmeldung in der App dargestellt wird.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{pics/report-profile.JPG}
+  \caption{Profilmeldeansicht auf der App}
+  \label{fig:report-profile}
+\end{figure}
+
 
 \subsection{Benachrichtigungen}
 \setauthor{Sandin Habibovic}
@@ -1389,13 +1413,16 @@ die vorherige Schriftart.
 
 \subsection{App Design}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=1\textwidth]{pics/flow-lows.png}
-  \caption{App Flows}
-  \label{fig:app-flows}
-\end{figure}
-Auf Abbildung \ref{fig:app-flows} sind nahezu alle Abläufe der App zu sehen.
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=1\textwidth]{pics/flow-lows.png}
+%   \caption{App Flows}
+%   \label{fig:app-flows}
+% \end{figure}
+
+% Auf Abbildung \ref{fig:app-flows} sind nahezu alle Abläufe der App zu sehen.
+
+
 \subsubsection{Thumb Zone Prinzip}
 \setauthor{Martin Hausleitner}
 
