@@ -145,7 +145,6 @@ Die nächsten beiden Blöcke definieren die Befehle für das Builden der App und
 
 Der letzte Block enthält den Befehl zum Inkrementieren der Build-Nummer für die Android-Plattform. Dabei wird der versionCode im build.gradle-File der App um 1 erhöht.
 
-\subsection{Firebase App Distribution}
 
 \section{Mobile Anwendung}
 \subsection{Dateistruktur}
@@ -686,7 +685,6 @@ Das Team Nochba hat die folgenden Schritte zur Einrichtung und Installation der 
   \item {Konfiguration der durchsuchbaren Kategorien durch die Einstellung der \textit{searchableAttributes} im Algolia-Dashboard, die \textit{description}, \textit{title}, \textit{tags} und \textit{category} umfassen.}
 \end{itemize}
 
-\subsubsection{Firestore Sync}
 
 \subsubsection{Testbenutzer für die Entwickler}
 \setauthor{Arsham Edalatkhah}
@@ -1005,7 +1003,6 @@ Die Integration des Google Smart Reply ML Kits bietet den Benutzern verschiedene
 
 Das Google Smart Reply System nutzt die letzten zehn Nachrichten als Kontext, um adäquate und relevante Antwortvorschläge zu generieren. Die Anwendung von maschinellem Lernen in diesem Kontext trägt zur Verbesserung der Benutzererfahrung bei und ermöglicht eine effizientere Kommunikation. Auf diese Weise können die Benutzer schnell und einfach auf eingehende Nachrichten reagieren, wodurch wertvolle Zeit gespart und mögliche Frustrationen vermieden werden.
 
-\subsubsection{Flyer Package}
 
 \subsection{Profil}
 \setauthor{Sandin Habibovic}
@@ -1791,7 +1788,7 @@ Im Dokument \texttt{address} werden im Feld \texttt{coords} die Koordinaten der 
 \\
 Falls sich der User durch einen Einlade-QR-Code verifiziert hat, hat das Dokument \texttt{verification} die Felder \texttt{deviceCoords} für die Gerätkoordinaten, \texttt{code} für den Einlade-QR-Code der eingesetzt wurde und \texttt{distance}, welches angibt wie groß die Distanz zwischen den Gerätkoordinaten und den Koordinaten des Users, der den QR-Code erstellt hat, ist.
 
-\paragraph{UserCoords}\mbox{} \
+\paragraph{UserCoords}\mbox{} \\
 Die \texttt{userCoords}-Collection ist die Sammlung, die die Koordinaten des Users aufbewahrt. Die Dokumente der Collection beinhalten ein einziges Feld \texttt{g}. Dieses Feld ist eine Map, die aus den Feldern \texttt{geopoint} für die Koordinaten und \texttt{geohash} für den Geohash besteht. Der Geohash ist eine Kurzdarstellung der Koordinaten als alphanumerischer String. Die erneute Speicherung der User-Koordinaten als Hauptkollektion dient der Vereinfachung des Geofencing-Prozesses.
 
 \paragraph{Codes}\mbox{} \\
