@@ -125,7 +125,7 @@ In Flutter gibt es verschiedene Möglichkeiten\cite{flutter-docs-interactive}\ci
 \subsubsection{GetX}
 \setauthor{Martin Hausleitner}
 
-GetX verwendet ein reaktives Ansatz zur Verwaltung des Zustands, was bedeutet, dass Änderungen im Zustand automatisch die UI aktualisieren, ohne dass der Entwickler manuell Code schreiben muss, um diese Aktualisierungen durchzuführen. Dies spart viel Entwicklungszeit und macht es einfach, auf Benutzerinteraktionen zu reagieren.
+GetX\cite{package_get} verwendet ein reaktives Ansatz zur Verwaltung des Zustands, was bedeutet, dass Änderungen im Zustand automatisch die UI aktualisieren, ohne dass der Entwickler manuell Code schreiben muss, um diese Aktualisierungen durchzuführen. Dies spart viel Entwicklungszeit und macht es einfach, auf Benutzerinteraktionen zu reagieren.
 
 Mit GetX lässt sich eine einheitliche Datenquelle erstellen, auf die alle Komponenten zugreifen können. Dies erleichtert die Wartung und Erweiterung der Anwendung. Zudem bietet GetX eine einfache Möglichkeit, Abhängigkeiten zu verwalten und Zustandsinformationen zwischen verschiedenen Bildschirmen zu teilen. Diese Funktionen tragen zu einer effizienteren und besser strukturierten App-Entwicklung bei.
 
@@ -411,7 +411,7 @@ Jeder Beitrag hat eine eigene Sektion, wo wichtige Informationen über den Beitr
 \subsubsection{Kommentare}
 \setauthor{Sandin Habibovic}
 Die Kommentarfunktion ermöglicht es den Usern unter einem Beitrag Ihre Meinung, Feedback oder sonstiges zu hinterlassen.
-
+\\\\
 Die folgende Abbildung \ref{fig:feed-comment} zeigt, wie ein Beitrag mit Tags und die dazugehörige Kommentarsektion auf der App dargestellt werden.
 
 \begin{figure}[H]
@@ -420,7 +420,6 @@ Die folgende Abbildung \ref{fig:feed-comment} zeigt, wie ein Beitrag mit Tags un
   \caption{Feed-Page und Kommentarsektion auf der App}
   \label{fig:feed-comment}
 \end{figure}
-
 
 \subsubsection{Beitrag oder Kommentar melden}
 \setauthor{Sandin Habibovic}
@@ -2158,67 +2157,67 @@ Darüber hinaus erlaubt die Verwendung von ResourceContext eine einheitliche Sch
 
 Im Folgenden finden Sie eine Auswahl an essentiellen und nützlichen Flutter-Pakete, die in der App zum Einsatz kam.
 \\
-\textbf{firebase\_core: \^2.0.0} - Dieses Paket bildet die grundlegende Firebase-Bibliothek, die für die Verwendung anderer Firebase-Pakete in der Appliaktion erforderlich ist. Initialisiert Firebase und stellt die Konfiguration bereit.
+\textbf{firebase\_core: \^2.0.0}\cite{package_firebase_core} - Dieses Paket bildet die grundlegende Firebase-Bibliothek, die für die Verwendung anderer Firebase-Pakete in der Appliaktion erforderlich ist. Initialisiert Firebase und stellt die Konfiguration bereit.
 https://pub.dev/packages/firebase\_core
 \\
-\textbf{firebase\_auth: \^4.0.1} - Dieses Paket erlaubt die Integration der Firebase-Authentifizierung in der Applikation. Es unterstützt die Anmeldung mit verschiedenen Anbietern, wie beispielsweise E-Mail oder Google.
+\textbf{firebase\_auth: \^4.0.1}\cite{package_firebase_auth} - Dieses Paket erlaubt die Integration der Firebase-Authentifizierung in der Applikation. Es unterstützt die Anmeldung mit verschiedenen Anbietern, wie beispielsweise E-Mail oder Google.
 https://pub.dev/packages/firebase\_auth
 \\
-\textbf{cloud\_firestore: \^4.0.1} - Dieses Paket erlaubt die Integration von Firestore in der Applikation. Es unterstützt das Erstellen, Bearbeiten und Löschen von Daten in Echtzeit.
+\textbf{cloud\_firestore: \^4.0.1}\cite{package_cloud_firestore} - Dieses Paket erlaubt die Integration von Firestore in der Applikation. Es unterstützt das Erstellen, Bearbeiten und Löschen von Daten in Echtzeit.
 https://pub.dev/packages/cloud\_firestore
 \\
-\textbf{firebase\_storage: \^11.0.1} - Dieses Paket erlaubt die Integration von Cloud Storage in der Applikation. Es ermöglicht das Hoch- und Herunterladen von Dateien und Bildern.
+\textbf{firebase\_storage: \^11.0.1}\cite{package_firebase_storage} - Dieses Paket erlaubt die Integration von Cloud Storage in der Applikation. Es ermöglicht das Hoch- und Herunterladen von Dateien und Bildern.
 https://pub.dev/packages/firebase\_storage
 \\
-\textbf{cloud\_functions: \^4.0.6} - Dieses Paket erlaubt die Verwendung von Cloud Functions in der Applikation. Wird für serverlose Logik und Backend-Integration verwendet.
+\textbf{cloud\_functions: \^4.0.6}\cite{package_cloud_functions} - Dieses Paket erlaubt die Verwendung von Cloud Functions in der Applikation. Wird für serverlose Logik und Backend-Integration verwendet.
 https://pub.dev/packages/cloud\_functions
 \\
-\textbf{get: \^4.6.5} - Dieses Paket erlaubt die Integration von GetX in der Applikation. Es unterstützt das App-Management, die Navigation, die Zustandsverwaltung und Abhängigkeitsinjektionen.
+\textbf{get: \^4.6.5}\cite{package_get} - Dieses Paket erlaubt die Integration von GetX in der Applikation. Es unterstützt das App-Management, die Navigation, die Zustandsverwaltung und Abhängigkeitsinjektionen.
 https://pub.dev/packages/get
 \\
-\textbf{openai\_client: \^0.0.7} - Dieses Paket ermöglicht die Nutzung von OpenAI-Diensten in der Applikation, wodurch die Integration von künstlicher Intelligenz und maschinellem Lernen unterstützt wird.
+\textbf{openai\_client: \^0.0.7}\cite{package_openai_client} - Dieses Paket ermöglicht die Nutzung von OpenAI-Diensten in der Applikation, wodurch die Integration von künstlicher Intelligenz und maschinellem Lernen unterstützt wird.
 https://pub.dev/packages/openai\_client
 \\
-\textbf{algolia: \^1.1.1} - Dieses Paket ermöglicht die Integration der Algolia-Suchplattform in der Applikation und bietet schnelle, relevante Suchergebnisse in Echtzeit.
+\textbf{algolia: \^1.1.1}\cite{package_algolia} - Dieses Paket ermöglicht die Integration der Algolia-Suchplattform in der Applikation und bietet schnelle, relevante Suchergebnisse in Echtzeit.
 https://pub.dev/packages/algolia
 \\
-\textbf{flutter\_map: \^3.1.0} - Dieses Paket ermöglicht die Integration von interaktiven Karten in der Applikation.
+\textbf{flutter\_map: \^3.1.0}\cite{package_flutter_map} - Dieses Paket ermöglicht die Integration von interaktiven Karten in der Applikation.
 https://pub.dev/packages/flutter\_map
 \\
-\textbf{google\_mlkit\_translation: \^0.5.0} - Dieses Paket ermöglicht die Integration der Google ML Kit Translation-Funktion in der Applikation. Es unterstützt die Textübersetzungen in Echtzeit.
+\textbf{google\_mlkit\_translation: \^0.5.0}\cite{package_google_mlkit_translation} - Dieses Paket ermöglicht die Integration der Google ML Kit Translation-Funktion in der Applikation. Es unterstützt die Textübersetzungen in Echtzeit.
 https://pub.dev/packages/google\_mlkit\_translation
 \\
-\textbf{google\_mlkit\_language\_id: \^0.5.0} - Dieses Paket ermöglicht die Integration der Googles ML Kit Language Identification in der Applikation. Es unterstützt die Identifizierung von Sprachen in Texten.
+\textbf{google\_mlkit\_language\_id: \^0.5.0}\cite{package_google_mlkit_language_id} - Dieses Paket ermöglicht die Integration der Googles ML Kit Language Identification in der Applikation. Es unterstützt die Identifizierung von Sprachen in Texten.
 https://pub.dev/packages/google\_mlkit\_language\_id
 \\
-\textbf{google\_sign\_in: \^6.0.2} - Dieses Paket ermöglicht die Integration von Google Konten in der Applikation. Unterstützt die Google-Anmeldung.
+\textbf{google\_sign\_in: \^6.0.2}\cite{package_google_sign_in} - Dieses Paket ermöglicht die Integration von Google Konten in der Applikation. Unterstützt die Google-Anmeldung.
 https://pub.dev/packages/google\_sign\_in
 \\
-\textbf{feedback: \^2.5.0} - Dieses Paket ermöglicht das sammeln von Benutzerfeedback mit Screenshots und Anmerkungen, die an das Entwicklungsteam gesendet werden können.
+\textbf{feedback: \^2.5.0}\cite{package_feedback} - Dieses Paket ermöglicht das sammeln von Benutzerfeedback mit Screenshots und Anmerkungen, die an das Entwicklungsteam gesendet werden können.
 https://pub.dev/packages/feedback
 \\
-\textbf{mobile\_scanner: \^3.0.0} - Dieses Paket ermöglicht die Integration von Scanner-Funktionalitäten für mobile Geräte in der Applikation und unterstützt das Scannen von Barcodes, QR-Codes und Dokumenten.
+\textbf{mobile\_scanner: \^3.0.0}\cite{package_mobile_scanner} - Dieses Paket ermöglicht die Integration von Scanner-Funktionalitäten für mobile Geräte in der Applikation und unterstützt das Scannen von Barcodes, QR-Codes und Dokumenten.
 https://pub.dev/packages/mobile\_scanner
 \\
-\textbf{http: \^0.13.4} - Dieses Paket ermöglicht die Verwendung von HTTP-Anfragen in der Applikation. Es unterstützt GET, POST, PUT, DELETE und andere HTTP-Methoden.
+\textbf{http: \^0.13.4}\cite{package_http} - Dieses Paket ermöglicht die Verwendung von HTTP-Anfragen in der Applikation. Es unterstützt GET, POST, PUT, DELETE und andere HTTP-Methoden.
 https://pub.dev/packages/http
 \\
-\textbf{syncfusion\_flutter\_datepicker: \^20.2.45} - Dieses Paket ermöglicht die Verwendung von benutzerfreundlichen und anpassbaren Datumsauswahl-Funktionalitäten in der Applikation.
+\textbf{syncfusion\_flutter\_datepicker: \^20.2.45}\cite{package_syncfusion_flutter_datepicker} - Dieses Paket ermöglicht die Verwendung von benutzerfreundlichen und anpassbaren Datumsauswahl-Funktionalitäten in der Applikation.
 https://pub.dev/packages/syncfusion\_flutter\_datepicker
 \\
-\textbf{image: \^4.0.15} - Dieses Paket ermöglicht in der Applikation die Dekodierung, Bearbeitung und Kodierung von Bildern in verschiedenen Formaten wie PNG, JPEG, GIF und mehr.
+\textbf{image: \^4.0.15}\cite{package_image} - Dieses Paket ermöglicht in der Applikation die Dekodierung, Bearbeitung und Kodierung von Bildern in verschiedenen Formaten wie PNG, JPEG, GIF und mehr.
 https://pub.dev/packages/image
 \\
-\textbf{image\_picker: \^0.8.5+3} - Dieses Paket ermöglicht in der Appliaktion das Auswählen von Bildern aus der Galerie oder das Aufnehmen neuer Bilder mit der Kamera.
+\textbf{image\_picker: \^0.8.5+3}\cite{package_image_picker} - Dieses Paket ermöglicht in der Appliaktion das Auswählen von Bildern aus der Galerie oder das Aufnehmen neuer Bilder mit der Kamera.
 https://pub.dev/packages/image\_picker
 \\
-\textbf{image\_editor\_plus: \^0.2.0} - Dieses Paket ermöglicht in der Applikation eine einfach zu bedienende Bildbearbeitungs-Ansicht, das grundlegende Bearbeitungsfunktionen wie Zuschneiden, Drehen und Skalieren beherscht.
+\textbf{image\_editor\_plus: \^0.2.0}\cite{package_image_editor_plus} - Dieses Paket ermöglicht in der Applikation eine einfach zu bedienende Bildbearbeitungs-Ansicht, das grundlegende Bearbeitungsfunktionen wie Zuschneiden, Drehen und Skalieren beherscht.
 https://pub.dev/packages/image\_editor\_plus
 \\
-\textbf{cupertino\_icons: \^1.0.5} - Dieses Paket stellt eine Sammlung von über 1.000 hochwertigen iOS-Stil-Icons (Cupertino) für die Verwendung in der Applikation zur Verfügung.
+\textbf{cupertino\_icons: \^1.0.5}\cite{package_cupertino_icons} - Dieses Paket stellt eine Sammlung von über 1.000 hochwertigen iOS-Stil-Icons (Cupertino) für die Verwendung in der Applikation zur Verfügung.
 https://pub.dev/packages/cupertino\_icons
 \\
-\textbf{get\_time\_ago: \^1.1.6:} - Dieses Paket ermöglicht in der Appliaktion das Umwandeln von Datumstypen in menschenlesbare Zeitangaben mit vordefinierbaren Layout.
+\textbf{get\_time\_ago: \^1.1.6:}\cite{package_get_time_ago} - Dieses Paket ermöglicht in der Appliaktion das Umwandeln von Datumstypen in menschenlesbare Zeitangaben mit vordefinierbaren Layout.
 https://pub.dev/packages/get\_time\_ago
 
 
