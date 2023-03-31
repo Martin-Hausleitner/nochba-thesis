@@ -2168,7 +2168,23 @@ In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, 
   });
 \end{lstlisting}
 
-Der vorliegende Code \ref{lst:decrementLikeCommentFunction} die Cloud-Funktion \texttt{decrementLikeCounterOfComment}, welche aufgerufen wird, wenn ein Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private} \texttt{/record/likedComments}gelöscht wird. Ziel dieser Funktion ist es, den Like-Zähler des Kommentars in der Firestore-Sammlung \texttt{posts} zu verringern, wenn ein Nutzer seinen Like entfernt. Ähnlich zur \texttt{incrementLikeCounterOfComment}-Funktion ermittelt die Funktion zunächst die ID des entsprechenden Kommentars und erstellt eine Referenz auf diesen in der Firestore-Sammlung \texttt{posts}. Danach wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. Der aktuelle Like-Zähler des Kommentars wird abgerufen und um eins verringert. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung \texttt{posts} gespeichert.
+Der vorliegende Code \ref{lst:decrementLikeCommentFunction}
+die Cloud-Funktion \texttt{decrementLikeCounterOfComment},
+welche aufgerufen wird, wenn ein Eintrag in der
+Firestore-Sammlung \texttt{users/{userId}/private}
+\texttt{/record/likedComments} gelöscht wird. Ziel dieser
+Funktion ist es, den Like-Zähler des Kommentars in der
+Firestore-Sammlung \texttt{posts} zu verringern, wenn ein
+Nutzer seinen Like entfernt. Ähnlich zur
+\texttt{incrementLikeCounterOfComment}-Funktion ermittelt
+die Funktion zunächst die ID des entsprechenden Kommentars
+und erstellt eine Referenz auf diesen in der
+Firestore-Sammlung \texttt{posts}. Danach wird eine
+Transaktion gestartet, um sicherzustellen, dass die
+Like-Zähler-Operation atomar ausgeführt wird. Der aktuelle
+Like-Zähler des Kommentars wird abgerufen und um eins
+verringert. Die aktualisierte Anzahl wird dann in der
+Firestore-Sammlung \texttt{posts} gespeichert.
 
 \subsubsection{Typesense Search}
 
