@@ -1,20 +1,13 @@
-% \lipsum[4] Citing \cite{InfH} properly.
-% Was ist eine \gls{guid}?
-% Eine \gls{guid} kollidiert nicht gerne.
 
-% Kabellose Technologien sind in abgelegenen Gebieten wichtig \cite{APCW2006}.
 \setauthor{Martin Hausleitner}
-% \includegraphics[width=0.2\textwidth]{pics/systemarchitektur_diagram.png}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{pics/systemarchitektur_diagram.png}
     \caption{Systemarchitektur Diagramm}
     \label{fig:systemarchitektur}
 \end{figure}
-% todo: add systemarchitektur_diagram
-% \includegraphics[width=0.2\textwidth]{pics/systemarchitektur_diagram.svg}
 
-% \includesvg{pics/systemarchitektur_diagram.svg}
 Die Abbildung \ref{fig:systemarchitektur}
 veranschaulicht vereinfacht die Systemarchitektur. Der
 obere Teil stellt das Frontend dar, welches vollständig im
@@ -174,7 +167,7 @@ Vorteile von Cloud Firestore:
 
 \textbf{Echtzeitaktualisierungen:} Firestore ermöglicht Echtzeitaktualisierungen, indem Änderungen an den Daten automatisch an alle verbundenen Geräte gepusht werden. Dies ist besonders nützlich für Anwendungen, die ständig aktualisierte Daten anzeigen oder Benutzerinteraktionen in Echtzeit verarbeiten müssen.
 
-\textbf{Flexible Datenstrukturen:} Firestore unterstützt flexible Datenstrukturen, die es ermöglicht, Datenmodelle einfach an sich ändernde Anforderungen anzupassen. Dokumente können verschachtelte Felder, Arrays und komplexe Datenstrukturen wie Maps enthalten, was eine effiziente Organisation und Abfrage von Daten ermöglicht.
+\textbf{Flexible Datenstrukturen:} Firestore unterstützt flexible Datenstrukturen, die es ermöglicht, Datenmodelle einfach an sich ändernden Anforderungen anzupassen. Dokumente können verschachtelte Felder, Arrays und komplexe Datenstrukturen wie Maps enthalten, was eine effiziente Organisation und Abfrage von Daten ermöglicht.
 
 \textbf{Leistungsstarke Abfragen:} Firestore bietet leistungsstarke Abfragefunktionen, die komplexe Datenabfragen unterstützen.
 Daten können sortiert, gefiltert und aggregiert werden, um genau die Informationen abrufen zu können, die benötigt werden, ohne unnötige Daten zu übertragen.
@@ -184,7 +177,7 @@ Daten können sortiert, gefiltert und aggregiert werden, um genau die Informatio
 
 \subsubsection{Datenmodell}
 
-Das Datenmodell\cite{firestore_datamodel} in Firestore ist hierarchisch und besteht aus Dokumenten und Sammlungen, auch Collections genannt. Dokumente sind einzelne Datenobjekte, die Felder mit Werten enthalten. Sammlungen sind Container für Dokumente und können weitere Sammlungen enthalten, sogenannte Sub-Collections. Dieses hierarchische Datenmodell erlaubt es, Daten effizient zu organisieren und abzufragen.
+Das Datenmodell\cite{firestore_datamodel} in Firestore ist hierarchisch und besteht aus Dokumenten und Sammlungen, auch Collections genannt. Dokumente sind einzelne Datenobjekte, die Felder mit Werten enthalten. Sammlungen sind Container für Dokumente und können weitere Sammlungen enthalten, sogenannte Subcollections. Dieses hierarchische Datenmodell erlaubt es, Daten effizient zu organisieren und abzufragen.
 
 % Weitere wichtige punkte:
 
