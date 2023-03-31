@@ -3,8 +3,7 @@
 \subsection{iOS Build}
 \setauthor{Martin Hausleitner}
 
-Das
-Ziel des Projekts war es, eine \cite{ios_app_store} iOS-App
+Das Ziel des Projekts war es, eine \cite{ios_app_store} iOS-App
 im App Store zu veröffentlichen und eine Android-App im Play Store anzubieten. Da Martin Hausleitner der einzige im Team war, der ein iPhone besaß und Erfahrungen mit Apple hatte, übernahm er die Verantwortung für den Build-Prozess der iOS-App.
 Zur Erstellung einer \cite{flutter} Flutter iOS-App ein Mac mit \cite{xcode} Xcode sowie ein \cite{apple_developer_program} Apple-Entwicklerkonto erforderlich. Da jedoch niemand im Team über ein solches Konto verfügte, gestaltete sich der Build-Prozess äußerst schwierig. Glücklicherweise konnte Martin Hausleitner einen alten iMac von seiner Familie ausleihen, auf dem er arbeiten konnte. Obwohl das Erstellen einer iOS-App auf den ersten Blick einfach erscheint, stellte es sich als eine der größten Herausforderungen in diesem Projekt heraus.
 Da MacOS und Xcode dem Entwickler nicht vertraut waren, musste er sich zunächst mühsam einarbeiten. Es bedurfte zahlreicher Anläufe, um die App zum ersten Mal zu erstellen, da zum damaligen Zeitpunkt von Flutter noch keine vorgefertigten Build-Abläufe zur Verfügung standen.
@@ -173,7 +172,7 @@ In Flutter gibt es verschiedene Möglichkeiten\cite{flutter-docs-interactive}\ci
 \subsubsection{GetX}
 \setauthor{Martin Hausleitner}
 
-GetX\cite{package_get} verwendet ein reaktives Ansatz zur Verwaltung des Zustands, was bedeutet, dass Änderungen im Zustand automatisch die UI aktualisieren, ohne dass der Entwickler manuell Code schreiben muss, um diese Aktualisierungen durchzuführen. Dies spart viel Entwicklungszeit und macht es einfach, auf Benutzerinteraktionen zu reagieren.
+GetX\cite{package_get} verwendet einen reaktiven Ansatz zur Verwaltung des Zustands, was bedeutet, dass Änderungen im Zustand automatisch die UI aktualisieren, ohne dass der Entwickler manuell Code schreiben muss, um diese Aktualisierungen durchzuführen. Dies spart viel Entwicklungszeit und macht es einfach, auf Benutzerinteraktionen zu reagieren.
 
 Mit GetX lässt sich eine einheitliche Datenquelle erstellen, auf die alle Komponenten zugreifen können. Dies erleichtert die Wartung und Erweiterung der Anwendung. Zudem bietet GetX eine einfache Möglichkeit, Abhängigkeiten zu verwalten und Zustandsinformationen zwischen verschiedenen Bildschirmen zu teilen. Diese Funktionen tragen zu einer effizienteren und besser strukturierten App-Entwicklung bei.
 
@@ -253,7 +252,7 @@ Die HomePage-Klasse erbt von einem GetView-Widget, welches den HomeController im
 
 \subsubsection{GetxService}
 \setauthor{Sandin Habibovic}
-GetxService ist eine Klasse, die eine globale Instanz eines Dienstes bereitstellt, die in der gesamten Anwendung verwendet werden kann. GetxService werden in der Regel für Operationen verwendet, die einmal ausgeführt werden müssen, wie zum Beispiel das Erstellen, Updaten oder Löschen von Daten in der Datenbanken, API-Aufrufen und anderen Backend-Services. Im Gegensatz zum GetxController bietet GetxService keine automatische Aktualisierung der UI.
+GetxService ist eine Klasse, die eine globale Instanz eines Dienstes bereitstellt, die in der gesamten Anwendung verwendet werden kann. GetxService werden in der Regel für Operationen verwendet, die einmal ausgeführt werden müssen, wie zum Beispiel das Erstellen, Updaten oder Löschen von Daten in der Datenbank, API-Aufrufen und anderen Backend-Services. Im Gegensatz zum GetxController bietet GetxService keine automatische Aktualisierung der UI.
 \\\\
 Einige Vorteile von GetxServices sind:
 
@@ -318,12 +317,12 @@ Um einen GetxController oder GetxService verwenden zu können, muss der jeweilig
   import 'package:get/get.dart';
 
   class HomeBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.put(MyService());
-    Get.put(HomeController());
+    @override
+    void dependencies() {
+        Get.put(MyService());
+        Get.put(HomeController());
+    }
   }
-}
 
 \end{lstlisting}
 \newpage
@@ -1043,7 +1042,7 @@ Die Abbildung \ref{fig:report-profile} zeigt, wie das Melden eines Profils in de
 
 \subsection{Benachrichtigungen}
 \setauthor{Sandin Habibovic}
-Benachrichtigungen dienen dazu die Nachbarn über mögliche Hilfsangebote zu informieren, bevor der Kontakt überhaupt entsteht. Die Benachrichtigung zeigt den Nachbarn an, der in Kontakt treten möchte, und möglicherweise den Beitrag auf dem geantwortet wurde. Außerdem ist die Benachrichtigung mit einer „Annehmen“- und „Ablehnen“-Option ausgestattet, womit das Hilfsangebot angenommen oder abgelehnt werden kann.
+Benachrichtigungen dienen dazu die Nachbarn über mögliche Hilfsangebote zu informieren, bevor der Kontakt überhaupt entsteht. Die Benachrichtigung zeigt den Nachbarn an, der in Kontakt treten möchte, und möglicherweise den Beitrag auf dem geantwortet wurde. Außerdem ist die Benachrichtigung mit einer „Akzeptieren“- und „Ablehnen“-Option ausgestattet, womit das Hilfsangebot angenommen oder abgelehnt werden kann.
 \\
 Die Abbildung \ref{fig:notification-view} zeigt, wie die Benachrichtigungen in der App dargestellt werden.
 
@@ -1670,7 +1669,7 @@ Für die vorliegende Applikation wurden zwei Authentifizierungsmethoden ausgewä
 \setauthor{Sandin Habibovic}
 Cloud Firestore dient der Anwendung als NoSQL-Datenbank, die die dokumentbasierte Speicherung von Daten ermöglicht. Dadurch kann das Datenmodell an die Anforderungen der Anwendung zugeschnitten werden, während es trotzdem effizient und performant bleibt.
 \\
-Ein wichtiger Vorteil von Firestore ist, dass Collections und dazugehörige Subcollections erstellt werden können, um damit Daten in hierarchischen Strukturen zu organisieren. Diese Subcollections können verwendet werden, um abhängige Daten in einer einzigen Anfrage abzurufen und damit den Datenzugriff zu optimieren. Darüber hinaus bietet Firestore die Möglichkeit, Daten auf verschiedenen Ebenen zu filtern und zu sortieren, um nur die benötigten Daten abzurufen, was beim Filtern von Beiträgen eine große Rolle spielen kann.
+Ein wichtiger Vorteil von Firestore ist, dass Collections und dazugehörige Subcollections erstellt werden können, um damit Daten in hierarchischen Strukturen zu organisieren. Diese Subcollections können verwendet werden, um abhängige Daten in einer einzigen Anfrage abzurufen und damit den Datenzugriff zu optimieren. Darüber hinaus bietet Firestore die Möglichkeit, Daten auf verschiedenen Ebenen zu filtern und zu sortieren, um nur die benötigten Daten abzurufen, was beim Filtern von Beiträgen eine große Rolle spielt.
 \\
 Ein weiterer Vorteil ist die Skalierung von Daten auf Firestore, womit die Anwendung mit hohen Nutzerzahlen und großen Datenmengen, wie zum Beispiel dem Abrufen von Beiträgen, zurecht kommen kann.
 \\
@@ -1734,12 +1733,12 @@ Abbildung \ref{fig:new-erd} repräsentiert das aktuelle Datenmodell. Durch das e
 Um das zu gewährleisten wurden folgende Prinzipien erstellt:
 \begin{enumerate}
   \item Falls eine Collection abhängig von einer anderen Collection ist, wird diese der anderen Collection als Sub-Collection hinzugefügt - Beispiel: Beiträge und Kommentare
-  \item Daten, die miteinander nichts zu tun haben werden in eigene Dokumente gespeichert
-  \item Falls eine Collection einmalig verschiedene Daten speichern soll, so bekommen die Dokumente eine vorbstimmte Id, um das Verwalten der Dokumente zu erleichtern - Beispiel: Die \texttt{private}-Subcollection innerhalb der \texttt{users}-Collection beinhaltet das Dokument \texttt{name}, wo der Name gespeichert wird und das Dokument \texttt{address}, wo die Addressdaten gespeichert werden
+  \item Daten, die in die selbe Collection gehören, aber nichts miteinander zu tun haben, werden in eigene Dokumente gespeichert
+  \item Falls eine Collection einmalig verschiedene Daten speichern soll, so bekommen die Dokumente eine vorbestimmte Id, um das Verwalten der Dokumente zu erleichtern - Beispiel: Die \texttt{private}-Subcollection innerhalb der \texttt{users}-Collection beinhaltet das Dokument \texttt{name}, wo der Name gespeichert wird und das Dokument \texttt{address}, wo die Addressdaten gespeichert werden
 
 \end{enumerate}
 
-Im Gegensatz zum alten Datenmodell wurde das neue Datenmodell um mehrere Collections erweitert und manche Collections wurden angepasst. Es besteht aus folgenden Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{notifications}, \texttt{reports}, \texttt{codes} und \texttt{chats}
+Im Gegensatz zum alten Datenmodell wurde das neue Datenmodell um mehrere Collections erweitert und manche Collections wurden angepasst. Es besteht aus folgenden Hauptsammlungen: \texttt{users}, \texttt{userCoords}, \texttt{posts}, \texttt{notifications}, \texttt{reports}, \texttt{codes} und \texttt{chats}
 
 \paragraph{Users}\mbox{} \\
 Die \texttt{users}-Collection ist die Sammlung, die die Daten des Users aufbewahrt. Die Dokumente der Collection beinhalten wie beim alten Datenmodell die Felder \texttt{fullName} für den Anzeigename und \texttt{profilePicture} für das Profilbild. Das Feld \texttt{addressCoordinates} für die Koordinaten des Users wurde entfernt, weil es sich als Datenleck von privaten Userdaten herausstellte. Die Felder der \texttt{users}-Collections dienen als Anzeigedaten, von daher wurde das \texttt{addressCoordinates}-Feld mit dem \texttt{suburb}-Feld ersetzt, was vielmehr das Stadtviertel oder die Gemeinschaft des Users speichern soll.
@@ -2016,13 +2015,12 @@ Die Funktion heißt \texttt{getOSMSuburbFromCoords} und nimmt zwei Parameter ent
 Die Cloud Function \texttt{getUserPostsWithinRange} ist dafür verantwortlich, Beiträge von User innerhalb einer bestimmten Reichweite abzurufen. Dies wird durch den Aufruf von Firestore und GeoFireStore erreicht, um die User innerhalb des Bereichs zu ermitteln und dann ihre Beiträge abzurufen.
 \\
 GeoFirestore\cite{geofirestore} ist eine Open-Source-Bibliothek, die auf der Firebase-Plattform basiert und die Funktionen von Firestore erweitert, um Geofencing und so die Filterung von Daten nach geografischen Entfernungen und Koordinaten zu ermöglichen.
-Quelle: https://geofirestore.com
 \\
 Die Cloud Function bekommt als Parameter die Rechweite innerhalb der gefiltert werden soll und prüft zunächst, ob der User authentifiziert ist. Wenn nicht, wird ein Fehler ausgelöst, der besagt, dass die Anfrage nicht authentifiziert ist. Wenn der User authentifiziert ist, wird seine Id verwendet, um seine Koordinaten aus der Firestore-Datenbank abzurufen.
 \\
 Die Funktion verwendet dann GeoFireStore, um alle User innerhalb der mitgegebenen Reichweite zu ermitteln mit den Userkoordinaten als Mittelpunkt. Diese emittelten User werden dann gefiltert, um deren Beiträge aus der Firestore-Datenbank abzurufen.
 \\
-Um sicherzustellen, dass der User innerhalb der Reichweite in der, der Beitrag sichtbar sein soll, liegt, wird für jeden Beitrag die Entfernung zwischen dem User, der die Cloud Functions aufgerufen hat, und dem User, der den Beitrag erstellt hat, berechnet. Wenn die Entfernung kleiner als die Reichweite innerhalb der Beitrag sichtbar sein soll ist, wird der Beitrag in die Liste der gültigen Beiträge aufgenommen.
+Um sicherzustellen, dass der User innerhalb der Reichweite in der, der Beitrag sichtbar sein soll, liegt, wird für jeden Beitrag die Entfernung zwischen dem User, der die Cloud Functions aufgerufen hat, und dem User, der den Beitrag erstellt hat, berechnet. Wenn die Entfernung kleiner als die Reichweite, innerhalb der Beitrag sichtbar sein soll, ist, wird der Beitrag in die Liste der gültigen Beiträge aufgenommen.
 \\
 Schließlich gibt die Funktion eine Liste mit den Ids der gültigen Beiträge zurück, die innerhalb der mitgegebenen Reichweite liegen.
 \\
@@ -2073,13 +2071,13 @@ Die Verwendung einer Cloud-Function zur Änderung des Like-Zählers erfolgt aus 
 
 Der vorliegende Code \ref{lst:incrementLikePostFunction} implementiert einen Cloud-Function-Trigger, der es ermöglicht, Funktionen automatisch auszulösen, wenn bestimmte Ereignisse auftreten. Die Funktion verwendet dabei Firebase Cloud Functions, um auf Änderungen in der Datenbank zu reagieren und entsprechende Aktionen auszuführen.
 \\
-Die Cloud-Funktion \texttt{incrementLikeCounterOfPost} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedPosts} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Beitrags in der Firestore-Sammlung \texttt{posts} zu erhöhen, wenn ein Nutzer den Beitrag als \textit{gefällt mir} markiert.
+Die Cloud-Funktion \texttt{incrementLikeCounterOfPost} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedPosts} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Beitrags in der Firestore-Sammlung \texttt{posts} zu erhöhen, wenn ein Nutzer den Beitrag als \textit{Gefällt mir} markiert.
 \\
 Der erste Schritt der Funktion besteht darin, die ID des Beitrags zu ermitteln, dessen Like-Zähler erhöht werden soll. Dies geschieht durch den Zugriff auf den Kontext-Parameter \texttt{likedPostId}. Anschließend wird eine Referenz auf den entsprechenden Beitrag in der Firestore-Sammlung \texttt{posts} erstellt.
 \\
 In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. In dieser Transaktion wird der aktuelle Like-Zähler des Beitrags abgerufen und um eins erhöht. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung \texttt{posts} gespeichert.
 \\
-Die Verwendung von Transaktionen gewährleistet, dass die Like-Zähler-Operation atomar ausgeführt wird und es somit zu keiner Inkonsistenz der Daten kommt. Wenn mehrere Nutzer gleichzeitig den gleichen Beitrag als \textit{gefällt mir}markieren würden, könnte es sonst zu Konflikten und Fehlern bei der Aktualisierung des Like-Zählers kommen.
+Die Verwendung von Transaktionen gewährleistet, dass die Like-Zähler-Operation atomar ausgeführt wird und es somit zu keiner Inkonsistenz der Daten kommt. Wenn mehrere Nutzer gleichzeitig den gleichen Beitrag als \textit{Gefällt mir} markieren würden, könnte es sonst zu Konflikten und Fehlern bei der Aktualisierung des Like-Zählers kommen.
 
 \paragraph{Likes von Beiträge verringern}\mbox{} \\
 \setauthor{Sandin Habibovic}
@@ -2139,11 +2137,11 @@ Die Verwendung von Cloud-Funktionen zur Verwaltung der Like-Zähler stellt siche
 
 Der vorliegende Code \ref{lst:incrementLikeCommentFunction} implementiert einen weiteren Cloud-Function-Trigger.
 \\
-Die Cloud-Funktion \texttt{incrementLikeCounterOfComment} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Kommentars in der Firestore-Sammlung \texttt{posts} zu erhöhen, wenn ein Nutzer den Kommentar als \textit{gefällt mir} markiert.
+Die Cloud-Funktion \texttt{incrementLikeCounterOfComment} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Kommentars in der Firestore-Sammlung \texttt{posts} zu erhöhen, wenn ein Nutzer den Kommentar als \textit{Gefällt mir} markiert.
 \\
-Der erste Schritt der Funktion besteht darin, die ID des Kommentars zu ermitteln, dessen Like-Zähler erhöht werden soll. Dies geschieht durch den Zugriff auf den Kontext-Parameter \texttt{likedCommentId}. Anschließend wird eine Referenz auf den entsprechenden Kommentar in der Firestore-Sammlung \texttt{posts} erstellt.
+Der erste Schritt der Funktion besteht darin, die ID des Kommentars zu ermitteln, dessen Like-Zähler erhöht werden soll. Dies geschieht durch den Zugriff auf den Kontext-Parameter \texttt{likedCommentId}. Anschließend wird eine Referenz auf den entsprechenden Kommentar in der Subcollection \texttt{comments} erstellt.
 \\
-In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. In dieser Transaktion wird der aktuelle Like-Zähler des Kommentars abgerufen und um eins erhöht. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung \texttt{posts} gespeichert.
+In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. In dieser Transaktion wird der aktuelle Like-Zähler des Kommentars abgerufen und um eins erhöht. Die aktualisierte Anzahl wird dann in der Subcollection \texttt{comments} gespeichert.
 
 \paragraph{Likes von Kommentare verringern}\mbox{} \\
 \setauthor{Sandin Habibovic}
@@ -2168,23 +2166,7 @@ In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, 
   });
 \end{lstlisting}
 
-Der vorliegende Code \ref{lst:decrementLikeCommentFunction}
-die Cloud-Funktion \texttt{decrementLikeCounterOfComment},
-welche aufgerufen wird, wenn ein Eintrag in der
-Firestore-Sammlung \texttt{users/{userId}/private}
-\texttt{/record/likedComments} gelöscht wird. Ziel dieser
-Funktion ist es, den Like-Zähler des Kommentars in der
-Firestore-Sammlung \texttt{posts} zu verringern, wenn ein
-Nutzer seinen Like entfernt. Ähnlich zur
-\texttt{incrementLikeCounterOfComment}-Funktion ermittelt
-die Funktion zunächst die ID des entsprechenden Kommentars
-und erstellt eine Referenz auf diesen in der
-Firestore-Sammlung \texttt{posts}. Danach wird eine
-Transaktion gestartet, um sicherzustellen, dass die
-Like-Zähler-Operation atomar ausgeführt wird. Der aktuelle
-Like-Zähler des Kommentars wird abgerufen und um eins
-verringert. Die aktualisierte Anzahl wird dann in der
-Firestore-Sammlung \texttt{posts} gespeichert.
+Der vorliegende Code \ref{lst:decrementLikeCommentFunction} die Cloud-Funktion \texttt{decrementLikeCounterOfComment}, welche aufgerufen wird, wenn ein Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} gelöscht wird. Ziel dieser Funktion ist es, den Like-Zähler des Kommentars in der Subcollection \texttt{comments} zu verringern, wenn ein Nutzer seinen Like entfernt. Ähnlich zur \texttt{incrementLikeCounterOfComment}-Funktion ermittelt die Funktion zunächst die ID des entsprechenden Kommentars und erstellt eine Referenz auf diesen in der Firestore-Sammlung \texttt{posts}. Danach wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. Der aktuelle Like-Zähler des Kommentars wird abgerufen und um eins verringert. Die aktualisierte Anzahl wird dann in der Subcollection \texttt{comments} gespeichert.
 
 \subsubsection{Typesense Search}
 
@@ -2197,7 +2179,7 @@ Die finale Entscheidung des Nochba-Teams fiel auf die Algolia-Suche, da sowohl T
 \section{Verwaltungslogik}
 \setauthor{Sandin Habibovic}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{pics/Management-Logic.JPG}
   \caption{Verwaltungslogik Diagramm}
