@@ -1,8 +1,9 @@
 \section{Continuous Integration/Delivery}
-\subsection{GitHub Actions}
 
-allg. actions warum kosten
-\subsubsection{iOS Build} \setauthor{Martin Hausleitner} Das
+\subsection{iOS Build} 
+\setauthor{Martin Hausleitner} 
+
+Das
 Ziel des Projekts war es, eine \cite{ios_app_store} iOS-App
 im App Store zu veröffentlichen und eine Android-App im Play Store anzubieten. Da Martin Hausleitner der einzige im Team war, der ein iPhone besaß und Erfahrungen mit Apple hatte, übernahm er die Verantwortung für den Build-Prozess der iOS-App.
 Zur Erstellung einer \cite{flutter} Flutter iOS-App ein Mac mit \cite{xcode} Xcode sowie ein \cite{apple_developer_program} Apple-Entwicklerkonto erforderlich. Da jedoch niemand im Team über ein solches Konto verfügte, gestaltete sich der Build-Prozess äußerst schwierig. Glücklicherweise konnte Martin Hausleitner einen alten iMac von seiner Familie ausleihen, auf dem er arbeiten konnte. Obwohl das Erstellen einer iOS-App auf den ersten Blick einfach erscheint, stellte es sich als eine der größten Herausforderungen in diesem Projekt heraus.
@@ -84,11 +85,6 @@ Dennoch wurde versucht, auf TestFlight umzusteigen, was jedoch ebenfalls den Kau
 %   \end{description}
 % \end{itemize}
 
-
-
-
-
-\subsubsection{Build Android}
 
 \subsection{Fastlane}
 \setauthor{Arsham Edalatkhah}
@@ -375,7 +371,7 @@ Der Registrierungsprozess beginnt damit, dass der Benutzer aufgefordert wird, se
 \\
 Nach dem ersten Schritt wird der nächste Schritt, die Namensansicht, eingeleitet. Hier wird der Benutzer aufgefordert, seinen Namen und optional schon sein Profilbild anzugeben. Der Name wird dann ebenfalls vom Registrierungsformular auf Korrektheit und Vollständigkeit überprüft und im Firestore eingespeichert.
 \\
-Nachdem der Benutzer seinen Namen eingegeben hat, wird er zur Addressenansicht weitergeleitet, wo er aufgefordert wird, seine Adresse anzugeben. Wenn der User seine Adresse eingegeben hat, wird sie vom Registrierungsformular zu einer Cloud Function weitergeleitet und validiert. Falls sich die Addresse als eine korrekt Addresse erweist, wird sie direkt von der Cloud Function in den Firestore eingespeichert.
+Nachdem der Benutzer seinen Namen eingegeben hat, wird er zur Addressenansicht weitergeleitet, wo er aufgefordert wird, seine Adresse anzugeben. Wenn der User seine Adresse eingegeben hat, wird sie vom Registrierungsformular zu einer Cloud Function weitergeleitet und validiert. Falls sich die Addresse als eine korrekte Addresse erweist, wird sie direkt von der Cloud Function in den Firestore eingespeichert.
 \\
 Wenn die Adresse validiert wurde, wird der Benutzer aufgefordert, die Verifizierung seiner Adresse durchzuführen. Die Verifizierung kann durch zwei Methoden erfolgen. Entweder durch eine Überprüfung der Adresse anhand des Standortes oder durch eine Überprüfung der Adresse anhand eines gültigen QR-Codes. Das Registrierungsformular leitet den Standort oder QR-Code an eine Cloud Function weiter, die die Verifizierung übernimmt und bei erfolgreicher Verifizierung, die Koordinaten im Firestore einspeichert.
 \\
@@ -397,10 +393,6 @@ Die Abbildung \ref{fig:registration-process} zeigt, wie der Registrierungs-Proze
 In Anbetracht der Entscheidung, Einladungscodes mithilfe von QR-Codes zu implementieren, ist es erforderlich, einen QR-Code-Scanner während des Registrierungsprozesses zu integrieren. Um eine zuverlässige Benutzererfahrung zu gewährleisten, wurde das Google Barcode-Scanning ML Kit als bevorzugte Technologie ausgewählt. In internen Tests zeigte sich, dass dieses Kit eine hohe Genauigkeit und Zuverlässigkeit aufweist.
 Die Integration des Scanners wurde mithilfe des Pakets \cite{mobile_scanner} mobile\_scanner realisiert, welches auf der Plattform pub.dev verfügbar ist. Dieses Paket ermöglicht eine einfache Implementierung und Anpassung an die individuellen Anforderungen des Projekts. Die Verwendung des ML-Kits trägt dazu bei, die Leistungsfähigkeit der Anwendung zu verbessern und die Benutzerzufriedenheit zu erhöhen.
 
-
-Diagram
-erklärung
-screenshots
 
 \subsection{Feed}
 \setauthor{Sandin Habibovic}
@@ -454,7 +446,7 @@ Die Abbildung \ref{fig:categories} zeigt, wie die Auswahl der Kategorie bzw. Unt
 
 \subsubsection{Tags}
 \setauthor{Sandin Habibovic}
-Als Tag wird ein Schlüsselwort beschrieben, was man an ein Informationsgut anhängen kann, um es besser beschreiben zu können und/oder besser auffindbar zu machen. In der App werden Tags als eine Erweiterung der Kategorien verwendet, um es Usern zu ermöglichen Ihren Beitrag einem selbstdefinierten Typ zuzuordnen.
+Als Tag wird ein Schlüsselwort beschrieben, dass man an ein Informationsgut anhängen kann, um es besser beschreiben zu können und/oder besser auffindbar zu machen. In der App werden Tags als eine Erweiterung der Kategorien verwendet, um es Usern zu ermöglichen Ihren Beitrag einem selbstdefinierten Typ zuzuordnen.
 
 \subsubsection{Info}
 \setauthor{Sandin Habibovic}
@@ -992,13 +984,6 @@ Wenn false, wird davon ausgegangen, dass das gewünschte Profilbild das des Benu
 \setauthor{Martin Hausleitner}
 Die Implementierung des Google Smart Reply ML Kits wurde als sinnvolle Ergänzung in Betracht gezogen, um wiederkehrende und standardisierte Antworten in der Kommunikation zwischen Benutzern zu reduzieren. Ein Beispiel dafür ist die Nutzung solcher Plattformen wie Willhaben, bei denen häufig ähnliche Fragen und Antworten ausgetauscht werden.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.3\textwidth]{pics/einladecode-page.png}
-  \caption{Smart Replay im Chat}
-  \label{fig:einladecode}
-\end{figure}
-
 Die Integration des Google Smart Reply ML Kits bietet den Benutzern verschiedene Antwortmöglichkeiten, die direkt über den Eingabefeld des Chats angezeigt werden. Dies ermöglicht eine effizientere und benutzerfreundlichere Kommunikation, da aufwendige manuelle Texteingaben vermieden werden können. Die Abbildung verdeutlicht, wie verschiedene Vorschläge im Eingabefeld angezeigt werden.
 
 Das Google Smart Reply System nutzt die letzten zehn Nachrichten als Kontext, um adäquate und relevante Antwortvorschläge zu generieren. Die Anwendung von maschinellem Lernen in diesem Kontext trägt zur Verbesserung der Benutzererfahrung bei und ermöglicht eine effizientere Kommunikation. Auf diese Weise können die Benutzer schnell und einfach auf eingehende Nachrichten reagieren, wodurch wertvolle Zeit gespart und mögliche Frustrationen vermieden werden.
@@ -1088,11 +1073,13 @@ Code zur Verifizierung verwendet hat, um im Falle eines
 Missbrauchs entsprechende Maßnahmen ergreifen zu können, wie
 beispielsweise das Sperren des Codes. Administratoren haben
 ebenfalls die Möglichkeit, Codes zu deaktivieren.
+
+
 \subsubsection{Einladungsmöglichkeiten}
 \setauthor{Martin Hausleitner}
 
 
-Folgende Punkte sinder in der Abbildung
+Folgende Punkte sind in der Abbildung
 \ref{fig:einladecode} zu erkennen.
 
 
