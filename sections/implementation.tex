@@ -435,6 +435,16 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
   \item Sonstiges
 \end{compactitem}
 
+Die folgende Abbildung \ref{fig:report-post} zeigt, wie das Melden eines Beitrags in der App dargestellt wird.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{pics/report-post.JPG}
+  \caption{Meldeansicht für einen Beitrag auf der App}
+  \label{fig:report-post}
+\end{figure}
+
+
 \subsubsection{Autovervollständigung mit künstlicher Intelligenz}
 \setauthor{Martin Hausleitner}
 \paragraph{GPT-3.5-turbo}\mbox{} \\
@@ -621,7 +631,7 @@ Das Team Nochba hat die folgenden Schritte zur Einrichtung und Installation der 
 \begin{itemize}
   \item {Zusätzlich wurde das Algolia-Paket als \textit{Abhängigkeit} in der Datei pubspec.yaml eingetragen.}
   \item {\textit{Flutter packages get} wurde ausgeführt, um die Abhängigkeit zu installieren.
-  Import des Algolia-Pakets in die entsprechende Dart-Datei.}
+        Import des Algolia-Pakets in die entsprechende Dart-Datei.}
   \item {Initialisierung einer Algolia-Instanz durch Angabe der Applikations-ID und des API-Keys.}
   \item {Konfiguration der durchsuchbaren Kategorien durch die Einstellung der \textit{searchableAttributes} im Algolia-Dashboard, die \textit{description}, \textit{title}, \textit{tags} und \textit{category} umfassen.}
 \end{itemize}
@@ -691,21 +701,21 @@ Für das Team Nochba war es aus folgenden Gründen eine bessere Idee, das \texti
 
 \begin{itemize}
   \item \textbf{Integration:}
-  \begin{itemize}
-  \item \textit{Flyer Chat} bietet eine nahezu reibungslose Installation in bestehende Flutter-Applikationen, was eine unkomplizierte Erfahrung für Entwickler darstellt.
-  \end{itemize}
+        \begin{itemize}
+          \item \textit{Flyer Chat} bietet eine nahezu reibungslose Installation in bestehende Flutter-Applikationen, was eine unkomplizierte Erfahrung für Entwickler darstellt.
+        \end{itemize}
   \item \textbf{Funktionsumfang:}
-  \begin{itemize}
-  \item \textit{Flyer Chat} verfügt über einen umfassenden Feature-Set, das ein optimales Verhältnis zwischen häufig verwendeten Chat-Funktionen und innovativen, individuellen Eigenschaften ermöglicht.
-  \end{itemize}
+        \begin{itemize}
+          \item \textit{Flyer Chat} verfügt über einen umfassenden Feature-Set, das ein optimales Verhältnis zwischen häufig verwendeten Chat-Funktionen und innovativen, individuellen Eigenschaften ermöglicht.
+        \end{itemize}
   \item \textbf{Leistung:}
-  \begin{itemize}
-  \item Der \textit{Flyer Chat} ist für verschiedene Plattformen optimiert, um ein flüssiges Benutzererlebnis zu ermöglichen, ohne die Leistung der App zu verringern.
-  \end{itemize}
+        \begin{itemize}
+          \item Der \textit{Flyer Chat} ist für verschiedene Plattformen optimiert, um ein flüssiges Benutzererlebnis zu ermöglichen, ohne die Leistung der App zu verringern.
+        \end{itemize}
   \item \textbf{Dokumentation und Unterstützung:}
-  \begin{itemize}
-  \item Mit gut dokumentierten Materialien und einer starken Community macht es \textit{Flyer Chat} den Entwicklern besonders einfach, Lösungen für allgemeine Probleme zu finden und Anpassungen vorzunehmen.
-  \end{itemize}
+        \begin{itemize}
+          \item Mit gut dokumentierten Materialien und einer starken Community macht es \textit{Flyer Chat} den Entwicklern besonders einfach, Lösungen für allgemeine Probleme zu finden und Anpassungen vorzunehmen.
+        \end{itemize}
 \end{itemize}
 
 \subsection{Komponentenorientierte Software-Entwicklung}
@@ -989,12 +999,12 @@ Die folgende Abbildung \ref{fig:edit-profile} zeigt, wie die Profilbearbeitung i
 \setauthor{Sandin Habibovic}
 Falls das Profil von einem User unangebrachten Inhalt aufweist, besteht die Möglichkeit das Profil zu melden.
 \\
-Die folgende Abbildung \ref{fig:report-profile} zeigt, wie die Profilmeldung in der App dargestellt wird.
+Die folgende Abbildung \ref{fig:report-profile} zeigt, wie das Melden eines Profils in der App dargestellt wird.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{pics/report-profile.JPG}
-  \caption{Profilmeldeansicht auf der App}
+  \caption{Meldeansicht für ein Profil auf der App}
   \label{fig:report-profile}
 \end{figure}
 
@@ -1038,29 +1048,29 @@ Folgende Punkte sinder in der Abbildung
 
 \begin{enumerate}[label=\arabic*.]
   \item \textbf{Generierung eines QR-Codes:}
-  \begin{itemize}
-  \item Beim Öffnen der Seite \textit{Nachbar einladen} wird automatisch ein QR-Code generiert.
-  \item Nutzer können den generierten Code in die Zwischenablage kopieren, indem sie den Button neben dem Code betätigen.
-  \end{itemize}
-  
+        \begin{itemize}
+          \item Beim Öffnen der Seite \textit{Nachbar einladen} wird automatisch ein QR-Code generiert.
+          \item Nutzer können den generierten Code in die Zwischenablage kopieren, indem sie den Button neben dem Code betätigen.
+        \end{itemize}
+
   \item \textbf{Teilen des Einladungscodes:}
-  \begin{itemize}
-  \item Bei dem Button \textit{Einladungscode teilen} wird eine Nachricht mit dem generierten Code erstellt.
-  \item Der Nutzer kann die Nachricht mithilfe des systemspezifischen Sharesheets teilen.
-  \end{itemize}
-  
+        \begin{itemize}
+          \item Bei dem Button \textit{Einladungscode teilen} wird eine Nachricht mit dem generierten Code erstellt.
+          \item Der Nutzer kann die Nachricht mithilfe des systemspezifischen Sharesheets teilen.
+        \end{itemize}
+
   \item \textbf{Herunterladen des QR-Codes:}
-  \begin{itemize}
-  \item Unter \textit{QR-Code herunterladen} wird eine PNG-Datei des Einladungs-QR-Codes erstellt.
-  \item Die Datei wird im systemspezifischen Sharesheet geöffnet, um sie speichern zu können.
-  \end{itemize}
-  
+        \begin{itemize}
+          \item Unter \textit{QR-Code herunterladen} wird eine PNG-Datei des Einladungs-QR-Codes erstellt.
+          \item Die Datei wird im systemspezifischen Sharesheet geöffnet, um sie speichern zu können.
+        \end{itemize}
+
   \item \textbf{Generierung eines neuen Einladungscodes:}
-  \begin{itemize}
-  \item Der orangefarbene Button \textit{Neuen Einladungscode generieren} ermöglicht das Erstellen eines neuen Codes.
-  \item Sobald der Nutzer einen neuen Code erstellt, wird der vorherige Code deaktiviert.
-  \end{itemize}
-  \end{enumerate}
+        \begin{itemize}
+          \item Der orangefarbene Button \textit{Neuen Einladungscode generieren} ermöglicht das Erstellen eines neuen Codes.
+          \item Sobald der Nutzer einen neuen Code erstellt, wird der vorherige Code deaktiviert.
+        \end{itemize}
+\end{enumerate}
 
 Verifizierte Nutzer können alle 24 Stunden einen
 Einladungscode generieren.
