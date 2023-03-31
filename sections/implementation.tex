@@ -861,7 +861,7 @@ Das Byte-Array des Bildes wird mit \textit{await result.readAsBytes()} gelesen, 
 Der Dateiname des Bildes wird mit \textit{result.name} ermittelt.
 
 Die Methode ladet das Bild in Firebase Storage hoch.
-Zunächst wird eine Speicherreferenz mit der ID des Benutzers und dem Namen des Bildes mit \textit{FirebaseStorage.instance.ref('$userId/$name')} erstellt.
+Zunächst wird eine Speicherreferenz mit der ID des Benutzers und dem Namen des Bildes mit \textit{FirebaseStorage.instance .ref('$userId/$name')} erstellt.
 Die Bilddatei wird dann mit \textit{await reference.putFile(file)} hochgeladen.
 Die Download-URL für das hochgeladene Bild wird mit \textit{await reference.getDownloadURL()} ermittelt.
 
@@ -1129,7 +1129,8 @@ vorliegenden Fall für das zuverlässige und schnelle Scannen
 von QR-Codes eingesetzt wird.
 Diese Bibliothek ermöglicht es, komplexe Funktionen wie das Erkennen von QR-Codes effizient und präzise zu implementieren. Der einzige Nachteil dieses Pakets ist der hohe Speicherbedarf von etwa 10 MB. Daher ist in Zukunft geplant, das MLKit nur bei Bedarf herunterzuladen und nach erfolgreicher Verifizierung des Benutzers wieder zu entfernen.
 
-Der gescannte oder eingegebene Code wird anschließend an die Cloud-Funktion \texttt{checkVerificationCode} (siehe Abschnitt \ref{subsec:registrierung-verify}) gesendet und überprüft, ob der Code korrekt ist.
+Der gescannte oder eingegebene Code wird anschließend an die Cloud-Funktion
+ \texttt{checkVerificationCode} (siehe Abschnitt \ref{subsec:registrierung-verify}) gesendet und überprüft, ob der Code korrekt ist.
 
 
 
@@ -2137,7 +2138,7 @@ Die Verwendung von Cloud-Funktionen zur Verwaltung der Like-Zähler stellt siche
 
 Der vorliegende Code \ref{lst:incrementLikeCommentFunction} implementiert einen weiteren Cloud-Function-Trigger.
 \\
-Die Cloud-Funktion \texttt{incrementLikeCounterOfComment} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Kommentars in der Firestore-Sammlung \texttt{posts} zu erhöhen, wenn ein Nutzer den Kommentar als \textit{Gefällt mir} markiert.
+Die Cloud-Funktion \texttt{incrementLikeCounterOfComment} wird aufgerufen, wenn ein neuer Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} erstellt wird. Das Ziel dieser Funktion besteht darin, den Like-Zähler eines Kommentars in der Subcollection \texttt{comments} zu erhöhen, wenn ein Nutzer den Kommentar als \textit{Gefällt mir} markiert.
 \\
 Der erste Schritt der Funktion besteht darin, die ID des Kommentars zu ermitteln, dessen Like-Zähler erhöht werden soll. Dies geschieht durch den Zugriff auf den Kontext-Parameter \texttt{likedCommentId}. Anschließend wird eine Referenz auf den entsprechenden Kommentar in der Subcollection \texttt{comments} erstellt.
 \\
@@ -2166,7 +2167,7 @@ In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, 
   });
 \end{lstlisting}
 
-Der vorliegende Code \ref{lst:decrementLikeCommentFunction} die Cloud-Funktion \texttt{decrementLikeCounterOfComment}, welche aufgerufen wird, wenn ein Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} gelöscht wird. Ziel dieser Funktion ist es, den Like-Zähler des Kommentars in der Subcollection \texttt{comments} zu verringern, wenn ein Nutzer seinen Like entfernt. Ähnlich zur \texttt{incrementLikeCounterOfComment}-Funktion ermittelt die Funktion zunächst die ID des entsprechenden Kommentars und erstellt eine Referenz auf diesen in der Firestore-Sammlung \texttt{posts}. Danach wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. Der aktuelle Like-Zähler des Kommentars wird abgerufen und um eins verringert. Die aktualisierte Anzahl wird dann in der Subcollection \texttt{comments} gespeichert.
+Der vorliegende Code \ref{lst:decrementLikeCommentFunction} die Cloud-Funktion \texttt{decrementLikeCounterOfComment}, welche aufgerufen wird, wenn ein Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} gelöscht wird. Ziel dieser Funktion ist es, den Like-Zähler des Kommentars in der Subcollection \texttt{comments} zu verringern, wenn ein Nutzer seinen Like entfernt. Ähnlich zur \texttt{incrementLikeCounterOfComment}-Funktion ermittelt die Funktion zunächst die ID des entsprechenden Kommentars und erstellt eine Referenz auf diesen in der Subcollection \texttt{comments}. Danach wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. Der aktuelle Like-Zähler des Kommentars wird abgerufen und um eins verringert. Die aktualisierte Anzahl wird dann in der Subcollection \texttt{comments} gespeichert.
 
 \subsubsection{Typesense Search}
 
