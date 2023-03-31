@@ -455,7 +455,7 @@ Ein ähnlicher Ansatz wurde auch für die Tags verfolgt. Der Titel und die Besch
   \end{verbatim}
 
 
-In Folgenden Codeabschnitt \ref{lst:gptapicall} sieht man wie die Prompt an die API gesendet wird.
+In dem Codeabschnitt \ref{lst:gptapicall} sieht man wie die Prompt an die API gesendet wird.
 \begin{lstlisting}[language=Java,caption=OpenAI GPT-3.5-turbo API Call,label=lst:gptapicall]  
 final String prompt = 'titel{ ${widget.titleController!.text} } beschreibung{ ${widget.descriptionController!.text} } json hashtags richtige sprache: ["#';
 final chat = await client.chat.create(
