@@ -90,8 +90,61 @@ Dennoch wurde versucht, auf TestFlight umzusteigen, was jedoch ebenfalls den Kau
 
 \subsubsection{Build Android}
 
-\subsection{Fastline}
-\subsubsection{Build Number increment}
+\subsection{Fastlane}
+\setauthor{Arsham Edalatkhah}
+
+Fastlane (Quelle: \cite{fastlane} ) ist ein Open-Source-Tool, das von Entwicklern genutzt wird, um den App-Entwicklungsprozess zu automatisieren. Es bietet eine einfache Möglichkeit, häufig verwendete Aufgaben wie das Erstellen von Builds, das Signieren von APKs, das Hochladen von Builds in App Stores und das Versenden von Builds an Tester zu automatisieren. Fastlane kann in Kombination mit Continuous Integration (CI)-Diensten wie Travis CI, CircleCI und Jenkins verwendet werden, um die Prozesse noch weiter zu automatisieren.
+
+\begin{lstlisting}[caption=Beispiel zum Einsatz von Fastlane,label=lst:Fastlane]
+
+default_platform(:android)
+
+desc "Build"
+lane :build do
+  gradle(
+     task: "assemble"
+   )
+end
+
+
+platform :android do
+  desc "Deploy to firebase"
+  lane :deploy do
+    begin
+      firebase_app_distribution(
+        groups: "alpha",
+        release_notes: "Bug fixes and performance improvements",
+        apk_path: "../build/app/outputs/flutter-apk/app-release.apk",
+        firebase_cli_path: "usr/local/bin/firebase",
+        firebase_cli_token: "${{secrets.FIREBASE_TOKEN}}",
+        app: "${{secrets.FIREBASE_APP_ID_ANDROID}}",
+      )
+    end
+  end
+
+  desc "Increment build number"
+  lane :IncrementBuildNumber do
+
+    path = '../app/build.gradle'
+    re = /versionCode\s+(\d+)/
+    s = File.read(path)
+    versionCode = s[re, 1].to_i
+    s[re, 1] = (versionCode + 1).to_s
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
+
+  end
+end
+
+\end{lstlisting}
+
+Die erste Zeile definiert die Standard-Plattform für die nachfolgenden Befehle. Es wird festgelegt, dass es sich um die Android-Plattform handelt.
+
+Die nächsten beiden Blöcke definieren die Befehle für das Builden der App und für die Deployment auf Firebase für Android. Der Build-Befehl verwendet Gradle, um die App zusammenzubauen. Der Deploy-Befehl verwendet das Firebase-App-Distribution-Plugin, um die App an eine bestimmte Gruppe von Nutzern zu verteilen. Dafür wird eine .apk-Datei bereitgestellt und es werden Release-Notizen sowie Firebase CLI-Informationen übergeben.
+
+Der letzte Block enthält den Befehl zum Inkrementieren der Build-Nummer für die Android-Plattform. Dabei wird der versionCode im build.gradle-File der App um 1 erhöht.
+
 \subsection{Firebase App Distribution}
 
 \section{Mobile Anwendung}
@@ -604,7 +657,6 @@ Eine Suchfunktion kann auf folgende Weise zum Erfolg einer Social Media App beit
 
 \subsection{Typesense}
 \setauthor{Arsham Edalatkhah}
-Das Nochba-Team versuchte ursprünglich, Typesense für die Suchfunktionalität zu verwenden, da es sich um eine schnelle, fehlertolerante Suchmaschine handelt, die für sofortige Suchvorgänge optimiert ist. Aufgrund der unvollständigen Dokumentation hatte das Team jedoch Schwierigkeiten, Typesense in die Flutter-Applikation zu implementieren. Arsham Edalatkhah versuchte, die Typesense-Entwickler um Unterstützung zu bitten, aber dieser Schritt war sehr zeitaufwändig.
 
 Typesense war aus mehreren Gründen eine ausgezeichnete Wahl für das Nochba-Team:
 
@@ -623,8 +675,6 @@ In diesem Fall entschied sich das Nochba-Team, zu Algolia zu wechseln, das ähnl
 
 \subsection{Algolia}
 \setauthor{Arsham Edalatkhah}
-
-Die finale Entscheidung des Nochba-Teams fiel auf die Algolia-Suche, da sowohl Typesense als auch Algolia den gleichen Feature-Set für Suchfunktionen bieten. Ein bemerkenswerter Unterschied zwischen beiden ist, dass Algolia eine umfangreichere Dokumentation und Unterstützung bietet, was es für Entwickler einfacher macht, die Suchfunktion zu implementieren und in ihre Anwendung zu integrieren.
 
 Das Team Nochba hat die folgenden Schritte zur Einrichtung und Installation der Algolia-Suche durchgeführt:
 
@@ -2136,11 +2186,13 @@ In einem nächsten Schritt wird eine Transaktion gestartet, um sicherzustellen, 
 
 Der vorliegende Code \ref{lst:decrementLikeCommentFunction} die Cloud-Funktion \texttt{decrementLikeCounterOfComment}, welche aufgerufen wird, wenn ein Eintrag in der Firestore-Sammlung \texttt{users/{userId}/private/record/likedComments} gelöscht wird. Ziel dieser Funktion ist es, den Like-Zähler des Kommentars in der Firestore-Sammlung \texttt{posts} zu verringern, wenn ein Nutzer seinen Like entfernt. Ähnlich zur \texttt{incrementLikeCounterOfComment}-Funktion ermittelt die Funktion zunächst die ID des entsprechenden Kommentars und erstellt eine Referenz auf diesen in der Firestore-Sammlung \texttt{posts}. Danach wird eine Transaktion gestartet, um sicherzustellen, dass die Like-Zähler-Operation atomar ausgeführt wird. Der aktuelle Like-Zähler des Kommentars wird abgerufen und um eins verringert. Die aktualisierte Anzahl wird dann in der Firestore-Sammlung \texttt{posts} gespeichert.
 
-\subsection{Algolia Search}
-\subsection{Algolia SDK}
-
 \subsubsection{Typesense Search}
-\subsection{Typesense SDK}
+
+Das Nochba-Team versuchte ursprünglich, Typesense für die Suchfunktionalität zu verwenden, da es sich um eine schnelle, fehlertolerante Suchmaschine handelt, die für sofortige Suchvorgänge optimiert ist. Aufgrund der unvollständigen Dokumentation hatte das Team jedoch Schwierigkeiten, Typesense in die Flutter-Applikation zu implementieren. Das Team versuchte, die Typesense-Entwickler um Unterstützung zu bitten, aber dieser Schritt war sehr zeitaufwändig. Das Team entschied sich daher, Algolia als Alternative zu Typesense zu verwenden.
+
+\subsection{Algolia Search}
+
+Die finale Entscheidung des Nochba-Teams fiel auf die Algolia-Suche, da sowohl Typesense als auch Algolia den gleichen Feature-Set für Suchfunktionen bieten. Ein bemerkenswerter Unterschied zwischen beiden ist, dass Algolia eine umfangreichere Dokumentation und Unterstützung bietet, was es für Entwickler einfacher macht, die Suchfunktion zu implementieren und in ihre Anwendung zu integrieren.
 
 \section{Verwaltungslogik}
 \setauthor{Sandin Habibovic}
