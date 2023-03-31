@@ -15,12 +15,12 @@
 % \includegraphics[width=0.2\textwidth]{pics/systemarchitektur_diagram.svg}
 
 % \includesvg{pics/systemarchitektur_diagram.svg}
-Die vorliegende Abbildung \ref{fig:systemarchitektur}
+Die Abbildung \ref{fig:systemarchitektur}
 veranschaulicht vereinfacht die Systemarchitektur. Der
 obere Teil stellt das Frontend dar, welches vollständig im
 Flutter Framework unter Verwendung der Programmiersprache
 Dart entwickelt wurde. Zur Kommunikation mit dem Backend
-wurden die \href{https://pub.dev/packages/algolia}{Algolia
+wurden die Packages \href{https://pub.dev/packages/algolia}{Algolia
     Flutter SDK} und
 \href{https://pub.dev/packages/firebase}{Firebase Flutter
     SDK} genutzt. Zur Vereinfachung wurden die Funktionen der
@@ -39,7 +39,18 @@ einem registrierten Account ausgeführt werden. Besondere
 Cloud Functions verlangen darüber hinaus eine zusätzliche
 Verifizierung der Adresse des Nutzers.
 
-Die Nutzung von \href{https://firebase.google.com/docs/firestore}{Firestore}, einer NoSQL-Datenbank von Firebase, ermöglicht die Speicherung von Daten. Um auf die Firestore-Datenbank und den \href{https://firebase.google.com/docs/storage}{Cloud Storage} zuzugreifen, ist es erforderlich, die \href{https://firebase.google.com/docs/firestore/security/overview}{Firestore Security Rules} zu durchlaufen. Diese Regeln steuern sämtliche Zugriffsrechte auf Dokumente in der Datenbank oder dem Cloud Storage. Weiterführende Informationen dazu sind unter \hyperref[sec:security-rules]{Security Rules} zu finden.
+Die Nutzung von
+\href{https://firebase.google.com/docs/firestore}{Firestore},
+einer NoSQL-Datenbank von Firebase, ermöglicht die
+Speicherung von Daten. Um auf die Firestore-Datenbank und
+den \href{https://firebase.google.com/docs/storage}{Cloud
+    Storage} zuzugreifen, ist es erforderlich, die
+\href{https://firebase.google.com/docs/firestore/security/overview}{Firestore
+    Security Rules} zu durchlaufen. Diese Regeln steuern
+sämtliche Zugriffsrechte auf Dokumente in der Datenbank oder
+dem Cloud Storage. Weiterführende Informationen dazu sind
+unter dem Abschnitt \hyperref[sec:security-rules]{Security Rules} zu
+finden.
 
 Firestore verfügt nicht über eine integrierte Funktion zur
 vollständigen Durchsuchung aller Dokumente, weshalb für die
