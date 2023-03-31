@@ -1,7 +1,7 @@
 \section{Continuous Integration/Delivery}
 
-\subsection{iOS Build} 
-\setauthor{Martin Hausleitner} 
+\subsection{iOS Build}
+\setauthor{Martin Hausleitner}
 
 Das
 Ziel des Projekts war es, eine \cite{ios_app_store} iOS-App
@@ -460,7 +460,7 @@ Die Abbildung \ref{fig:feed-comment} zeigt, wie ein Beitrag mit Tags und die daz
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{pics/feed-and-comment-section.JPG}
+  \includegraphics[width=0.7\textwidth]{pics/feed-and-comment-section.JPG}
   \caption{Feed-Page und Kommentarsektion auf der App}
   \label{fig:feed-comment}
 \end{figure}
@@ -1883,7 +1883,7 @@ Am Ende gibt die Funktion \texttt{true} zurück, um anzuzeigen, dass die Verifiz
 
 Die Cloud-Funktion \texttt{checkVerificationCode} wird ausgeführt, wenn ein Nutzer sich mit einem Verifizierungscode registrieren möchte. Wenn der Benutzer nicht authentifiziert ist, wird eine \texttt{HttpsError} ausgelöst. Dann wird der Verifizierungscode überprüft, um sicherzustellen, dass er die korrekte Formatierung hat. Wenn der Code ungültig ist, wird eine weitere \texttt{HttpsError} ausgelöst.
 
-Als Nächstes wird der Verifizierungscode mit der Datenbank abgeglichen, um sicherzustellen, dass er aktiv und noch nicht zu oft verwendet wurde. Wenn der Code erfolgreich validiert wird, wird die Adresse des Benutzers abgerufen und deren Koordinaten mithilfe einer API call an OpenStreetMap mit der Funktion \texttt{getOSMCoordinatesFromAddress} ermittelt. Dann wird die Entfernung zwischen der Adresse des Benutzers und der Adresse, die dem Verifizierungscode zugeordnet ist, berechnet mit der Funktion \texttt{getDistanceFromLatLonInMeters}. Wenn die Entfernung nicht innerhalb des zulässigen Bereichs liegt, wird eine weitere \texttt{HttpsError} ausgelöst.
+Als Nächstes wird der Verifizierungscode mit der Datenbank abgeglichen, um sicherzustellen, dass er aktiv und noch nicht zu oft verwendet wurde. Wenn der Code erfolgreich validiert wird, wird die Adresse des Benutzers abgerufen und deren Koordinaten mithilfe einer API call an OpenStreetMap mit der Funktion \texttt{getOSMCoordinatesFromAddress} ermittelt. Dann wird die Entfernung zwischen der Adresse des Benutzers und der Adresse, die dem Verifizierungscode zugeordnet ist, berechnet mit der Funktion getDistanceFromLatLonInMeters. Wenn die Entfernung nicht innerhalb des zulässigen Bereichs liegt, wird eine weitere \texttt{HttpsError} ausgelöst.
 
 Schließlich werden die Informationen des Benutzers und des Verifizierungscodes in der Datenbank aktualisiert, um anzuzeigen, dass der Benutzer erfolgreich verifiziert wurde. Die Cloud-Funktion gibt \texttt{true} zurück, um anzuzeigen, dass die Verifizierung erfolgreich war.
 
@@ -2255,7 +2255,7 @@ Im Folgenden finden Sie eine Auswahl an essentiellen und nützlichen Flutter-Pak
 
 \section{Email}
 \setauthor{Martin Hausleitner}
-Aufgrund des erhöhten E-Mail-Verkehrs des Teams nach dem Wettbewerb Linz haCKt musste eine Lösung gefunden werden, um diesen zentral zu verwalten. Aus diesem Grund wurde eine Gmail-Adresse erstellt, nämlich \href{mailto:project.flocoo@gmail.com}{project.locoo@gmail.com}.
+Aufgrund des erhöhten E-Mail-Verkehrs des Teams nach dem Wettbewerb Linz haCKt musste eine Lösung gefunden werden, um diesen zentral zu verwalten. Aus diesem Grund wurde eine Gmail-Adresse erstellt, nämlich \href{mailto:project.locoo@gmail.com}{project.locoo@gmail.com}.
 
 \subsection{Wechsel auf Nochba}
 Als das Team von Locoo auf Nochba wechselte und eine .com- und .at-Domain erwarb, entstand die Idee, eine eigene E-Mail-Adresse zu erstellen. Beim Versuch, einen E-Mail-Server auf Azure selbst zu hosten, wurde schnell klar, dass dies nicht möglich war. Im Allgemeinen gestaltet sich das Hosten eines E-Mail-Servers schwierig, da viele Cloud-Anbieter dies nicht erlauben.
