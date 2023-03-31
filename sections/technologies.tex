@@ -27,7 +27,7 @@ Allerdings erfordert die native Entwicklung spezialisierte Kenntnisse in den ver
 
 Ein Framework für plattformübergreifende Entwicklung ermöglicht die Erstellung einer einzigen Codebasis, die auf verschiedenen Plattformen wie iOS, Android und dem Web ausgeführt werden kann. Ein solches Framework nutzt häufig eine gemeinsame Programmiersprache wie JavaScript und bietet eine Vielzahl von Bibliotheken und Tools, um die Entwicklung zu erleichtern. Das Framework ermöglicht es Entwicklern, schnell und effizient Apps zu erstellen, ohne sich mit den Unterschieden in den Plattformen und Programmiersprachen auseinandersetzen zu müssen. Ein weiterer Vorteil von Frameworks für plattformübergreifende Entwicklung besteht darin, dass sie eine schnellere Markteinführung ermöglichen und den Entwicklungsaufwand reduzieren können. Allerdings kann die Verwendung eines Frameworks die Performance beeinträchtigen, da es schwierig sein kann, die App für jede Plattform zu optimieren.
 
-Als Resultat einer schnellen Entscheidung wurde festgelegt, dass die Bewältigung dieser Aufgabe nicht durch native Programmierung erfolgen soll. Die mangelnde Vertrautheit aller Teammitglieder mit den Plattformen würde zu einem doppelten Arbeitsaufwand führen, der für ein kleines Team von lediglich drei Personen unverhältnismäßig wäre.
+Als Resultat einer überlegten Entscheidung wurde festgelegt, dass die Bewältigung dieser Aufgabe nicht durch native Programmierung erfolgen soll. Die mangelnde Vertrautheit aller Teammitglieder mit den Plattformen würde zu einem doppelten Arbeitsaufwand führen, der für ein kleines Team von lediglich drei Personen unverhältnismäßig wäre.
 
 \begin{figure}[htbp]
     \centering
@@ -48,7 +48,7 @@ Um eine effiziente und plattformübergreifende Entwicklung sicherzustellen, fiel
 
 Im Rahmen der vorliegenden Untersuchung wurden die wichtigsten Informationen zu verschiedenen Frameworks in einer Vergleichstabelle zusammengefasst. Es wurde dabei festgestellt, dass sämtliche Plattformen in der Lage sind, die gestellten Anforderungen zu erfüllen.
 
-Insbesondere hat das Framework Xamarin aufgrund der jahrelangen Programmiererfahrung des Teams mit der Sprache C\# ein gewisses Interesse geweckt. Es ist jedoch zu erwähnen, dass auch das Framework Dart aufgrund der ähnlichen Syntax zu C\# eine geeignete Option für das Team darstellt.
+Insbesondere hat das Framework Xamarin aufgrund der jahrelangen Programmiererfahrung des Teams mit der Sprache C\# ein gewisses Interesse geweckt. Es ist jedoch zu erwähnen, dass Dart aufgrund der ähnlichen Syntax zu C\# eine geeignete Option für das Team darstellt.
 
 \paragraph{Programmiersprachen}\mbox{} \\
 React Native ist zwar in JavaScript geschrieben, aber man kann keine React-Komponenten importieren und verwenden. Wenn man jedoch bereits Erfahrung mit React.js hat, kann man sich als Entwickler leichter in React Native einarbeiten. Die letzten beiden Plattformen Cordova und Ionic basieren auf HTML, CSS und JavaScript, was den Vorteil bietet, dass man auf jede JavaScript-Library zugreifen kann.
@@ -58,13 +58,13 @@ React Native ist zwar in JavaScript geschrieben, aber man kann keine React-Kompo
 Flutter hat als UI-Widget-Library sowohl Material Design 2 und 3 als auch eine iOS Library, die das native iOS-Design 1:1 abbildet. Dadurch kann der Nutzer den Unterschied zwischen nativen und Flutter-Designs kaum erkennen. Xamarin hat ebenfalls eine UI-Library namens Xamarin.Forms, die auf allen Plattformen funktioniert und native UI-Libraries für jede Plattform enthält.
 
 \paragraph{Hot Reload}\mbox{} \\
-Ein wichtiger Faktor bei der Wahl des Frameworks ist auch der Hot Reload. Cordova bietet diese Funktion nicht, alle anderen Plattformen hingegen schon, was für uns ein dealbreaker ist.
+Ein wichtiger Faktor bei der Wahl des Frameworks ist auch der Hot Reload. Cordova bietet diese Funktion nicht, alle anderen Plattformen hingegen schon, was für uns ein Dealbreaker ist.
 
 \paragraph{Package Manager}\mbox{} \\
-In der vorliegenden Vergleich wurden verschiedene Package-Manager miteinander verglichen. Nach sorgfältiger Analyse hat sich gezeigt, dass der Package-Manager von Flutter am überzeugendsten ist. Ein ausschlaggebender Faktor hierfür war, dass jeder einzelne Package eine Beispielanwendung beinhaltet. Zudem bietet der Package-Manager die Möglichkeit, durch die Verwendung von Pub Points die Leistung und Qualität des Packages anhand verschiedener Kriterien zu bewerten. Ein weiterer Vorteil besteht darin, dass man leicht erkennen kann, welche Plattformen das jeweilige Package unterstützt. Zusammenfassend lässt sich sagen, dass der Package-Manager von Flutter aufgrund seiner umfangreichen Funktionen und Tools eine herausragende Wahl darstellt.
+In dem vorliegenden Vergleich wurden verschiedene Package-Manager miteinander verglichen. Nach sorgfältiger Analyse hat sich gezeigt, dass der Package-Manager von Flutter am überzeugendsten ist. Ein ausschlaggebender Faktor hierfür war, dass jedes einzelnes Package eine Beispielanwendung beinhaltet. Zudem bietet der Package-Manager die Möglichkeit, durch die Verwendung von Pub Points die Leistung und Qualität des Packages anhand verschiedener Kriterien zu bewerten. Ein weiterer Vorteil besteht darin, dass man leicht erkennen kann, welche Plattformen das jeweilige Package unterstützt. Zusammenfassend lässt sich sagen, dass der Package-Manager von Flutter aufgrund seiner umfangreichen Funktionen und Tools eine Wahl darstellt.
 
 
-Obwohl npm der meistgenutzte Package-Manager ist, ist er nicht spezifisch auf ein bestimmtes Framework ausgerichtet und es fehlen einige Funktionen, die Pub hat. In der C\#-Entwicklung ist NuGet bereits bekannt, jedoch wirkt er veraltet und weist ebenfalls einige Funktionslücken im Vergleich zu Pub auf.
+Obwohl npm der meistgenutzte Package-Manager ist, ist er nicht spezifisch auf ein bestimmtes Framework ausgerichtet und es fehlen einige Funktionen, die Pub hat. In der C\#-Entwicklung ist NuGet bereits bekannt, jedoch weist er einige Funktionslücken im Vergleich zu Pub auf.
 
 \paragraph{Packages}\mbox{} \\
 Ein weiterer wichtiger Faktor bei der Wahl des Frameworks sind die verfügbaren Packages. Flutter bietet hier eine große Auswahl, wobei zu beachten ist, dass bei Frameworks, die auf JavaScript basieren, auf alle JavaScript-Libraries zugegriffen werden kann. Insgesamt sind die meisten Flutter-Packages auf mobile Apps ausgerichtet.
@@ -73,13 +73,13 @@ Ein weiterer wichtiger Faktor bei der Wahl des Frameworks sind die verfügbaren 
 Die Community wurde anhand der Anzahl der Github-Stars gemessen, wobei Flutter mit gut einem Drittel vor React Native liegt. Obwohl Flutter noch nicht so lange auf dem Markt ist, spricht dies dafür, dass Entwickler mit Flutter sehr zufrieden sind.
 
 \subsubsection{Performance}\mbox{} \\
-Die Performance ist ein wichtiger Faktor bei der Nutzung von Cross-Platform-Frameworks, da sie aufgrund ihrer Nicht-Nativität variieren kann. In einem Forschungspapier \cite{Anwar2021} wurden alle genannten Plattformen bis auf Cordova verglichen, wobei ein aussagekräftiger Vergleich in Punkt 2.6 durchgeführt wurde. Die Ergebnisse zeigen, dass Flutter in Bezug auf die Performance den ersten Platz belegt, gefolgt von React Native auf Platz 2. Im Gegensatz dazu schneidet Xamarin in diesem Vergleich nicht so gut ab. Die letzte Position nimmt Iconic ein, was aufgrund der Tatsache, dass es lediglich eine HTML-, CSS- und JavaScript-Seite in einem Webview anzeigt, nachvollziehbar ist. Im Vergleich zu den anderen Plattformen kann es aufgrund des Fehlens eigener Renderer nicht mithalten.
-Wichtig ist zu beachten, dass die Performance-Tests im Dezember 2021 durchgeführt wurden und seitdem hat sich die Geschwindigkeit des Frameworks bis zum aktuellen Zeitpunkt erheblich verbessert.
+Die Performance ist ein wichtiger Faktor bei der Nutzung von Cross-Platform-Frameworks, da sie aufgrund ihrer Nicht-Nativität variieren kann. In einem Forschungspapier \cite{Anwar2021} wurden alle genannten Plattformen bis auf Cordova verglichen, wobei ein aussagekräftiger Vergleich durchgeführt wurde. Die Ergebnisse zeigen, dass Flutter in Bezug auf die Performance den ersten Platz belegt, gefolgt von React Native auf Platz 2. Im Gegensatz dazu schneidet Xamarin in diesem Vergleich nicht so gut ab. Die letzte Position nimmt Iconic ein, was aufgrund der Tatsache, dass es lediglich eine HTML-, CSS- und JavaScript-Seite in einem Webview anzeigt, nachvollziehbar ist. Im Vergleich zu den anderen Plattformen kann es aufgrund des Fehlens eigener Renderer nicht mithalten.
+Wichtig ist zu beachten, dass die Performance-Tests im Dezember 2021 durchgeführt wurden und seitdem hat sich die Geschwindigkeit der Frameworks Flutter bis zum aktuellen Zeitpunkt erheblich verbessert.
 
 
 \subsection
 {Backend}
-Durch Martin Hausleitners umfassende Kenntnisse in verschiedenen Backend-Technologien wurde die Entscheidungsfindung für das Projekt erleichtert. Bei der Auswahl lag der Fokus auf 'Backend-as-a-Service'-Plattformen, da diese bereits viele Funktionen implementiert haben und das Team dadurch nicht alles von Grund auf programmieren musste.
+Durch umfassende Kenntnisse des Teams in verschiedenen Backend-Technologien wurde die Entscheidungsfindung für das Projekt erleichtert. Bei der Auswahl lag der Fokus auf 'Backend-as-a-Service'-Plattformen, da diese bereits viele Funktionen implementiert haben und das Team dadurch nicht alles von Grund auf programmieren musste.
 
 Bei der Auswahl für das Projekt wurden drei Technologien berücksichtigt: Supabase, Firebase und Appwrite. Jede dieser Optionen stellt SDKs für Flutter und React Native bereit. Zudem verfügen alle über eine Datenbank, die Geoqueries unterstützt, die für das zentrale Merkmal des Radius der Beiträge benötigt wird. Zusätzlich bietet jede Plattform eine Speicherlösung für Beitragsfotos und andere Funktionen.
 
