@@ -1643,7 +1643,7 @@ Außerdem bietet Firestore noch die Möglichkeit an, Daten in Echtzeit zu synchr
   \label{fig:old-erd}
 \end{figure}
 
-Die vorliegende Grafik \ref{fig:old-erd} repräsentiert den Ansatz des ersten Datenmodells, welches im Zuge der Diplomarbeit erstellt wurde. Da das Team zum Zeitpunkt des Erstellens des Datenmodells über keine praktische Erfahrung mit Firestore oder mit NoSQL-Datenbanken verfügte, ist das Datenmodell dementsprechend unvollständig und lückenhaft.
+Abbildung \ref{fig:old-erd} repräsentiert den Ansatz des ersten Datenmodells, welches im Zuge der Diplomarbeit erstellt wurde. Da das Team zum Zeitpunkt des Erstellens des Datenmodells über keine praktische Erfahrung mit Firestore oder mit NoSQL-Datenbanken verfügte, ist das Datenmodell dementsprechend unvollständig und lückenhaft.
 \\\\
 Es besteht aus vier Hauptsammlungen: \texttt{users}, \texttt{posts}, \texttt{comments} und \texttt{chats}
 \\\\
@@ -1685,7 +1685,7 @@ Obwohl die \texttt{chats}-Collection im ursprünglichen Datenmodell enthalten is
   \label{fig:new-erd}
 \end{figure}
 
-Die vorliegende Grafik \ref{fig:new-erd} repräsentiert das aktuelle Datenmodell. Durch das erweitere Know-How, welches sich das Team im Lauf der Diplomarbeit angeeignet hat, wurde darauf geachtet eine möglichst effiziente Datenaufteilung und Datenspeicherung zu gestalten.
+Abbildung \ref{fig:new-erd} repräsentiert das aktuelle Datenmodell. Durch das erweitere Know-How, welches sich das Team im Lauf der Diplomarbeit angeeignet hat, wurde darauf geachtet eine möglichst effiziente Datenaufteilung und Datenspeicherung zu gestalten.
 \\\\
 Um das zu gewährleisten wurden folgende Prinzipien erstellt:
 \begin{enumerate}
@@ -1979,7 +1979,7 @@ Um sicherzustellen, dass der User innerhalb der Reichweite in der, der Beitrag s
 \\
 Schließlich gibt die Funktion eine Liste mit den Ids der gültigen Beiträge zurück, die innerhalb der mitgegebenen Reichweite liegen.
 \\
-Die vorliegende Grafik \ref{fig:near-neighbours} zeigt die Funktionsweise der Cloud Function beispielsweise als Bild an.
+Die folgende Grafik \ref{fig:near-neighbours} zeigt die Funktionsweise der Cloud Function beispielsweise als Bild an.
 
 \begin{figure}[h]
   \centering
@@ -2139,7 +2139,7 @@ Der vorliegende Code \ref{lst:decrementLikeCommentFunction} die Cloud-Funktion \
   \label{fig:management-logic-diagram}
 \end{figure}
 
-Die vorliegende Grafik \ref{fig:management-logic-diagram} stellt eine Struktur dar, die es ermöglicht Daten von einem Firestore-Server abzurufen und in einer Flutter-App zu verwalten. Die Struktur besteht aus mehreren Komponenten, die im Folgenden näher erläutert werden:
+Abbildung \ref{fig:management-logic-diagram} stellt die Struktur dar, die es ermöglicht Daten von dem Firestore-Server abzurufen und in der Flutter-App zu verwalten. Die Struktur besteht aus mehreren Komponenten, die im Folgenden näher erläutert werden:
 \\
 Die Struktur beginnt auf der UI-Ebene mit der Seite, die Daten aus dem Firestore benötigt. Diese Seite verfügt über einen GetxController, der für die Verwaltung des Zustands und die Implementierung von Logik zuständig ist. Dieser Controller initialisiert Repositories, die den Zugriff auf die Daten vereinfachen.
 \\
