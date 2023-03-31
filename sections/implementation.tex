@@ -412,7 +412,17 @@ Jeder Beitrag hat eine eigene Sektion, wo wichtige Informationen über den Beitr
 \setauthor{Sandin Habibovic}
 Die Kommentarfunktion ermöglicht es den Usern unter einem Beitrag Ihre Meinung, Feedback oder sonstiges zu hinterlassen.
 
-\subsubsection{Beitrag oder Kommentar Melden}
+Die folgende Abbildung \ref{fig:feed-comment} zeigt, wie ein Beitrag mit Tags und die dazugehörige Kommentarsektion auf der App dargestellt werden.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/feed-and-comment-section.JPG}
+  \caption{Feed-Page und Kommentarsektion auf der App}
+  \label{fig:feed-comment}
+\end{figure}
+
+
+\subsubsection{Beitrag oder Kommentar melden}
 \setauthor{Sandin Habibovic}
 Um unangebrachte Beiträge oder Kommentare schnell zu identifizieren und auf diese schnell reagieren zu können, gibt es die Möglichkeit Beiträge oder Kommentare zu melden. Diese Meldungen können dann im Einzelnen überprüft werden. Fürs Melden muss ein Grund ausgewählt und eine genauere Beschreibung angegeben werden.
 \\
@@ -1718,7 +1728,7 @@ Die \texttt{intern}-Collection beinhaltet interne Informationen von dem User, di
 \\
 Im Dokument \texttt{address} werden im Feld \texttt{coords} die Koordinaten der angegeben Addresse gespeichert.
 \\
-Falls sich der User durch einen Einlade-QR-Code verifiziert hat, hat das Dokument \texttt{verification} die Felder \texttt{deviceCoords} für die Gerätkoordinaten, \texttt{code} für den Einlade-QR-Code der eingesetzt wurde und \texttt{distance}, welches angibt wie groß die Distanz zwischen den Gerätkoordinaten und den Koordinaten des QR-Codes ist.
+Falls sich der User durch einen Einlade-QR-Code verifiziert hat, hat das Dokument \texttt{verification} die Felder \texttt{deviceCoords} für die Gerätkoordinaten, \texttt{code} für den Einlade-QR-Code der eingesetzt wurde und \texttt{distance}, welches angibt wie groß die Distanz zwischen den Gerätkoordinaten und den Koordinaten des Users, der den QR-Code erstellt hat, ist.
 
 \paragraph{Codes}\mbox{} \\
 Die \texttt{codes}-Collection ist die Sammlung, wo alle QR-Codes die jemals erzeugt wurden, gespeichert ist. Die Dokumente der Collection beinhalten die Felder \texttt{coords} und \texttt{range} für die Koordinaten und Reichweite innerhalb der QR-Code gültig ist, \texttt{isActive} ob der Code noch gültig ist, \texttt{createdAt} für das Erstellungsdatum, \texttt{maxCodeLimit} für wie viele User mit diesem Einlade-QR-Code eingeladen werden können und \texttt{uid} für den User der den QR-Code erzeugt hat.
