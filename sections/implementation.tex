@@ -4,11 +4,7 @@
 allg. actions warum kosten
 \subsubsection{iOS Build} \setauthor{Martin Hausleitner} Das
 Ziel des Projekts war es, eine \cite{ios_app_store} iOS-App
-im App Store zu veröffentlichen und eine
-
-% \cite{android_play_store} 
-
-Android-App im Play Store anzubieten. Da Martin Hausleitner der einzige im Team war, der ein iPhone besaß und Erfahrungen mit Apple hatte, übernahm er die Verantwortung für den Build-Prozess der iOS-App.
+im App Store zu veröffentlichen und eine Android-App im Play Store anzubieten. Da Martin Hausleitner der einzige im Team war, der ein iPhone besaß und Erfahrungen mit Apple hatte, übernahm er die Verantwortung für den Build-Prozess der iOS-App.
 Zur Erstellung einer \cite{flutter} Flutter iOS-App ein Mac mit \cite{xcode} Xcode sowie ein \cite{apple_developer_program} Apple-Entwicklerkonto erforderlich. Da jedoch niemand im Team über ein solches Konto verfügte, gestaltete sich der Build-Prozess äußerst schwierig. Glücklicherweise konnte Martin Hausleitner einen alten iMac von seiner Familie ausleihen, auf dem er arbeiten konnte. Obwohl das Erstellen einer iOS-App auf den ersten Blick einfach erscheint, stellte es sich als eine der größten Herausforderungen in diesem Projekt heraus.
 Da MacOS und Xcode dem Entwickler nicht vertraut waren, musste er sich zunächst mühsam einarbeiten. Es bedurfte zahlreicher Anläufe, um die App zum ersten Mal zu erstellen, da zum damaligen Zeitpunkt von Flutter noch keine vorgefertigten Build-Abläufe zur Verfügung standen.
 
@@ -430,8 +426,7 @@ Gründe fürs Melden eines Beitrags oder Kommentars:
   \item Sonstiges
 \end{compactitem}
 
-\subsubsection{Autovervollständigung
-  mit Künstliche Intelligenz}
+\subsubsection{Autovervollständigung mit künstlicher Intelligenz}
 \setauthor{Martin Hausleitner}
 \paragraph{GPT-3.5-turbo}\mbox{} \\
 
@@ -449,7 +444,7 @@ In jüngster Vergangenheit haben Fortschritte in der künstlichen Intelligenz (K
 beschreibung{ ${widget.descriptionController!.text} } passender Titel:
 \end{verbatim}
 
-Die KI liefert stets zuverlässig einen passenden Titel.
+
 
 Ein ähnlicher Ansatz wurde auch für die Tags verfolgt. Der Titel und die Beschreibung wurden als Kontext für die KI verwendet. Nach mehreren Versuchen wurde der passende Prompt gefunden, da die KI-Ausgabe zunächst inkonsistent war und nicht erfolgreich in Tags umgewandelt werden konnte. Mit dem folgenden Prompt wurde der Output zuverlässiger:
 
@@ -458,6 +453,24 @@ Ein ähnlicher Ansatz wurde auch für die Tags verfolgt. Der Titel und die Besch
   beschreibung --- { ${widget.descriptionController!.text} }
   json hashtags richtige sprache: ["#
   \end{verbatim}
+
+
+In Folgenden Codeabschnitt \ref{lst:gptapicall} sieht man wie die Prompt an die API gesendet wird.
+\begin{lstlisting}[language=Java,caption=OpenAI GPT-3.5-turbo API Call,label=lst:gptapicall]  
+final String prompt = 'titel{ ${widget.titleController!.text} } beschreibung{ ${widget.descriptionController!.text} } json hashtags richtige sprache: ["#';
+final chat = await client.chat.create(
+  model: 'gpt-3.5-turbo',
+  messages: [
+    ChatMessage(
+      role: 'user',
+      content: prompt,
+    )
+  ],
+).data;
+      
+\end{lstlisting}
+
+
 
 Die letzten Zeichen ["\# wurden absichtlich gewählt, da die
 KI-Ausgabe manchmal mit oder ohne \# geschrieben wurde, was
